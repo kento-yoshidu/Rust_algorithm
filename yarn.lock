@@ -8007,6 +8007,14 @@ methods@~1.1.2:
   resolved "https://registry.yarnpkg.com/methods/-/methods-1.1.2.tgz#5529a4d67654134edcc5266656835b0f851afcee"
   integrity sha1-VSmk1nZUE07cxSZmVoNbD4Ua/O4=
 
+microcms-js-sdk@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/microcms-js-sdk/-/microcms-js-sdk-1.2.0.tgz#ad61d35c849fb7dfdda47fc66df2a4069e2ced9e"
+  integrity sha512-ipjiRb4B2ASI2BoDhmusALn7UV7OXIQ38WSdRUDfekBIk34ZjLplPTYq3XDAqQBtoOgA6mKnY/67YIeO4C4jDw==
+  dependencies:
+    node-fetch "^2.6.1"
+    qs "^6.10.1"
+
 microevent.ts@~0.1.1:
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/microevent.ts/-/microevent.ts-0.1.1.tgz#70b09b83f43df5172d0205a63025bce0f7357fa0"
@@ -9468,7 +9476,7 @@ qs@6.7.0:
   resolved "https://registry.yarnpkg.com/qs/-/qs-6.7.0.tgz#41dc1a015e3d581f1621776be31afb2876a9b1bc"
   integrity sha512-VCdBRNFTX1fyE7Nb6FYoURo/SPe62QCaAyzJvUjwRaIsc+NePBEniHlvxFmmX56+HZphIGtV0XeCirBtpDrTyQ==
 
-qs@^6.10.0:
+qs@^6.10.0, qs@^6.10.1:
   version "6.10.1"
   resolved "https://registry.yarnpkg.com/qs/-/qs-6.10.1.tgz#4931482fa8d647a5aab799c5271d2133b981fb6a"
   integrity sha512-M528Hph6wsSVOBiYUnGf+K/7w0hNshs/duGsNXPUCLH5XAqjEtiPGwNONLV0tBH8NoGb0mvD5JubnUTrujKDTg==
