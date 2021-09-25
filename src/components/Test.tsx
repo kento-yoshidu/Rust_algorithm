@@ -1,10 +1,12 @@
 import React from 'react';
 
-import './test.css';
+const Styles = require("./test.module.scss")
 
 const Test = ({message}) => (
   <article>
-    <p>{message}</p>
+    <p className={Styles.test}>
+      {message}
+    </p> 
   </article>
 );
 

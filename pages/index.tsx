@@ -2,6 +2,8 @@ import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.scss'
 
+import Test from "../src/components/Test"
+
 export default function Home() {
   return (
     <div className={styles.container}>
@@ -12,6 +14,10 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
+
+        <Test
+          message="test component"
+        />
         <h1 className={styles.title}>
           Welcome to <a href="https://nextjs.org">Next.js!</a>
         </h1>
