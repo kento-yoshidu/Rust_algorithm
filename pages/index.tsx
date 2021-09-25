@@ -1,9 +1,12 @@
 import Head from 'next/head'
 import styles from '../styles/index.module.scss'
 
+import { client } from "../libs/client"
+
 import Test from "../src/components/Test"
 
-const Index = () => {
+const Index = ({blog}) => {
+  console.log(blog)
   return (
     <div className={styles.container}>
       <Head>
@@ -24,3 +27,15 @@ const Index = () => {
 }
 
 export default Index
+
+export const getStaticProps = async () => {
+  const data = await client.get({endpoint: "blog"})
+
+  console.log(data)
+
+  return {
+    props: {
+      blog: data.contents,
+    }
+  }
+}
