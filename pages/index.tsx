@@ -1,12 +1,12 @@
 import Head from 'next/head'
+import Link from "next/link"
 import styles from '../styles/index.module.scss'
 
 import { client } from "../libs/client"
 
 import Test from "../src/components/Test"
 
-const Index = ({blog}) => {
-  console.log(blog)
+const Index = ({blog, news}) => {
   return (
     <div className={styles.container}>
       <Head>
@@ -20,7 +20,18 @@ const Index = ({blog}) => {
         <Test
           message="test component"
         />
-      
+
+        {blog.map((article) => (
+          <h2 key={article.id}>
+            {article.title}
+          </h2> 
+        ))}
+
+        {news.map((news) => (
+          <h2 key={news.id}>
+            {news.title}
+          </h2> 
+        ))}
       </main>
     </div>
   )
@@ -29,13 +40,21 @@ const Index = ({blog}) => {
 export default Index
 
 export const getStaticProps = async () => {
-  const data = await client.get({endpoint: "blog"})
+  const blogData = await client.get<ResponseType>({
+    endpoint: "blog",
+  })
 
-  console.log(data)
+  const newsData = await client.get<ResponseType>({
+    endpoint: "news",
+    queries: {
+      filters: "flag[equals]true",
+    }
+  })
 
   return {
     props: {
-      blog: data.contents,
+      blog: blogData.contents,
+      news: newsData.contents
     }
   }
 }
