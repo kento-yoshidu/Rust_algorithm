@@ -4,6 +4,7 @@ import styles from '../styles/index.module.scss'
 
 import { client } from "../libs/client"
 
+import Header from "../src/components/Header"
 import Test from "../src/components/Test"
 
 const Index = ({blog, news}) => {
@@ -15,6 +16,8 @@ const Index = ({blog, news}) => {
         <link rel="icon" href="/favicon.ico" />
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Philosopher" />
       </Head>
+
+      <Header />
 
       <main className={styles.main}>
 
