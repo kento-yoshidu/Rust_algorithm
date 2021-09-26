@@ -3,6 +3,7 @@ import Link from "next/link"
 import styles from '../styles/index.module.scss'
 
 import { client } from "../libs/client"
+import { Date } from "../libs/dateFormat"
 
 import Header from "../src/components/Header"
 
@@ -36,17 +37,37 @@ const Index = ({blog, news}) => {
 
       <main className={styles.main}>
 
+        <section className={Styles.newsSection}>
+
+          <div className={Styles.titleWrapper}>
+            <h2 className={Styles.title}>News</h2>
+          </div>
+
+          <div className={Styles.wrapper}>
+            <article>
+              <header className={Styles.postInfo}>
+                <h2 className={Styles.postTitle}>{news[0].title}</h2>
+                <p className={Styles.postDate}><Date dateString={news[0].createdAt} /></p>
+              </header>
+            </article>
+
+            <div>
+              {news.map((news) => (
+                <h2 key={news.id}>
+                  {news.title}
+                  {news.createdAt}
+                </h2> 
+              ))}
+            </div>
+          </div>
+        </section>
+
         {blog.map((article) => (
           <h2 key={article.id}>
             {article.title}
           </h2> 
         ))}
 
-        {news.map((news) => (
-          <h2 key={news.id}>
-            {news.title}
-          </h2> 
-        ))}
       </main>
     </div>
   )
