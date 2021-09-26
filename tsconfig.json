@@ -22,7 +22,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-  ],
+, "libs/dateFormat.ts"  ],
   "exclude": [
     "node_modules"
   ]
