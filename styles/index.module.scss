@@ -31,17 +31,26 @@
 	}
 }
 
-.newsSection {
-	.titleWrapper {
-		background-size: cover;
-		background-position: center center;
-		background-repeat: no-repeat;
-		background-image: url(../public/news.jpg), linear-gradient(to right, rgba(#f7b733, 0.4), rgba(#fc4a1a, 0.4));
-		background-blend-mode: luminosity;
-		min-height: 30vh;
-		display: flex;
-		justify-content: center;
-		align-items: center;
+.wrapper {
+	max-width: 1200px;
+	margin: 80px auto 150px;
+	display: flex;
+	justify-content: space-between;
+}
+
+.titleWrapper {
+	position: relative;
+	background-size: cover;
+	background-position: center center;
+	background-repeat: no-repeat;
+	filter: blur(1px);
+	min-height: 30vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	transition: .3s;
+	&:hover {
+		filter: blur(0);
 	}
 	.title {
 		font-size: 5rem;
@@ -49,9 +58,68 @@
 		text-transform: uppercase;
 		font-weight: normal;
 	}
-	.wrapper {
-		display: flex;
-		justify-content: space-between;
-		margin-bottom: 50px;
+}
+
+.newsSection {
+	.titleWrapper {
+		background-image: url(../public/news.jpg), linear-gradient(to right, rgba(#000, 1), rgba(#000, 1));
+		&:hover {
+			background-image: url(../public/news.jpg);
+			filter: blur(0px);
+		}
+	}
+	article {
+		width: 69%;
+		font-family: "Yu Mincho";
+		.postInfo {
+			margin-bottom: 30px;
+			.postTitle {
+				margin-bottom: 15px;
+				font-size: 2rem;
+				font-weight: normal;
+			}
+			time {
+				font-size: 1.3rem;
+			}
+		}
+		.body {
+			p {
+				width: 80%;
+				font-size: 1.3rem;
+				line-height: 1.5;
+			}
+		}
+	}
+
+	aside {
+		width: 27%;
+		font-family: "Yu Mincho";
+		.title {
+			width: 80%;
+			margin-bottom: 30px;
+			font-size: 1.375rem;
+			padding: 0 8px 8px;
+			border-bottom: 3px #0bd solid;
+		}
+
+		.subMenu {
+			li {
+				margin: 15px 0;
+				padding-bottom: 15px;
+				border-bottom: 1px #444 dotted;
+				a {
+					line-height: 1.3;
+					&:hover {
+						color: #0bd;
+					}
+				}
+			}
+		}
+	}
+}
+
+.blogSection {
+	.titleWrapper {
+		background-image: url(../public/blog.jpg), linear-gradient(to right, rgba(#000, 1), rgba(#000, 1));
 	}
 }
