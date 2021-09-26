@@ -1,6 +1,5 @@
 import Head from 'next/head'
 import Link from "next/link"
-import styles from '../styles/index.module.scss'
 
 import { client } from "../libs/client"
 import { Date } from "../libs/dateFormat"
@@ -9,7 +8,7 @@ import Header from "../src/components/Header"
 
 const Styles = require("../styles/index.module.scss")
 
-const Index = ({blog, news}) => {
+const Index = ({blog, newsList}) => {
   return (
     <div>
       <Head>
@@ -22,7 +21,7 @@ const Index = ({blog, news}) => {
       <div className={Styles.bigBg}>
         <Header />
 
-        <div className={styles.hero}>
+        <div className={Styles.hero}>
           <h2 className={Styles.pageTitle}>We'll Make You're Day</h2>
           <p>酒場で、指揮者が歯医者を無視する気がした。</p>
           <Link
@@ -35,7 +34,7 @@ const Index = ({blog, news}) => {
         </div>
       </div>
 
-      <main className={styles.main}>
+      <main className={Styles.main}>
 
         <section className={Styles.newsSection}>
 
@@ -44,22 +43,41 @@ const Index = ({blog, news}) => {
           </div>
 
           <div className={Styles.wrapper}>
+
             <article>
               <header className={Styles.postInfo}>
-                <h2 className={Styles.postTitle}>{news[0].title}</h2>
-                <p className={Styles.postDate}><Date dateString={news[0].createdAt} /></p>
+                <h2 className={Styles.postTitle}>{newsList[0].title}</h2>
+                <p className={Styles.postDate}><Date dateString={newsList[0].createdAt} /></p>
               </header>
+
+              <div
+                className={Styles.body}
+                dangerouslySetInnerHTML={{
+                  __html: `${newsList[0].body}`,
+                }}
+              ></div>
             </article>
 
-            <div>
-              {news.map((news) => (
-                <h2 key={news.id}>
-                  {news.title}
-                  {news.createdAt}
-                </h2> 
-              ))}
+            <aside>
+              <h3 className={Styles.title}>News一覧</h3>
+              <ul className={Styles.subMenu}>
+                {newsList.map((news) => {
+                  if (newsList[0].id !== news.id) {
+                    return (
+                      <li key={news.id}>
+                        <Link href={`/news/${news.id}`}>
+                          <a>
+                            {news.title}
+                          </a>
+                        </Link>
+                      </li> 
+                    )
+                  }
+                })}
+                </ul>
+              </aside>
+
             </div>
-          </div>
         </section>
 
         {blog.map((article) => (
@@ -90,7 +108,7 @@ export const getStaticProps = async () => {
   return {
     props: {
       blog: blogData.contents,
-      news: newsData.contents
+      newsList: newsData.contents
     }
   }
 }
