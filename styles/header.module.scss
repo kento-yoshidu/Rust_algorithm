@@ -1,0 +1,26 @@
+.header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 30px 10vw;
+	h1 {
+		font-weight: 500;
+	}
+	.mainNav {
+		display: flex;
+		font-size: 1.23rem;
+		text-transform: uppercase;
+		list-style: none;
+
+		li {
+			margin-left: 36px;
+
+			a {
+				color: #432;
+				&:hover {
+					color: #0bd;
+				}
+			}
+		}
+	}
+}
