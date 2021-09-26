@@ -3,6 +3,7 @@ import Link from "next/link"
 import styles from '../styles/index.module.scss'
 
 import { client } from "../libs/client"
+import { Date } from "../libs/dateFormat"
 
 import Header from "../src/components/Header"
 
@@ -46,7 +47,7 @@ const Index = ({blog, news}) => {
             <article>
               <header className={Styles.postInfo}>
                 <h2 className={Styles.postTitle}>{news[0].title}</h2>
-                <p className={Styles.postDate}>{news[0].createdAt}</p>
+                <p className={Styles.postDate}><Date dateString={news[0].createdAt} /></p>
               </header>
             </article>
 
