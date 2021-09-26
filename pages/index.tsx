@@ -74,17 +74,26 @@ const Index = ({blog, newsList}) => {
                     )
                   }
                 })}
-                </ul>
-              </aside>
-
-            </div>
+              </ul>
+            </aside>
+          </div>
         </section>
 
-        {blog.map((article) => (
-          <h2 key={article.id}>
-            {article.title}
-          </h2> 
-        ))}
+        <section className={Styles.blogSection}>
+
+          <div className={Styles.titleWrapper}>
+            <h2 className={Styles.title}>Blog</h2>
+          </div>
+
+          <div className={Styles.wrapper}>
+            {blog.map((article) => (
+              <h2 key={article.id}>
+                {article.title}
+              </h2> 
+            ))}
+          </div>
+        </section>
+
 
       </main>
     </div>

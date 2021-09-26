@@ -31,21 +31,26 @@
 	}
 }
 
-.newsSection {
-	.titleWrapper {
-		background-size: cover;
-		background-position: center center;
-		background-repeat: no-repeat;
-		background-image: url(../public/news.jpg), linear-gradient(to right, rgba(#000, 1), rgba(#000, 1));
-		background-blend-mode: luminosity;
-		min-height: 30vh;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		transition: .3s;
-		&:hover {
-			background-image: url(../public/news.jpg);
-		}
+.wrapper {
+	max-width: 1200px;
+	margin: 80px auto 150px;
+	display: flex;
+	justify-content: space-between;
+}
+
+.titleWrapper {
+	position: relative;
+	background-size: cover;
+	background-position: center center;
+	background-repeat: no-repeat;
+	filter: blur(1px);
+	min-height: 30vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	transition: .3s;
+	&:hover {
+		filter: blur(0);
 	}
 	.title {
 		font-size: 5rem;
@@ -53,14 +58,16 @@
 		text-transform: uppercase;
 		font-weight: normal;
 	}
-	.wrapper {
-		max-width: 1200px;
-		margin: 100px auto;
-		display: flex;
-		justify-content: space-between;
-		margin-bottom: 50px;
-	}
+}
 
+.newsSection {
+	.titleWrapper {
+		background-image: url(../public/news.jpg), linear-gradient(to right, rgba(#000, 1), rgba(#000, 1));
+		&:hover {
+			background-image: url(../public/news.jpg);
+			filter: blur(0px);
+		}
+	}
 	article {
 		width: 69%;
 		font-family: "Yu Mincho";
@@ -108,5 +115,11 @@
 				}
 			}
 		}
+	}
+}
+
+.blogSection {
+	.titleWrapper {
+		background-image: url(../public/blog.jpg), linear-gradient(to right, rgba(#000, 1), rgba(#000, 1));
 	}
 }
