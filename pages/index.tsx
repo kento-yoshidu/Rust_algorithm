@@ -3,6 +3,7 @@ import Link from "next/link"
 
 import { client } from "../libs/client"
 import { Date } from "../libs/dateFormat"
+import Image from "next/image"
 
 import Header from "../src/components/Header"
 
@@ -35,6 +36,24 @@ const Index = ({blog, newsList}) => {
       </div>
 
       <main className={Styles.main}>
+
+        <section className={Styles.messageSection}>
+          <h2 className={Styles.title}>Message</h2>
+
+          <div className={Styles.wrapper}>
+            <div className={Styles.pWrapper}>
+              <p>巨大なビジネスマンが発表されるとき、深夜の路上で、唯物論者のハッカーが花びらと互換性があるまでもない。</p>
+            </div>
+            <div>
+              <Image
+                src="/blog.jpg"
+                width={1200}
+                height={675}
+                alt="hogehoge"
+              />
+            </div>
+          </div>
+        </section>
 
         <section className={Styles.newsSection}>
 
@@ -80,7 +99,6 @@ const Index = ({blog, newsList}) => {
         </section>
 
         <section className={Styles.blogSection}>
-
           <div className={Styles.titleWrapper}>
             <h2 className={Styles.title}>Blog</h2>
           </div>
@@ -93,8 +111,6 @@ const Index = ({blog, newsList}) => {
             ))}
           </div>
         </section>
-
-
       </main>
     </div>
   )

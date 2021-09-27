@@ -60,6 +60,28 @@
 	}
 }
 
+.messageSection {
+	padding: 100px 0 120px;
+	.title {
+		font-size: 5rem;
+		font-family: 'Philosopher', serif;
+		text-transform: uppercase;
+		font-weight: normal;
+		text-align: center;
+	}
+	.wrapper {
+		border: 1px solid red;
+		min-height: 50vh;
+		.pWrapper {
+			width: 50%;
+		}
+		div {
+			position: relative;
+			border: 1px solid red;
+		}
+	}
+}
+
 .newsSection {
 	.titleWrapper {
 		background-image: url(../public/news.jpg), linear-gradient(to right, rgba(#000, 1), rgba(#000, 1));
