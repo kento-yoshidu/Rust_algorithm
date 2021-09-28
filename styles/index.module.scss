@@ -10,7 +10,7 @@
 	margin-top: 10%;
 	text-align: center;
 	p {
-		Margin: 10px 0 42px;
+		margin: 10px 0 42px;
 		font-size: 1.125rem;
 	}
 	.pageTitle {
@@ -31,11 +31,34 @@
 	}
 }
 
+@media screen and (max-width: 768px) {
+	.hero {
+		margin-top: 20%;
+		p {
+			font-size: 1rem;
+		}
+		.pageTitle {
+			font-size: 3rem;
+		}
+		.button {
+			font-size: 1rem;
+			padding-top: 10px 15px;
+		}
+	}
+}
+
 .wrapper {
 	max-width: 1200px;
 	margin: 80px auto 150px;
 	display: flex;
 	justify-content: space-between;
+}
+
+@media screen and (max-width: 768px) {
+	.wrapper {
+		flex-direction: column;
+		margin: 30px auto 80px;
+	}	
 }
 
 .titleWrapper {
@@ -60,6 +83,14 @@
 	}
 }
 
+@media screen and (max-width: 768px) {
+	.titleWrapper {
+		.title {
+			font-size: 3rem;
+		}
+	}	
+}
+
 .messageSection {
 	padding: 100px 0 120px;
 	.title {
@@ -70,16 +101,30 @@
 		text-align: center;
 	}
 	.wrapper {
-		border: 1px solid red;
-		min-height: 50vh;
 		.pWrapper {
-			width: 50%;
+			background-color: #fff;
+			transform: translate(30%, 10%);
+			width: 45%;
+			z-index: 1;
+			padding: 30px 70px;
+			p {
+				font-size: 1.2rem;
+				line-height: 1.5;
+			}
 		}
-		div {
+		.imgWrapper {
 			position: relative;
-			border: 1px solid red;
+			width: 60%;
 		}
 	}
+}
+
+@media screen and (max-width: 768px) {
+		.messageSection {
+			.title {
+				font-size: 3rem;
+			}
+		}	
 }
 
 .newsSection {
@@ -138,6 +183,15 @@
 			}
 		}
 	}
+}
+
+.grid {
+	border: 1px solid red;
+	max-width: 1200px;
+	margin: 0 auto;
+	display: grid;
+	gap: 26px;
+	grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
 }
 
 .blogSection {

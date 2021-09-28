@@ -14,7 +14,7 @@
 		text-transform: uppercase;
 		list-style: none;
 
-		li {
+		li:not(:first-child) {
 			margin-left: 36px;
 
 			a {
@@ -25,4 +25,17 @@
 			}
 		}
 	}
+}
+
+@media screen and (max-width: 768px) {
+	.header {
+		flex-direction: column;
+		h1 {
+			margin-bottom: 20px;
+			font-size: 1.8rem;
+		}
+		.mainNav {
+			font-size: 1.05rem;
+		}
+	}	
 }

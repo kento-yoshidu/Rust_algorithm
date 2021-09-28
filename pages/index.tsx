@@ -44,11 +44,11 @@ const Index = ({blog, newsList}) => {
             <div className={Styles.pWrapper}>
               <p>巨大なビジネスマンが発表されるとき、深夜の路上で、唯物論者のハッカーが花びらと互換性があるまでもない。</p>
             </div>
-            <div>
+            <div className={Styles.imgWrapper}>
               <Image
                 src="/blog.jpg"
-                width={1200}
-                height={675}
+                width={1000}
+                height={563}
                 alt="hogehoge"
               />
             </div>
@@ -98,6 +98,43 @@ const Index = ({blog, newsList}) => {
           </div>
         </section>
 
+        <section className={Styles.itemSection}>
+          <div className={Styles.titleWrapper}>
+            <h2 className={Styles.title}>Item</h2>
+          </div>
+
+            <div className={Styles.grid}>
+                <img src="blog.jpg"
+                  alt="hoge"
+                />
+                <img src="blog.jpg"
+                  alt="hoge"
+                />
+                <img src="blog.jpg"
+                  alt="hoge"
+                />
+                <img src="blog.jpg"
+                  alt="hoge"
+                />
+                <img src="blog.jpg"
+                  alt="hoge"
+                />
+                <img src="blog.jpg"
+                  alt="hoge"
+                />
+                <img src="blog.jpg"
+                  alt="hoge"
+                />
+                <img src="blog.jpg"
+                  alt="hoge"
+                />
+                <img src="blog.jpg"
+                  alt="hoge"
+                />
+              </div>
+
+        </section>
+
         <section className={Styles.blogSection}>
           <div className={Styles.titleWrapper}>
             <h2 className={Styles.title}>Blog</h2>
@@ -111,6 +148,7 @@ const Index = ({blog, newsList}) => {
             ))}
           </div>
         </section>
+
       </main>
     </div>
   )
