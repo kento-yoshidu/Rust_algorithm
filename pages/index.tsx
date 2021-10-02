@@ -103,36 +103,56 @@ const Index = ({blog, newsList}) => {
             <h2 className={Styles.title}>Item</h2>
           </div>
 
-            <div className={Styles.grid}>
-                <img src="blog.jpg"
-                  alt="hoge"
-                />
-                <img src="blog.jpg"
-                  alt="hoge"
-                />
-                <img src="blog.jpg"
-                  alt="hoge"
-                />
-                <img src="blog.jpg"
-                  alt="hoge"
-                />
-                <img src="blog.jpg"
-                  alt="hoge"
-                />
-                <img src="blog.jpg"
-                  alt="hoge"
-                />
-                <img src="blog.jpg"
-                  alt="hoge"
-                />
-                <img src="blog.jpg"
-                  alt="hoge"
-                />
-                <img src="blog.jpg"
+            <div className={`${Styles.grid} ${Styles.wrapper}`}>
+              <div className={Styles.item}>
+                <img
+                  src="menu1.jpg"
                   alt="hoge"
                 />
               </div>
-
+              <div className={Styles.item}>
+                <img
+                  src="menu1.jpg"
+                  alt="hoge"
+                />
+              </div>
+              <div className={Styles.item}>
+                <img
+                  src="menu1.jpg"
+                  alt="hoge"
+                />
+              </div>
+              <div className={Styles.item}>
+                <img
+                  src="menu1.jpg"
+                  alt="hoge"
+                />
+              </div>
+              <div className={Styles.item}>
+                <img
+                  src="menu1.jpg"
+                  alt="hoge"
+                />
+              </div>
+              <div className={Styles.item}>
+                <img
+                  src="menu1.jpg"
+                  alt="hoge"
+                />
+              </div>
+              <div className={Styles.item}>
+                <img
+                  src="menu1.jpg"
+                  alt="hoge"
+                />
+              </div>
+              <div className={Styles.item}>
+                <img
+                  src="menu1.jpg"
+                  alt="hoge"
+                />
+              </div>
+            </div>
         </section>
 
         <section className={Styles.blogSection}>
