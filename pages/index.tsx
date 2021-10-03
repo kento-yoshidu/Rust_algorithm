@@ -103,36 +103,80 @@ const Index = ({blog, newsList}) => {
             <h2 className={Styles.title}>Item</h2>
           </div>
 
-            <div className={Styles.grid}>
-                <img src="blog.jpg"
-                  alt="hoge"
-                />
-                <img src="blog.jpg"
-                  alt="hoge"
-                />
-                <img src="blog.jpg"
-                  alt="hoge"
-                />
-                <img src="blog.jpg"
-                  alt="hoge"
-                />
-                <img src="blog.jpg"
-                  alt="hoge"
-                />
-                <img src="blog.jpg"
-                  alt="hoge"
-                />
-                <img src="blog.jpg"
-                  alt="hoge"
-                />
-                <img src="blog.jpg"
-                  alt="hoge"
-                />
-                <img src="blog.jpg"
-                  alt="hoge"
-                />
-              </div>
-
+          <div className={`${Styles.grid} ${Styles.wrapper}`}>
+            <div className={Styles.item}>
+              <Image
+                src="/menu1.jpg"
+                alt="hoge"
+                width="620" 
+                height="460"
+              />
+            </div>
+            <div className={Styles.item}>
+              <Image
+                src="/menu2.jpg"
+                alt="hoge"
+                width="620" 
+                height="460"
+              />
+            </div>
+            <div className={Styles.item}>
+              <Image
+                src="/menu3.jpg"
+                alt="hoge"
+                width="620" 
+                height="460"
+              />
+            </div>
+            <div className={Styles.item}>
+              <Image
+                src="/menu4.jpg"
+                alt="hoge"
+                width="620" 
+                height="460"
+              />
+            </div>
+            <div className={Styles.item}>
+              <Image
+                src="/menu5.jpg"
+                alt="hoge"
+                width="620" 
+                height="460"
+              />
+            </div>
+            <div className={Styles.item}>
+              <Image
+                src="/menu6.jpg"
+                alt="hoge"
+                width="620" 
+                height="460"
+              />
+            </div>
+            <div className={Styles.item}>
+              <Image
+                src="/menu7.jpg"
+                alt="hoge"
+                width="620" 
+                height="460"
+              />
+            </div>
+            <div className={Styles.item}>
+              <Image
+                src="/menu8.jpg"
+                alt="hoge"
+                width="620" 
+                height="460"
+              />
+            </div>
+            <div className={Styles.item}>
+              <Image
+                src="/menu9.jpg"
+                alt="hoge"
+                width="620" 
+                height="460"
+              />
+            </div>
+          </div>
         </section>
 
         <section className={Styles.blogSection}>
