@@ -5,7 +5,7 @@ const Styles = require("../../styles/header.module.scss")
 
 const Header: React.VFC = () => (
 	<header className={Styles.header}>
-		<h1>NextJS microCMS Site</h1>
+		<h1 className={Styles.headerTitle}>NextJS microCMS Site</h1>
 		
 		<nav>
 			<ul className={Styles.mainNav}>
