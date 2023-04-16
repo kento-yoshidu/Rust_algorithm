@@ -11,8 +11,14 @@ fn main() {
 }
 */
 
+/*
+    Todo
+    abc296_a
+ */
+
 mod atcoder;
 
 fn main() {
     println!("Hello, world!");
+    println!("{}", atcoder::abc157::a_duplex_printing::run(2));
 }
