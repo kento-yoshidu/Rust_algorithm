@@ -15,5 +15,4 @@ mod atcoder;
 
 fn main() {
     println!("Hello, world!");
-    println!("{}", atcoder::abc173::a_payment::run(2600));
 }
