@@ -15,5 +15,5 @@ mod atcoder;
 
 fn main() {
     println!("Hello, world!");
-    println!("{}", atcoder::abc298::a_job_interview::run(4, "oo--"));
+    println!("{}", atcoder::abc176::a_takoyaki::run(1000, 1, 1000));
 }
