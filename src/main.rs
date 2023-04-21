@@ -15,5 +15,4 @@ mod atcoder;
 
 fn main() {
     println!("Hello, world!");
-    println!("{}", atcoder::abc176::a_takoyaki::run(1000, 1, 1000));
 }
