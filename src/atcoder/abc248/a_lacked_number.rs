@@ -9,7 +9,7 @@ pub fn run(str: &str) -> usize {
 }
 
 #[cfg(test)]
-mod tets {
+mod tests {
     use super::*;
 
     #[test]
