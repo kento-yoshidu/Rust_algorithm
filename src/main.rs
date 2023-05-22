@@ -15,4 +15,6 @@ mod atcoder;
 
 fn main() {
     println!("Hello, world!");
+
+    println!("{}", atcoder::abc136::b_uneven_numbers::run(136));
 }
