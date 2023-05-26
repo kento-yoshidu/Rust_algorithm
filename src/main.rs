@@ -17,5 +17,5 @@ mod nlp_100_knock;
 fn main() {
     println!("Hello, world!");
 
-    println!("{}", nlp_100_knock::nlp_01::run());
+    println!("{}", nlp_100_knock::nlp_02::run());
 }
