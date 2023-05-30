@@ -15,4 +15,6 @@ mod atcoder;
 
 fn main() {
     println!("Hello, world!");
+
+    println!("{}", atcoder::abc143::b_takoyaki_festival_2019::run(3, vec![3, 1, 2]));
 }
