@@ -17,5 +17,5 @@ mod nlp_100_knock;
 fn main() {
     println!("Hello, world!");
 
-    println!("{}", atcoder::abc208::a_rolling_dice::run(100, 600))
+    println!("{}", atcoder::abc299::a_treasure_chest::run(String::from("||*")))
 }
