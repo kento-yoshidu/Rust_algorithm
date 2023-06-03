@@ -17,5 +17,5 @@ mod nlp_100_knock;
 fn main() {
     println!("Hello, world!");
 
-    println!("{}", atcoder::abc206::a_maxi_buying::run(191.0));
+    println!("{}", atcoder::abc208::a_rolling_dice::run(100, 600))
 }
