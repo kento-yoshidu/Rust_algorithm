@@ -17,5 +17,4 @@ mod nlp_100_knock;
 fn main() {
     println!("Hello, world!");
 
-    println!("{}", atcoder::abc200::a_century::run(201))
 }
