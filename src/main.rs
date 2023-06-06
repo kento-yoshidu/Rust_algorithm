@@ -16,5 +16,8 @@ mod nlp_100_knock;
 
 fn main() {
     println!("Hello, world!");
-
+    println!("{:?}", nlp_100_knock::nlp_04::run());
 }
+
+// Todo
+// abc294 a

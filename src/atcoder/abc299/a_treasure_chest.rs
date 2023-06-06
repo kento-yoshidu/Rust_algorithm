@@ -1,8 +1,4 @@
 pub fn run(s: String) -> String {
-    let mut l1: i32;
-    let mut kome :i32;
-    let mut l2: i32;
-
     let l = s.find('|').unwrap();
     let r = s.rfind('|').unwrap();
     let o = s.find('*').unwrap();

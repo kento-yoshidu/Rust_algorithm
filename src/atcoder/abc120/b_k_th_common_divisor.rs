@@ -2,7 +2,7 @@ pub fn run(a: i32, b: i32, k: i32) -> i32 {
     let mut count = 0;
     let mut result = 0;
 
-    for mut i in (1..=std::cmp::min(a, b)).rev() {
+    for i in (1..=std::cmp::min(a, b)).rev() {
         if a % i == 0 && b % i == 0 {
             count += 1;
 
