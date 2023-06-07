@@ -1,4 +1,4 @@
-pub fn run(n: i32, str: &str) -> &str {
+pub fn run(str: &str) -> &str {
     let ok = str.contains('o');
     let reject = str.contains('x');
 
@@ -15,9 +15,9 @@ mod tests {
 
     #[test]
     fn test() {
-        assert_eq!("Yes", run(4, "oo--"));
-        assert_eq!("No", run(3, "---"));
-        assert_eq!("Yes", run(1, "o"));
-        assert_eq!("No", run(100, "ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooox"));
+        assert_eq!("Yes", run("oo--"));
+        assert_eq!("No", run("---"));
+        assert_eq!("Yes", run("o"));
+        assert_eq!("No", run("ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooox"));
     }
 }
