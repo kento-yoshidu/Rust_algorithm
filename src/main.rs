@@ -16,6 +16,7 @@ mod nlp_100_knock;
 
 fn main() {
     println!("Hello, world!");
+    println!("{}", atcoder::abc196::a_difference_max::run(0, 10, 0, 10))
 }
 
 // Todo
