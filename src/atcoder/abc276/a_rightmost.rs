@@ -1,3 +1,4 @@
+#[allow(dead_code)]
 pub fn run(input: &str) -> i8 {
     let mut result: i8 = -1;
 
