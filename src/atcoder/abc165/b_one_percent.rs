@@ -1,3 +1,4 @@
+#[allow(dead_code)]
 pub fn run(input: f64) -> i32 {
     let mut year = 0;
     let mut saving = 100.0;
