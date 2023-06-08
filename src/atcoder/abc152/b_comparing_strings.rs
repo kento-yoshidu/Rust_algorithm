@@ -1,3 +1,4 @@
+#[allow(dead_code)]
 pub fn run(a: usize, b: usize) -> String {
     a.min(b).to_string().repeat(a.max(b))
 }

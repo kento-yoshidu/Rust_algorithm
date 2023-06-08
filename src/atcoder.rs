@@ -28,6 +28,7 @@ pub mod abc165;
 pub mod abc169;
 pub mod abc173;
 pub mod abc176;
+pub mod abc187;
 pub mod abc188;
 pub mod abc189;
 pub mod abc190;
