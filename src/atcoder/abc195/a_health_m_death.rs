@@ -1,3 +1,4 @@
+#[allow(dead_code)]
 pub fn run(m: i32, h: i32) -> String {
     if h % m == 0 {
         String::from("Yes")
