@@ -1,3 +1,4 @@
+#[allow(dead_code)]
 pub fn run(n: i32, s: String) -> String {
     let mut t = 0;
     let mut a = 0;
