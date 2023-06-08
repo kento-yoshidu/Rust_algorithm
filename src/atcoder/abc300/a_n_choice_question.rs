@@ -1,3 +1,4 @@
+#[allow(dead_code)]
 pub fn run(a: i32, b: i32, vec: Vec<i32>) -> i32 {
     let total = a + b;
 
