@@ -1,3 +1,4 @@
+#[allow(dead_code)]
 pub fn run(str: &str) -> i32 {
     let mut count = 0;
 
