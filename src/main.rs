@@ -16,6 +16,7 @@ mod nlp_100_knock;
 
 fn main() {
     println!("Hello, world!");
+    println!("{}", atcoder::abc194::a_i_scream::run(10, 8))
 }
 
 // Todo
