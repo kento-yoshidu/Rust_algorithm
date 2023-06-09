@@ -1,3 +1,4 @@
+#[allow(dead_code)]
 pub fn run(str: &str) -> &str {
     let ok = str.contains('o');
     let reject = str.contains('x');
