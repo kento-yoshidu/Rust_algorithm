@@ -1,3 +1,4 @@
+#[allow(dead_code)]
 pub fn run(d: i32) -> f64 {
     d as f64 / 100.0
 }
