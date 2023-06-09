@@ -38,7 +38,6 @@ pub mod abc188;
 pub mod abc189;
 pub mod abc190;
 pub mod abc191;
-pub mod abc192;
 pub mod abc193;
 pub mod abc194;
 pub mod abc195;
