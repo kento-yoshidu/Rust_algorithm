@@ -1,3 +1,4 @@
+#[allow(dead_code)]
 pub fn run(str: String) -> i32 {
     let mut len = 0;
     let mut max_len = 0;
