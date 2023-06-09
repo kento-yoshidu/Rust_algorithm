@@ -1,3 +1,4 @@
+#[allow(dead_code)]
 pub fn run(a: i32, b: i32, k: i32) -> i32 {
     let mut count = 0;
     let mut result = 0;
