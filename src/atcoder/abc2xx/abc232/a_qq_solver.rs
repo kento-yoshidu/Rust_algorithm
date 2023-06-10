@@ -1,3 +1,4 @@
+#[allow(dead_code)]
 pub fn run(str: &str) -> i32 {
     let ch1 = str.chars().nth(0).unwrap();
     let ch3 = str.chars().nth(2).unwrap();
