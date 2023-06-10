@@ -1,3 +1,4 @@
+#[allow(dead_code)]
 pub fn run(a: i8, b: i8) -> String {
     if (a - b).abs() == 1 || (a - b).abs() == 9 {
         String::from("Yes")

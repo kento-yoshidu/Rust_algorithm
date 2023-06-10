@@ -17,6 +17,7 @@ pub mod abc056;
 pub mod abc057;
 pub mod abc058;
 pub mod abc059;
+pub mod abc060;
 pub mod abc064;
 pub mod abc081;
 pub mod abc083;
