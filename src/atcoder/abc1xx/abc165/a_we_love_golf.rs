@@ -1,3 +1,4 @@
+#[allow(dead_code)]
 pub fn run(k: u32, a: u32, b: u32) -> &'static str {
     for n in a..=b {
         println!("{}", n);
