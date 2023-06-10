@@ -1,3 +1,4 @@
+#[allow(dead_code)]
 pub fn run(t: i32, a: i32, n: i32) -> String {
     if t == a {
         if n == 0 {

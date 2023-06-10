@@ -1,3 +1,4 @@
+#[allow(dead_code)]
 pub fn run(v: i32, t: i32, s: i32, d: i32) -> String {
     if d < v*t || v*s < d {
         String::from("Yes")
