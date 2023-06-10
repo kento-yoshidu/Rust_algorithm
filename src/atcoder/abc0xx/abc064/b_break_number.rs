@@ -1,3 +1,4 @@
+#[allow(dead_code)]
 fn func(n: i32) -> bool {
     let mut tmp = n;
 
@@ -13,6 +14,7 @@ fn func(n: i32) -> bool {
     }
 }
 
+#[allow(dead_code)]
 pub fn run(n: i32) -> i32 {
     let mut result = 1;
 
