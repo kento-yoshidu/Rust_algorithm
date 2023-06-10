@@ -1,5 +1,5 @@
 /* AtCoder Template
-// use proconio::input;
+use proconio::input;
 
 fn main() {
     input! {
@@ -17,10 +17,8 @@ mod nlp_100_knock;
 #[allow(dead_code)]
 fn main() {
     println!("Hello, world!");
-    println!("{}", atcoder::abc0xx::abc064::b_break_number::run(7));
-    println!("{}", atcoder::abc0xx::abc064::b_break_number::run(32));
-    println!("{}", atcoder::abc0xx::abc064::b_break_number::run(1));
-    println!("{}", atcoder::abc0xx::abc064::b_break_number::run(100));
+    println!("{}", atcoder::abc0xx::abc090::b_palindromic_numbers::run(11009, 11332));
+    println!("{}", atcoder::abc0xx::abc090::b_palindromic_numbers::run(31415, 92653));
 }
 
 // Todo

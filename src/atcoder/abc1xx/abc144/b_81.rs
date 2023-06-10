@@ -1,3 +1,4 @@
+#[allow(dead_code)]
 pub fn run (n: i32) -> String {
     if n > 81 {
         return String::from("No");
