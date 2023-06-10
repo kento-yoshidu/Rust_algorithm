@@ -1,3 +1,4 @@
+#[allow(dead_code)]
 pub fn run(s: String) -> String {
     let mut c = s.chars();
 
