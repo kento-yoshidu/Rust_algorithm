@@ -1,3 +1,4 @@
+#[allow(dead_code)]
 pub fn run(r: u16, g: u16, b: u16) -> String {
     let temp = r * 100 + g * 10 + b;
 
