@@ -1,3 +1,4 @@
+#[allow(dead_code)]
 pub fn run(n: f64) -> String {
     let price = (n * 1.08).floor() as i32;
 
