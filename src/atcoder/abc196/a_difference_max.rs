@@ -1,3 +1,4 @@
+#[allow(dead_code)]
 pub fn run(a: i32, b: i32, c: i32, d: i32) -> i32 {
     let max = a.max(b);
     let min = c.min(d);
