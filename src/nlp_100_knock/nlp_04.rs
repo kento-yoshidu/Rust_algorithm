@@ -1,5 +1,6 @@
 use std::collections::HashMap;
 
+#[allow(dead_code)]
 pub fn run() -> HashMap<String, usize> {
     let text = String::from("Hi He Lied Because Boron Could Not Oxidize Fluorine. New Nations Might Also Sign Peace Security Clause. Arthur King Can.");
 
