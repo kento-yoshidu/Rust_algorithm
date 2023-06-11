@@ -1,5 +1,5 @@
 #[allow(dead_code)]
-pub fn run(n: i32, vec: Vec<i32>) -> i32 {
+pub fn run(_n: i32, vec: Vec<i32>) -> i32 {
     let mut height = vec[0];
 
     let mut ans = 0;
