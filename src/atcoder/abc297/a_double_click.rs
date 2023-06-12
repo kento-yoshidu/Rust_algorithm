@@ -1,3 +1,4 @@
+#[allow(dead_code)]
 pub fn run(n: i32, d: i32, t: &[i32]) -> i32 {
     for i in 0..n-1 {
         if t[i as usize + 1] - t[i as usize] <= d {
