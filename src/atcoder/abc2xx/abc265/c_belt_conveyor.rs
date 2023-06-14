@@ -1,53 +1,54 @@
 #[allow(dead_code)]
 pub fn run(h: usize, w: usize, n: Vec<&str>) -> String {
     // 現在の座標
-    let mut current = (0, 0);
+    let mut x = 0;
+    let mut y = 0;
 
     // 一度訪れた座標を記録していく
-    let mut seen = Vec::new();
+    let mut seen = vec![vec![false; w]; h];
 
-    loop {
-        match n[current.0].chars().nth(current.1).unwrap() {
+    println!("{:?}", seen);
+
+    while seen[y][x] == false {
+        seen[y][x] = true;
+
+        match n[y].chars().nth(x).unwrap() {
             'R' => {
                 // 右端に到達していたら中止
-                if current.1 == w-1 {
-                    return format!("{} {}", current.0+1, current.1+1);
+                if x == w-1 {
+                    return format!("{} {}", y+1, x+1);
                 } else {
-                    seen.push(current);
-                    current.1 += 1;
+                    x += 1;
                 }
             },
             'D' => {
                 // 底に到達していたら中止
-                if current.0 == h-1 {
-                    return format!("{} {}", current.0+1, current.1+1)
+                if y == h-1 {
+                    return format!("{} {}", y+1, x+1)
                 } else {
-                    current.0 += 1;
+                    y += 1;
                 }
             },
             'U' => {
                 // 天井に到達していたら中止
-                if current.0 == 0 {
-                    return format!("{} {}", current.0+1, current.1+1)
+                if y == 0 {
+                    return format!("{} {}", y+1, x+1)
                 } else {
-                    current.0 -= 1;
+                    y -= 1;
                 }
             },
             _ => {
                 // 左端に到達していたら中止
-                if current.1 == 0 {
-                    return format!("{} {}", current.0+1, current.1+1)
+                if x == 0 {
+                    return format!("{} {}", y+1, x+1)
                 } else {
-                    current.1 -= 1;
+                    x -= 1;
                 }
             },
         };
-
-        // 現在の座標が訪問済みの座標にあったらループするので終了
-        if seen.iter().any(|&c| c == current) {
-            return String::from("-1")
-        }
     }
+
+    return String::from("-1");
 }
 
 #[cfg(test)]
