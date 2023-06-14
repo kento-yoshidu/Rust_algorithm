@@ -1,3 +1,4 @@
+#[allow(dead_code)]
 pub fn run(a: i8, b: i8, c: i8, d: i8) -> &'static str {
     let mut t_hp = a;
     let t_at = b;
@@ -26,6 +27,7 @@ pub fn run(a: i8, b: i8, c: i8, d: i8) -> &'static str {
     result
 }
 
+#[allow(dead_code)]
 fn run2(a: i8, b: i8, c: i8, d: i8) -> &'static str {
     let t_hp = a;
     let t_at = b;
