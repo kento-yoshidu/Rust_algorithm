@@ -1,3 +1,4 @@
+#[allow(dead_code)]
 pub fn run(x: u16, a: u16, b: u16) -> u16 {
 	let b_count = (x - a) / b;
 
