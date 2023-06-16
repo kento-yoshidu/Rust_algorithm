@@ -1,5 +1,6 @@
 pub mod abc110;
 pub mod abc120;
+pub mod abc122;
 pub mod abc128;
 pub mod abc182;
 pub mod abc183;
