@@ -13,6 +13,7 @@ fn main() {
 
 mod atcoder;
 mod nlp_100_knock;
+mod aoj;
 
 #[allow(dead_code)]
 fn main() {
