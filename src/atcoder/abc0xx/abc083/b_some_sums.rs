@@ -10,6 +10,7 @@ fn calc(num: u32) -> u32 {
     result
 }
 
+#[allow(dead_code)]
 pub fn run(n: u32, a: u32, b: u32) -> u32 {
     let mut result = 0;
 
@@ -36,4 +37,3 @@ mod tests {
         assert_eq!(4554, run(100, 4, 16));
     }
 }
-
