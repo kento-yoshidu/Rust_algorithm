@@ -1,3 +1,4 @@
+#[allow(dead_code)]
 pub fn run(a: u8, b: u8) -> u8 {
     if b % a == 0 {
         return a + b

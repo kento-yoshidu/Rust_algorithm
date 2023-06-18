@@ -1,3 +1,4 @@
+#[allow(dead_code)]
 pub fn run(price: u16, coin: u16) -> String {
     let rest = price % 500;
 
