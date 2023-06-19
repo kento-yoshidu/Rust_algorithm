@@ -1,3 +1,4 @@
+#[allow(dead_code)]
 pub fn run(n: usize) -> usize {
     (1..=n).filter(|i| i.to_string().len() % 2 != 0).count()
 }
