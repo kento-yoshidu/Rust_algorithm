@@ -7,8 +7,6 @@ pub fn run(h: usize, w: usize, n: Vec<&str>) -> String {
     // 一度訪れた座標を記録していく
     let mut seen = vec![vec![false; w]; h];
 
-    println!("{:?}", seen);
-
     while seen[y][x] == false {
         seen[y][x] = true;
 
