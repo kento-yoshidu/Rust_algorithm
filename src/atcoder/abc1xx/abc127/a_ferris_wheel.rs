@@ -1,3 +1,4 @@
+#[allow(dead_code)]
 pub fn run(age: usize, price: usize) -> usize {
     if 12 < age {
         return price
