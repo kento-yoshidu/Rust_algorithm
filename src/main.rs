@@ -18,6 +18,8 @@ mod aoj;
 #[allow(dead_code)]
 fn main() {
     println!("Hello, world!");
+
+    println!("{}", aoj::atp1::atp1_1_d_watch::run(46979));
 }
 
 // Todo
