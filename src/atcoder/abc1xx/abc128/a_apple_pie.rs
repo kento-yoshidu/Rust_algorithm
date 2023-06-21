@@ -1,3 +1,4 @@
+#[allow(dead_code)]
 pub fn run(a: i32, p: i32) -> i32 {
     let piece = p + a * 3;
 
