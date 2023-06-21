@@ -1,5 +1,6 @@
 use itertools::Itertools;
 
+#[allow(dead_code)]
 pub fn run(_n: i32, vec: Vec<i32>) -> i32 {
     vec.iter()
         .tuple_combinations()

@@ -1,3 +1,4 @@
+#[allow(dead_code)]
 pub fn run(a: i32, b: i32) -> i32 {
     let vec = vec![a + b, a - b, a * b];
 
