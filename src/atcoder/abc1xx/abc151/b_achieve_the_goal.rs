@@ -1,3 +1,4 @@
+#[allow(dead_code)]
 pub fn run(n: i32, k: i32, m: i32, vec: Vec<i32>) -> i32 {
     let sum: i32 = vec.iter().sum();
 
