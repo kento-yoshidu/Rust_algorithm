@@ -1,3 +1,4 @@
+#[allow(dead_code)]
 pub fn run(u: usize, s1: String, s2: String) -> String {
     let mut result = String::from("");
 
