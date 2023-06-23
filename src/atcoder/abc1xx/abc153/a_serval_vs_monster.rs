@@ -1,3 +1,4 @@
+#[allow(dead_code)]
 pub fn run(hp: i32, a: i32) -> i32 {
     if hp % a == 0 {
         hp / a
