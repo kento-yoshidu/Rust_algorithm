@@ -1,3 +1,4 @@
+#[allow(dead_code)]
 pub fn run(num: u32) -> u32 {
     let mut total = 0;
     let mut day = 0;
