@@ -1,3 +1,4 @@
+#[allow(dead_code)]
 pub fn run(arr: Vec<i32>) -> String {
 	let result = arr.iter()
         .filter(|&x| x % 2 == 0)
