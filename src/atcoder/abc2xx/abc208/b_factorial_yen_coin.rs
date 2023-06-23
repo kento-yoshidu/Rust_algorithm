@@ -1,4 +1,4 @@
-fn fact (num: i32) -> i32 {
+fn fact(num: i32) -> i32 {
     let mut result = 1;
 
     for i in 1..=num {
@@ -8,6 +8,7 @@ fn fact (num: i32) -> i32 {
     result
 }
 
+#[allow(dead_code)]
 pub fn run(input: i32) -> i32 {
     let mut total = input;
     let mut result = 0;

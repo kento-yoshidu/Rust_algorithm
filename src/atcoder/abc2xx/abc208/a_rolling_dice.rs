@@ -1,3 +1,4 @@
+#[allow(dead_code)]
 pub fn run(a: i32, b: i32) -> String {
     if a * 6 >= b {
         String::from("Yes")
