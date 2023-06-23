@@ -1,3 +1,4 @@
+#[allow(dead_code)]
 pub fn run(n: i32) -> i32 {
     let pay = n * 800;
     let back = (n / 15) * 200;
