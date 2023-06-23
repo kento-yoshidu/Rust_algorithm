@@ -1,3 +1,4 @@
+#[allow(dead_code)]
 pub fn run(n: i32) -> i32 {
     if n % 2 == 0 {
         return  n / 2;
