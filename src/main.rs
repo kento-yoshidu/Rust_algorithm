@@ -18,6 +18,7 @@ mod aoj;
 #[allow(dead_code)]
 fn main() {
     println!("Hello, world!");
+    println!("{}", atcoder::tessoku_book::bxx::b04_binary_representation_2::run(String::from("1101")));
 }
 
 // Todo
