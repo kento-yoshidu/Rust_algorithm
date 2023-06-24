@@ -1,5 +1,6 @@
 use std::cmp;
 
+#[allow(dead_code)]
 pub fn run(l1: i8, r1: i8, l2: i8, r2: i8) -> i8 {
     cmp::max(0, cmp::min(r1, r2) - cmp::max(l1, l2))
 }
