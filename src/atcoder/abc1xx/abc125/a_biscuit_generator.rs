@@ -1,3 +1,4 @@
+#[allow(dead_code)]
 pub fn run(a: usize, b: usize, t: usize) -> usize {
     (t / a) * b
 }

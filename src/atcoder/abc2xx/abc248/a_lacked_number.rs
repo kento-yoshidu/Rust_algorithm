@@ -1,3 +1,4 @@
+#[allow(dead_code)]
 pub fn run(str: &str) -> usize {
     for n in 0..9 {
         if n != str.chars().nth(n).unwrap() as usize - 48 {
