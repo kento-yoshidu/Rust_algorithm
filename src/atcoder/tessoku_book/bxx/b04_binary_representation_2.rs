@@ -1,5 +1,6 @@
 // https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_d
 
+#[allow(dead_code)]
 pub fn run(n: String) -> i32 {
     let mut ans = 0;
 
