@@ -1,3 +1,4 @@
+#[allow(dead_code)]
 pub fn run(str: &str) -> &str {
     for word in ["and", "not", "that", "the", "you"] {
         if str.contains(word) {
