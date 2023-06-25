@@ -1,3 +1,4 @@
+#[allow(dead_code)]
 pub fn run(s: String) -> String {
     let l = s.find('|').unwrap();
     let r = s.rfind('|').unwrap();
