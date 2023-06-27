@@ -1,4 +1,5 @@
 pub mod abc104;
+pub mod abc106;
 pub mod abc110;
 pub mod abc111;
 pub mod abc112;
