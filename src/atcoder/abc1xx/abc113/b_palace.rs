@@ -1,3 +1,5 @@
+// https://atcoder.jp/contests/abc113/tasks/abc113_b
+
 use itertools::Itertools;
 
 #[allow(dead_code)]
@@ -9,8 +11,6 @@ pub fn run(n: i32, t: i32, a: i32, vec: Vec<i32>) -> usize {
 
         tmp.push((a - num as i32).abs())
     }
-
-    println!("{:?}", tmp);
 
     tmp.iter().position_min().unwrap() + 1
 }
