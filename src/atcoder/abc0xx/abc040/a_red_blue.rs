@@ -1,3 +1,5 @@
+// https://atcoder.jp/contests/abc040/tasks/abc040_a
+
 #[allow(dead_code)]
 pub fn run(n: i32, x: i32) -> i32 {
     let rest = n - x;
