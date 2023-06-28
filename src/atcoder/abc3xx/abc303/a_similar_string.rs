@@ -1,3 +1,4 @@
+#[allow(dead_code)]
 pub fn run(s: String, t: String) -> String {
     if s.replace("0", "o").replace("1", "l") == t.replace("0", "o").replace("1", "l") {
         String::from("Yes")
