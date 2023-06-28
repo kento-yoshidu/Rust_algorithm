@@ -1,6 +1,6 @@
 /* 03 */
 // 各単語の文字数をリスト化する
-
+#[allow(dead_code)]
 pub fn run() -> Vec<usize> {
     let str1 = String::from("Now I need a drink, alcoholic of course, after the heavy lectures involving quantum mechanics.");
 
@@ -11,6 +11,7 @@ pub fn run() -> Vec<usize> {
         .collect()
 }
 
+#[allow(dead_code)]
 pub fn run2() -> Vec<usize> {
     let str1 = String::from("Now I need a drink, alcoholic of course, after the heavy lectures involving quantum mechanics.");
 
