@@ -18,8 +18,8 @@ mod aoj;
 #[allow(dead_code)]
 fn main() {
     println!("Hello, world!");
-    println!("{}", atcoder::abc2xx::abc291::a_camel_case::run(String::from("aBc")));
 }
+
 
 // Todo
 // abc147 b
