@@ -1,6 +1,6 @@
 /* 02 */
 // 「パトカー」と「タクシー」を交互に並べる
-
+#[allow(dead_code)]
 pub fn run() -> String {
     let str1 = String::from("パトカー");
     let str2 = String::from("タクシー");
