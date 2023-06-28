@@ -1,5 +1,6 @@
 // https://atcoder.jp/contests/abc306/tasks/abc306_a
 
+#[allow(dead_code)]
 pub fn run(_n: usize, s: String) -> String {
     let mut ans = String::new();
 

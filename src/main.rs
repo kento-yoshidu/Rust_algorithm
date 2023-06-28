@@ -18,6 +18,7 @@ mod aoj;
 #[allow(dead_code)]
 fn main() {
     println!("Hello, world!");
+    atcoder::abc2xx::abc293::a_swap_odd_and_even::run(String::from("abcdef"));
 }
 
 // Todo
