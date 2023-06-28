@@ -1,3 +1,5 @@
+// https://atcoder.jp/contests/abc043/tasks/abc043_a
+
 fn func(n: i32) -> i32 {
     if n == 1 {
         1
@@ -17,6 +19,8 @@ mod tests {
 
     #[test]
     fn test() {
-        assert_eq!(6, run(3))
+        assert_eq!(6, run(3));
+        assert_eq!(55, run(10));
+        assert_eq!(1, run(1));
     }
 }
