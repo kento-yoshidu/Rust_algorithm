@@ -1,3 +1,5 @@
+// https://atcoder.jp/contests/abc051/tasks/abc051_a
+
 #[allow(dead_code)]
 pub fn run(s: String) -> String {
     s.replace(",", " ")
