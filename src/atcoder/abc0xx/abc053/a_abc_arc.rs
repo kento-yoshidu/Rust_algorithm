@@ -1,3 +1,5 @@
+// https://atcoder.jp/contests/abc053/tasks/abc053_a
+
 #[allow(dead_code)]
 pub fn run(x: i32) -> String {
     if x < 1200 {
