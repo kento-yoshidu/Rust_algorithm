@@ -6,3 +6,4 @@ pub mod arc0xx;
 pub mod arc1xx;
 pub mod other_contest;
 pub mod tessoku_book;
+pub mod typical90;
