@@ -1,3 +1,5 @@
+// https://atcoder.jp/contests/abc056/tasks/abc056_a
+
 #[allow(dead_code)]
 pub fn run(a: &str, b: &str) -> String {
     if a == "H" {
