@@ -1,3 +1,5 @@
+// https://atcoder.jp/contests/abc063/tasks/abc063_a
+
 #[allow(dead_code)]
 pub fn run(a: i32, b: i32) -> String {
     if a + b >= 10 {
