@@ -1,3 +1,5 @@
+// https://atcoder.jp/contests/abc067/tasks/abc067_a
+
 #[allow(dead_code)]
 pub fn run(a: i32, b: i32) -> String {
     if a % 3 == 0 || b % 3 == 0 || (a + b) % 3 == 0 {
