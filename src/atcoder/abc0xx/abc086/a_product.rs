@@ -1,3 +1,5 @@
+// https://atcoder.jp/contests/abc086/tasks/abc086_a
+
 #[allow(dead_code)]
 pub fn run(a: i32, b: i32) -> &'static str {
     if (a * b) % 2 == 0 {
