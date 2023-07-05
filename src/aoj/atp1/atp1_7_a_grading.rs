@@ -34,3 +34,5 @@ mod tests {
         assert_eq!(vec!["A", "C", "F"], run(vec![vec![40, 42, -1], vec![20, 30, -1], vec![0, 2, -1]]));
     }
 }
+
+// https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ITP1_7_A
