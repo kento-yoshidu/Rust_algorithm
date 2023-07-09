@@ -1,5 +1,5 @@
 #[allow(dead_code)]
-pub fn run(s: String) -> String {
+pub fn run(_n: usize, s: String) -> String {
     let l = s.find('|').unwrap();
     let r = s.rfind('|').unwrap();
     let o = s.find('*').unwrap();
@@ -17,8 +17,8 @@ mod tests {
 
     #[test]
     fn test() {
-        assert_eq!(String::from("in"), run(String::from(".|..*...|.")));
-        assert_eq!(String::from("out"), run(String::from(".|..|.*...")));
-        assert_eq!(String::from("in"), run(String::from("|*|")));
+        assert_eq!(String::from("in"), run(10, String::from(".|..*...|.")));
+        assert_eq!(String::from("out"), run(10, String::from(".|..|.*...")));
+        assert_eq!(String::from("in"), run(3, String::from("|*|")));
     }
 }
