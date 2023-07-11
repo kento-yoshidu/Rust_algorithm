@@ -1,3 +1,5 @@
+// https://atcoder.jp/contests/abc115/tasks/abc115_a
+
 #[allow(dead_code)]
 fn run(x: i32) -> String {
     match x {
