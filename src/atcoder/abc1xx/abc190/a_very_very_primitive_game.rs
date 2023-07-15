@@ -1,3 +1,5 @@
+// https://atcoder.jp/contests/abc190/tasks/abc190_a
+
 #[allow(dead_code)]
 pub fn run(t: i32, a: i32, n: i32) -> String {
     if t == a {

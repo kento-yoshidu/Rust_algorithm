@@ -5,8 +5,6 @@ pub fn run(d: usize, n: usize, vec: Vec<(i32, i32)>) -> Vec<i32> {
     let mut tmp = vec![0; d];
 
     for i in 0..n {
-        println!("{}", (vec[i].0) -1);
-
         tmp[((vec[i].0) -1) as usize] += 1;
         tmp[((vec[i].1)) as usize] -= 1;
     }
