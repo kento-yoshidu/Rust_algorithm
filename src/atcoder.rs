@@ -4,5 +4,6 @@ pub mod abc2xx;
 pub mod abc3xx;
 pub mod arc0xx;
 pub mod arc1xx;
+pub mod hhkb2020;
 pub mod pakencamp2019;
 
