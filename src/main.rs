@@ -18,7 +18,7 @@ mod aoj;
 #[allow(dead_code)]
 fn main() {
     println!("Hello, world!");
-    println!("{}", atcoder::tessoku_book::axx::a05_three_cards::run(3000, 4000));
+    // atcoder::tessoku_book::axx::a06_how_many_guests::run(5, 1, vec![11, 46, 47, 77, 80], vec![vec![2, 3]])}
 }
 
 // Todo

@@ -1,3 +1,4 @@
+#[allow(dead_code)]
 pub fn run(n: usize, k: usize) -> usize {
     let mut count = 0;
 
