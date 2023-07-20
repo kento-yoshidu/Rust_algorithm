@@ -5,6 +5,5 @@ pub mod abc3xx;
 pub mod arc0xx;
 pub mod arc1xx;
 pub mod other_contest;
-pub mod pakencamp2019;
 pub mod tenka1_2012_qual_b;
 pub mod tessoku_book;
