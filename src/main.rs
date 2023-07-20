@@ -18,8 +18,12 @@ mod aoj;
 #[allow(dead_code)]
 fn main() {
     println!("Hello, world!");
-    // atcoder::tessoku_book::axx::a06_how_many_guests::run(5, 1, vec![11, 46, 47, 77, 80], vec![vec![2, 3]])}
-    println!("{:?}", atcoder::abc0xx::abc086::c_otoshidama::run(9, 46000));
+    println!("{}", atcoder::abc0xx::abc087::b_coins::run(2, 2, 2, 100));
+    //=> 2
+    println!("{}", atcoder::abc0xx::abc087::b_coins::run(5, 1, 0, 150));
+    //=> 0
+    println!("{}", atcoder::abc0xx::abc087::b_coins::run(30, 40, 50, 6000));
+    //=> 213
 }
 
 // Todo
