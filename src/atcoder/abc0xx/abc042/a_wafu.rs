@@ -1,3 +1,5 @@
+// https://atcoder.jp/contests/abc042/tasks/abc042_a
+
 #[allow(dead_code)]
 pub fn run(a: i32, b: i32, c: i32) -> String {
     let vec = vec![a, b, c];
