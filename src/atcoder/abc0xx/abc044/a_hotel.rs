@@ -1,3 +1,5 @@
+// https://atcoder.jp/contests/abc044/tasks/abc044_a
+
 #[allow(dead_code)]
 pub fn run(n: i32, k: i32, x: i32, y: i32) -> i32 {
     let first =
