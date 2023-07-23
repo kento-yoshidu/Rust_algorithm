@@ -24,5 +24,5 @@ fn main() {
 // abc147 b
 // abc294 a
 
-// Refacotring
+// Refactoring
 // abc197 b
