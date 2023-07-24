@@ -19,7 +19,7 @@ mod aoj;
 
 #[allow(dead_code)]
 fn main() {
-    println! ("Hello, world!");
+    println!("Hello, world!");
 }
 
 // Todo
