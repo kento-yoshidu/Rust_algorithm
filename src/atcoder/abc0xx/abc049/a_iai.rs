@@ -1,3 +1,5 @@
+// https://atcoder.jp/contests/abc049/tasks/abc049_a
+
 #[allow(dead_code)]
 pub fn run(c: &str) -> String {
     match c {
