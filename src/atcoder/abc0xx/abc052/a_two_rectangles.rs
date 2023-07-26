@@ -1,3 +1,5 @@
+// https://atcoder.jp/contests/abc052/tasks/abc052_a
+
 #[allow(dead_code)]
 pub fn run(a: i32, b: i32, c: i32, d: i32) -> i32 {
     if a*b == c*d {
