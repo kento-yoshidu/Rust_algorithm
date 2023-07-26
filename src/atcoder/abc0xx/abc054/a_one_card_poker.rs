@@ -1,3 +1,5 @@
+// https://atcoder.jp/contests/abc054/tasks/abc054_a
+
 #[allow(dead_code)]
 pub fn run(a: i32, b: i32) -> String {
     if a == b {
