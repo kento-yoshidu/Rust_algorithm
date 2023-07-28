@@ -1,3 +1,5 @@
+// https://atcoder.jp/contests/abc057/tasks/abc057_a
+
 #[allow(dead_code)]
 pub fn run(a: i32, b: i32) -> i32 {
     let time = a + b;
