@@ -1,10 +1,8 @@
+// https://atcoder.jp/contests/abc137/tasks/abc137_a
+
 #[allow(dead_code)]
 pub fn run(a: i32, b: i32) -> i32 {
-    let vec = vec![a + b, a - b, a * b];
-
-    let max = vec.iter().copied().max().unwrap();
-
-    max
+    *[a+b, a-b, a*b].iter().max().unwrap()
 }
 
 #[cfg(test)]
