@@ -1,4 +1,5 @@
-#[allow(dead_code)]
+// https://atcoder.jp/contests/abc231/tasks/abc231_a
+
 pub fn run(d: i32) -> f64 {
     d as f64 / 100.0
 }

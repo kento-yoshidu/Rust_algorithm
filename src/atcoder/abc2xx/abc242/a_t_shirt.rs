@@ -1,6 +1,5 @@
 // https://atcoder.jp/contests/abc242/tasks/abc242_a
 
-#[allow(dead_code)]
 pub fn run(a: usize, b: usize, c: usize, x: usize) -> f64 {
     if x <= a {
         return 1.0

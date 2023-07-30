@@ -1,10 +1,7 @@
 // https://atcoder.jp/contests/abc014/tasks/abc014_1
 
-#[allow(dead_code)]
 pub fn run(a: i32, b: i32) -> i32 {
-    let amari = a % b;
-
-    if amari == 0 {
+    if a % b == 0 {
         0
     } else {
         (a / b + 1) * b - a
