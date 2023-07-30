@@ -1,8 +1,10 @@
+// https://atcoder.jp/contests/abc064/tasks/abc064_a
+
 #[allow(dead_code)]
 pub fn run(r: u16, g: u16, b: u16) -> String {
-    let temp = r * 100 + g * 10 + b;
+    let num = r * 100 + g * 10 + b;
 
-    if temp % 4 == 0 {
+    if num % 4 == 0 {
         String::from("Yes")
     } else {
         String::from("No")
