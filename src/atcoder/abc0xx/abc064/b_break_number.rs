@@ -1,3 +1,5 @@
+// https://atcoder.jp/contests/abc064/tasks/abc064_b
+
 #[allow(dead_code)]
 fn func(n: i32) -> bool {
     let mut tmp = n;
