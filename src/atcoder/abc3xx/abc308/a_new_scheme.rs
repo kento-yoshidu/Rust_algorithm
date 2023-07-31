@@ -1,6 +1,6 @@
+// https://atcoder.jp/contests/abc308/tasks/abc308_a
 // https://atcoder.jp/contests/abc308/submissions/43327179
 
-#[allow(dead_code)]
 pub fn run(s: Vec<usize>) -> String {
     for i in s.iter() {
         if i % 25 != 0 || i < &100 || 675 < *i {
@@ -17,7 +17,6 @@ pub fn run(s: Vec<usize>) -> String {
     String::from("Yes")
 }
 
-#[allow(dead_code)]
 pub fn run2(s: Vec<usize>) -> String {
     let result = (0..7).all(|i| {
         s[i] <= s[i+1]
