@@ -1,6 +1,5 @@
 // https://atcoder.jp/contests/abc214/tasks/abc214_b
 
-#[allow(dead_code)]
 pub fn run(s: i32, t: i32) -> i32{
     let mut count = 0;
 
