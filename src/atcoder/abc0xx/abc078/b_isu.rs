@@ -1,4 +1,3 @@
-/* abc078_b */
 // https://atcoder.jp/contests/abc078/tasks/abc078_b
 
 #[allow(dead_code)]
