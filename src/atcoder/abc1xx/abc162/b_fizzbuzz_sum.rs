@@ -1,6 +1,5 @@
 // https://atcoder.jp/contests/abc162/tasks/abc162_b
 
-#[allow(dead_code)]
 fn fizzbuzz(num: u64) -> bool {
     if !(num % 3 == 0 || num % 5 == 0) {
         return true;
@@ -9,7 +8,6 @@ fn fizzbuzz(num: u64) -> bool {
     false
 }
 
-#[allow(dead_code)]
 pub fn run(num: u64) -> u64 {
     let mut total = 0;
 
@@ -22,7 +20,6 @@ pub fn run(num: u64) -> u64 {
     total
 }
 
-#[allow(dead_code)]
 pub fn run2(num: u64) -> u64 {
     (1..=num)
         .filter(|n| {
