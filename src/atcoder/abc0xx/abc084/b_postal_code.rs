@@ -1,3 +1,5 @@
+// https://atcoder.jp/contests/abc084/tasks/abc084_b
+
 #[allow(dead_code)]
 pub fn run(a: usize, _b: usize, s: String) -> String {
     let c: Vec<char> = s.chars().collect();
