@@ -1,3 +1,5 @@
+// https://atcoder.jp/contests/abc081/tasks/abc081_a
+
 #[allow(dead_code)]
 pub fn run(str: &str) -> i32 {
     let mut count = 0;
