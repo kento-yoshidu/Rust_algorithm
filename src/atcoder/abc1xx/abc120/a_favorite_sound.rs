@@ -1,4 +1,5 @@
-#[allow(dead_code)]
+// https://atcoder.jp/contests/abc120/tasks/abc120_a
+
 pub fn run(a: i32, b: i32, c: i32) -> i32 {
     if b / a >= c {
         c
