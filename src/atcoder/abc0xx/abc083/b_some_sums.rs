@@ -1,3 +1,5 @@
+// https://atcoder.jp/contests/abc083/tasks/abc083_b
+
 fn calc(num: u32) -> u32 {
     let mut n = num;
     let mut result = 0;
