@@ -20,7 +20,6 @@ fn main() {
     println!("Hello, world!");
 }
 
-
 // Todo
 // abc147 b
 // abc294 a
