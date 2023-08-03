@@ -1,3 +1,5 @@
+// https://atcoder.jp/contests/abc068/tasks/abc068_a
+
 #[allow(dead_code)]
 pub fn run(s: &str) -> String {
     String::from("ABC") + s
