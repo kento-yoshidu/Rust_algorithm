@@ -1,4 +1,5 @@
-#[allow(dead_code)]
+// https://atcoder.jp/contests/abc124/tasks/abc124_a
+
 pub fn run(a: i32, b: i32) -> i32 {
     if a == b {
         return a * 2;
