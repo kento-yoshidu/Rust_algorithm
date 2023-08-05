@@ -1,3 +1,5 @@
+// https://atcoder.jp/contests/abc088/tasks/abc088_a
+
 #[allow(dead_code)]
 pub fn run(price: u16, coin: u16) -> String {
     let rest = price % 500;
