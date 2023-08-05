@@ -1,3 +1,5 @@
+// https://atcoder.jp/contests/abc088/tasks/abc088_b
+
 #[allow(dead_code)]
 pub fn run(_n: i32, vec: &mut Vec<i32>) -> i32 {
     vec.sort();
