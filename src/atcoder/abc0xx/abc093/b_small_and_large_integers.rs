@@ -1,3 +1,5 @@
+// https://atcoder.jp/contests/abc093/tasks/abc093_b
+
 #[allow(dead_code)]
 pub fn run(a: i32, b: i32, k: i32) -> Vec<usize> {
     let mut vec: Vec<usize> = Vec::new();
