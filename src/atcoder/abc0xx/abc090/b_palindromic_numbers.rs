@@ -1,3 +1,5 @@
+// https://atcoder.jp/contests/abc090/tasks/abc090_b
+
 #[allow(dead_code)]
 pub fn run(a: i32, b: i32) -> i32 {
     let mut ans = 0;
