@@ -1,6 +1,5 @@
 // https://atcoder.jp/contests/abc293/tasks/abc293_a
 
-#[allow(dead_code)]
 pub fn run(s: String) -> String {
     let mut ans = String::new();
 
@@ -14,7 +13,6 @@ pub fn run(s: String) -> String {
     ans
 }
 
-#[allow(dead_code)]
 pub fn run2(s: String) -> String {
     let mut str: Vec<char> = s.chars().map(|c| c).collect();
 

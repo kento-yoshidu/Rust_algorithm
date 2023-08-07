@@ -1,4 +1,5 @@
-#[allow(dead_code)]
+// https://atcoder.jp/contests/abc118/tasks/abc118_a
+
 pub fn run(a: u8, b: u8) -> u8 {
     if b % a == 0 {
         return a + b
