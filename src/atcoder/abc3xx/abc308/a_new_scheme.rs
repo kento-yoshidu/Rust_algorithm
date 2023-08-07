@@ -9,7 +9,7 @@ pub fn run(s: Vec<usize>) -> String {
     }
 
     for i in 0..s.len()-1 {
-        if s[i] > s[i+1] {
+        if s[i] >= s[i+1] {
             return String::from("No");
         }
     }
