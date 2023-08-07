@@ -1,3 +1,5 @@
+// https://atcoder.jp/contests/abc095/tasks/abc095_c
+
 #[allow(dead_code)]
 pub fn run(a: i32, b: i32, c: i32, x: i32, y: i32) -> i32 {
     // ABの方が高いならAとBを単品購入
