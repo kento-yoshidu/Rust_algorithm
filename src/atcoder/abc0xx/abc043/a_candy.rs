@@ -8,7 +8,6 @@ fn func(n: i32) -> i32 {
     }
 }
 
-#[allow(dead_code)]
 pub fn run(n: i32) -> i32 {
     func(n)
 }
