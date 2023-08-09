@@ -25,6 +25,7 @@ pub mod abc245;
 pub mod abc246;
 pub mod abc247;
 pub mod abc248;
+pub mod abc249;
 pub mod abc256;
 pub mod abc261;
 pub mod abc265;
