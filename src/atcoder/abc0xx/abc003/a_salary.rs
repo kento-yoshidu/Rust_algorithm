@@ -1,6 +1,5 @@
 // https://atcoder.jp/contests/abc003/tasks/abc003_1
 
-#[allow(dead_code)]
 pub fn run(n: usize) -> usize {
     let mut sum = 0_f64;
 
