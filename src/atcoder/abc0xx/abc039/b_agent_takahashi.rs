@@ -1,6 +1,5 @@
 // https://atcoder.jp/contests/abc039/tasks/abc039_b
 
-#[allow(dead_code)]
 pub fn run(n: usize) -> usize {
     for i in 1..=1000 {
         if i*i*i*i == n {
@@ -8,7 +7,7 @@ pub fn run(n: usize) -> usize {
         }
     }
 
-    0
+    unreachable!();
 }
 
 #[allow(dead_code)]
