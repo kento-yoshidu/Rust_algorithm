@@ -1,6 +1,5 @@
 // https://atcoder.jp/contests/abc011/tasks/abc011_1
 
-#[allow(dead_code)]
 pub fn run(n: usize) -> usize {
     n % 12 + 1
 }
