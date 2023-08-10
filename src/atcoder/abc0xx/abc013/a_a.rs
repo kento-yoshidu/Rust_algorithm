@@ -1,6 +1,5 @@
 // https://atcoder.jp/contests/abc013/tasks/abc013_1
 
-#[allow(dead_code)]
 pub fn run(x: char) -> u8 {
     (x as u8 - 'A' as u8) + 1
 }
