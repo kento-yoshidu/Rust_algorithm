@@ -4,3 +4,4 @@ pub mod a03_two_cards;
 pub mod a04_binary_representation_1;
 pub mod a05_three_cards;
 pub mod a06_how_many_guests;
+pub mod a07_event_attendance;
