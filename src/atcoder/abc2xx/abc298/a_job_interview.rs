@@ -1,12 +1,12 @@
 #[allow(dead_code)]
-pub fn run(str: &str) -> &str {
+pub fn run(_n: usize, str: String) -> String {
     let ok = str.contains('o');
     let reject = str.contains('x');
 
     if ok && !reject {
-        "Yes"
+        "Yes".to_string()
     } else {
-        "No"
+        "No".to_string()
     }
 }
 
@@ -16,9 +16,9 @@ mod tests {
 
     #[test]
     fn test() {
-        assert_eq!("Yes", run("oo--"));
-        assert_eq!("No", run("---"));
-        assert_eq!("Yes", run("o"));
-        assert_eq!("No", run("ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooox"));
+        assert_eq!("Yes", run(4, "oo--".to_string()));
+        assert_eq!("No", run(3, "---".to_string()));
+        assert_eq!("Yes", run(1, "o".to_string()));
+        assert_eq!("No", run(100, "ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooox".to_string()));
     }
 }
