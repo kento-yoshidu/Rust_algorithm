@@ -1,6 +1,5 @@
 // https://atcoder.jp/contests/abc006/tasks/abc006_1
 
-#[allow(dead_code)]
 pub fn run(n: u8) -> String{
     if n % 3 == 0 {
         String::from("Yes")
