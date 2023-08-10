@@ -1,6 +1,5 @@
 // https://atcoder.jp/contests/abc017/tasks/abc017_1
 
-#[allow(dead_code)]
 pub fn run(vec: Vec<(usize, usize)>) -> usize {
     vec.iter().map(|v| {
         v.0 as f64 * (v.1 as f64) * 0.1

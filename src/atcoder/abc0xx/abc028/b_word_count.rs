@@ -1,8 +1,5 @@
 // https://atcoder.jp/contests/abc028/tasks/abc028_b
 
-// use std::collections::HashSet;
-
-#[allow(dead_code)]
 pub fn run(n: String) -> Vec<usize> {
     let mut ans = vec![0; 6];
 
