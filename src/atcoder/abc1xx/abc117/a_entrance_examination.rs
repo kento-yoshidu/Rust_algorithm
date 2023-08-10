@@ -1,3 +1,5 @@
+// https://atcoder.jp/contests/abc117/tasks/abc117_a
+
 #[allow(dead_code)]
 pub fn run(t: i32, x: i32) -> f64 {
     t as f64 / x as f64
