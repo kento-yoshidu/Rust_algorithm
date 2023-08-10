@@ -1,6 +1,5 @@
 // https://atcoder.jp/contests/abc012/tasks/abc012_1
 
-#[allow(dead_code)]
 pub fn run(a: usize, b: usize) -> Vec<usize> {
     vec![b, a]
 }
