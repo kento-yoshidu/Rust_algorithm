@@ -1,6 +1,5 @@
 // https://atcoder.jp/contests/abc002/tasks/abc002_1
 
-#[allow(dead_code)]
 pub fn run(a: usize, b: usize) -> usize {
     a.max(b)
 }
