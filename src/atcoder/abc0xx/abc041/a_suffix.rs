@@ -1,6 +1,5 @@
 // https://atcoder.jp/contests/abc041/tasks/abc041_a
 
-#[allow(dead_code)]
 pub fn run(s: String, i: usize) -> char {
     s.chars().nth(i - 1).unwrap()
 }
