@@ -23,12 +23,10 @@ pub fn run(x: i32, _n: i32, vec: Vec<i32>) -> i32 {
 
 #[allow(dead_code)]
 pub fn run2(x: i32, _n: i32, vec: Vec<i32>) -> i32 {
-    let result = (0..101)
+    (0..101)
         .filter(|i| !vec.contains(i))
         .min_by_key(|&i| ((x-i).abs(), i))
-        .unwrap();
-
-    result
+        .unwrap()
 }
 
 #[cfg(test)]
