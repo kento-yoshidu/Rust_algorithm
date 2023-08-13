@@ -1,6 +1,5 @@
 // https://atcoder.jp/contests/abc137/tasks/abc137_a
 
-#[allow(dead_code)]
 pub fn run(a: i32, b: i32) -> i32 {
     *[a+b, a-b, a*b].iter().max().unwrap()
 }

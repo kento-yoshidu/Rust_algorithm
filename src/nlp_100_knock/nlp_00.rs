@@ -1,6 +1,6 @@
 /* 00 */
 // 文字列 stressedを逆に並べる
-#[allow(dead_code)]
+
 pub fn run() -> String {
     let str = String::from("stressed");
 
