@@ -1,3 +1,5 @@
+// https://atcoder.jp/contests/abc162/tasks/abc162_b
+
 #[allow(dead_code)]
 fn fizzbuzz(num: u64) -> bool {
     if !(num % 3 == 0 || num % 5 == 0) {
