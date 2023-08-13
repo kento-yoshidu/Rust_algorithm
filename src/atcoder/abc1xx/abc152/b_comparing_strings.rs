@@ -1,3 +1,5 @@
+// https://atcoder.jp/contests/abc152/tasks/abc152_b
+
 #[allow(dead_code)]
 pub fn run(a: usize, b: usize) -> String {
     a.min(b).to_string().repeat(a.max(b))
