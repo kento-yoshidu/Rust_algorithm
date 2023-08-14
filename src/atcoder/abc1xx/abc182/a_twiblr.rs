@@ -1,4 +1,5 @@
-#[allow(dead_code)]
+// https://atcoder.jp/contests/abc182/tasks/abc182_a
+
 pub fn run(a: i32, b: i32) -> i32 {
     (a * 2 + 100) - b
 }
