@@ -1,5 +1,6 @@
-#[allow(dead_code)]
-pub fn run(a: i32, p: i32) -> i32 {
+// https://atcoder.jp/contests/abc128/tasks/abc128_a
+
+pub fn run(a: usize, p: usize) -> usize {
     let piece = p + a * 3;
 
     piece / 2
