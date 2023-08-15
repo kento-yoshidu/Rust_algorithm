@@ -16,7 +16,6 @@ pub fn check(n: usize) -> bool {
     }
 }
 
-#[allow(dead_code)]
 pub fn run(n: usize) -> usize {
     let mut ans = 0;
 
