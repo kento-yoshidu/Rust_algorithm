@@ -1,9 +1,6 @@
 // https://atcoder.jp/contests/abc105/tasks/abc105_b
 
-#[allow(unused, dead_code)]
 pub fn run(n: usize) -> String {
-    let mut total = 0;
-
     for i in 0..=n/4 {
         for j in 0..=n/7 {
             if i*4 + j*7 == n {
