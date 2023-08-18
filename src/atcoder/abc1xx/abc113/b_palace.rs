@@ -2,7 +2,6 @@
 
 use itertools::Itertools;
 
-#[allow(dead_code)]
 pub fn run(n: i32, t: i32, a: i32, vec: Vec<i32>) -> usize {
     let mut tmp: Vec<i32> = Vec::new();
 
