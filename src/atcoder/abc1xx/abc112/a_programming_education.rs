@@ -1,6 +1,5 @@
 // https://atcoder.jp/contests/abc112/tasks/abc112_a
 
-#[allow(dead_code)]
 pub fn run(n: Vec<i32>) -> String {
     if n[0] == 1 {
         String::from("Hello World")
