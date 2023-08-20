@@ -1,4 +1,5 @@
-#[allow(dead_code)]
+// https://atcoder.jp/contests/abc001/tasks/abc001_1
+
 pub fn run(a: i32, b: i32) -> i32 {
     a - b
 }
