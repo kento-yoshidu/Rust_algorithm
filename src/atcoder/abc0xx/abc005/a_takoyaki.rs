@@ -1,6 +1,5 @@
 // https://atcoder.jp/contests/abc005/tasks/abc005_1
 
-#[allow(dead_code)]
 pub fn run(x: usize, y: usize) -> usize {
     y / x
 }
