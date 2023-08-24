@@ -1,6 +1,5 @@
 // https://atcoder.jp/contests/abc007/tasks/abc007_1
 
-#[allow(dead_code)]
 pub fn run(n: usize) -> usize {
     n - 1
 }
