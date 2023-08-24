@@ -1,6 +1,5 @@
 // https://atcoder.jp/contests/abc009/tasks/abc009_1
 
-#[allow(dead_code)]
 pub fn run(n: usize) -> usize {
     if n % 2 == 0 {
         n / 2
