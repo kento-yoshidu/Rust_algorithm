@@ -1,6 +1,5 @@
 // https://atcoder.jp/contests/abc010/tasks/abc010_1
 
-#[allow(dead_code)]
 pub fn run(s: String) -> String {
     s + "pp"
 }
