@@ -1,4 +1,5 @@
-#[allow(dead_code)]
+// https://atcoder.jp/contests/abc015/tasks/abc015_1
+
 pub fn run(a: &str, b: &str) -> String {
     if a.len() > b.len() {
         a.to_string()
