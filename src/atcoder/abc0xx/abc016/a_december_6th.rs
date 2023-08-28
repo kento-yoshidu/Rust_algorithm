@@ -1,6 +1,5 @@
 // https://atcoder.jp/contests/abc016/tasks/abc016_1
 
-#[allow(dead_code)]
 pub fn run(m: usize, d: usize) -> String {
     if m % d == 0 {
         String::from("Yes")
