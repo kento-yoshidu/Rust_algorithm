@@ -1,6 +1,5 @@
 // https://atcoder.jp/contests/abc059/tasks/abc059_a
 
-#[allow(dead_code)]
 fn run(a: String, b: String, c: String) -> String {
     let vec = vec![a, b, c];
 
