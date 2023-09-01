@@ -6,3 +6,4 @@ pub mod a05_three_cards;
 pub mod a06_how_many_guests;
 pub mod a07_event_attendance;
 pub mod a08_two_dimensional_sum;
+pub mod a11_binary_search1;
