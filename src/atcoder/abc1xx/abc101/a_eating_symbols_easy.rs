@@ -1,7 +1,6 @@
 // https://atcoder.jp/contests/abc101/tasks/abc101_a
 
-#[allow(dead_code)]
-pub fn run(s: String) -> i32 {
+pub fn run(s: String) -> isize {
     s.chars().map(|c| {
         if c == '+' {
             1
