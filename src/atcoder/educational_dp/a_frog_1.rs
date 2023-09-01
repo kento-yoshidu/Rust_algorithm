@@ -2,12 +2,7 @@
 
 #[allow(dead_code)]
 pub fn run(n: i32, h: Vec<i32>) -> i32 {
-
-    let mut dp: Vec<i32> = Vec::new();
-
-    for _i in 0..h.len() {
-        dp.push(std::i32::MAX);
-    }
+    let mut dp = vec![std::i32::MAX; n as usize];
 
     dp[0] = 0;
 
