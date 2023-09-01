@@ -1,4 +1,5 @@
-#[allow(dead_code)]
+// https://atcoder.jp/contests/abc145/tasks/abc145_a
+
 pub fn run(r: usize) -> usize {
     r * r
 }
