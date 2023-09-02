@@ -10,9 +10,13 @@ pub fn run(s: String) -> String {
         *counter += 1;
     }
 
-    for m in map {
-        if m.1 == 1 {
-            return m.0.to_string()
+    let mut vec: Vec<(&char, &usize)> = map.iter().collect();
+
+    vec.sort_by(|a, b| a.0.cmp(b.0));
+
+    for v in vec {
+        if *v.1 == 1 {
+            return v.0.to_string()
         }
     }
 
@@ -26,7 +30,14 @@ mod tests {
     #[test]
     fn test() {
         assert_eq!(String::from("o"), run(String::from("pop")));
-        // assert_eq!(String::from("a"), run(String::from("abc")));
+        assert_eq!(String::from("a"), run(String::from("abc")));
         assert_eq!(String::from("-1"), run(String::from("xxx")));
+        assert_eq!(String::from("f"), run(String::from("jfi")));
+        assert_eq!(String::from("d"), run(String::from("mmd")));
+        assert_eq!(String::from("u"), run(String::from("sus")));
+        assert_eq!(String::from("o"), run(String::from("odd")));
+        assert_eq!(String::from("a"), run(String::from("mad")));
+        assert_eq!(String::from("a"), run(String::from("zza")));
+        assert_eq!(String::from("z"), run(String::from("aza")));
     }
 }
