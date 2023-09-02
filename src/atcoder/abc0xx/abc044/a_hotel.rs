@@ -1,6 +1,5 @@
 // https://atcoder.jp/contests/abc044/tasks/abc044_a
 
-#[allow(dead_code)]
 pub fn run(n: i32, k: i32, x: i32, y: i32) -> i32 {
     let first =
         if n < k {
@@ -19,7 +18,6 @@ pub fn run(n: i32, k: i32, x: i32, y: i32) -> i32 {
     first + second
 }
 
-#[allow(dead_code)]
 pub fn run2(n: i32, k: i32, x: i32, y: i32) -> i32 {
     if n < k {
         n * x
