@@ -5,5 +5,5 @@ mod aoj;
 
 fn main() {
     println!("Hello, world!");
-    println!("{}", atcoder::abc3xx::abc314::a_3_14::run(100));
+    println!("{}", atcoder::abc3xx::abc315::a_tcdr::run(String::from("atcoder")))
 }

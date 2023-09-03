@@ -8,3 +8,4 @@ pub mod a07_event_attendance;
 pub mod a08_two_dimensional_sum;
 pub mod a11_binary_search1;
 pub mod a12_printer;
+pub mod a13_close_pairs;
