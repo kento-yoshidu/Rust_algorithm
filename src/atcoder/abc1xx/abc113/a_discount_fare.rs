@@ -1,6 +1,5 @@
 // https://atcoder.jp/contests/abc113/tasks/abc113_a
 
-#[allow(dead_code)]
 fn run(x: i32, y: i32) -> i32 {
     x + y / 2
 }
