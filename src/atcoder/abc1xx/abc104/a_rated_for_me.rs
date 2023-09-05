@@ -1,6 +1,5 @@
 // https://atcoder.jp/contests/abc104/tasks/abc104_a
 
-#[allow(dead_code)]
 pub fn run(r: usize) -> String {
     if r < 1200 {
         String::from("ABC")
