@@ -1,6 +1,5 @@
 // https://atcoder.jp/contests/abc111/tasks/abc111_a
 
-#[allow(dead_code)]
 pub fn run(n: i32) -> i32 {
     let mut result = String::new();
 
@@ -15,7 +14,6 @@ pub fn run(n: i32) -> i32 {
     result.parse::<i32>().unwrap()
 }
 
-#[allow(dead_code)]
 fn run2(n: i32) -> i32 {
     let result = n.to_string().chars().map(|c| {
         match c {
