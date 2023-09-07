@@ -1,9 +1,10 @@
-#[allow(dead_code)]
+// https://atcoder.jp/contests/abc176/tasks/abc176_a
+
 pub fn run(n: i32, x: i32, t: i32) -> i32 {
     if n % x == 0 {
-        (n / x) * t
+        n / x * t
     } else {
-        ((n / x) * t) + t
+        (n / x) * t + t
     }
 }
 
