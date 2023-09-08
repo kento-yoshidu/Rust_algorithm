@@ -1,6 +1,5 @@
 // https://atcoder.jp/contests/abc064/tasks/abc064_a
 
-#[allow(dead_code)]
 pub fn run(r: u16, g: u16, b: u16) -> String {
     let num = r * 100 + g * 10 + b;
 
