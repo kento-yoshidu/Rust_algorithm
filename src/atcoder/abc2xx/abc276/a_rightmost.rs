@@ -1,4 +1,5 @@
-#[allow(dead_code)]
+// https://atcoder.jp/contests/abc276/tasks/abc276_a
+
 pub fn run(input: &str) -> i8 {
     let mut result: i8 = -1;
 
