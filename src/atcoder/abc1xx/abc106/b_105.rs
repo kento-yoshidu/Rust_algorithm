@@ -28,6 +28,12 @@ pub fn run(n: usize) -> usize {
     ans
 }
 
+pub fn run2(n: usize) -> usize {
+    (1..=n).step_by(2).filter(|num| {
+        check(*num)
+    }).count()
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -40,5 +46,15 @@ mod tests {
         assert_eq!(2, run(135));
         assert_eq!(2, run(164));
         assert_eq!(3, run(165));
+    }
+
+    #[test]
+    fn test2() {
+        assert_eq!(0, run2(104));
+        assert_eq!(1, run2(105));
+        assert_eq!(1, run2(134));
+        assert_eq!(2, run2(135));
+        assert_eq!(2, run2(164));
+        assert_eq!(3, run2(165));
     }
 }
