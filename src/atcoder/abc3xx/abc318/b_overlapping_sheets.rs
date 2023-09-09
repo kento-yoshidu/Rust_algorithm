@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc318/tasks/abc318_b
 
-pub fn run(n: usize, a: Vec<Vec<usize>>) -> usize {
+pub fn run(_n: usize, a: Vec<Vec<usize>>) -> usize {
     let mut filed = vec![vec![false; 101]; 101];
 
     for v in a {
