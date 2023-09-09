@@ -1,4 +1,5 @@
-#[allow(dead_code)]
+// https://atcoder.jp/contests/abc300/tasks/abc300_a
+
 pub fn run(_n: usize, a: usize, b: usize, vec: Vec<usize>) -> usize {
     vec.iter().position(|&x| x == a+b).unwrap() + 1
 }
