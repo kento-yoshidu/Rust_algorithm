@@ -1,6 +1,5 @@
 // https://atcoder.jp/contests/dp/tasks/dp_a
 
-#[allow(dead_code)]
 pub fn run(n: i32, h: Vec<i32>) -> i32 {
     let mut dp = vec![std::i32::MAX; n as usize];
 
