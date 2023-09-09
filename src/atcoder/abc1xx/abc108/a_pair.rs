@@ -1,6 +1,5 @@
 // https://atcoder.jp/contests/abc108/tasks/abc108_a
 
-#[allow(dead_code)]
 pub fn run(n: usize) -> usize {
     ((n + 1) / 2) * (n / 2)
 }
