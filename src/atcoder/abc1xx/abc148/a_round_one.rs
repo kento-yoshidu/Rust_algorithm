@@ -1,24 +1,11 @@
-#[allow(dead_code)]
-pub fn run(u: usize, s1: String, s2: String) -> String {
-    let mut result = String::from("");
+// https://atcoder.jp/contests/abc148/tasks/abc148_a
 
-    for i in 0..u {
-        result += format!("{}{}", s1.chars().nth(i).unwrap(), s2.chars().nth(i).unwrap()).as_str();
-    }
-
-    result
+pub fn run (a: usize, b: usize) -> usize {
+    6 - a - b
 }
 
-#[allow(dead_code)]
-pub fn run2(s1: String, s2: String) -> String {
-    let mut ans = String::new();
-
-    for (c1, c2) in s1.chars().zip(s2.chars()) {
-        ans.push(c1);
-        ans.push(c2);
-    }
-
-    ans
+pub fn run2(a: usize, b: usize) -> usize {
+    (1..4).find(|&i| i != a && i != b).unwrap()
 }
 
 #[cfg(test)]
@@ -27,8 +14,15 @@ mod tests {
 
     #[test]
     fn test() {
-        assert_eq!(String::from("icpc"), run(2, String::from("ip"), String::from("cc")));
-        assert_eq!(String::from("humuhumunukunuku"), run(8, String::from("hmhmnknk"), String::from("uuuuuuuu")));
-        assert_eq!(String::from("aaaaaaaaaa"), run(5, String::from("aaaaa"), String::from("aaaaa")));
+        assert_eq!(2, run(3, 1));
+        assert_eq!(3, run(2, 1));
+        assert_eq!(1, run(3, 2));
+    }
+
+    #[test]
+    fn test2() {
+        assert_eq!(2, run2(3, 1));
+        assert_eq!(3, run2(2, 1));
+        assert_eq!(1, run2(3, 2));
     }
 }
