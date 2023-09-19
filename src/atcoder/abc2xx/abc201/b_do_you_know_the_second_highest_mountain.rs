@@ -1,4 +1,5 @@
-#[allow(dead_code)]
+// https://atcoder.jp/contests/abc201/tasks/abc201_b
+
 pub fn run(n: usize, vec: &mut Vec<(&str, i32)>) -> String {
     vec.sort_by(|a, b| a.1.cmp(&b.1));
 
