@@ -1,12 +1,13 @@
-#[allow(dead_code)]
+// https://atcoder.jp/contests/abc127/tasks/abc127_a
+
 pub fn run(age: usize, price: usize) -> usize {
     if 12 < age {
-        return price
+        price
     } else if 6 <= age {
-        return price / 2
+        price / 2
+    } else {
+        0
     }
-
-    0
 }
 
 #[cfg(test)]
