@@ -1,4 +1,5 @@
-#[allow(dead_code)]
+// https://atcoder.jp/contests/abc130/tasks/abc130_a
+
 pub fn run(x: i32, a: i32) -> i32 {
     if x < a {
         0
