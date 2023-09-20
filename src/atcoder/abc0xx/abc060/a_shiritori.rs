@@ -1,6 +1,5 @@
 // https://atcoder.jp/contests/abc060/tasks/abc060_a
 
-#[allow(dead_code)]
 fn run(a: String, b: String, c: String) -> String {
     let ar = a.chars().last().unwrap();
     let bl = b.chars().nth(0).unwrap();
