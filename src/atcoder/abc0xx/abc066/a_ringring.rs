@@ -1,6 +1,5 @@
 // https://atcoder.jp/contests/abc066/tasks/abc066_a
 
-#[allow(dead_code)]
 pub fn run(a: i32, b: i32, c: i32) -> i32 {
     let mut vec = vec![a, b, c];
 
