@@ -2,7 +2,6 @@
 
 use std::collections::HashMap;
 
-#[allow(dead_code)]
 pub fn run(_n : i32, s: Vec<&str>, _m: i32, t: Vec<&str>) -> i32 {
     let ans = 0;
 
