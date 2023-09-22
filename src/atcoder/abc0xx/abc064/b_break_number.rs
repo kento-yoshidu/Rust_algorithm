@@ -1,7 +1,6 @@
 // https://atcoder.jp/contests/abc064/tasks/abc064_b
 
-#[allow(dead_code)]
-fn func(n: i32) -> bool {
+fn calc(n: usize) -> bool {
     let mut tmp = n;
 
     loop {
@@ -16,18 +15,24 @@ fn func(n: i32) -> bool {
     }
 }
 
-#[allow(dead_code)]
-pub fn run(n: i32) -> i32 {
+pub fn run(n: usize) -> usize {
     let mut result = 1;
 
     for i in (1..=n).rev() {
-        if func(i) {
+        if calc(i) {
             result = i;
             break;
         }
     }
 
     result
+
+}
+
+pub fn run2(n: usize) -> usize {
+    (0..=n).rev().find(|num| {
+        calc(*num)
+    }).unwrap()
 }
 
 #[cfg(test)]
