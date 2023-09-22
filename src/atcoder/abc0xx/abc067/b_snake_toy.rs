@@ -1,12 +1,9 @@
 // https://atcoder.jp/contests/abc067/tasks/abc067_a
 
-#[allow(dead_code)]
 pub fn run(_n: i32, k: usize, vec: &mut Vec<i32>) -> i32 {
     vec.sort();
 
-    let ans = vec.iter().rev().take(k).sum();
-
-    ans
+    vec.iter().rev().take(k).sum()
 }
 
 #[cfg(test)]
