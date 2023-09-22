@@ -1,6 +1,5 @@
 // https://atcoder.jp/contests/abc058/tasks/abc058_a
 
-#[allow(dead_code)]
 pub fn run(a: i32, b: i32, c: i32) -> String {
     if b - a == c - b {
         String::from("Yes")
