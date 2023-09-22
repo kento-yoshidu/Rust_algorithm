@@ -1,7 +1,6 @@
 
 // https://atcoder.jp/contests/abc072/tasks/arc082_a
 
-#[allow(dead_code)]
 pub fn run(_n: i32, vec: Vec<i32>) -> usize {
     let mut ans = 0;
 
