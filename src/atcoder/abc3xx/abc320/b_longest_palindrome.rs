@@ -1,4 +1,4 @@
-// https://atcoder.jp/contests/abc320/tasks/abc320_a
+// https://atcoder.jp/contests/abc320/tasks/abc320_b
 
 fn check(s: &str) -> bool {
     s.chars().eq(s.chars().rev())
@@ -18,9 +18,15 @@ pub fn run(s: String) -> usize {
     ans
 }
 
-fn main() {
-    println!("{}", run(String::from("TOYOTA")));
-    println!("{}", run(String::from("ABCDEFG")));
-    println!("{}", run(String::from("AAAAAAAAAA")));
-    println!("{}", run(String::from("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")));
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test() {
+        assert_eq!(5, run(String::from("TOYOTA")));
+        assert_eq!(1, run(String::from("ABCDEFG")));
+        assert_eq!(10, run(String::from("AAAAAAAAAA")));
+        assert_eq!(100, run(String::from("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")));
+    }
 }

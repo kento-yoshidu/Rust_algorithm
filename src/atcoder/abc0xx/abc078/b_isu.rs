@@ -1,6 +1,5 @@
 // https://atcoder.jp/contests/abc078/tasks/abc078_b
 
-#[allow(dead_code)]
 pub fn run(x: i32, y: i32, z: i32) -> i32 {
     (x - z) / (y + z)
 }
