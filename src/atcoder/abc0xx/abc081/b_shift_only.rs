@@ -1,6 +1,5 @@
 // https://atcoder.jp/contests/abc081/tasks/abc081_b
 
-#[allow(dead_code)]
 fn run(s: Vec<i32>) -> i32 {
     let result: Vec<i32> = s.iter().map(|&i| {
         let mut count = 0;
