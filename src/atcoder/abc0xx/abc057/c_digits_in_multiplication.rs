@@ -17,7 +17,6 @@ fn calc(n: usize) -> usize {
     ans
 }
 
-#[allow(dead_code)]
 pub fn run(n: usize) -> usize {
     let mut ans = n;
 
