@@ -2,7 +2,6 @@
 
 use num_integer::Roots;
 
-#[allow(dead_code)]
 pub fn run(a: String, b: String) -> String {
     let num: i32 = (a + b.as_str()).parse().unwrap();
 
@@ -14,7 +13,6 @@ pub fn run(a: String, b: String) -> String {
     }
 }
 
-#[allow(dead_code)]
 pub fn run2(a: String, b: String) -> String {
     let num: i32 = (a + b.as_str()).parse().unwrap();
 
