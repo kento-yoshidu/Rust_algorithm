@@ -1,6 +1,5 @@
 // https://atcoder.jp/contests/abc085/tasks/abc085_c
 
-#[allow(dead_code)]
 pub fn run(n: isize, x: isize) -> Vec<isize> {
     for a in 0..=n {
         for b in 0..=n {
