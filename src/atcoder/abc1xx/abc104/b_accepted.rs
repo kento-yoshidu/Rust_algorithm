@@ -1,6 +1,5 @@
 // https://atcoder.jp/contests/abc104/tasks/abc104_b
 
-#[allow(dead_code)]
 pub fn run(s: String) -> String {
     let c: Vec<char> = s.chars().collect();
 
