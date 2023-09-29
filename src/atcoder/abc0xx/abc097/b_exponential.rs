@@ -1,6 +1,5 @@
 // https://atcoder.jp/contests/abc097/tasks/abc097_b
 
-#[allow(dead_code)]
 pub fn run(n: i32) -> i32 {
     let mut ans = 1;
 

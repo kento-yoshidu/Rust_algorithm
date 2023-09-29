@@ -1,6 +1,5 @@
 // https://atcoder.jp/contests/abc095/tasks/abc095_b
 
-#[allow(dead_code)]
 pub fn run(n: i32, x: i32, vec: Vec<i32>) -> i32 {
     let minimum: i32 = vec.iter().sum();
 
