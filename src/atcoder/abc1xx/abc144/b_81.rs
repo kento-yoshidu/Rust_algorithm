@@ -1,5 +1,6 @@
-#[allow(dead_code)]
-pub fn run (n: i32) -> String {
+// https://atcoder.jp/contests/abc144/tasks/abc144_b
+
+pub fn run (n: usize) -> String {
     if n > 81 {
         return String::from("No");
     }
