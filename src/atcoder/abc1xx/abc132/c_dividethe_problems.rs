@@ -1,4 +1,5 @@
-#[allow(dead_code)]
+// https://atcoder.jp/contests/abc132/tasks/abc132_c
+
 pub fn run(k: usize, vec: &mut Vec<i32>) -> i32 {
     vec.sort();
 
@@ -7,7 +8,6 @@ pub fn run(k: usize, vec: &mut Vec<i32>) -> i32 {
 
     arc - abc
 }
-
 
 #[cfg(test)]
 mod tests {
