@@ -3,17 +3,18 @@
 ## AtCoder Template
 
 ```rust
+#[allow(unused)]
 use proconio::input;
+use itertools::Itertools;
 
+#[allow(unused)]
 fn main() {
     input! {
-        a: i32,
-        p: i32
+        n: usize,
+        a: [usize; n],
     }
 
-    let all_p = a * 3 +p;
-
-    println!("{}", all_p / 2);
+    println!("{}", n);
 }
 ```
 
