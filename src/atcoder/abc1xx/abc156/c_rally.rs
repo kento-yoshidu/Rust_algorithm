@@ -1,6 +1,5 @@
 // https://atcoder.jp/contests/abc156/tasks/abc156_c
 
-#[allow(dead_code)]
 pub fn run(_n: isize, vec: Vec<isize>) -> usize {
     let mut ans = 10000;
 
