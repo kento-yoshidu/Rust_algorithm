@@ -1,4 +1,5 @@
-#[allow(dead_code)]
+// https://atcoder.jp/contests/abc155/tasks/abc155_b
+
 pub fn run(arr: Vec<i32>) -> String {
 	let result = arr.iter()
         .filter(|&x| x % 2 == 0)
