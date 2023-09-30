@@ -1,6 +1,5 @@
 // https://atcoder.jp/contests/abc163/tasks/abc163_c
 
-#[allow(dead_code)]
 pub fn run(n: usize, aa: Vec<usize>) -> Vec<usize> {
     let mut ans = Vec::<usize>::new();
 
