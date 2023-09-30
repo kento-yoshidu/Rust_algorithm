@@ -1,4 +1,5 @@
-#[allow(dead_code)]
+// https://atcoder.jp/contests/abc129/tasks/abc129_a
+
 pub fn run(p: i32, q: i32, r: i32) -> i32 {
     let mut vec = vec![p, q, r];
 
