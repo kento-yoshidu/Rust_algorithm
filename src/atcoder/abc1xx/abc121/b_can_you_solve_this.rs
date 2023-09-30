@@ -1,4 +1,5 @@
-#[allow(dead_code)]
+// https://atcoder.jp/contests/abc121/tasks/abc121_b
+
 pub fn run(_n: i32, _m: i32, c: i32, b: Vec<i32>, vec: Vec<Vec<i32>>) -> i32 {
     let mut ans = 0;
 

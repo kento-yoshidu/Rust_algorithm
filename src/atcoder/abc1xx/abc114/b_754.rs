@@ -1,6 +1,5 @@
 // https://atcoder.jp/contests/abc114/tasks/abc114_b
 
-#[allow(dead_code)]
 pub fn run(s: String) -> i32 {
     let mut ans = 1000;
 
