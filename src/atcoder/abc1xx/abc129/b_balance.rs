@@ -1,6 +1,5 @@
 // https://atcoder.jp/contests/abc129/tasks/abc129_b
 
-#[allow(dead_code)]
 pub fn run(n: i32, vec: Vec<i32>) -> i32 {
     let mut ans = 100;
 
@@ -22,7 +21,6 @@ pub fn run(n: i32, vec: Vec<i32>) -> i32 {
     ans
 }
 
-#[allow(dead_code)]
 pub fn run2(n: i32, vec: Vec<i32>) -> i32 {
     let mut ans = 100;
 
