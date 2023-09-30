@@ -1,13 +1,13 @@
 // https://atcoder.jp/contests/abc322/tasks/abc322_a
 
-pub fn run(_n: usize, s: String) -> isize {
+pub fn run(n: usize, s: String) -> isize {
     if !s.contains("ABC") {
         return -1;
     }
 
     let vec: Vec<char> = s.chars().collect();
 
-    for (i, index) in (0..s.len()-2).enumerate() {
+    for (i, index) in (0..n-2).enumerate() {
         if vec[i] == 'A' && vec[i+1] == 'B' && vec[i+2] == 'C' {
             return (index + 1) as isize;
         }
