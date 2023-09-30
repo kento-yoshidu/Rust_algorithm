@@ -16,6 +16,16 @@ pub fn run(n: usize, s: String) -> isize {
     unreachable!()
 }
 
+pub fn run2(_n: usize, s: String) -> isize {
+    (s.find("ABC").unwrap_or(!0-1) + 1) as isize
+}
+
+pub fn run3(_n: usize, s: String) -> isize {
+    s.chars().collect::<Vec<char>>().windows(3).position(|v| {
+        v == ['A', 'B', 'C']
+    }).unwrap_or(!0-1) as isize + 1
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -25,5 +35,19 @@ mod tests {
         assert_eq!(3, run(8, String::from("ABABCABC")));
         assert_eq!(-1, run(8, String::from("ACB")));
         assert_eq!(13, run(20, String::from("BBAAABBACAACABCBABAB")));
+    }
+
+    #[test]
+    fn test2() {
+        assert_eq!(3, run2(8, String::from("ABABCABC")));
+        assert_eq!(-1, run2(8, String::from("ACB")));
+        assert_eq!(13, run2(20, String::from("BBAAABBACAACABCBABAB")));
+    }
+
+    #[test]
+    fn test3() {
+        assert_eq!(3, run3(8, String::from("ABABCABC")));
+        assert_eq!(-1, run3(8, String::from("ACB")));
+        assert_eq!(13, run3(20, String::from("BBAAABBACAACABCBABAB")));
     }
 }

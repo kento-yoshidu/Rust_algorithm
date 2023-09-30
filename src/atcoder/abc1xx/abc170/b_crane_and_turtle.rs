@@ -1,4 +1,5 @@
-#[allow(dead_code)]
+// https://atcoder.jp/contests/abc170/tasks/abc170_b
+
 pub fn run(x: i32, y: i32) -> String {
     //　亀をi匹とする
     for i in 0..=x {
