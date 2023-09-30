@@ -1,6 +1,5 @@
 // https://atcoder.jp/contests/abc157/tasks/abc157_b
 
-#[allow(dead_code)]
 pub fn run(mut bingo: Vec<Vec<usize>>, _n: usize, vec: Vec<usize>) -> String {
     // 穴が開いた部分を0に置き換え
     for v in bingo.iter_mut() {
