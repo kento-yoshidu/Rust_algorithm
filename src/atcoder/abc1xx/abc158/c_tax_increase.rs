@@ -1,4 +1,5 @@
-#[allow(dead_code)]
+// https://atcoder.jp/contests/abc158/tasks/abc158_c
+
 pub fn run(a: f64, b: f64) -> i32 {
     for i  in 10..=10000 {
         let tmp = f64::from(i);
