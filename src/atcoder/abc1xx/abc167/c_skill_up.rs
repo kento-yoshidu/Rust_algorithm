@@ -1,6 +1,5 @@
 // https://atcoder.jp/contests/abc167/tasks/abc167_c
 
-#[allow(dead_code)]
 fn run(n: usize, m: usize, x: usize, vec: Vec<Vec<usize>>) -> i32 {
     let mut ans = std::usize::MAX;
 
