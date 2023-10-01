@@ -1,6 +1,5 @@
 // https://atcoder.jp/contests/abc170/tasks/abc170_c
 
-#[allow(dead_code)]
 pub fn run(x: i32, _n: i32, vec: Vec<i32>) -> i32 {
     let mut ans = 101;
     let mut diff = 101;
@@ -21,7 +20,6 @@ pub fn run(x: i32, _n: i32, vec: Vec<i32>) -> i32 {
     ans
 }
 
-#[allow(dead_code)]
 pub fn run2(x: i32, _n: i32, vec: Vec<i32>) -> i32 {
     (0..101)
         .filter(|i| !vec.contains(i))
