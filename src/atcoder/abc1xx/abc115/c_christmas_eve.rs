@@ -1,6 +1,5 @@
 // https://atcoder.jp/contests/abc115/tasks/abc115_c
 
-#[allow(dead_code)]
 pub fn run(n: usize, k: usize, vec: &mut Vec<usize>) -> usize {
     vec.sort();
 
