@@ -1,6 +1,5 @@
 // https://atcoder.jp/contests/abc177/tasks/abc177_b
 
-#[allow(dead_code)]
 pub fn run(s: String, t: String) -> usize {
     let mut ans = std::usize::MAX;
 
@@ -28,7 +27,7 @@ mod tests {
 
     #[test]
     fn test() {
-    assert_eq!(1, run(String::from("cabacc"), String::from("abc")));
-    assert_eq!(6, run(String::from("codeforces"), String::from("atcoder")));
+        assert_eq!(1, run(String::from("cabacc"), String::from("abc")));
+        assert_eq!(6, run(String::from("codeforces"), String::from("atcoder")));
     }
 }
