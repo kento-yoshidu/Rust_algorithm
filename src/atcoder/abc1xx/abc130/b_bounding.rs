@@ -1,4 +1,5 @@
-#[allow(dead_code)]
+// https://atcoder.jp/contests/abc130/tasks/abc130_b
+
 pub fn run(x: i32, vec: Vec<i32>) -> i32 {
     let mut current = 0;
     let mut ans = 0;
