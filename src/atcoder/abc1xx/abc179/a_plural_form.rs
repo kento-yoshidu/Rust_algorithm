@@ -1,9 +1,8 @@
-#[allow(dead_code)]
-pub fn run(s: String) -> String {
-    let c = s.chars().last().unwrap();
+// https://atcoder.jp/contests/abc179/tasks/abc179_a
 
-    match c {
-        's' => s + "es",
+pub fn run(s: String) -> String {
+    match s.chars().last() {
+        Some('s') => s + "es",
         _ => s + "s"
     }
 }
