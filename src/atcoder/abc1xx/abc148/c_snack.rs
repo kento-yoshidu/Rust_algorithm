@@ -1,6 +1,5 @@
 // https://atcoder.jp/contests/abc148/tasks/abc148_c
 
-#[allow(dead_code)]
 fn gcd(m: i64, n: i64) -> i64 {
     if n == 0 {
         return m;
@@ -9,7 +8,6 @@ fn gcd(m: i64, n: i64) -> i64 {
     gcd(n, m % n)
 }
 
-#[allow(dead_code)]
 pub fn run(a: i64, b: i64) -> i64 {
     a / gcd(a, b) * b
 }
