@@ -1,4 +1,4 @@
-// https://atcoder.jp/contests/abc182/tasks/abc182_a
+// https://atcoder.jp/contests/abc183/tasks/abc183_a
 
 pub fn run(x: i8) -> i8 {
     if x < 0 {

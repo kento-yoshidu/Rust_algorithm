@@ -1,4 +1,4 @@
-// https://atcoder.jp/contests/abc182/tasks/abc182_a
+// https://atcoder.jp/contests/abc184/tasks/abc184_a
 
 pub fn run(a: i32, b: i32, c: i32, d: i32) -> i32 {
     a * d - b * c
