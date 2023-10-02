@@ -1,4 +1,5 @@
-#[allow(dead_code)]
+// https://atcoder.jp/contests/abc178/tasks/abc178_a
+
 pub fn run(x: u8) -> u8 {
     match x {
         0 => 1,
