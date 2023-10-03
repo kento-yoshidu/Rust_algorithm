@@ -1,8 +1,7 @@
-#[allow(dead_code)]
-pub fn run(x: i32, y: i32) -> String {
-    let abs = (x - y).abs();
+// https://atcoder.jp/contests/abc188/tasks/abc188_a
 
-    if abs <= 2 {
+pub fn run(x: isize, y: isize) -> String {
+    if (x - y).abs() <= 2 {
         String::from("Yes")
     } else {
         String::from("No")
