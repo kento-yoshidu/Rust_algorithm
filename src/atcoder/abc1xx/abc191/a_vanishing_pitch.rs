@@ -1,4 +1,5 @@
-#[allow(dead_code)]
+// https://atcoder.jp/contests/abc191/tasks/abc191_a
+
 pub fn run(v: i32, t: i32, s: i32, d: i32) -> String {
     if d < v*t || v*s < d {
         String::from("Yes")
