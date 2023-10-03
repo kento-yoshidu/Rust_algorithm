@@ -1,4 +1,5 @@
-#[allow(dead_code)]
+// https://atcoder.jp/contests/abc193/tasks/abc193_a
+
 pub fn run(a: i32, b: i32) -> f64 {
     ((a - b) as f64 / a as f64) * 100.0
 }
