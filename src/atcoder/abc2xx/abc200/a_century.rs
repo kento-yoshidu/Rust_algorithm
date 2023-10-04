@@ -1,10 +1,7 @@
-#[allow(dead_code)]
-pub fn run(n: i32) -> i32 {
-    if n % 100 == 0 {
-        n / 100
-    } else {
-        n / 100 + 1
-    }
+// https://atcoder.jp/contests/abc200/tasks/abc200_a
+
+pub fn run(n: usize) -> usize {
+    (n as f64 / 100.0).ceil() as usize
 }
 
 #[cfg(test)]
