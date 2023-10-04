@@ -1,5 +1,6 @@
 // https://atcoder.jp/contests/abc200/tasks/abc200_b
 
+#[allow(unused)]
 pub fn run(input: &str) {
     let v: Vec<&str> = input.split(' ').collect();
 
