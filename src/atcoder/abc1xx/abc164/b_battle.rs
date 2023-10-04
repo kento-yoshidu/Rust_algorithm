@@ -1,4 +1,5 @@
-#[allow(dead_code)]
+// https://atcoder.jp/contests/abc163/tasks/abc163_c
+
 pub fn run(a: i8, b: i8, c: i8, d: i8) -> &'static str {
     let mut t_hp = a;
     let t_at = b;
@@ -27,7 +28,6 @@ pub fn run(a: i8, b: i8, c: i8, d: i8) -> &'static str {
     result
 }
 
-#[allow(dead_code)]
 fn run2(a: i8, b: i8, c: i8, d: i8) -> &'static str {
     let t_hp = a;
     let t_at = b;
