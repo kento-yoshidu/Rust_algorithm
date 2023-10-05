@@ -1,4 +1,5 @@
-#[allow(dead_code)]
+// https://atcoder.jp/contests/abc165/tasks/abc165_b
+
 pub fn run(input: f64) -> i32 {
     let mut year = 0;
     let mut saving = 100.0;
