@@ -1,6 +1,7 @@
-#[allow(dead_code)]
+// https://atcoder.jp/contests/abc206/tasks/abc206_a
+
 pub fn run(n: f64) -> String {
-    let price = (n * 1.08).floor() as i32;
+    let price = (n * 1.08).floor() as usize;
 
     if price == 206 {
         String::from("so-so")
