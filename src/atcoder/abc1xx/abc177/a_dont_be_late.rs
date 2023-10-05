@@ -1,5 +1,6 @@
-#[allow(dead_code)]
-pub fn run(d: f64, t: f64, s: f64) -> String {
+// https://atcoder.jp/contests/abc177/tasks/abc177_a
+
+pub fn run(d: usize, t: usize, s: usize) -> String {
     if d <= s * t {
         String::from("Yes")
     } else {
@@ -13,8 +14,8 @@ mod tests {
 
     #[test]
     fn test() {
-        assert_eq!(String::from("Yes"), run(1000_f64, 15_f64, 80_f64));
-        assert_eq!(String::from("Yes"), run(2000_f64, 20_f64, 100_f64));
-        assert_eq!(String::from("No"), run(10000_f64, 1_f64, 1_f64));
+        assert_eq!(String::from("Yes"), run(1000, 15, 80));
+        assert_eq!(String::from("Yes"), run(2000, 20, 100));
+        assert_eq!(String::from("No"), run(10000, 1, 1));
     }
 }
