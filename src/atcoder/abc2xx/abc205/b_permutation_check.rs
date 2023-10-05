@@ -1,3 +1,5 @@
+// https://atcoder.jp/contests/abc205/tasks/abc205_b
+
 use std::collections::HashSet;
 
 pub fn run(n: usize, vec: Vec<usize>) -> String {
