@@ -1,7 +1,6 @@
 // https://atcoder.jp/contests/abc227/tasks/abc227_b
 
-#[allow(dead_code)]
-pub fn run(n: i32, vec: Vec<i32>) -> i32 {
+pub fn run(n: usize, vec: Vec<usize>) -> usize {
     let mut count = 0;
 
     for i in 0..vec.len() {
