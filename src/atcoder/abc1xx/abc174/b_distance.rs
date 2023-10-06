@@ -1,4 +1,5 @@
-#[allow(dead_code)]
+// https://atcoder.jp/contests/abc174/tasks/abc174_b
+
 pub fn run(k: usize, vec: Vec<(i64, i64)>) -> i32 {
     let mut ans = 0;
 
