@@ -1,5 +1,6 @@
+// https://atcoder.jp/contests/abc221/tasks/abc221_c
+
 // bit全探索（無理目）
-#[allow(dead_code, unused)]
 pub fn run(n: usize) -> usize {
     let mut ans = 0;
 
