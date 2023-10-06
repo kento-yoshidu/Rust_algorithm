@@ -1,4 +1,5 @@
-#[allow(dead_code)]
+// https://atcoder.jp/contests/abc215/tasks/abc215_a
+
 pub fn run(s: String) -> String {
     if s == String::from("Hello,World!") {
         String::from("AC")
