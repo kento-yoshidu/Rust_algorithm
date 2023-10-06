@@ -2,7 +2,7 @@
 
 // bit全探索（無理目）
 pub fn run(n: usize) -> usize {
-    let mut ans = 0;
+    let ans = 0;
 
     let str: Vec<char> = n.to_string().chars().collect();
 

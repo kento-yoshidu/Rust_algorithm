@@ -1,2 +1,2 @@
-pub mod a_reactangle;
-pub mod b_same_numbers;
+pub mod a_hour;
+pub mod d_score;
