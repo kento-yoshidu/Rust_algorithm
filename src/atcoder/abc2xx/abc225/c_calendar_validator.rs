@@ -1,6 +1,5 @@
 // https://atcoder.jp/contests/abc225/tasks/abc225_c
 
-#[allow(dead_code)]
 pub fn run(n: usize, m: usize, vec: Vec<Vec<usize>>) -> String {
     // 縦方向に+7されているかチェック
     for i in 0..n-1 {
