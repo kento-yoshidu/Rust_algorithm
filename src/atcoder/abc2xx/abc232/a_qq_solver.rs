@@ -1,4 +1,5 @@
-#[allow(dead_code)]
+// https://atcoder.jp/contests/abc232/tasks/abc232_a
+
 pub fn run(str: &str) -> i32 {
     let ch1 = str.chars().nth(0).unwrap();
     let ch3 = str.chars().nth(2).unwrap();
