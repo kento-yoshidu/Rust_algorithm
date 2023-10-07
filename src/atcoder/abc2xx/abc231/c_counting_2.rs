@@ -1,3 +1,5 @@
+// https://atcoder.jp/contests/abc231/tasks/abc231_c
+
 fn calc(n: usize, num: usize, a: &Vec<usize>) -> usize {
     let mut vec = a.clone();
 
