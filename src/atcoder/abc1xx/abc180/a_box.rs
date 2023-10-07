@@ -1,4 +1,5 @@
-#[allow(dead_code)]
+// https://atcoder.jp/contests/abc179/tasks/abc179_a
+
 pub fn run(n: i32, a: i32, b: i32) -> i32 {
     n - a + b
 }
