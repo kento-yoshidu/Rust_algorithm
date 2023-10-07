@@ -1,6 +1,5 @@
 // https://atcoder.jp/contests/abc179/tasks/abc179_c
 
-#[allow(dead_code)]
 pub fn run(n: usize) -> usize {
     let mut ans = 0;
 
