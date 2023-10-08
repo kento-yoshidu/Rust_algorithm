@@ -1,6 +1,5 @@
 // https://atcoder.jp/contests/abc186/tasks/abc186_a
 
-#[allow(dead_code)]
 pub fn run(n: i32, w: i32) -> i32 {
     (n as f64 / w as f64).floor() as i32
 }
