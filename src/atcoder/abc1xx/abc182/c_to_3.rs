@@ -1,6 +1,5 @@
 // https://atcoder.jp/contests/abc182/tasks/abc182_c
 
-#[allow(dead_code)]
 fn run(n: &str) -> i32 {
     let mut ans = std::i32::MAX;
 

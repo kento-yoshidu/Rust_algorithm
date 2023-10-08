@@ -1,4 +1,5 @@
-#[allow(dead_code)]
+// https://atcoder.jp/contests/abc182/tasks/abc182_a
+
 pub fn run(x: i8) -> i8 {
     if x < 0 {
         0
