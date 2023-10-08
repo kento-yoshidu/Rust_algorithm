@@ -1,4 +1,5 @@
-#[allow(dead_code)]
+// https://atcoder.jp/contests/abc256/tasks/abc256_a
+
 pub fn run(n: u32) -> i32 {
     2_i32.pow(n)
 }
