@@ -1,4 +1,5 @@
-#[allow(dead_code)]
+// https://atcoder.jp/contests/abc187/tasks/abc187_a
+
 pub fn run(a: i32, b: i32) -> i32 {
     // 百の位、十の位、一の位
     let total_a = (a / 100) + (a % 100 / 10) + (a % 10);
