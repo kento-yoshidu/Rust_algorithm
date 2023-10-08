@@ -1,6 +1,5 @@
 // https://atcoder.jp/contests/abc280/tasks/abc280_b
 
-#[allow(dead_code)]
 pub fn run(_n: isize, vec: Vec<isize>) -> Vec<isize> {
     let mut total = vec![vec[0]];
 
@@ -12,7 +11,6 @@ pub fn run(_n: isize, vec: Vec<isize>) -> Vec<isize> {
 }
 
 // 累積和で
-#[allow(dead_code)]
 fn run2(n: Vec<i32>) -> Vec<i32> {
     let mut ans = Vec::<i32>::new();
 
@@ -32,8 +30,7 @@ fn run2(n: Vec<i32>) -> Vec<i32> {
 }
 
 // windowsで
-#[allow(dead_code, unused)]
-fn run3(n: usize, vec: Vec<i32>) -> Vec<i32> {
+fn run3(_n: usize, vec: Vec<i32>) -> Vec<i32> {
     let mut ans = vec![vec[0]];
 
     for v in vec.windows(2) {
