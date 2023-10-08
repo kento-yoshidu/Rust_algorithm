@@ -3,9 +3,10 @@
 ## AtCoder Template
 
 ```rust
-#[allow(unused)]
+#[allow(unused_imports)]
 use proconio::input;
 use itertools::Itertools;
+use std::collections::HashMap;
 
 #[allow(unused)]
 fn main() {
