@@ -1,4 +1,5 @@
-#[allow(dead_code)]
+// https://atcoder.jp/contests/abc248/tasks/abc248_a
+
 pub fn run(str: &str) -> usize {
     for n in 0..9 {
         if n != str.chars().nth(n).unwrap() as usize - 48 {
