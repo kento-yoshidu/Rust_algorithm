@@ -1,4 +1,5 @@
-#[allow(dead_code)]
+// https://atcoder.jp/contests/abc185/tasks/abc185_a
+
 pub fn run(arr: [i32; 4]) -> i32 {
     *arr.iter().min().unwrap()
 }
