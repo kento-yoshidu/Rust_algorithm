@@ -1,4 +1,5 @@
-#[allow(dead_code)]
+// https://atcoder.jp/contests/abc298/tasks/abc298_a
+
 pub fn run(_n: usize, str: String) -> String {
     let ok = str.contains('o');
     let reject = str.contains('x');
