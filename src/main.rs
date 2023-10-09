@@ -9,4 +9,5 @@ use itertools::Itertools;
 
 fn main() {
     println!("Hello World");
+    println!("{}", atcoder::abc2xx::abc223::a_exact_price::run(0));
 }
