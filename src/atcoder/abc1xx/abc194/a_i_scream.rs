@@ -1,4 +1,5 @@
-#[allow(dead_code)]
+// https://atcoder.jp/contests/abc194/tasks/abc194_a
+
 pub fn run(a: i32, b: i32) -> String {
     if a + b >= 15 && b >= 8 {
         String::from("アイスクリーム")
