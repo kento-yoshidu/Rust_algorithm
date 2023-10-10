@@ -1,6 +1,5 @@
 // https://atcoder.jp/contests/abc197/tasks/abc197_a
 
-#[allow(dead_code)]
 pub fn run(s: String) -> String {
     let mut c = s.chars();
 
