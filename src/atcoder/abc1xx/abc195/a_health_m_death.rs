@@ -1,4 +1,4 @@
-// https://atcoder.jp/contests/abc194/tasks/abc194_a
+// https://atcoder.jp/contests/abc195/tasks/abc195_a
 
 pub fn run(m: usize, h: usize) -> String {
     if h % m == 0 {

@@ -1,4 +1,5 @@
-#[allow(dead_code)]
+// https://atcoder.jp/contests/abc196/tasks/abc196_a
+
 pub fn run(a: i32, b: i32, c: i32, d: i32) -> i32 {
     let max = a.max(b);
     let min = c.min(d);
