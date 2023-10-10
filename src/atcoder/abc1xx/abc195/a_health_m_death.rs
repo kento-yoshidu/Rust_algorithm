@@ -1,5 +1,6 @@
-#[allow(dead_code)]
-pub fn run(m: i32, h: i32) -> String {
+// https://atcoder.jp/contests/abc194/tasks/abc194_a
+
+pub fn run(m: usize, h: usize) -> String {
     if h % m == 0 {
         String::from("Yes")
     } else {
