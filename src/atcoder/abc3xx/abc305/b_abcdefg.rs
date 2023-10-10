@@ -1,6 +1,7 @@
+// https://atcoder.jp/contests/abc305/tasks/abc305_b
+
 use std::collections::HashMap;
 
-#[allow(dead_code)]
 fn run(p: &str, q: &str) -> i32 {
     let distance = HashMap::from([
         ("A", 0),
