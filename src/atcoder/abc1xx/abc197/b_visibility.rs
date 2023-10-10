@@ -1,7 +1,6 @@
 // https://atcoder.jp/contests/abc197/tasks/abc197_b
 // Refactoring 何か間違ってる気がする
 
-#[allow(unused)]
 pub fn run(h: usize, w: usize, mut y: usize, mut x: usize, vec: Vec<&str>) -> i32 {
     let mut ans = 1;
 
