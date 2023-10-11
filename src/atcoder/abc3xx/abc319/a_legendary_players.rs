@@ -1,3 +1,5 @@
+// https://atcoder.jp/contests/abc319/tasks/abc319_a
+
 use std::collections::HashMap;
 
 pub fn run(s: String) -> usize {
