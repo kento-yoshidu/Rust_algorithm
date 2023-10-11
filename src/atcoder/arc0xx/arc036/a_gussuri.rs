@@ -2,7 +2,6 @@
 
 use std::collections::VecDeque;
 
-#[allow(dead_code)]
 pub fn run(_n: usize, k: usize, vec: Vec<usize>) -> isize {
     let mut current = VecDeque::new();
 
