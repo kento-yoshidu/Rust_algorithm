@@ -14,7 +14,7 @@ pub fn run(_n: usize, s: String) -> String {
 pub fn run2(_n: usize, s: String) -> String {
     s.chars().map(|c| {
         format!("{}{}", c, c)
-    }).collect::<String>()
+    }).collect()
 }
 
 #[cfg(test)]
