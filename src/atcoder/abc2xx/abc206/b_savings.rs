@@ -1,5 +1,6 @@
-#[allow(dead_code)]
-pub fn run(num: u32) -> u32 {
+// https://atcoder.jp/contests/abc206/tasks/abc206_b
+
+pub fn run(num: usize) -> usize {
     let mut total = 0;
     let mut day = 0;
 

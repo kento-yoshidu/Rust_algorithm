@@ -1,6 +1,5 @@
 // https://atcoder.jp/contests/abc290/tasks/abc290_a
 
-#[allow(dead_code)]
 pub fn run(_n: usize, m: usize, a: Vec<usize>, b: Vec<usize>) -> usize {
     let mut ans = 0;
 
@@ -11,7 +10,6 @@ pub fn run(_n: usize, m: usize, a: Vec<usize>, b: Vec<usize>) -> usize {
     ans
 }
 
-#[allow(dead_code)]
 pub fn run2(_n: usize, _m: usize, a: Vec<usize>, b: Vec<usize>) -> usize {
     b.iter().fold(0, |sum, &i| {
         sum + a[i - 1]

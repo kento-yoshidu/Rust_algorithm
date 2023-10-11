@@ -1,4 +1,5 @@
-#[allow(dead_code)]
+// https://atcoder.jp/contests/abc220/tasks/abc220_b
+
 pub fn run(k: u32, a: String, b: String) -> usize {
     usize::from_str_radix(&a, k).unwrap() * usize::from_str_radix(&b, k).unwrap()
 }

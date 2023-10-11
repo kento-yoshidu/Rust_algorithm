@@ -1,4 +1,5 @@
-#[allow(dead_code)]
+// https://atcoder.jp/contests/abc300/tasks/abc300_a
+
 pub fn run(n: i32, s: String) -> String {
     let mut t = 0;
     let mut a = 0;

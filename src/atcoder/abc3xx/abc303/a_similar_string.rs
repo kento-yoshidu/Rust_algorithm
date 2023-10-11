@@ -1,4 +1,5 @@
-#[allow(dead_code)]
+// https://atcoder.jp/contests/abc303/tasks/abc303_a
+
 pub fn run(s: String, t: String) -> String {
     if s.replace("0", "o").replace("1", "l") == t.replace("0", "o").replace("1", "l") {
         String::from("Yes")

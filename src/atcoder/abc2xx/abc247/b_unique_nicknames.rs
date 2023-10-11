@@ -1,6 +1,5 @@
 // https://atcoder.jp/contests/abc247/tasks/abc247_b
 
-#[allow(dead_code)]
 pub fn run(_n: usize, vec: Vec<Vec<&str>>) -> String {
     for i in 0..(vec.len()) {
         let mut flag = true;

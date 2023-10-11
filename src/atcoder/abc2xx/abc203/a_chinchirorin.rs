@@ -1,6 +1,5 @@
 // https://atcoder.jp/contests/abc203/tasks/abc203_a
 
-#[allow(dead_code)]
 fn run(a: usize, b: usize, c: usize) -> usize {
     if a != b && b != c && a != c {
         return 0;

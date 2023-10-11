@@ -1,5 +1,6 @@
-#[allow(dead_code)]
-pub fn run(n: i32) -> i32 {
+// https://atcoder.jp/contests/abc305/tasks/abc305_a
+
+pub fn run(n: usize) -> usize {
     let station = n / 5 * 5;
 
     if n - station < 3 {

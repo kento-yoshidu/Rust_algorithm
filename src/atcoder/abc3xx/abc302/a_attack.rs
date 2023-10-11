@@ -1,4 +1,5 @@
-#[allow(dead_code)]
+// https://atcoder.jp/contests/abc302/tasks/abc302_a
+
 pub fn run(hp: i64, at: i64) -> i64 {
     if hp % at == 0 {
         hp / at

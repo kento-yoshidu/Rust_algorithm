@@ -1,5 +1,6 @@
-#[allow(dead_code)]
-pub fn run(a: i32, b: i32) -> String {
+// https://atcoder.jp/contests/abc206/tasks/abc206_a
+
+pub fn run(a: usize, b: usize) -> String {
     if a * 6 >= b {
         String::from("Yes")
     } else {

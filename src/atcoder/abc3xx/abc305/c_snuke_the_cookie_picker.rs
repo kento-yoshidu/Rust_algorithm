@@ -1,4 +1,5 @@
-#[allow(dead_code)]
+// https://atcoder.jp/contests/abc305/tasks/abc305_c
+
 pub fn run(h: usize, w: usize, vec: Vec<&str>) -> (usize, usize) {
     let mut top = h;
     let mut bottom = 0;

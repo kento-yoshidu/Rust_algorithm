@@ -1,4 +1,5 @@
-#[allow(dead_code)]
+// https://atcoder.jp/contests/abc304/tasks/abc304_b
+
 pub fn run(n: usize) -> usize {
     // 桁数を求める
     let mut len = n.to_string().len();

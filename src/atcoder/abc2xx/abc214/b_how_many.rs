@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc214/tasks/abc214_b
 
-pub fn run(s: i32, t: i32) -> i32{
+pub fn run(s: usize, t: usize) -> usize{
     let mut count = 0;
 
     for a in 0..=s {

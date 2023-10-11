@@ -1,4 +1,5 @@
-#[allow(dead_code)]
+// https://atcoder.jp/contests/abc299/tasks/abc299_a
+
 pub fn run(_n: usize, s: String) -> String {
     let l = s.find('|').unwrap();
     let r = s.rfind('|').unwrap();
@@ -11,7 +12,6 @@ pub fn run(_n: usize, s: String) -> String {
     }
 }
 
-#[allow(dead_code)]
 pub fn run2(_n: usize, s: String) -> String {
     let mut l = -1;
     let mut m = -1;

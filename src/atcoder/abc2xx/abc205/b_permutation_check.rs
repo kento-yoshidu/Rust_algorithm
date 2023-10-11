@@ -1,8 +1,9 @@
+// https://atcoder.jp/contests/abc205/tasks/abc205_b
+
 use std::collections::HashSet;
 
-#[allow(dead_code)]
-pub fn run(n: usize, vec: Vec<i32>) -> String {
-    let hash = HashSet::<i32>::from_iter(vec);
+pub fn run(n: usize, vec: Vec<usize>) -> String {
+    let hash = HashSet::<usize>::from_iter(vec);
 
     if hash.len() == n {
         String::from("Yes")
