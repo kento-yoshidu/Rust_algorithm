@@ -2,8 +2,9 @@
 
 use core::str::Chars;
 
+use itertools::Itertools;
+
 // 回文になっているか
-#[allow(unused_mut)]
 fn check(mut iter: Chars) -> bool {
     match iter.next() {
         None => true,
@@ -17,7 +18,10 @@ fn check(mut iter: Chars) -> bool {
     }
 }
 
-#[allow(dead_code)]
+fn check2(s: String) -> bool {
+    s.chars().eq(s.chars().rev())
+}
+
 fn run(n: usize, s: Vec<&str>) -> String {
     for i in 0..n {
         for j in i+1..n {
@@ -30,6 +34,17 @@ fn run(n: usize, s: Vec<&str>) -> String {
     String::from("No")
 }
 
+pub fn run2(_n: usize, s: Vec<&str>) -> String {
+    if s.iter()
+        .permutations(2)
+        .any(|v| check2(format!("{}{}", v[0], v[1])))
+    {
+        String::from("Yes")
+    } else {
+        String::from("No")
+    }
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -38,6 +53,13 @@ mod tests {
     fn test() {
         assert_eq!(String::from("Yes"), run(5, vec!["ab", "ccef", "da", "a", "fe"]));
         assert_eq!(String::from("No"), run(3, vec!["a", "b", "aba"]));
-        assert_eq!(String::from("Yes"), run(5, vec!["aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"]));
+        assert_eq!(String::from("Yes"), run(2, vec!["aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"]));
+    }
+
+    #[test]
+    fn test2() {
+        assert_eq!(String::from("Yes"), run2(5, vec!["ab", "ccef", "da", "a", "fe"]));
+        assert_eq!(String::from("No"), run2(3, vec!["a", "b", "aba"]));
+        assert_eq!(String::from("Yes"), run2(2, vec!["aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"]));
     }
 }
