@@ -1,6 +1,5 @@
 // https://atcoder.jp/contests/abc306/tasks/abc306_b
 
-#[allow(dead_code)]
 pub fn run(vec: Vec<usize>) -> usize {
     let mut ans = 0;
 
@@ -11,11 +10,10 @@ pub fn run(vec: Vec<usize>) -> usize {
     ans
 }
 
-#[allow(dead_code)]
 fn run2(vec: Vec<usize>) -> usize {
-    vec.iter().enumerate().fold(0, |sum, (i, v)| {
-        sum + (v << i)
-    })
+    vec.iter()
+        .enumerate()
+        .fold(0, |sum, (i, v)| { sum + (v << i) })
 }
 
 #[cfg(test)]
