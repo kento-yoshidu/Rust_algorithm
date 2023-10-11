@@ -1,6 +1,5 @@
 // https://atcoder.jp/contests/abc311/tasks/abc311_b
 
-#[allow(dead_code)]
 fn run(_n: usize, d: usize, vec: Vec<&str>) -> usize {
     let vec: Vec<Vec<char>> = vec.iter().map(|v| {
         v.chars().collect::<Vec<char>>()
