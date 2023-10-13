@@ -4,7 +4,6 @@
 
 use std::collections::HashSet;
 
-#[allow(dead_code)]
 pub fn run(n: usize) -> usize {
     let mut count = 0;
 
