@@ -1,6 +1,5 @@
 // https://atcoder.jp/contests/abc087/tasks/arc090_a
 
-#[allow(dead_code)]
 pub fn run(n: usize, vec: Vec<Vec<usize>>) -> usize {
     let mut ans = 0;
 
