@@ -1,6 +1,5 @@
 // https://atcoder.jp/contests/arc108/tasks/arc108_a
 
-#[allow(dead_code)]
 pub fn run(s: usize, p: usize) -> String {
     for i in 1..=p {
         if i*i > p {
