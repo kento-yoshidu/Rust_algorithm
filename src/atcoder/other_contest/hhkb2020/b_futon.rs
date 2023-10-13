@@ -1,6 +1,5 @@
 // https://atcoder.jp/contests/hhkb2020/tasks/hhkb2020_b
 
-#[allow(unused)]
 pub fn run(h: usize, w: usize, vec: Vec<&str>) -> usize {
     let mut ans = 0;
 
