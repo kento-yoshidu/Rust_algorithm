@@ -9,7 +9,7 @@ pub fn run(_t: usize, vec: Vec<usize>) -> Vec<&'static str> {
         } else {
             "Same"
         }
-    }).collect::<Vec<&'static str>>()
+    }).collect()
 }
 
 #[cfg(test)]
