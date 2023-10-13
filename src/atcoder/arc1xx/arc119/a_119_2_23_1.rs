@@ -1,6 +1,5 @@
 // https://atcoder.jp/contests/arc119/tasks/arc119_a
 
-#[allow(dead_code)]
 pub fn run(n: i64) -> i64 {
     let mut ans = n;
 
