@@ -6,5 +6,5 @@ mod atcoder;
 
 fn main() {
     println!("Hello World");
-    println!("{}", atcoder::abc2xx::abc229::a_first_grid::run(".#", "#."));
+    println!("{}", atcoder::abc2xx::abc233::a_10yen_stam::run(1000, 63));
 }
