@@ -1,6 +1,5 @@
 // https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_g
 
-#[allow(dead_code)]
 pub fn run(d: usize, n: usize, vec: Vec<(i32, i32)>) -> Vec<i32> {
     let mut tmp = vec![0; d];
 
