@@ -4,7 +4,7 @@
 pub fn run() -> String {
     let str = String::from("stressed");
 
-    str.chars().rev().collect::<String>()
+    str.chars().rev().collect()
 }
 
 #[cfg(test)]
