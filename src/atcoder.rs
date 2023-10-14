@@ -5,6 +5,6 @@ pub mod abc3xx;
 pub mod arc0xx;
 pub mod arc1xx;
 // pub mod educational_dp;
-pub mod other_contest;
-// pub mod tessoku_book;
+// pub mod other_contest;
+pub mod tessoku_book;
 // pub mod typical90;
