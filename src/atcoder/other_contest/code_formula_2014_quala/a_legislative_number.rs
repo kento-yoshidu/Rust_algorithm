@@ -10,6 +10,16 @@ pub fn run(n: usize) -> String {
     String::from("No")
 }
 
+pub fn run2(n: usize) -> String {
+    if (1..=100).any(|i| {
+        i * i * i == n
+    }) {
+        String::from("Yes")
+    } else {
+        String::from("No")
+    }
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -18,5 +28,11 @@ mod tests {
     fn test() {
         assert_eq!(String::from("Yes"), run(8));
         assert_eq!(String::from("No"), run(24));
+    }
+
+    #[test]
+    fn test2() {
+        assert_eq!(String::from("Yes"), run2(8));
+        assert_eq!(String::from("No"), run2(24));
     }
 }
