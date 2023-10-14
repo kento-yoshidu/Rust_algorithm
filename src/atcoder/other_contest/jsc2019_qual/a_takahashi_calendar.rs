@@ -1,6 +1,5 @@
 // https://atcoder.jp/contests/jsc2019-qual/tasks/jsc2019_qual_a
 
-#[allow(dead_code)]
 pub fn run(mm: usize, dd: usize) -> usize {
     let mut count = 0;
 
