@@ -1,3 +1,5 @@
+// https://atcoder.jp/contests/abc223/tasks/abc223_a
+
 pub fn run(x: usize) -> String {
     if x % 100 == 0 && x != 0 {
         String::from("Yes")
