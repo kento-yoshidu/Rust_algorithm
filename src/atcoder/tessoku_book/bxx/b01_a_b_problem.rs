@@ -1,6 +1,5 @@
 // https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_bz
 
-#[allow(dead_code)]
 pub fn run(a: usize, b: usize) -> usize {
     a + b
 }
