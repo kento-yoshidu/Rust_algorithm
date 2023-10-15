@@ -6,5 +6,5 @@ mod atcoder;
 
 fn main() {
     println!("Hello World");
-    atcoder::abc3xx::abc324::b_3_smooth_numbers::run(37748736);
+    println!("{}", atcoder::abc2xx::abc266::a_middle_letter::run(String::from("a")));
 }

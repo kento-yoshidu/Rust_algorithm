@@ -1,6 +1,5 @@
 // https://atcoder.jp/contests/abc287/tasks/abc287_a
 
-#[allow(dead_code)]
 pub fn run(_n: usize, vec: Vec<&str>) -> String {
     let mut f = 0;
     let mut a = 0;
