@@ -1,6 +1,6 @@
 /* 01 */
 // 1, 3, 5, 7文字目を取り出し並べる
-#[allow(dead_code)]
+
 pub fn run() -> String {
     let str = String::from("パタトクカシーー");
 
