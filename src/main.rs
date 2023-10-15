@@ -6,5 +6,5 @@ mod atcoder;
 
 fn main() {
     println!("Hello World");
-    println!("{}", atcoder::abc2xx::abc266::a_middle_letter::run(String::from("a")));
+    println!("{}", atcoder::abc2xx::abc267::a_saturday::run(String::from("Wednesday")));
 }
