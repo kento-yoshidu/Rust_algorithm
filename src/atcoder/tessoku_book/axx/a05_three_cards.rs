@@ -1,4 +1,5 @@
-#[allow(dead_code)]
+// https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_e
+
 pub fn run(n: usize, k: usize) -> usize {
     let mut count = 0;
 
