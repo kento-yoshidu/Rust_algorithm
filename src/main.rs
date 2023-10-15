@@ -6,5 +6,5 @@ mod atcoder;
 
 fn main() {
     println!("Hello World");
-    println!("{}", atcoder::abc2xx::abc264::a_atcoder_substr::run(3, 6));
+    atcoder::abc3xx::abc324::b_3_smooth_numbers::run(37748736);
 }
