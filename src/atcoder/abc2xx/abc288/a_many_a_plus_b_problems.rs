@@ -1,6 +1,5 @@
 // https://atcoder.jp/contests/abc288/tasks/abc288_a
 
-#[allow(dead_code)]
 pub fn run(_n: i32, vec: Vec<Vec<i32>>) -> Vec<i32> {
     let mut ans = Vec::<i32>::new();
 
@@ -11,7 +10,6 @@ pub fn run(_n: i32, vec: Vec<Vec<i32>>) -> Vec<i32> {
     ans
 }
 
-#[allow(dead_code)]
 pub fn run2(_n: usize, vec: Vec<(i32, i32)>) -> Vec<i32> {
     vec.iter().map(|v| {
         v.0 + v.1
