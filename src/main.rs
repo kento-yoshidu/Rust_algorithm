@@ -6,4 +6,5 @@ mod atcoder;
 
 fn main() {
     println!("Hello World");
+    println!("{}", atcoder::abc2xx::abc229::a_first_grid::run(".#", "#."));
 }

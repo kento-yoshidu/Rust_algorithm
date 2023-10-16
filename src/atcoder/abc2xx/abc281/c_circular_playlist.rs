@@ -1,6 +1,5 @@
 // https://atcoder.jp/contests/abc281/tasks/abc281_c
 
-#[allow(unused, dead_code)]
 pub fn run(n: isize, t: isize, vec: Vec<isize>) -> (isize, isize) {
     // t分の内、残り時間がどれだけあるか
     let mut rest = t;
