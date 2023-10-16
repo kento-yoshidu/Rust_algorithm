@@ -1,6 +1,5 @@
 // https://atcoder.jp/contests/abc283/tasks/abc283_a
 
-#[allow(dead_code)]
 pub fn run(a: usize, b: usize) -> usize {
     a.pow(b as u32)
 }
