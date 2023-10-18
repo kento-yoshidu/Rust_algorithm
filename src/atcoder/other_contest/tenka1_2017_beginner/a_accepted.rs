@@ -14,6 +14,6 @@ mod tests {
 
     #[test]
     fn test() {
-        assert_eq!(3, run(String::from("111100")));
+        assert_eq!(4, run(String::from("111100")));
     }
 }
