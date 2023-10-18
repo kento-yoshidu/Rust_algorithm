@@ -14,7 +14,7 @@ pub fn run(s: String) -> String {
 }
 
 pub fn run2(s: String) -> String {
-    let mut str: Vec<char> = s.chars().map(|c| c).collect();
+    let mut str: Vec<char> = s.chars().collect();
 
     for i in (0..str.len()).step_by(2) {
         let tmp = str[i];

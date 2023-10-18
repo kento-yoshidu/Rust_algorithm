@@ -10,6 +10,12 @@ pub fn run(n: usize) -> usize {
     sum as usize / n
 }
 
+pub fn run2(n: usize) -> usize {
+    (1..=n).map(|num| {
+        num * 10000
+    }).sum::<usize>() / n
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -18,5 +24,11 @@ mod tests {
     fn test() {
         assert_eq!(35000, run(6));
         assert_eq!(460000, run(91));
+    }
+
+    #[test]
+    fn test2() {
+        assert_eq!(35000, run2(6));
+        assert_eq!(460000, run2(91));
     }
 }

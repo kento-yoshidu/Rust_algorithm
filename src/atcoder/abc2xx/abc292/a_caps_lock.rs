@@ -1,6 +1,5 @@
 // https://atcoder.jp/contests/abc292/tasks/abc292_a
 
-#[allow(dead_code)]
 pub fn run(s: String) -> String {
     s.to_uppercase()
 }

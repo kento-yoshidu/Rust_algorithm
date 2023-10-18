@@ -1,4 +1,5 @@
-#[allow(dead_code)]
+// https://atcoder.jp/contests/abc234/tasks/abc234_b
+
 pub fn run(n: i32, vec: Vec<Vec<i32>>) -> f64 {
     let mut max = 0_f64;
 
