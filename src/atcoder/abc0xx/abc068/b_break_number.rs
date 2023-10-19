@@ -10,6 +10,8 @@ fn calc(n: usize, count: usize) -> usize {
 
 pub fn run(n: usize) -> usize {
     (1..=n)
+        .skip(1)
+        .step_by(2)
         .map(|i| {
             (i, calc(i, 0))
         })
@@ -22,6 +24,15 @@ pub fn run(n: usize) -> usize {
         .unwrap_or((1, 0)).0
 }
 
-fn main() {
-    println!("{}", run(7));
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test() {
+        assert_eq!(4, run(7));
+        assert_eq!(32, run(32));
+        assert_eq!(1, run(1));
+        assert_eq!(64, run(100));
+    }
 }
