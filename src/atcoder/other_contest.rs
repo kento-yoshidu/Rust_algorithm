@@ -10,3 +10,4 @@ pub mod m_solutions2019;
 pub mod m_solutions2020;
 pub mod pakencamp2019;
 pub mod tenka1_2012_qual_b;
+pub mod tenka1_2017_beginner;
