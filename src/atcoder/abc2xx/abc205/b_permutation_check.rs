@@ -12,6 +12,18 @@ pub fn run(n: usize, vec: Vec<usize>) -> String {
     }
 }
 
+/*
+pub fn run2(n: usize, a: Vec<usize>) -> String {
+    if a.iter().permutations(n).any(|t| {
+        t == (1..=n).collect::<Vec<_>>()
+    }) {
+        String::from("Yes")
+    } else {
+        String::from("No")
+    }
+}
+*/
+
 #[cfg(test)]
 mod tests {
     use super::*;
