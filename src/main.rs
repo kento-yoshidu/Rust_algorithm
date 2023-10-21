@@ -7,5 +7,4 @@ mod basic;
 
 fn main() {
     println!("Hello World");
-    println!("{}", atcoder::abc0xx::abc043::b_binary_hack_easy::run(String::from("0BB1")));
 }
