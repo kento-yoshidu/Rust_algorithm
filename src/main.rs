@@ -7,5 +7,5 @@ mod basic;
 
 fn main() {
     println!("Hello World");
-    println!("{}", atcoder::abc0xx::abc017::b_choku::run(String::from("hchoku")));
+    println!("{}", atcoder::abc0xx::abc043::b_binary_hack_easy::run(String::from("0BB1")));
 }
