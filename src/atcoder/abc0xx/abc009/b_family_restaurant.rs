@@ -4,6 +4,7 @@
 fn run(_n: usize, a: Vec<usize>) -> usize {
     let mut vec = a.clone();
 
+    vec.sort();
     vec.reverse();
     vec.dedup();
 
