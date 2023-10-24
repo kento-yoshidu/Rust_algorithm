@@ -7,4 +7,5 @@ mod basic;
 
 fn main() {
     println!("Hello World");
+    println!("{}", atcoder::abc2xx::abc203::b_atcoder_condominium::run(3, 3));
 }
