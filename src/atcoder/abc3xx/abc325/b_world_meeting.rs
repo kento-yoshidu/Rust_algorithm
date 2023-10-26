@@ -13,6 +13,11 @@ pub fn run(_n: usize, vec: Vec<(usize, usize)>) -> usize {
             if 9 <= time && time <= 17 {
                 count += w;
             }
+
+            // 17時を過ぎれば無駄なので飛ばす
+            if 17 < time {
+                break
+            }
         }
 
         ans = ans.max(count)
