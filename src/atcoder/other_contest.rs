@@ -4,6 +4,7 @@ pub mod hhkb2020;
 pub mod hitachi2020;
 pub mod joi2006yo;
 pub mod joi2007ho;
+pub mod joi2014yo;
 pub mod joi2023yo1a;
 pub mod joi2023yo1b;
 pub mod joi2024yo1a;
