@@ -10,7 +10,6 @@ pub fn run(n: usize) -> usize {
     unreachable!();
 }
 
-#[allow(dead_code)]
 pub fn run2(n: usize) -> usize {
     ((n as f64).sqrt()).sqrt() as usize
 }

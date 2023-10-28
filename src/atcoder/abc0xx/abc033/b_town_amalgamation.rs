@@ -1,6 +1,5 @@
 // https://atcoder.jp/contests/abc033/tasks/abc033_b
 
-
 pub fn run(_n: usize, v: Vec<(&str, usize)>) -> String {
     let sum: usize = v.iter()
         .map(|t| t.1)

@@ -14,7 +14,13 @@ pub fn run(w: String) -> String {
     }
 }
 
-fn main() {
-    println!("{}", run(String::from("abaccaba")));
-    println!("{}", run(String::from("hthth")));
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test() {
+        assert_eq!(String::from("Yes"), run(String::from("abaccaba")));
+        assert_eq!(String::from("No"), run(String::from("hthth")));
+    }
 }
