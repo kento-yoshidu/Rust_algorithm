@@ -6,6 +6,14 @@ pub fn run(vec: Vec<(usize, usize)>) -> usize {
     }).sum::<f64>() as usize
 }
 
+pub fn run2(vec: Vec<(usize, usize)>) -> usize {
+    vec.iter()
+        .map(|t| {
+            t.0 * t.1
+        })
+        .sum::<usize>() / 10
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -14,5 +22,11 @@ mod tests {
     fn test() {
         assert_eq!(94, run(vec![(50, 7), (40, 8), (30, 9)]));
         assert_eq!(2970, run(vec![(990, 10), (990, 10), (990, 10)]));
+    }
+
+    #[test]
+    fn test2() {
+        assert_eq!(94, run2(vec![(50, 7), (40, 8), (30, 9)]));
+        assert_eq!(2970, run2(vec![(990, 10), (990, 10), (990, 10)]));
     }
 }

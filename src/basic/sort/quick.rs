@@ -40,10 +40,24 @@ pub fn quick(vec: &mut Vec<usize>, left: usize, right: usize) {
     quick(vec, j+1, right);
 }
 
-pub fn main() {
-    let mut vec = vec![5, 0, 9, 7, 1, 6, 3, 8, 4, 2];
+/*
+pub fn run(v: Vec<usize>) {
+    // let mut vec = vec![5, 0, 9, 7, 1, 6, 3, 8, 4, 2];
+
+    let vec = &v.clone();
 
     quick(&mut vec, 0, 9);
 
     println!("{:?}", vec);
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test() {
+
+    }
+}
+*/
