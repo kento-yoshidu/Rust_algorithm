@@ -6,6 +6,7 @@ pub mod joi2006yo;
 pub mod joi2023yo1a;
 pub mod joi2023yo1b;
 pub mod joi2024yo1a;
+pub mod joi2024yo1b;
 pub mod joigsp2023;
 pub mod jsc2019_qual;
 pub mod m_solutions2019;
