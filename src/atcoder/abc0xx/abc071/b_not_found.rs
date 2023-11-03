@@ -3,7 +3,7 @@
 use itertools::Itertools;
 
 pub fn run(s: String) -> String {
-    ('a'..'z').find(|c| {
+    ('a'..='z').find(|c| {
         !s.chars().contains(c)
     })
     .map(|c| {
