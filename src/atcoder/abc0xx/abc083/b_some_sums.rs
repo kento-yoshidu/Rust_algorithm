@@ -26,9 +26,18 @@ pub fn run(n: usize, a: usize, b: usize) -> usize {
     result
 }
 
+fn calc2(num: usize, total: usize) -> usize {
+    if num == 0 {
+        total
+    } else {
+        calc2(num/10, total + num % 10)
+    }
+}
+
 pub fn run2(n: usize, a: usize, b: usize) -> usize {
     (1..=n).filter(|num| {
-        let res = calc(*num);
+        let res = calc2(*num, 0);
+
         a <= res && res <= b
     }).sum()
 }
