@@ -1,11 +1,13 @@
 // https://atcoder.jp/contests/abc080/tasks/abc080_b
 
 fn calc(n: String) -> u32 {
-    n.chars().map(|c| c.to_digit(10).unwrap()).sum()
+    n.chars()
+        .map(|c| c.to_digit(10).unwrap())
+        .sum()
 }
 
 pub fn run(n: usize) -> String {
-    let num =  calc(n.to_string()) as usize;
+    let num = calc(n.to_string()) as usize;
 
     if n % num == 0 {
         String::from("Yes")
