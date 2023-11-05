@@ -5,20 +5,20 @@ use std::collections::HashMap;
 pub fn run(_n : i32, s: Vec<&str>, _m: i32, t: Vec<&str>) -> i32 {
     let ans = 0;
 
-    let mut letters = HashMap::new();
+    let mut hashmap = HashMap::new();
 
     for c in s.iter() {
-        let count = letters.entry(c).or_insert(0);
+        let count = hashmap.entry(c).or_insert(0);
        *count += 1;
     }
 
     for c in t.iter() {
-        let count = letters.entry(c).or_insert(0);
+        let count = hashmap.entry(c).or_insert(0);
 
         *count -= 1;
     }
 
-    ans.max(*letters.iter()
+    ans.max(*hashmap.iter()
         .max_by(|x, y| x.1.cmp(&y.1))
         .unwrap().1)
 }
