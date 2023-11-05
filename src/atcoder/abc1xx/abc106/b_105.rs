@@ -28,10 +28,17 @@ pub fn run(n: usize) -> usize {
     ans
 }
 
+fn calc(n: usize) -> usize {
+    (1..=n)
+        .filter(|i| n % i == 0 )
+        .count()
+}
+
 pub fn run2(n: usize) -> usize {
-    (1..=n).step_by(2).filter(|num| {
-        check(*num)
-    }).count()
+    (1..=n)
+        .step_by(2)
+        .filter(|num| calc(*num) == 8 )
+        .count()
 }
 
 #[cfg(test)]
