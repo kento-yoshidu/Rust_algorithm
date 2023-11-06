@@ -16,6 +16,19 @@ pub fn run (n: usize) -> String {
     String::from("No")
 }
 
+pub fn run2(n: usize) -> String {
+    use itertools::Itertools;
+
+    if (1..=9).combinations_with_replacement(2)
+        .any(|t| {
+            t[0] * t[1] == n
+        }) {
+            String::from("Yes")
+        } else {
+            String::from("No")
+        }
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -25,5 +38,12 @@ mod tests {
         assert_eq!(String::from("Yes"), run(10));
         assert_eq!(String::from("No"), run(50));
         assert_eq!(String::from("Yes"), run(81));
+    }
+
+    #[test]
+    fn test2() {
+        assert_eq!(String::from("Yes"), run2(10));
+        assert_eq!(String::from("No"), run2(50));
+        assert_eq!(String::from("Yes"), run2(81));
     }
 }

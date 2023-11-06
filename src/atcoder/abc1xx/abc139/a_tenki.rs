@@ -4,9 +4,10 @@ pub fn run(s: String, t: String) -> usize {
 	let vec_s: Vec<char> = s.chars().collect();
 	let vec_t: Vec<char> = t.chars().collect();
 
-	vec_s.iter().zip(vec_t).filter(|v| {
-		*v.0 == v.1
-	}).count()
+	vec_s.iter()
+		.zip(vec_t)
+		.filter(|v| *v.0 == v.1 )
+		.count()
 }
 
 #[cfg(test)]
