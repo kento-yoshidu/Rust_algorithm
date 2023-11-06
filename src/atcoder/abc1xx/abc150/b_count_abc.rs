@@ -15,9 +15,12 @@ pub fn run(n: usize, s: String) -> usize {
 }
 
 pub fn run2(_n: usize, s: String) -> usize {
-    s.chars().collect::<Vec<char>>().windows(3).filter(|v| {
-        String::from("ABC") == format!("{}{}{}", v[0],v[1],v[2])
-    }).count()
+    let chars: Vec<char> = s.chars().collect();
+
+    chars
+        .windows(3)
+        .filter(|v| String::from("ABC") == format!("{}{}{}", v[0],v[1],v[2]))
+        .count()
 }
 
 #[cfg(test)]

@@ -1,3 +1,5 @@
+// https://atcoder.jp/contests/abc152/tasks/abc152_a
+
 pub fn run(n: usize, m: usize) -> String {
     if n == m {
         String::from("AC")

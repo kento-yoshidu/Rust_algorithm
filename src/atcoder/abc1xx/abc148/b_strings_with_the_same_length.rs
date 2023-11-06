@@ -11,9 +11,10 @@ pub fn run(n: usize, s1: String, s2: String) -> String {
 }
 
 pub fn run2(_n: usize, s1: String, s2: String) -> String {
-    s1.chars().zip(s2.chars()).map(|(c1, c2)| {
-        format!("{}{}", c1, c2)
-    }).collect::<String>()
+    s1.chars()
+        .zip(s2.chars())
+        .map(|(c1, c2)| format!("{}{}", c1, c2))
+        .collect()
 }
 
 #[cfg(test)]
