@@ -4,12 +4,12 @@ pub fn run( a: usize, b: usize, c: usize) -> String {
     if (a..=a*b)
         .step_by(a)
         .any(|num| {
-        num % b == c
-    }) {
-        String::from("YES")
-    } else {
-        String::from("NO")
-    }
+            num % b == c
+        }) {
+            String::from("YES")
+        } else {
+            String::from("NO")
+        }
 }
 
 #[cfg(test)]
