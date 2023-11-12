@@ -1,4 +1,5 @@
-#[allow(dead_code)]
+// https://atcoder.jp/contests/abc122/tasks/abc122_b
+
 pub fn run(str: String) -> i32 {
     let mut len = 0;
     let mut max_len = 0;

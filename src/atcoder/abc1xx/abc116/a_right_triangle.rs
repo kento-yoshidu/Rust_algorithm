@@ -1,6 +1,5 @@
 // https://atcoder.jp/contests/abc116/tasks/abc116_a
 
-#[allow(dead_code)]
 pub fn run(a: i32, b: i32, _c: i32) -> i32 {
     a * b / 2
 }

@@ -1,4 +1,5 @@
-#[allow(dead_code)]
+// https://atcoder.jp/contests/abc124/tasks/abc124_b
+
 pub fn run(_n: i32, vec: Vec<i32>) -> i32 {
     let mut height = vec[0];
 

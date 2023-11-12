@@ -14,6 +14,21 @@ pub fn run(s: String) -> i32 {
     ans
 }
 
+fn check(s: String) -> usize {
+    (s.parse::<isize>().unwrap() - 753).abs() as usize
+}
+
+pub fn run2(s: String) -> usize {
+    let chars: Vec<char> = s.chars().collect();
+
+    chars.windows(3)
+        .map(|a| {
+            check(format!("{}{}{}", a[0], a[1], a[2]))
+        })
+        .min()
+        .unwrap()
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -23,5 +38,12 @@ mod tests {
         assert_eq!(34, run(String::from("1234567876")));
         assert_eq!(0, run(String::from("35753")));
         assert_eq!(642, run(String::from("1111111111")));
+    }
+
+    #[test]
+    fn test2() {
+        assert_eq!(34, run2(String::from("1234567876")));
+        assert_eq!(0, run2(String::from("35753")));
+        assert_eq!(642, run2(String::from("1111111111")));
     }
 }
