@@ -16,6 +16,20 @@ pub fn run(str: String) -> i32 {
     max_len
 }
 
+pub fn run2(str: &str) -> usize {
+    let chars: Vec<char> = str.chars().collect();
+
+    chars.iter()
+        .fold((0, 0), |(ans, state), c| {
+            if "ACGT".contains(*c) {
+                (ans.max(state+1), state+1)
+            } else {
+                (ans, 0)
+            }
+        })
+        .0
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -25,5 +39,12 @@ mod tests {
         assert_eq!(3, run(String::from("ATCODER")));
         assert_eq!(5, run(String::from("HATAGAYA")));
         assert_eq!(0, run(String::from("SHINJUKU")));
+    }
+
+    #[test]
+    fn test2() {
+        assert_eq!(3, run2("ATCODER"));
+        assert_eq!(5, run2("HATAGAYA"));
+        assert_eq!(0, run2("SHINJUKU"));
     }
 }
