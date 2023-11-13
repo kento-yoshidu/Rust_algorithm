@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc271/tasks/abc271_b
 
-pub fn run(n: usize, q: usize, l: Vec<Vec<usize>>, s: Vec<Vec<usize>>) -> Vec<usize> {
+pub fn run(_n: usize, _q: usize, l: Vec<Vec<usize>>, s: Vec<Vec<usize>>) -> Vec<usize> {
     s.iter()
         .map(|s_vec| {
             l[s_vec[0]-1][s_vec[1]]
