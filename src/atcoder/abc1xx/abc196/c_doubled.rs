@@ -16,7 +16,6 @@ fn func(n: usize) -> usize {
     n * num + n
 }
 
-#[allow(dead_code)]
 pub fn run(n: usize) -> usize {
     let mut ans = 0;
 
