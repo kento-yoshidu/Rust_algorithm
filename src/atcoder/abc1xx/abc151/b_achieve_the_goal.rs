@@ -6,11 +6,11 @@ pub fn run(n: i32, k: i32, m: i32, vec: Vec<i32>) -> i32 {
     let line = n * m;
 
     if (line - sum) > k {
-        return -1;
+        -1
     } else if (line - sum) < 0 {
-        return 0;
+        0
     } else {
-        return line - sum;
+        line - sum
     }
 }
 
