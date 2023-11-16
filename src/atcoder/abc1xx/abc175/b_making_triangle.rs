@@ -1,6 +1,5 @@
 // https://atcoder.jp/contests/abc175/tasks/abc175_b
 
-#[allow(dead_code)]
 pub fn run(n: usize, mut vec: Vec<usize>) -> usize {
     let mut ans = 0;
 
