@@ -2,17 +2,11 @@
 
 use itertools::Itertools;
 
-pub fn run(s: &str, k: usize) -> usize {
-    // 全て同じ文字だった場合
-    if s.chars().all_equal() {
-        return s.len() * k / 2
-    }
-
+fn run_length(s: &str) -> Vec<(char, usize)> {
     let mut i = 0;
     let mut run_lengths = vec![];
     let mut current = (s.chars().nth(0).unwrap(), 0);
 
-    // ランレングス圧縮
     loop {
         while i < s.len() && s.chars().nth(i).unwrap() == current.0 {
             current.1 += 1;
@@ -22,27 +16,36 @@ pub fn run(s: &str, k: usize) -> usize {
         run_lengths.push(current);
 
         if i == s.len() {
-            break;
+            return  run_lengths;
         } else {
             current = (s.chars().nth(i).unwrap(), 0);
         }
     }
+}
+
+pub fn run(s: &str, k: usize) -> usize {
+    // 全て同じ文字だった場合
+    if s.chars().all_equal() {
+        return s.len() * k / 2
+    }
+
+    let rle = run_length(s);
 
     // 最初と最後の文字が違うなら、連続している数 / 2を合計してk倍して返す
     if s.chars().nth(0) != s.chars().last() {
-        run_lengths.iter()
+        rle.iter()
             .map(|(_, num)| num / 2 )
             .sum::<usize>() * k
     } else {
         let mut ans = 0;
 
         // 両端以外を合計する
-        for i in 1..run_lengths.len()-1 {
-            ans += run_lengths[i].1 / 2;
+        for i in 1..rle.len()-1 {
+            ans += rle[i].1 / 2;
         }
 
-        let left = run_lengths[0].1;
-        let right = run_lengths.iter().last().unwrap().1;
+        let left = rle[0].1;
+        let right = rle.iter().last().unwrap().1;
 
         ans * k + (left + right) / 2 * (k - 1) + left/2 + right/2
     }
