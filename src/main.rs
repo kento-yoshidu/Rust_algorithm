@@ -8,5 +8,4 @@ mod yukicoder;
 
 fn main() {
     println!("Hello World");
-    println!("{}", atcoder::abc1xx::abc177::b_substring::run2("cabacc", "abc"));
 }
