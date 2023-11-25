@@ -21,28 +21,23 @@ pub fn run(s: String, t: String) -> usize {
     ans
 }
 
-/*
 pub fn run2(s: &str, t: &str) -> usize {
     let s_vec: Vec<char> = s.chars().collect();
-    let t_vec: Vec<char> = s.chars().collect();
+    let t_vec: Vec<char> = t.chars().collect();
 
     let t_len = t.len();
 
-    (0..=t_len)
-        .for_each(|num| {
-            s_vec[num..t_len+num].iter()
-                .zip(t_vec.iter())
-                .for_each(|t| {
-                    println!("{:?}", t);
+    s_vec.windows(t_len)
+        .map(|a| {
+            a.iter().zip(t_vec.iter())
+                .filter(|t| {
+                    t.0 != t.1
                 })
-                //.count()
-        //})
-        //.min()
-        //.unwrap()
-});
-10
+                .count()
+            })
+            .min()
+            .unwrap()
 }
-*/
 
 #[cfg(test)]
 mod tests {
@@ -54,11 +49,9 @@ mod tests {
         assert_eq!(6, run(String::from("codeforces"), String::from("atcoder")));
     }
 
-    /*
     #[test]
     fn test2() {
         assert_eq!(1, run2("cabacc", "abc"));
         assert_eq!(6, run2("codeforces", "atcoder"));
     }
-    */
 }
