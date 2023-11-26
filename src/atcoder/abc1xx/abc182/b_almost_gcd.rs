@@ -20,6 +20,25 @@ pub fn run(_n: usize, a: Vec<usize>) -> usize {
     ans
 }
 
+/*
+pub fn run2(_n: usize, a: Vec<usize>) -> usize {
+    let max = a.iter().max().unwrap();
+
+    (2..=*max)
+        .map(|num| {
+            a.iter()
+                .filter(|i| {
+                    *i % num == 0
+                })
+                .count()
+        })
+        .max()
+        .unwrap()
+
+    // *vec
+}
+*/
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -30,4 +49,13 @@ mod tests {
         assert_eq!(2, run(5, vec![8, 9, 18, 90, 72]));
         assert_eq!(2, run(5, vec![1000, 1000, 1000, 1000, 1000]));
     }
+
+    /*
+    #[test]
+    fn test2() {
+        assert_eq!(3, run2(3, vec![3, 12, 7]));
+        assert_eq!(2, run2(5, vec![8, 9, 18, 90, 72]));
+        assert_eq!(2, run2(5, vec![1000, 1000, 1000, 1000, 1000]));
+    }
+    */
 }
