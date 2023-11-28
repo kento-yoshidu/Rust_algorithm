@@ -12,6 +12,18 @@ pub fn run(n: usize, k: usize) -> usize {
     ans
 }
 
+pub fn run2(n :usize, k: usize) -> usize {
+    (1..=k)
+        .map(|l|  {
+            (1..=n)
+                .map(|m| {
+                    m * 100 + l
+            })
+            .sum::<usize>()
+        })
+        .sum()
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -20,5 +32,11 @@ mod tests {
     fn test() {
         assert_eq!(203, run(1, 2));
         assert_eq!(1818, run(3, 3));
+    }
+
+    #[test]
+    fn test2() {
+        assert_eq!(203, run2(1, 2));
+        assert_eq!(1818, run2(3, 3));
     }
 }
