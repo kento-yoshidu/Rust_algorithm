@@ -6,7 +6,7 @@ pub fn run(_n: usize, x: usize, vp: Vec<(usize, usize)>) -> isize {
     for (i, (v, p)) in vp.iter().enumerate() {
         current += *v as f64 * (*p as f64 / 100.0);
 
-        if current > x as f64 {
+        if (current > 0.0 && x == 0) || current.round() as usize > x {
             return (i + 1) as isize
         }
     }
@@ -23,5 +23,7 @@ mod tests {
         assert_eq!(2, run(2, 15, vec![(200, 5), (350, 3)]));
         assert_eq!(2, run(2, 10, vec![(200, 5), (350, 3)]));
         assert_eq!(-1, run(3, 1000000, vec![(1000, 100), (1000, 100), (1000, 100)]));
+        assert_eq!(-1, run(1, 7, vec![(25, 28)]));
+        assert_eq!(1, run(1, 0, vec![(1, 1)]));
     }
 }
