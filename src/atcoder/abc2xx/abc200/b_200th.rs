@@ -1,20 +1,47 @@
 // https://atcoder.jp/contests/abc200/tasks/abc200_b
 
-#[allow(unused)]
-pub fn run(input: &str) {
-    let v: Vec<&str> = input.split(' ').collect();
+pub fn run(n: usize, k: usize) -> usize {
+    let mut ans = n.to_string();
 
-    let mut n: i32 = v[0].parse().unwrap();
-    let k: i32 = v[1].parse().unwrap();
+    for _ in 0..k {
+        let num = ans.parse::<usize>().unwrap();
 
-    for i in 1..=k {
-        if n % 200 == 0 {
-            n = n / 200;
+        if num % 200 == 0 {
+            ans = (num / 200).to_string();
         } else {
-            // 整数Nを、Nの後ろに文字列として200 を付け加えた整数に置き換える。
-            // 例えば、 7 を置き換えると 7200 に、 1234 を置き換えると 1234200 になります。
+            ans = ans + "200"
         }
     }
 
-    println!("{}", n);
+    ans.parse().unwrap()
+}
+
+pub fn run2(n: usize, k: usize) -> usize {
+    (0..k)
+        .fold(n, |state, _| {
+            if state % 200 == 0 {
+                state / 200
+            } else {
+                (state.to_string() + "200").parse().unwrap()
+            }
+        })
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test() {
+        assert_eq!(50531, run(2021, 4));
+        assert_eq!(1, run(40000, 2));
+        assert_eq!(84875488281, run(8691, 20));
+    }
+
+    #[test]
+    fn test2() {
+        assert_eq!(50531, run2(2021, 4));
+        assert_eq!(1, run2(40000, 2));
+        assert_eq!(84875488281, run2(8691, 20));
+    }
 }
