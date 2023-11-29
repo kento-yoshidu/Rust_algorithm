@@ -8,5 +8,4 @@ mod yukicoder;
 
 fn main() {
     println!("Hello World");
-    println!("{}", atcoder::abc2xx::abc200::b_200th::run2(2021, 4));
 }
