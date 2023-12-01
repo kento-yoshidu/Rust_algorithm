@@ -5,6 +5,10 @@ fn check(s: &str) -> bool {
 }
 
 fn run(n: usize) -> String {
+	if n == 0 {
+		return String::from("Yes")
+	}
+
 	let mut num = n;
 
 	// numの末尾0を取り除く

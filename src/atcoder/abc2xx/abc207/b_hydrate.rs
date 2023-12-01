@@ -10,6 +10,6 @@ pub fn run(a: usize, b: usize, c: usize, d: usize) -> isize {
     } else if a * d < c {
         return 0
     } else {
-        
+        (0, (b, c), d)
     }
 }
