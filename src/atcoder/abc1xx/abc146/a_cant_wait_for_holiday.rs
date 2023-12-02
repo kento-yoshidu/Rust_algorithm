@@ -3,9 +3,10 @@
 pub fn run(s: &str) -> usize {
     let arr = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
 
-    arr.iter().rev().position(|day| {
-        s == *day
-    }).unwrap() + 1
+    arr.iter()
+        .rev()
+        .position(|day| s == *day)
+        .unwrap() + 1
 }
 
 #[cfg(test)]
