@@ -1,7 +1,7 @@
 // https://atcoder.jp/contests/abc111/tasks/abc111_b
 
 pub fn run(n: u32) -> u32 {
-    for i in n..999 {
+    for i in n..=999 {
         if i/100 == i%100/10 && i/100 == i%10 {
             return i;
         }
