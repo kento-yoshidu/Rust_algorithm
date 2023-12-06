@@ -8,21 +8,20 @@ fn run(n: &str) -> i32 {
     }
 
     for bit in 1..(1 << n.len()) {
-        let mut num = 0;
-        let mut count = 0;
+        let mut num = String::new();
 
         // bit全探索で数値を選び、i32に変換する
         for i in 0..n.len() {
             if bit & (1 << i) != 0 {
-                num += (n.chars().nth(i).unwrap() as i32 - 48) * (10 as f64).powf(i as f64) as i32;
-                count += 1;
+                num.push(n.chars().nth(i).unwrap());
             }
         }
 
-        println!("num={}", num);
+        // 何文字削除したか
+        let delete_count = n.len() - num.len();
 
-        if num % 3 == 0 {
-            ans = ans.min(count);
+        if num.parse::<usize>().unwrap() % 3 == 0 {
+            ans = ans.min(delete_count.try_into().unwrap());
         }
     }
 
@@ -43,6 +42,6 @@ mod tests {
         assert_eq!(0, run("369"));
         assert_eq!(1, run("6227384"));
         assert_eq!(-1, run("11"));
-        // assert_eq!(2, run("641"));
+        assert_eq!(2, run("641"));
     }
 }
