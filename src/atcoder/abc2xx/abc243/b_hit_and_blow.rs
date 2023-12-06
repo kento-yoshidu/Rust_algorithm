@@ -1,6 +1,5 @@
 // https://atcoder.jp/contests/abc243/tasks/abc243_b
 
-#[allow(dead_code)]
 pub fn run(_n: i32, a: Vec<i32>, b: Vec<i32>) -> (i32, i32) {
     let mut count_a = 0;
     let mut count_b = 0;
