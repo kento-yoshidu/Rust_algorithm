@@ -19,6 +19,8 @@ fn run(n: &str) -> i32 {
             }
         }
 
+        println!("num={}", num);
+
         if num % 3 == 0 {
             ans = ans.min(count);
         }
@@ -41,5 +43,6 @@ mod tests {
         assert_eq!(0, run("369"));
         assert_eq!(1, run("6227384"));
         assert_eq!(-1, run("11"));
+        // assert_eq!(2, run("641"));
     }
 }
