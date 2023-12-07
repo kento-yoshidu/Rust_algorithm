@@ -8,6 +8,5 @@ mod yukicoder;
 
 fn main() {
     println!("Hello World");
-    println!("{}", atcoder::abc2xx::abc217::b_atcoder_quiz::run(vec!["ARC", "AGC", "AHC"]));
 }
 
