@@ -16,7 +16,7 @@ pub fn run(n: usize, a: Vec<usize>) -> (usize, Vec<usize>) {
         .map(|i| i+1)
         .collect();
 
-    (ans.len(), ans)
+    (ans.len(), ans )
 }
 
 #[cfg(test)]
