@@ -1,4 +1,5 @@
-#[allow(dead_code)]
+// https://atcoder.jp/contests/abc122/tasks/abc122_a
+
 fn run(c: &str) -> &str {
     match c {
         "A" => "T",

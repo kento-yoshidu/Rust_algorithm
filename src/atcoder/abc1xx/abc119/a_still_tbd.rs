@@ -1,4 +1,5 @@
-#[allow(dead_code)]
+// https://atcoder.jp/contests/abc119/tasks/abc119_b
+
 pub fn run(s: String) -> String {
     let temp: Vec<_> = s.split("/").collect();
 

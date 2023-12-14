@@ -1,4 +1,5 @@
-#[allow(dead_code)]
+// https://atcoder.jp/contests/abc125/tasks/abc125_a
+
 pub fn run(a: usize, b: usize, t: usize) -> usize {
     (t / a) * b
 }

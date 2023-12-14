@@ -5,7 +5,9 @@ pub fn run(n: usize, k: usize, vec: &mut Vec<usize>) -> usize {
 
     (0..=n - k).map(|i| {
         vec[i + k-1] - vec[i]
-    }).min().unwrap()
+    })
+    .min()
+    .unwrap()
 }
 
 #[cfg(test)]
