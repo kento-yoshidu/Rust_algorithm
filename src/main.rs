@@ -8,4 +8,5 @@ mod yukicoder;
 
 fn main() {
     println!("Hello World");
+    println!("{}", atcoder::abc3xx::abc328::b_11_11::run(12, vec![31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]));
 }
