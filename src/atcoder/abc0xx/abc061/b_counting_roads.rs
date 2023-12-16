@@ -5,11 +5,10 @@ use std::collections::HashMap;
 pub fn run(_n: usize, _m: usize, a: Vec<(usize, usize)>) -> Vec<usize> {
     let mut hashmap = HashMap::new();
 
-    a.iter()
-        .for_each(|t| {
-            *hashmap.entry(t.0).or_insert(0) += 1;
-            *hashmap.entry(t.1).or_insert(0) += 1;
-        });
+    for t in a {
+        *hashmap.entry(t.0).or_insert(0) += 1;
+        *hashmap.entry(t.1).or_insert(0) += 1;
+    }
 
     let mut vec: Vec<(&usize, &usize)> = hashmap.iter().collect();
 
