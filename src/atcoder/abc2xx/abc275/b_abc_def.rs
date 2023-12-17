@@ -1,15 +1,14 @@
 // https://atcoder.jp/contests/abc275/tasks/abc275_b
 
-fn run(a: u128, b: u128, c: u128, d: u128, e: u128, f: u128) -> u128 {
+fn run(a: i128, b: i128, c: i128, d: i128, e: i128, f: i128) -> i128 {
     let m = 998244353;
 
     let x = (a % m) * (b % m) * (c % m);
     let y = (d % m) * (e % m) * (f % m);
 
-    x - y
+    (x + m - y) % m
 }
 
-/*
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -22,4 +21,3 @@ mod tests {
         assert_eq!(998244352, run(998244353, 998244353, 998244353, 1, 1, 1));
     }
 }
-*/
