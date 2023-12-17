@@ -3,9 +3,11 @@
 pub fn run(s: &str) -> usize {
     let chars: Vec<char> = s.chars().collect();
 
-    (0..chars.len()/2).filter(|i| {
-        chars[*i] != chars[s.len() - *i - 1]
-    }).count()
+    (0..chars.len()/2)
+        .filter(|i| {
+            chars[*i] != chars[s.len() - *i - 1]
+        })
+        .count()
 }
 
 #[cfg(test)]
