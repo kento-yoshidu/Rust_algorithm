@@ -1,14 +1,14 @@
 // https://atcoder.jp/contests/abc148/tasks/abc148_c
 
-fn gcd(m: i64, n: i64) -> i64 {
+fn gcd(m: usize, n: usize) -> usize {
     if n == 0 {
-        return m;
+        m
+    } else {
+        gcd(n, m % n)
     }
-
-    gcd(n, m % n)
 }
 
-pub fn run(a: i64, b: i64) -> i64 {
+pub fn run(a: usize, b: usize) -> usize {
     a / gcd(a, b) * b
 }
 
