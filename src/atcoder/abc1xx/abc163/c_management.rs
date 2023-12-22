@@ -1,18 +1,10 @@
 // https://atcoder.jp/contests/abc163/tasks/abc163_c
 
 pub fn run(n: usize, aa: Vec<usize>) -> Vec<usize> {
-    let mut ans = Vec::<usize>::new();
+    let mut ans = vec![0; n];
 
-    for i in 1..=n {
-        let mut count = 0;
-
-        for a in aa.iter() {
-            if i == *a {
-                count += 1;
-            }
-        }
-
-        ans.push(count);
+    for i in aa {
+        ans[i-1] += 1;
     }
 
     ans

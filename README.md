@@ -22,7 +22,6 @@ fn main() {
 ## Todo
 
 - abc061 b
-- abc139 c
 - abc147 b
 - abc187 c (TLE)
 - abc221 c
