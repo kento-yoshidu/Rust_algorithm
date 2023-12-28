@@ -18,14 +18,10 @@ pub fn run(_n: u32, t: Vec<Vec<i32>>) -> &'static str {
             return "No"
         }
 
-        println!("dist={}", dist);
-
         if (dist % 2 == 0 && time_dif % 2 == 0) || (dist % 2 != 0 && time_dif % 2 != 0) {
             // 座標を更新
             pos = (a[1], a[2]);
         } else {
-            println!("out");
-            println!("dist={}, time={}", dist, time);
             return "No"
         }
     }
