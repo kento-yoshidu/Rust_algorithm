@@ -7,6 +7,5 @@ mod atcoder;
 mod yukicoder;
 
 fn main() {
-    println!("Hello World");
-    println!("{:?}", atcoder::abc0xx::abc085::c_otoshidama::run(9, 45000));
+    println!("Hello World")
 }
