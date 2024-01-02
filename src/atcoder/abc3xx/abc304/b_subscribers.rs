@@ -7,7 +7,7 @@ pub fn run(n: usize) -> usize {
     if len <= 3 {
         return n;
     } else {
-        len = len - 3;
+        len -= 3;
     }
 
     let tmp = 10_i32.pow(len as u32);
