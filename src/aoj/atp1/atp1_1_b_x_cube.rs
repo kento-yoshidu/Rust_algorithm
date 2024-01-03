@@ -1,4 +1,5 @@
-#[allow(dead_code)]
+// https://onlinejudge.u-aizu.ac.jp/courses/lesson/2/ITP1/1/ITP1_1_B
+
 pub fn run(n: i32) -> i32 {
     n.pow(3)
 }
