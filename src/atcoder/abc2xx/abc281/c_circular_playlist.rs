@@ -1,8 +1,10 @@
 // https://atcoder.jp/contests/abc281/tasks/abc281_c
 
 pub fn run(n: isize, t: isize, vec: Vec<isize>) -> (isize, isize) {
+    let total: isize = vec.iter().sum();
+
     // t分の内、残り時間がどれだけあるか
-    let mut rest = t;
+    let mut rest = t % total;
 
     // 何曲再生されたか
     let mut count = 0;
