@@ -1,9 +1,10 @@
 // https://atcoder.jp/contests/abc188/tasks/abc188_b
 
 pub fn run(_n: usize, a: Vec<isize>, b: Vec<isize>) -> String {
-    let total: isize = a.iter().zip(b.iter()).map(|t| {
-        t.0 * t.1
-    }).sum();
+    let total: isize = a.iter()
+        .zip(b.iter())
+        .map(|t| t.0 * t.1 )
+        .sum();
 
     if total == 0 {
         String::from("Yes")
