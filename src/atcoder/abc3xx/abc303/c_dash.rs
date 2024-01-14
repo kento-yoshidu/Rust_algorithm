@@ -1,7 +1,15 @@
 // https://atcoder.jp/contests/abc303/tasks/abc303_c
 
-pub fn run(_n: usize, _m: usize, h: isize, k: isize, s: &str, sy: Vec<(isize, isize)>) -> &'static str {
+use std::collections::HashSet;
+
+pub fn run(_n: usize, _m: usize, h: isize, k: isize, s: &str, xy: Vec<(isize, isize)>) -> &'static str {
     let mut hp = h;
+
+    let mut vec = HashSet::new();
+
+    for i in xy {
+        vec.insert(i);
+    }
 
     let mut pos: (isize, isize) = (0, 0);
 
@@ -20,8 +28,9 @@ pub fn run(_n: usize, _m: usize, h: isize, k: isize, s: &str, sy: Vec<(isize, is
             return "No"
         }
 
-        if sy.contains(&pos) && hp < k {
+        if vec.contains(&pos) && hp < k {
             hp = k;
+            vec.remove(&pos);
         }
     }
 
