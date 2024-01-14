@@ -1,5 +1,6 @@
 // https://atcoder.jp/contests/abc301/tasks/abc301_b
 
+/*
 pub fn run(n: usize, a: Vec<i32>) -> Vec<i32> {
     let mut ans = vec![0];
 
@@ -25,3 +26,4 @@ pub fn run(n: usize, a: Vec<i32>) -> Vec<i32> {
             }
         })
 }
+*/
