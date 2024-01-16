@@ -19,14 +19,34 @@ pub fn run(_n: usize, _m: usize, a: Vec<(usize, usize)>) -> Vec<usize> {
         .collect()
 }
 
+pub fn run2(n: usize, _m: usize, a: Vec<(usize, usize)>) -> Vec<usize> {
+    let mut ans = vec![0; n];
+
+    for (a, b) in a {
+        ans[a-1] += 1;
+        ans[b-1] += 1;
+    }
+
+    ans
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
 
     #[test]
     fn test() {
+        assert_eq!(vec![1, 1], run(2, 2, vec![(1, 2)]));
         assert_eq!(vec![2, 2, 1, 1], run(4, 3, vec![(1, 2), (2, 3), (1, 4)]));
         assert_eq!(vec![5, 5], run(2, 5, vec![(1, 2), (2, 1), (1, 2), (2, 1), (1, 2)]));
         assert_eq!(vec![3, 3, 2, 2, 2, 1, 1, 2], run(8, 8, vec![(1, 2), (3, 4), (1, 5), (2, 8), (3, 7), (5, 2), (4, 1), (6, 8)]));
+    }
+
+    #[test]
+    fn test2() {
+        assert_eq!(vec![1, 1], run2(2, 2, vec![(1, 2)]));
+        assert_eq!(vec![2, 2, 1, 1], run2(4, 3, vec![(1, 2), (2, 3), (1, 4)]));
+        assert_eq!(vec![5, 5], run2(2, 5, vec![(1, 2), (2, 1), (1, 2), (2, 1), (1, 2)]));
+        assert_eq!(vec![3, 3, 2, 2, 2, 1, 1, 2], run2(8, 8, vec![(1, 2), (3, 4), (1, 5), (2, 8), (3, 7), (5, 2), (4, 1), (6, 8)]));
     }
 }
