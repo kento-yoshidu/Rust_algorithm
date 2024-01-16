@@ -7,11 +7,15 @@ pub fn run(a: i32, b: i32) -> i32 {
 #[cfg(test)]
 mod tests {
     use super::*;
+    use rstest::*;
 
-    #[test]
-    fn test() {
-        assert_eq!(5, run(15, 10));
-        assert_eq!(0, run(0, 0));
-        assert_eq!(-15, run(5, 20));
+    struct TestCase(i32, i32, i32);
+
+    #[rstest]
+    #[case::c_1st(15, 10, 5)]
+    #[case::c_2nd(0, 0, 0)]
+    #[case::c_3rd(5, 20, -15)]
+    fn test(#[case] a: i32, #[case] b: i32, #[case] expected: i32) {
+        assert_eq!(expected, run(a, b));
     }
 }
