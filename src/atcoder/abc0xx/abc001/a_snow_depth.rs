@@ -9,8 +9,6 @@ mod tests {
     use super::*;
     use rstest::*;
 
-    struct TestCase(i32, i32, i32);
-
     #[rstest]
     #[case::c_1st(15, 10, 5)]
     #[case::c_2nd(0, 0, 0)]
