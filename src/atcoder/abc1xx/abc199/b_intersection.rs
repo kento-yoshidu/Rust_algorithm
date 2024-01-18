@@ -6,7 +6,8 @@ pub fn run(_n: usize, a: Vec<usize>, b: Vec<usize>) -> usize {
 
     (*min..=*max)
         .filter(|num| {
-            a.iter().zip(b.iter())
+            a.iter()
+                .zip(b.iter())
                 .all(|(l, r)| {
                     l <= num && num <= r
                 })
