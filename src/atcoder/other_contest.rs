@@ -17,6 +17,7 @@ pub mod m_solutions2019;
 pub mod m_solutions2020;
 pub mod oupc2023_day1;
 pub mod pakencamp2019;
+pub mod panasonic2020;
 pub mod past202206;
 pub mod tenka1_2012_qual_b;
 pub mod tenka1_2017_beginner;
