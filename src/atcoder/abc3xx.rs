@@ -33,3 +33,4 @@ pub mod abc332;
 pub mod abc333;
 pub mod abc334;
 pub mod abc335;
+pub mod abc336;
