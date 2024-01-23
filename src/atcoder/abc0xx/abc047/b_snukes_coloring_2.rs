@@ -2,7 +2,7 @@
 
 use std::cmp::max;
 
-pub fn run(w: i32, h: i32, n: i32, xya: Vec<(i32, i32, i32)>) -> i32 {
+pub fn run(w: i32, h: i32, _n: i32, xya: Vec<(i32, i32, i32)>) -> i32 {
     let mut xt = h;
     let mut xb = 0;
     let mut yl = 0;
