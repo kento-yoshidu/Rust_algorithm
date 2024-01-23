@@ -1,4 +1,5 @@
-#[allow(dead_code)]
+// https://atcoder.jp/contests/abc256/tasks/abc256_b
+
 pub fn run(n: i32, vec: Vec<i32>) -> i32 {
     /* トータルの人数から最後に残っているランナーの人数を引く */
 
