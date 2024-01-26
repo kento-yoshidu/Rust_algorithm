@@ -8,7 +8,5 @@ mod yukicoder;
 
 fn main() {
     println!("Hello World");
-    atcoder::abc2xx::abc223::b_string_shifting::run("abcdefg");
-    atcoder::abc2xx::abc223::b_string_shifting::run("aaba");
 }
 
