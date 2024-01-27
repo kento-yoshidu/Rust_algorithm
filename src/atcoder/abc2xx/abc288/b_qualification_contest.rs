@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc182/tasks/abc182_c
 
-fn run<'a>(n: usize, k: usize, s: Vec<&'a str>) -> Vec<&'a str> {
+fn run<'a>(_n: usize, k: usize, s: Vec<&'a str>) -> Vec<&'a str> {
     let mut vec = s.clone();
 
     vec = vec[0..k].to_vec();
