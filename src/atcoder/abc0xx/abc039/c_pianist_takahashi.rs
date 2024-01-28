@@ -3,16 +3,11 @@
 pub fn run(s: &str) -> &'static str {
     let str = "WBWBWWBWBWBWWBWBWWBWWBWBWWBWBWBWWBWBWWBW";
 
-    let ans = ["Do", "Re", "Mi", "Fa", "So", "La", "Si"];
-    let pos = [0, 2, 4, 5, 7, 9, 11];
+    let ans = ["Do", "", "Re", "", "Mi", "Fa", "", "So", "", "La", "", "Si"];
 
-    for i in 0..=7 {
-        if s == &str[pos[i]..pos[i]+20] {
-            return ans[i];
-        }
-    }
+    let p = str.find(s).unwrap();
 
-    unreachable!();
+    ans[p]
 }
 
 #[cfg(test)]
