@@ -10,7 +10,10 @@ pub fn run(_n: usize, s: Vec<&str>) -> String {
         *count += 1;
     }
 
-    map.iter().max_by(|a, b| a.1.cmp(b.1)).unwrap().0.to_string()
+    map.iter()
+        .max_by(|a, b| a.1.cmp(b.1))
+        .unwrap()
+        .0.to_string()
 }
 
 #[cfg(test)]

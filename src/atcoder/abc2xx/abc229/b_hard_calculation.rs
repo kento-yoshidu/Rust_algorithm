@@ -2,14 +2,12 @@
 
 fn calc(a: usize, b: usize) -> bool {
     if a == 0 || b == 0 {
-        return true
+        true
+    } else if a%10 + b %10 >= 10 {
+        false
+    } else {
+        calc(a/10, b/10)
     }
-
-    if a%10 + b %10 >= 10 {
-        return false
-    }
-
-    calc(a/10, b/10)
 }
 
 pub fn run(a: usize, b: usize) -> String {
