@@ -1,3 +1,5 @@
+// https://atcoder.jp/contests/abc028/tasks/abc028_a
+
 pub fn run(n: usize) -> String {
     if n == 100 {
         String::from("Perfect")

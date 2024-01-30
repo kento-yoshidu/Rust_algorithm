@@ -4,19 +4,16 @@ pub fn run(s: &str) -> usize {
     let chars: Vec<char> = s.chars().collect();
 
     chars.iter()
-        .skip(1)
-        .fold(vec![chars[0]], |mut state, c| {
-            state.push(*c);
+        .fold(Vec::new(), |mut stack, c| {
+            stack.push(*c);
 
-            let len = state.len();
+            let len = stack.len();
 
-            if len <= 1 {
-                state
-            } else if state[len-2] == 'S' && state[len-1] == 'T' {
-                state.truncate(len-2);
-                state
+            if len >= 2 && stack[len-2] == 'S' && stack[len-1] == 'T' {
+                stack.truncate(len-2);
+                stack
             } else {
-                state
+                stack
             }
         })
         .iter()

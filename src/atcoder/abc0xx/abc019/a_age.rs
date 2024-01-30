@@ -3,18 +3,25 @@
 use itertools::Itertools;
 
 pub fn run(a: usize, b: usize, c: usize) -> usize {
-    *vec![a, b, c].iter().sorted().skip(1).next().unwrap()
+    *vec![a, b, c]
+        .iter()
+        .sorted()
+        .skip(1)
+        .next()
+        .unwrap()
 }
 
 #[cfg(test)]
 mod tests {
     use super::*;
+    use rstest::*;
 
-    #[test]
-    fn test() {
-        assert_eq!(3, run(2, 3, 4));
-        assert_eq!(5, run(5, 100, 5));
-        assert_eq!(3, run(3, 3, 3));
-        assert_eq!(3, run(3, 3, 4));
+    #[rstest]
+    #[case(2, 3, 4, 3)]
+    #[case(5, 100, 5, 5)]
+    #[case(3, 3, 3, 3)]
+    #[case(3, 3, 4, 3)]
+    fn test(#[case] a: usize, #[case] b: usize, #[case] c: usize, #[case] expected: usize) {
+        assert_eq!(expected, run(a, b, c));
     }
 }

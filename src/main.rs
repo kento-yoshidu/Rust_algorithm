@@ -1,5 +1,5 @@
 #![allow(dead_code)]
-// mod aoj;
+mod aoj;
 mod atcoder;
 mod basic;
 // mod nlp_100_knock;

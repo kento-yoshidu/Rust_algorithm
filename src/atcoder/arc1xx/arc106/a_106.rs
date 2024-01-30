@@ -28,6 +28,18 @@ pub fn run(n: i64) -> (i64, i64) {
     (-1, -1)
 }
 
+fn run2(n: usize) -> String {
+    for i in 1..=37 {
+        for j in 1..=25 {
+            if 3_usize.pow(i) + 5_usize.pow(j) == n {
+                return format!("{} {}", i, j);
+            }
+        }
+    }
+
+    String::from("-1")
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -37,5 +49,12 @@ mod tests {
         assert_eq!((4, 2), run(106));
         assert_eq!((-1, -1), run(1024));
         assert_eq!((21, 1), run(10460353208));
+    }
+
+    #[test]
+    fn test2() {
+        assert_eq!(String::from("4 2"), run2(106));
+        assert_eq!(String::from("-1"), run2(1024));
+        assert_eq!(String::from("21 1"), run2(10460353208));
     }
 }

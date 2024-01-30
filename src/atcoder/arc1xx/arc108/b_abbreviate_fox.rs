@@ -4,16 +4,16 @@ pub fn run(_n: usize, s: &str) -> usize {
     let chars: Vec<char> = s.chars().collect();
 
     chars.iter()
-        .fold(vec!['x', 'x'], |mut state, c| {
-            state.push(*c);
+        .fold(Vec::new(), |mut stack, c| {
+            stack.push(*c);
 
-            if state[state.len()-3..] == ['f', 'o', 'x'] {
-                state.truncate(state.len()-3);
+            if stack.len() >= 3 && stack[stack.len()-3..] == ['f', 'o', 'x'] {
+                stack.truncate(stack.len()-3);
             }
 
-            state
+            stack
         })
-        .len() - 2
+        .len()
 }
 
 #[cfg(test)]

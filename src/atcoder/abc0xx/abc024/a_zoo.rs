@@ -1,6 +1,6 @@
 pub fn run(a: usize, b: usize, c: usize, k: usize, s: usize, t: usize) -> usize {
     if s + t >= k {
-        return (a*s + b*t) - c*(s+t);
+        (a*s + b*t) - c*(s+t)
     } else {
         a*s + b*t
     }

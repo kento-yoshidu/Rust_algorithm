@@ -35,6 +35,7 @@ mod tests {
     fn test() {
         assert_eq!(8, run(6, 5, vec![4, 7, 10, 6, 5]));
         assert_eq!(9, run(10, 5, vec![4, 7, 10, 6, 5]));
+        assert_eq!(6, run(6, 4, vec![4, 7, 10, 5]));
     }
 
     #[test]

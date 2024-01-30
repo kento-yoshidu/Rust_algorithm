@@ -2,11 +2,12 @@
 
 pub fn run(_n: usize, _m: usize, s: Vec<&str>, t: Vec<&str>) -> Vec<String> {
     s.iter()
-        .map(|station| {
-            if t.contains(station) {
-                String::from("Yes")
+        .scan(0, |i, station| {
+            if station == &t[*i] {
+                *i += 1;
+                Some(String::from("Yes"))
             } else {
-                String::from("No")
+                Some(String::from("No"))
             }
         })
         .collect()
