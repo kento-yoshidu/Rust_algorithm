@@ -1,3 +1,5 @@
+// https://atcoder.jp/contests/abc032/tasks/abc032_a
+
 pub fn run(a: usize, b: usize, n: usize) -> usize {
     (n..).find(|i| {
         *i % a == 0 && *i % b == 0
@@ -8,10 +10,18 @@ pub fn run(a: usize, b: usize, n: usize) -> usize {
 mod tests {
     use super::*;
 
+    struct TestCase(usize, usize, usize, usize);
+
     #[test]
     fn test() {
-        assert_eq!(12, run(2, 3, 8));
-        assert_eq!(2, run(2, 2, 2));
-        assert_eq!(48, run(12, 8, 25));
+        let tests = [
+            TestCase(2, 3, 8, 12),
+            TestCase(2, 2, 2, 2),
+            TestCase(12, 8, 25, 48),
+        ];
+
+        for TestCase(a, b, n, expected) in tests {
+            assert_eq!(run(a, b, n), expected);
+        }
     }
 }
