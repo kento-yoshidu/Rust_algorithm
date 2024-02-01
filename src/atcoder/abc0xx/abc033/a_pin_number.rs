@@ -1,4 +1,6 @@
-pub fn run(n: String) -> String {
+// https://atcoder.jp/contests/abc033/tasks/abc033_a
+
+pub fn run(n: &str) -> String {
     let chars: Vec<char> = n.chars().collect();
 
     if chars[0] == chars[1] && chars[2] == chars[3] && chars[0] == chars[3] {
@@ -8,7 +10,7 @@ pub fn run(n: String) -> String {
     }
 }
 
-pub fn run2(n: String) -> String {
+pub fn run2(n: &str) -> String {
     use std::collections::HashSet;
 
     let map: HashSet<char> = n.chars().collect();
@@ -20,7 +22,7 @@ pub fn run2(n: String) -> String {
     }
 }
 
-pub fn run3(n: String) -> String {
+pub fn run3(n: &str) -> String {
     let mut vec: Vec<char> = n.chars().collect();
 
     vec.dedup();
@@ -36,24 +38,20 @@ pub fn run3(n: String) -> String {
 mod tests {
     use super::*;
 
+    struct TestCase(&'static str, &'static str);
+
     #[test]
     fn test() {
-        assert_eq!(String::from("SAME"), run(String::from("2222")));
-        assert_eq!(String::from("DIFFERENT"), run(String::from("1221")));
-        assert_eq!(String::from("SAME"), run(String::from("0000")));
-    }
+        let tests = [
+            TestCase("2222", "SAME"),
+            TestCase("1221", "DIFFERENT"),
+            TestCase("0000", "SAME"),
+        ];
 
-    #[test]
-    fn test2() {
-        assert_eq!(String::from("SAME"), run2(String::from("2222")));
-        assert_eq!(String::from("DIFFERENT"), run2(String::from("1221")));
-        assert_eq!(String::from("SAME"), run2(String::from("0000")));
-    }
-
-    #[test]
-    fn test3() {
-        assert_eq!(String::from("SAME"), run3(String::from("2222")));
-        assert_eq!(String::from("DIFFERENT"), run3(String::from("1221")));
-        assert_eq!(String::from("SAME"), run3(String::from("0000")));
+        for TestCase(n, expected) in tests {
+            assert_eq!(run(n), expected);
+            assert_eq!(run2(n), expected);
+            assert_eq!(run3(n), expected);
+        }
     }
 }
