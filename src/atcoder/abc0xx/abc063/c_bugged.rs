@@ -7,13 +7,21 @@ pub fn run(_n: usize, s: Vec<usize>) -> usize {
         }
 
     let sum = s.iter().sum();
-    let min = s.iter().min().unwrap();
 
-    if sum % 10 == 0 {
-        sum - min
-    } else {
-        sum
+    if sum % 10 != 0 {
+        return sum
     }
+
+    let mut vec = s.clone();
+    vec.sort();
+
+    for i in vec {
+        if (sum - i) % 10 != 0 {
+            return sum - i
+        }
+    }
+
+    unreachable!();
 }
 
 #[cfg(test)]
