@@ -3,6 +3,7 @@ pub mod code_formula_2014_quala;
 pub mod code_festival_2016_qualb;
 pub mod hhkb2020;
 pub mod hitachi2020;
+pub mod kupc2017;
 pub mod joi2006yo;
 pub mod joi2007ho;
 pub mod joi2014yo;
