@@ -1,13 +1,9 @@
 // https://atcoder.jp/contests/abc040/tasks/abc040_a
 
-pub fn run(n: i32, x: i32) -> i32 {
-    let rest = n - x;
+use std::cmp::min;
 
-    if rest > 2 {
-        x - 1
-    } else {
-        n - x
-    }
+pub fn run(n: i32, x: i32) -> i32 {
+    min(n - x, x - 1)
 }
 
 #[cfg(test)]
