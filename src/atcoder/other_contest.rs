@@ -1,4 +1,5 @@
 pub mod bcu30;
+pub mod bcu30_2018_qual;
 pub mod code_formula_2014_quala;
 pub mod code_festival_2016_qualb;
 pub mod hhkb2020;
