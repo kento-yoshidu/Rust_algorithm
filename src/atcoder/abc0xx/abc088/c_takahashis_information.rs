@@ -1,20 +1,15 @@
 // https://atcoder.jp/contests/abc088/tasks/abc088_c
 
 pub fn run(c: Vec<Vec<isize>>) -> &'static str {
-    for a1 in 0..100 {
-        for a2 in 0..100 {
-            for a3 in 0..100 {
-                if (c[0][0] - a1 == c[0][1] - a2 && c[0][1] - a2 == c[0][2] - a3) &&
-                    (c[1][0] - a1 == c[1][1] - a2 && c[1][1] - a2 == c[1][2] - a3) &&
-                    (c[2][0] - a1 == c[2][1] - a2 && c[2][1] - a2 == c[2][2] - a3)
-                {
-                    return "Yes"
-                }
-            }
-        }
-    }
+    let s1 = c[0][0] + c[1][1] + c[2][2];
+    let s2 = c[0][1] + c[1][2] + c[2][0];
+    let s3 = c[0][2] + c[1][0] + c[2][1];
 
-    "No"
+    if s1 == s2 && s2 == s3 && s3 == s1 {
+        "Yes"
+    } else {
+        "No"
+    }
 }
 
 #[cfg(test)]
