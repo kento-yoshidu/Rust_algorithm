@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc042/tasks/abc042_a
 
-pub fn run(a: i32, b: i32, c: i32) -> String {
+pub fn run(a: usize, b: usize, c: usize) -> String {
     let vec = vec![a, b, c];
 
     let mut five = 0;
@@ -21,13 +21,42 @@ pub fn run(a: i32, b: i32, c: i32) -> String {
     }
 }
 
+pub fn run2(a: usize, b: usize, c: usize) -> &'static str {
+    if a * b * c == 5 * 7 * 5 {
+        "YES"
+    } else {
+        "NO"
+    }
+}
+
+pub fn run3(a: usize, b: usize, c: usize) -> &'static str {
+    let mut vec = vec![a, b, c];
+    vec.sort();
+
+    if vec == [5, 5, 7] {
+        "YES"
+    } else {
+        "NO"
+    }
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
 
+    struct TestCase(usize, usize, usize, &'static str);
+
     #[test]
     fn test() {
-        assert_eq!(String::from("YES"), run(5, 5, 7));
-        assert_eq!(String::from("NO"), run(7, 7, 5));
+        let tests = [
+            TestCase(5, 5, 7, "YES"),
+            TestCase(7, 7, 5, "NO"),
+        ];
+
+        for TestCase(a, b, c, expected) in tests {
+            assert_eq!(run(a, b, c), expected);
+            assert_eq!(run2(a, b, c), expected);
+            assert_eq!(run3(a, b, c), expected);
+        }
     }
 }
