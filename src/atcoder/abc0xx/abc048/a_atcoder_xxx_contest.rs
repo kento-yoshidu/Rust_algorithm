@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc048/tasks/abc048_a
 
-pub fn run(a: String, b: String, c: String) -> String {
+pub fn run(a: &str, b: &str, c: &str) -> String {
     let vec = vec![a, b, c];
 
     let mut ans = String::new();
@@ -22,21 +22,28 @@ pub fn run2(a: &str, b: &str, c: &str) -> String {
         .collect()
 }
 
+pub fn run3(_a: &str, b: &str, _c: &str) -> String {
+    format!("A{}C", b.chars().nth(0).unwrap())
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
 
-    #[test]
-    fn test() {
-        assert_eq!(String::from("ABC"), run(String::from("AtCoder"), String::from("Beginner"), String::from("Contest")));
-        assert_eq!(String::from("ASC"), run(String::from("AtCoder"), String::from("Snuke"), String::from("Contest")));
-        assert_eq!(String::from("AXC"), run(String::from("AtCoder"), String::from("X"), String::from("Contest")));
-    }
+    struct TestCase(&'static str, &'static str, &'static str, &'static str);
 
     #[test]
-    fn test2() {
-        assert_eq!(String::from("ABC"), run2("AtCoder", "Beginner", "Contest"));
-        assert_eq!(String::from("ASC"), run2("AtCoder", "Snuke", "Contest"));
-        assert_eq!(String::from("AXC"), run2("AtCoder", "X", "Contest"));
+    fn test() {
+        let tests = [
+            TestCase("AtCoder", "Beginner", "Contest", "ABC"),
+            TestCase("AtCoder", "Snuke", "Contest", "ASC"),
+            TestCase("AtCoder", "X", "Contest", "AXC"),
+        ];
+
+        for TestCase(a, b, c, expected) in tests {
+            assert_eq!(run(a, b, c), expected);
+            assert_eq!(run2(a, b, c), expected);
+            assert_eq!(run3(a, b, c), expected);
+        }
     }
 }
