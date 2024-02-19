@@ -2,14 +2,14 @@
 
 pub fn run(n: i32, k: i32, x: i32, y: i32) -> i32 {
     let first =
-        if n < k {
+        if n <= k {
             n * x
         } else {
             k * x
         };
 
     let second =
-        if n < k {
+        if n <= k {
             0
         } else {
             (n - k) * y
@@ -19,7 +19,7 @@ pub fn run(n: i32, k: i32, x: i32, y: i32) -> i32 {
 }
 
 pub fn run2(n: i32, k: i32, x: i32, y: i32) -> i32 {
-    if n < k {
+    if n <= k {
         n * x
     } else {
         (k * x) + ((n - k) * y)
