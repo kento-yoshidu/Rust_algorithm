@@ -1,9 +1,7 @@
 // https://atcoder.jp/contests/abc052/tasks/abc052_a
 
-pub fn run(a: i32, b: i32, c: i32, d: i32) -> i32 {
-    if a*b == c*d {
-        a*b
-    } else if a*b > c*d {
+pub fn run(a: usize, b: usize, c: usize, d: usize) -> usize {
+    if a*b >= c*d {
         a*b
     } else {
         c*d
@@ -14,9 +12,17 @@ pub fn run(a: i32, b: i32, c: i32, d: i32) -> i32 {
 mod tests {
     use super::*;
 
+    struct TestCase(usize, usize, usize, usize, usize);
+
     #[test]
     fn test() {
-        assert_eq!(15, run(3, 5, 2, 7));
-        assert_eq!(60000, run(100, 600, 200, 300));
+        let tests = [
+            TestCase(3, 5, 2, 7, 15),
+            TestCase(100, 600, 200, 300, 60000),
+        ];
+
+        for TestCase(a, b, c, d, expected) in tests {
+            assert_eq!(run(a, b, c, d), expected);
+        }
     }
 }

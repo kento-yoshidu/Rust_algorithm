@@ -1,4 +1,3 @@
-/*
 // https://atcoder.jp/contests/abc294/tasks/abc294_c
 
 use itertools::Itertools;
@@ -39,4 +38,3 @@ mod tests {
         assert_eq!(vec![vec![1, 2, 5, 9, 11, 12, 15, 20], vec![3, 4, 6, 7, 8, 10, 13, 14, 16, 17, 18, 19]], run(8, 12, vec![3, 4, 10, 15, 17, 18, 22, 30], vec![5, 7, 11, 13, 14, 16, 19, 21, 23, 24, 27, 28]));
     }
 }
-*/
