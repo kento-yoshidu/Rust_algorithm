@@ -2,11 +2,10 @@
 
 use std::collections::HashSet;
 
-#[allow(dead_code)]
-pub fn run(a: i32, b: i32, c: i32) -> usize {
+pub fn run(a: usize, b: usize, c: usize) -> usize {
     let vec = vec![a, b, c];
 
-    let u: HashSet<i32> = vec.into_iter().collect();
+    let u: HashSet<usize> = vec.into_iter().collect();
 
     u.len()
 }
@@ -15,9 +14,17 @@ pub fn run(a: i32, b: i32, c: i32) -> usize {
 mod tests {
     use super::*;
 
+    struct TestCase(usize, usize, usize, usize);
+
     #[test]
     fn test() {
-        assert_eq!(3, run(3, 1, 4));
-        assert_eq!(2, run(3, 3, 33));
+        let tests = [
+            TestCase(3, 1, 2, 3),
+            TestCase(3, 3, 33, 2),
+        ];
+
+        for TestCase(a, b, c, expected) in tests {
+            assert_eq!(run(a, b, c), expected);
+        }
     }
 }
