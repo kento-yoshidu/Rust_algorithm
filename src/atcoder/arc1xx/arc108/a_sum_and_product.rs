@@ -1,26 +1,36 @@
 // https://atcoder.jp/contests/arc108/tasks/arc108_a
 
-pub fn run(s: usize, p: usize) -> String {
+fn run(s: usize, p: usize) -> &'static str {
     for i in 1..=p {
         if i*i > p {
             break;
         }
 
         if p % i == 0 && i + p/i == s {
-            return String::from("Yes");
+            return "Yes"
         }
     }
 
-    return String::from("No");
+    "No"
 }
 
 #[cfg(test)]
 mod tests {
     use super::*;
 
+    struct TestCase(usize, usize, &'static str);
+
     #[test]
     fn test() {
-        assert_eq!(String::from("Yes"), run(3, 2));
-        assert_eq!(String::from("No"), run(1000000000000, 1));
+        let tests = [
+            TestCase(3, 2, "Yes"),
+            TestCase(1000000000000, 1, "No"),
+            TestCase(3, 2, "Yes"),
+            TestCase(2, 1, "Yes"),
+        ];
+
+        for TestCase(s, p, expected) in tests {
+            assert_eq!(run(s, p), expected);
+        }
     }
 }

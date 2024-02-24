@@ -1,23 +1,22 @@
 // https://atcoder.jp/contests/abc054/tasks/abc054_a
 
-#[allow(dead_code)]
-pub fn run(a: i32, b: i32) -> String {
+pub fn run(a: usize, b: usize) -> &'static str {
     if a == b {
-        return String::from("Draw");
+        return "Draw";
     }
 
     if a == 1 {
-        return String::from("Alice");
+        return "Alice";
     }
 
     if b == 1 {
-        return String::from("Bob");
+        return "Bob";
     }
 
     if a > b {
-        return String::from("Alice");
+        "Alice"
     } else {
-        return String::from("Bob");
+        "Bob"
     }
 }
 
@@ -25,10 +24,18 @@ pub fn run(a: i32, b: i32) -> String {
 mod tests {
     use super::*;
 
+    struct TestCase(usize, usize, &'static str);
+
     #[test]
     fn test() {
-        assert_eq!(String::from("Alice"), run(8, 6));
-        assert_eq!(String::from("Draw"), run(1, 1));
-        assert_eq!(String::from("Bob"), run(13, 1));
+        let tests = [
+            TestCase(8, 6, "Alice"),
+            TestCase(1, 1, "Draw"),
+            TestCase(13, 1, "Bob"),
+        ];
+
+        for TestCase(a, b, expected) in tests {
+            assert_eq!(run(a, b), expected);
+        }
     }
 }
