@@ -1,15 +1,14 @@
 // https://atcoder.jp/contests/abc056/tasks/abc056_a
 
-#[allow(dead_code)]
-pub fn run(a: &str, b: &str) -> String {
+pub fn run<'a>(a: &'a str, b: &'a str) -> &'a str {
     if a == "H" {
-        return b.to_string()
+        return b;
     }
 
     if b == "H" {
-        "D".to_string()
+        "D"
     } else {
-        "H".to_string()
+        "H"
     }
 }
 
@@ -19,8 +18,8 @@ mod tests {
 
     #[test]
     fn test() {
-        assert_eq!(String::from("H"), run("H", "H"));
-        assert_eq!(String::from("D"), run("D", "H"));
-        assert_eq!(String::from("H"), run("D", "D"));
+        assert_eq!("H", run("H", "H"));
+        assert_eq!("D", run("D", "H"));
+        assert_eq!("H", run("D", "D"));
     }
 }
