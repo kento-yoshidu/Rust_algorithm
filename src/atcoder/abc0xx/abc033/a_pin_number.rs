@@ -1,36 +1,44 @@
 // https://atcoder.jp/contests/abc033/tasks/abc033_a
 
-pub fn run(n: &str) -> String {
+pub fn run(n: &str) -> &'static str {
     let chars: Vec<char> = n.chars().collect();
 
     if chars[0] == chars[1] && chars[2] == chars[3] && chars[0] == chars[3] {
-        String::from("SAME")
+        "SAME"
     } else {
-        String::from("DIFFERENT")
+        "DIFFERENT"
     }
 }
 
-pub fn run2(n: &str) -> String {
+pub fn run2(n: &str) -> &'static str {
     use std::collections::HashSet;
 
     let map: HashSet<char> = n.chars().collect();
 
     if map.len() == 1 {
-        String::from("SAME")
+        "SAME"
     } else {
-        String::from("DIFFERENT")
+        "DIFFERENT"
     }
 }
 
-pub fn run3(n: &str) -> String {
+pub fn run3(n: &str) -> &'static str {
     let mut vec: Vec<char> = n.chars().collect();
 
     vec.dedup();
 
     if vec.len() == 1 {
-        String::from("SAME")
+        "SAME"
     } else {
-        String::from("DIFFERENT")
+        "DIFFERENT"
+    }
+}
+
+pub fn run4(n: usize) -> &'static str {
+    if n % 1111 == 0 {
+        "SAME"
+    } else {
+        "DIFFERENT"
     }
 }
 
