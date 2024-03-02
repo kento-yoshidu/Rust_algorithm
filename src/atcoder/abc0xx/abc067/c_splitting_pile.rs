@@ -1,14 +1,14 @@
 // https://atcoder.jp/contests/abc067/tasks/arc078_a
 
-fn run(_n: usize, a: Vec<isize>) -> isize {
+fn run(n: usize, a: Vec<isize>) -> isize {
     let mut ans = std::isize::MAX;
 
     let mut l = 0;
     let mut r = a.iter().sum::<isize>();
 
-    for num in a.iter() {
-        l += num;
-        r -= num;
+    for i in 0..n-1 {
+        l += a[i];
+        r -= a[i];
 
         ans = ans.min((l-r).abs());
     }
@@ -26,7 +26,7 @@ mod tests {
     fn test() {
         let tests = [
             TestCase(6, vec![1, 2, 3, 4, 5, 6], 1),
-            TestCase(2, vec![20, -20], 0),
+            TestCase(2, vec![10, -10], 20),
         ];
 
         for TestCase(n, a, expected) in tests {
