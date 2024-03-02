@@ -1,19 +1,23 @@
 // https://atcoder.jp/contests/abc154/tasks/abc154_d
 
 pub fn run(n: usize, k: usize, p: Vec<usize>) -> f64 {
-    let mut ans: f64 = 0.0;
+    let mut sum = 0;
 
-    for i in 0..=n-k {
-        let mut sum = 0.0;
-
-        for j in 0..k {
-            sum += ((p[i+j] + 1) as f64) / 2.0;
-        }
-
-        ans = ans.max(sum);
+    for i in 0..k {
+        sum += p[i];
     }
 
-    ans
+    let mut ans = sum;
+
+    for i in k..n {
+        sum -= p[i-k];
+        sum += p[i];
+
+        ans = ans.max(sum);
+
+    }
+
+    (ans + k) as f64 / 2.0
 }
 
 #[cfg(test)]

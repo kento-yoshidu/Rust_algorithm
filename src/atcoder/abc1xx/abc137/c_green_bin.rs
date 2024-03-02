@@ -3,7 +3,7 @@
 use itertools::Itertools;
 
 pub fn run(n: usize, s: Vec<&str>) -> usize {
-    let vec: Vec<String> = s.iter()
+    let mut vec: Vec<String> = s.iter()
         .map(|str| {
             str.chars()
                 .collect::<Vec<char>>()
@@ -13,19 +13,26 @@ pub fn run(n: usize, s: Vec<&str>) -> usize {
         })
         .collect();
 
-    let mut ans = 0;
+    vec.sort();
+    vec.dedup();
 
-    for i in 0..n {
-        for j in i+1..n {
+    println!("{:?}", vec);
+    let ans = n - vec.len();
+
+    /*
+    for i in 0..vec.len() {
+        for j in i+1..vec.len() {
             if vec[i] == vec[j] {
                 ans += 1;
             }
         }
     }
+    */
 
-    ans
+    ans * (ans - 1) / 2
 }
 
+/*
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -46,3 +53,4 @@ mod tests {
         }
     }
 }
+*/

@@ -9,3 +9,4 @@ mod yukicoder;
 fn main() {
     println!("Hello World");
 }
+
