@@ -1,5 +1,6 @@
 pub mod abl;
 pub mod aising2019;
+pub mod aising2020;
 pub mod bcu30;
 pub mod bcu30_2018_qual;
 pub mod caddi2018b;
