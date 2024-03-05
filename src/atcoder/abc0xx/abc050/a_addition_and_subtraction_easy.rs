@@ -8,7 +8,8 @@ fn run(s: String) -> isize {
 
 	match chars[1] {
 		"+" => left + right,
-		_ => left - right,
+		"-" => left - right,
+		_ => unreachable!(),
 	}
 }
 
