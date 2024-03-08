@@ -8,6 +8,7 @@ pub fn run(h: usize, w: usize, vec: Vec<&str>) -> usize {
         .map(|m| m.chars().collect())
         .collect::<Vec<Vec<char>>>();
 
+    // 横方向
     for i in 0..w-1 {
         for v in map.iter() {
             if v[i] == '.' && v[i+1] == '.' {
@@ -16,6 +17,7 @@ pub fn run(h: usize, w: usize, vec: Vec<&str>) -> usize {
         }
     }
 
+    // 縦方向
     for i in 0..h-1 {
         for j in 0..w {
             if map[i][j] == '.' && map[i+1][j] == '.' {
