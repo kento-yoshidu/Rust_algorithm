@@ -1,30 +1,25 @@
 // https://atcoder.jp/contests/abc089/tasks/abc089_c
 
-fn run(_n: usize, pcf: Vec<&str>) -> usize {
-    let mut vec: Vec<&&str> = pcf.iter()
-        .filter(|str| {
-            let c = str.chars().nth(0).unwrap();
+use itertools::Itertools;
 
-            c == 'M' || c == 'A' || c == 'R' || c == 'C' || c == 'H'
-        })
-        .collect();
+fn run(_n: usize, s: Vec<&str>) -> usize {
+    let mut vec = vec![0; 5];
 
-    vec.sort();
+    for c in s {
+        match c.chars().nth(0).unwrap() {
+            'M' => vec[0] += 1,
+            'A' => vec[1] += 1,
+            'R' => vec[2] += 1,
+            'C' => vec[3] += 1,
+            'H' => vec[4] += 1,
+            _ => (),
+        }
+    }
 
     let mut ans = 0;
 
-    for i in 0..vec.len() {
-        for j in i+1..vec.len() {
-            for k in j+1..vec.len() {
-                let a = vec[i].chars().nth(0).unwrap();
-                let b = vec[j].chars().nth(0).unwrap();
-                let c = vec[k].chars().nth(0).unwrap();
-
-                if a != b && b != c {
-                    ans += 1;
-                }
-            }
-        }
+    for (a, b, c) in (0..5).tuple_combinations() {
+        ans += vec[a] * vec[b] * vec[c];
     }
 
     ans
