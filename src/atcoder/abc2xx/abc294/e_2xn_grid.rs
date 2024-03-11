@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc294/tasks/abc294_e
 
-pub fn run(l: usize, n1: usize, n2: usize, vl1: Vec<(usize, usize)>, vl2: Vec<(usize, usize)>) -> usize {
+pub fn run(_l: usize, n1: usize, n2: usize, vl1: Vec<(usize, usize)>, vl2: Vec<(usize, usize)>) -> usize {
     let mut ans = 0;
 
     let mut c1_index = 0;
