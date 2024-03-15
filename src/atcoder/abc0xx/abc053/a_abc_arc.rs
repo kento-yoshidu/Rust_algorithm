@@ -1,10 +1,10 @@
 // https://atcoder.jp/contests/abc053/tasks/abc053_a
 
-pub fn run(x: i32) -> String {
+pub fn run(x: usize) -> &'static str {
     if x < 1200 {
-        String::from("ABC")
+        "ABC"
     } else {
-        String::from("ARC")
+        "ARC"
     }
 }
 
@@ -12,9 +12,17 @@ pub fn run(x: i32) -> String {
 mod tests {
     use super::*;
 
+    struct TestCase(usize, &'static str);
+
     #[test]
     fn test() {
-        assert_eq!(String::from("ABC"), run(1000));
-        assert_eq!(String::from("ARC"), run(2000));
+        let tests = [
+            TestCase(1000, "ABC"),
+            TestCase(2000, "ARC"),
+        ];
+
+        for TestCase(x, expected) in tests {
+            assert_eq!(run(x), expected);
+        }
     }
 }
