@@ -2,6 +2,7 @@ pub mod arc001;
 pub mod arc002;
 pub mod arc003;
 pub mod arc004;
+pub mod arc005;
 pub mod arc007;
 pub mod arc014;
 pub mod arc025;
