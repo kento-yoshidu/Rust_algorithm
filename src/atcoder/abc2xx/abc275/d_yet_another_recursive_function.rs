@@ -79,3 +79,32 @@ mod tests {
         }
     }
 }
+
+/*
+// use proconio::input;
+use std::collections::HashMap;
+
+fn calc(n: usize, h: &mut HashMap<usize, usize>) -> usize {
+    if n == 0 {
+        return 1;
+    }
+
+    if let Some(x) = h.get(&n) {
+        return *x;
+    }
+
+    let num = calc(n/2, h) + calc(n/3, h);
+    h.entry(n).or_insert(num);
+
+    return num;
+}
+
+fn main() {
+    input! {
+        n: usize,
+    }
+
+    let mut hash_map: HashMap<usize, usize> = HashMap::new();
+    println!("{}", calc(n, &mut hash_map));
+}
+*/
