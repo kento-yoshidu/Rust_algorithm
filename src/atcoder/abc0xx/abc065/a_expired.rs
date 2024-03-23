@@ -1,16 +1,16 @@
 // https://atcoder.jp/contests/abc065/tasks/abc065_a
 
-pub fn run(x: i32, a: i32, b: i32) -> String {
-    if a > b {
-        return String::from("delicious");
+pub fn run(x: i32, a: i32, b: i32) -> &'static str {
+    if a >= b {
+        return "delicious";
     }
 
     let expire = b - a;
 
     if x >= expire {
-        return String::from("safe");
+        "safe"
     } else {
-        return String::from("dangerous")
+        "dangerous"
     }
 }
 
@@ -18,10 +18,18 @@ pub fn run(x: i32, a: i32, b: i32) -> String {
 mod tests {
     use super::*;
 
+    struct TestCase(i32, i32, i32, &'static str);
+
     #[test]
     fn test() {
-        assert_eq!(String::from("safe"), run(4, 3, 6));
-        assert_eq!(String::from("delicious"), run(6, 5, 1));
-        assert_eq!(String::from("dangerous"), run(3, 7, 12));
+        let tests = [
+            TestCase(4, 3, 6, "safe"),
+            TestCase(6, 5, 1, "delicious"),
+            TestCase(3, 7, 12, "dangerous"),
+        ];
+
+        for TestCase(x, a, b, expected) in tests {
+            assert_eq!(run(x, a, b), expected);
+        }
     }
 }
