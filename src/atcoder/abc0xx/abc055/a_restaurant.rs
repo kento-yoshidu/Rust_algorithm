@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc055/tasks/abc055_a
 
-pub fn run(n: i32) -> i32 {
+pub fn run(n: usize) -> usize {
     let pay = n * 800;
     let back = (n / 15) * 200;
 
@@ -11,9 +11,17 @@ pub fn run(n: i32) -> i32 {
 mod tests {
     use super::*;
 
+    struct TestCase(usize, usize);
+
     #[test]
     fn test() {
-        assert_eq!(15800, run(20));
-        assert_eq!(47200, run(60));
+        let tests = [
+            TestCase(20, 15800),
+            TestCase(60, 47200),
+        ];
+
+        for TestCase(n, expected) in tests {
+            assert_eq!(run(n), expected);
+        }
     }
 }
