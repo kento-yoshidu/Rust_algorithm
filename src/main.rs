@@ -8,5 +8,6 @@ mod yukicoder;
 
 fn main() {
     println!("Hello World");
+    println!("{}", atcoder::arc0xx::arc008::a_how_many_takoyaki::run(7));
 }
 
