@@ -47,3 +47,4 @@ pub mod abc346;
 pub mod abc347;
 pub mod abc348;
 pub mod abc349;
+pub mod abc350;
