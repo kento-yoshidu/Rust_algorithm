@@ -40,3 +40,4 @@ pub mod abc339;
 pub mod abc340;
 pub mod abc341;
 pub mod abc342;
+pub mod abc343;
