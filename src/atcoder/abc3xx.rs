@@ -49,3 +49,4 @@ pub mod abc348;
 pub mod abc349;
 pub mod abc350;
 pub mod abc351;
+pub mod abc352;
