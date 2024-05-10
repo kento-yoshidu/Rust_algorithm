@@ -1,19 +1,21 @@
 // https://atcoder.jp/contests/abc349/tasks/abc352_b
 
 pub fn run(s: &str, t: &str) -> Vec<usize> {
-    let mut ans = vec![false; t.len()];
+    let mut ans = Vec::new();
 
-    for (i, c) in t.chars().enumerate() {
-        if !s.contains(c) {
-            ans[i] = true;
+    // chars().nth()は低速
+    let s_vec: Vec<char> = s.chars().collect();
+
+    let mut j = 0;
+
+    for (i, b) in t.chars().enumerate() {
+        if b == s_vec[j] {
+            ans.push(i+1);
+            j += 1;
         }
     }
 
-    ans.into_iter()
-        .enumerate()
-        .filter(|(_, b)| *b == false)
-        .map(|(i, _)| i + 1)
-        .collect()
+    ans
 }
 
 #[cfg(test)]

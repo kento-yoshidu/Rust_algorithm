@@ -1,5 +1,9 @@
 # Rust_algorithm
 
+## memo
+
+[Why chars().nth(index).unwrap() is so slow?](https://www.reddit.com/r/rust/comments/tbsffu/why_charsnthindexunwrap_is_so_slow/?rdt=43355)
+
 ## AtCoder Template
 
 ```rust
