@@ -1,26 +1,20 @@
 // https://atcoder.jp/contests/m-solutions2020/tasks/m_solutions2020_b
 
-/*
-    a < b < cの状態になるまでbとcを倍増させ、
-    条件を満たしてから回数がオーバーしてないかをチェックする
-*/
-fn run(a: usize, mut b: usize, mut c: usize, k: usize) -> String {
-    let mut count = 0;
+fn run(abc: [usize; 3], k: usize) -> &'static str {
+    let mut vec = abc.clone();
 
-    while a >= b {
-        count += 1;
-        b = b * 2;
+    for _ in 0..k {
+        if vec[0] >= vec[1] {
+            vec[1] *= 2;
+        } else if vec[1] >= vec[2] {
+            vec[2] *= 2;
+        }
     }
 
-    while b >= c {
-        count += 1;
-        c = c * 2;
-    }
-
-    if count <= k {
-        String::from("Yes")
+    if vec[0] < vec[1] && vec[1] < vec[2] {
+        "Yes"
     } else {
-        String::from("No")
+        "No"
     }
 }
 
@@ -28,9 +22,17 @@ fn run(a: usize, mut b: usize, mut c: usize, k: usize) -> String {
 mod tests {
     use super::*;
 
+    struct TestCase([usize; 3], usize, &'static str);
+
     #[test]
     fn test() {
-        assert_eq!(String::from("Yes"), run(7, 2, 5, 3));
-        assert_eq!(String::from("No"), run(7, 2, 4, 2));
+        let tests = [
+            TestCase([7, 2, 5], 3, "Yes"),
+            TestCase([7, 4, 2], 3, "No"),
+        ];
+
+        for TestCase(abc, k, expected) in tests {
+            assert_eq!(run(abc, k), expected);
+        }
     }
 }
