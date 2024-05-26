@@ -2,7 +2,7 @@
 
 use itertools::Itertools;
 
-fn run(n: usize, m: usize, a: Vec<usize>, b: Vec<usize>) -> &'static str {
+fn run(_n: usize, _m: usize, a: Vec<usize>, _b: Vec<usize>) -> &'static str {
     let vec: Vec<usize> = a.into_iter().sorted().collect();
 
     if vec.windows(2).any(|arr| {
