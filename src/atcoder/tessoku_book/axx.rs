@@ -17,3 +17,4 @@ pub mod a28_blackboard;
 pub mod a51_stack;
 pub mod a52_queue;
 pub mod a53_priority_queue;
+pub mod a61_adjacent_vertices;
