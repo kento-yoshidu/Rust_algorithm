@@ -1,15 +1,11 @@
 // https://atcoder.jp/contests/abc351/tasks/abc351_c
 
 pub fn run(_n: usize, a: Vec<usize>) -> usize {
-    let vec = a.clone();
-
-    vec.into_iter()
+    a.into_iter()
         .fold(Vec::new(), |mut stack, num| {
             stack.push(num);
-            println!("{:?}", stack);
 
             loop {
-                println!("\t{:?}", stack);
                 let len = stack.len();
 
                 if len > 1 && stack[len-2] == stack[len-1] {
