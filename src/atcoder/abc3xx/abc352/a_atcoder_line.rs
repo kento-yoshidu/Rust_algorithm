@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc349/tasks/abc352_a
 
-fn run(n: usize, x: usize, y: usize, z: usize) -> &'static str {
+fn run(_n: usize, x: usize, y: usize, z: usize) -> &'static str {
     if (x < z && z < y) || (y < z && z < x) {
         "Yes"
     } else {
