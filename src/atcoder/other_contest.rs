@@ -25,6 +25,7 @@ pub mod m_solutions2019;
 pub mod m_solutions2020;
 pub mod oupc2023_day1;
 pub mod pakencamp2019;
+pub mod pakencamp_2023_day1;
 pub mod panasonic2020;
 pub mod past202206;
 pub mod soundhound2018_summer_qual;
