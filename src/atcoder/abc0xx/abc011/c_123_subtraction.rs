@@ -1,6 +1,10 @@
 // https://atcoder.jp/contests/abc011/tasks/abc011_3
 
 pub fn run(n: isize, ng: [isize; 3]) -> &'static str {
+    if ng.contains(&n) {
+        return "NO";
+    }
+
     let mut cur = n;
 
     for _ in 0..100 {
@@ -11,6 +15,7 @@ pub fn run(n: isize, ng: [isize; 3]) -> &'static str {
         if cur < 0 {
             return "NO";
         }
+
         if cur >= 3 && !ng.contains(&(cur - 3)) {
             cur -= 3;
             continue;
