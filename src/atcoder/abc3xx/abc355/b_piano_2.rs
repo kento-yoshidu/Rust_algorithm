@@ -1,12 +1,14 @@
 // https://atcoder.jp/contests/abc355/tasks/abc355_b
 
-use itertools::Itertools;
+fn run(_n: usize, _m: usize, a: Vec<usize>, b: Vec<usize>) -> &'static str {
+    let mut vec: Vec<usize> = a.clone();
 
-fn run(_n: usize, _m: usize, a: Vec<usize>, _b: Vec<usize>) -> &'static str {
-    let vec: Vec<usize> = a.into_iter().sorted().collect();
+    vec.append(&mut b.clone());
+
+    vec.sort();
 
     if vec.windows(2).any(|arr| {
-        arr[0] + 1 == arr[1]
+        a.contains(&arr[0]) && a.contains(&arr[1])
     }) {
         "Yes"
     } else {

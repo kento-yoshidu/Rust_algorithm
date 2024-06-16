@@ -19,11 +19,18 @@ pub fn run(s: &str) -> usize {
         .collect();
 
     for i in 0..7 {
+        let mut flag = true;
+
         for j in 0..7-i-1 {
             if vec[j] > vec[j+1] {
                 vec.swap(j, j+1);
                 ans += 1;
+                flag = false;
             }
+        }
+
+        if flag == true {
+            return ans;
         }
     }
 
