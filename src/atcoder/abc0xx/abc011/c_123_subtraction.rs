@@ -8,27 +8,17 @@ pub fn run(n: isize, ng: [isize; 3]) -> &'static str {
     let mut cur = n;
 
     for _ in 0..100 {
-        if cur == 0 {
+        for j in (1..=3).rev() {
+            if ng.contains(&(cur - j)) {
+                continue;
+            }
+
+            cur -= j;
+            break;
+        }
+
+        if cur <= 0 {
             return "YES";
-        }
-
-        if cur < 0 {
-            return "NO";
-        }
-
-        if cur >= 3 && !ng.contains(&(cur - 3)) {
-            cur -= 3;
-            continue;
-        }
-
-        if cur >= 2 && !ng.contains(&(cur - 2)) {
-            cur -= 2;
-            continue;
-        }
-
-        if cur >= 1 && !ng.contains(&(cur - 1)) {
-            cur -= 1;
-            continue;
         }
     }
 
