@@ -6,8 +6,6 @@ pub fn run(_n: usize, k: usize, a: Vec<usize>) -> usize {
     let mut cnt = 0;
 
     for i in a {
-        println!("cnt = {}", cnt);
-
         if cnt + i == k {
             ans += 1;
             cnt = 0;
