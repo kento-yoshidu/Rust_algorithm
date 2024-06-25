@@ -6,6 +6,7 @@ pub mod bcu30_2018_qual;
 pub mod caddi2018b;
 pub mod code_formula_2014_quala;
 pub mod code_festival_2016_qualb;
+pub mod exawizards2019;
 pub mod hhkb2020;
 pub mod hitachi2020;
 pub mod kupc2017;
