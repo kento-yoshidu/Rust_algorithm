@@ -5,8 +5,6 @@ fn run(h: usize) -> u32 {
     let mut height = 0;
 
     loop {
-        println!("{}", height);
-
         if height > h {
             return day;
         }
