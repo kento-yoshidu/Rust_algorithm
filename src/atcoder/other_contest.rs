@@ -10,6 +10,7 @@ pub mod diverta2019;
 pub mod exawizards2019;
 pub mod hhkb2020;
 pub mod hitachi2020;
+pub mod keyence2019;
 pub mod kupc2017;
 pub mod joi2006yo;
 pub mod joi2007ho;
