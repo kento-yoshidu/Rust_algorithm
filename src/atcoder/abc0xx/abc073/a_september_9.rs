@@ -1,20 +1,20 @@
 // https://atcoder.jp/contests/abc073/tasks/abc073_a
 
-pub fn run(n: usize) -> String {
+pub fn run(n: usize) -> &'static str {
 	if n >= 90 || n % 10 == 9 {
-		String::from("Yes")
+		"Yes"
 	} else {
-		String::from("No")
+		"No"
 	}
 }
 
-pub fn run2(n: usize) -> String {
+pub fn run2(n: usize) -> &'static str {
 	if n.to_string().chars().any(|c| {
 		c == '9'
 	}) {
-		String::from("Yes")
+		"Yes"
 	} else {
-		String::from("No")
+		"No"
 	}
 }
 
@@ -22,17 +22,18 @@ pub fn run2(n: usize) -> String {
 mod tests {
 	use super::*;
 
-	#[test]
-	fn test() {
-		assert_eq!(String::from("Yes"), run(29));
-		assert_eq!(String::from("No"), run(72));
-		assert_eq!(String::from("Yes"), run(91));
-	}
+	struct TestCase(usize, &'static str);
 
 	#[test]
-	fn test2() {
-		assert_eq!(String::from("Yes"), run2(29));
-		assert_eq!(String::from("No"), run2(72));
-		assert_eq!(String::from("Yes"), run2(91));
+	fn test() {
+		let tests = [
+			TestCase(29, "Yes"),
+			TestCase(72, "No"),
+			TestCase(91, "Yes")
+		];
+
+		for TestCase(n, expected) in tests {
+			assert_eq!(run(n), expected);
+		}
 	}
 }
