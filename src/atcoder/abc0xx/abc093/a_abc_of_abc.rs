@@ -1,14 +1,14 @@
 // https://atcoder.jp/contests/abc093/tasks/abc093_a
 
-fn run(s: String) -> String {
+fn run(s: &str) -> &'static str {
 	let mut chars: Vec<char> = s.chars().collect();
 
 	chars.sort();
 
-	if String::from("abc") == chars.iter().collect::<String>() {
-		String::from("Yes")
+	if vec!['a', 'b', 'c'] == chars {
+		"Yes"
 	} else {
-		String::from("No")
+		"No"
 	}
 }
 
@@ -16,11 +16,19 @@ fn run(s: String) -> String {
 mod tests {
 	use super::*;
 
+	struct TestCase(&'static str, &'static str);
+
 	#[test]
 	fn test() {
-		assert_eq!(String::from("Yes"), run(String::from("bac")));
-		assert_eq!(String::from("No"), run(String::from("bab")));
-		assert_eq!(String::from("Yes"), run(String::from("abc")));
-		assert_eq!(String::from("No"), run(String::from("aaa")));
+		let tests = [
+			TestCase("bac", "Yes"),
+			TestCase("bab", "No"),
+			TestCase("abc", "Yes"),
+			TestCase("aaa", "No"),
+		];
+
+		for TestCase(s, expected) in tests {
+			assert_eq!(run(s), expected);
+		}
 	}
 }
