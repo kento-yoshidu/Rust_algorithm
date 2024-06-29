@@ -8,3 +8,4 @@ pub mod b11_binary_search_2;
 pub mod b16_flog_1;
 pub mod b17_flog_1_with_restoration;
 pub mod b51_bracket;
+pub mod b61_influencer;
