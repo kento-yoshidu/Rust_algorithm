@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc066/tasks/abc066_a
 
-pub fn run(a: i32, b: i32, c: i32) -> i32 {
+fn run(a: usize, b: usize, c: usize) -> usize {
     let mut vec = vec![a, b, c];
 
     vec.sort();
@@ -8,13 +8,30 @@ pub fn run(a: i32, b: i32, c: i32) -> i32 {
     vec.iter().nth(0).unwrap() + vec.iter().nth(1).unwrap()
 }
 
+fn run2(a: usize, b: usize, c: usize) -> usize {
+    let sum = a + b + c;
+
+    let max = vec![a, b, c].into_iter().max().unwrap();
+
+    sum - max
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
 
+    struct TestCase(usize, usize, usize, usize);
+
     #[test]
     fn test() {
-        assert_eq!(1300, run(700, 600, 780));
-        assert_eq!(20000, run(10000, 10000, 10000));
+        let tests = [
+            TestCase(700, 600, 780, 1300),
+            TestCase(10000, 10000, 10000, 20000),
+        ];
+
+        for TestCase(a, b, c, expected) in tests {
+            assert_eq!(run(a, b, c), expected);
+            assert_eq!(run2(a, b, c), expected);
+        }
     }
 }

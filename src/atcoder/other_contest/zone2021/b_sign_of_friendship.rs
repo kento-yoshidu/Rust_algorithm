@@ -12,8 +12,6 @@ pub fn run(_n: usize, d: usize, h: usize, dh: Vec<(usize, usize)>) -> f64 {
 
 #[cfg(test)]
 mod tests {
-    use crate::atcoder::tessoku_book;
-
     use super::*;
 
     struct TestCase(usize, usize, usize, Vec<(usize, usize)>, f64);
