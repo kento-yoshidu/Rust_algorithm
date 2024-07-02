@@ -15,6 +15,7 @@ pub mod hhkb2020;
 pub mod indeednow_quala;
 pub mod hitachi2020;
 pub mod keyence2019;
+pub mod keyence2020;
 pub mod kupc2017;
 pub mod joi2006yo;
 pub mod joi2007ho;
