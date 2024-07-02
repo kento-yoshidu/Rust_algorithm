@@ -44,4 +44,5 @@ pub mod tenka1_2018_beginner;
 pub mod tenka1_2019_beginner;
 pub mod utpc2011;
 pub mod utpc2013;
+pub mod yahoo_procon2019_qual;
 pub mod zone2021;
