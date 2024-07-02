@@ -3,7 +3,7 @@
 pub fn run(a: usize, b: usize, c: usize) -> Vec<usize> {
     let mut ans: Vec<usize> = Vec::new();
 
-    for i in 0..=127 {
+    for i in 1..=127 {
         if i % 3 == a && i % 5 == b && i % 7 == c {
             ans.push(i);
         }
