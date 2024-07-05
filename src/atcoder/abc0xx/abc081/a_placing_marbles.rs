@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc081/tasks/abc081_a
 
-pub fn run(str: &str) -> i32 {
+fn run(str: &str) -> usize {
     let mut count = 0;
 
     for c in str.chars() {
@@ -12,25 +12,28 @@ pub fn run(str: &str) -> i32 {
     count
 }
 
-pub fn run2(str: String) -> usize {
-    str.chars().filter(|c| {
-        *c == '1'
-    }).count()
+fn run2(str: &str) -> usize {
+    str.chars()
+        .filter(|c| { *c == '1' })
+        .count()
 }
 
 #[cfg(test)]
 mod tests {
     use super::*;
 
-    #[test]
-    fn test() {
-        assert_eq!(2, run("101"));
-        assert_eq!(0, run("000"));
-    }
+    struct TestCase(&'static str, usize);
 
     #[test]
-    fn test2() {
-        assert_eq!(2, run2(String::from("101")));
-        assert_eq!(0, run2(String::from("000")));
+    fn test() {
+        let tests = [
+            TestCase("101", 2),
+            TestCase("000", 0),
+        ];
+
+        for TestCase(str, expected) in tests {
+            assert_eq!(run(str), expected);
+            assert_eq!(run2(str), expected);
+        }
     }
 }
