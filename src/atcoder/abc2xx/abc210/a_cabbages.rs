@@ -1,22 +1,28 @@
 // https://atcoder.jp/contests/abc210/tasks/abc210_a
 
 pub fn run(n: usize, a: usize, x: usize, y: usize) -> usize {
-    let over = if a >= n {
-        0
+    if n > a {
+        (n-a)*y + a*x
     } else {
-        n - a
-    };
-
-    a * x + over * y
+        x * n
+    }
 }
 
 #[cfg(test)]
 mod tests {
     use super::*;
 
+    struct TestCase(usize, usize, usize, usize, usize);
+
     #[test]
     fn test() {
-        assert_eq!(90, run(5, 3, 20, 15));
-        assert_eq!(1000, run(10, 10, 100, 1));
+        let tests = [
+            TestCase(5, 3, 20, 15, 90),
+            TestCase(10, 10, 100, 1, 1000),
+        ];
+
+        for TestCase(n, a, x, y, expected) in tests {
+            assert_eq!(run(n, a, x, y), expected);
+        }
     }
 }
