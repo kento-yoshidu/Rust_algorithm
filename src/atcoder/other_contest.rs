@@ -7,6 +7,7 @@ pub mod caddi2018b;
 pub mod code_festival_2016_quala;
 pub mod code_festival_2016_qualb;
 pub mod code_festival_2017_quala;
+pub mod code_festival_2017_qualb;
 pub mod code_formula_2014_quala;
 pub mod code_formula_2014_qualb;
 pub mod diverta2019;
