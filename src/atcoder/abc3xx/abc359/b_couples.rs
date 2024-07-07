@@ -1,14 +1,6 @@
 // https://atcoder.jp/contests/abc359/tasks/abc359_b
 
 pub fn run(n: usize, a: Vec<usize>) -> usize {
-    let mut ans = 0;
-
-    for i in 0..n*2-2 {
-        if a[i] == a[i+2] {
-            ans += 1;
-        }
-    }
-
     (0..n*2-2)
         .filter(|i| {
             a[*i] == a[i+2]
