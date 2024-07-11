@@ -18,6 +18,7 @@ pub mod arc055;
 pub mod arc058;
 pub mod arc059;
 pub mod arc063;
+pub mod arc065;
 pub mod arc069;
 pub mod arc070;
 pub mod arc071;
