@@ -7,6 +7,17 @@ fn calc(n: usize) -> usize {
         calc(n*2)
     }
 }
+
 fn run() -> usize {
     calc(42)
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test() {
+        assert_eq!(run(), 176160768);
+    }
 }
