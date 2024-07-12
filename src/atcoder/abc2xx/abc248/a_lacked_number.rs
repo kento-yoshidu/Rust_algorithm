@@ -1,23 +1,34 @@
 // https://atcoder.jp/contests/abc248/tasks/abc248_a
 
-pub fn run(str: &str) -> usize {
-    for n in 0..9 {
-        if n != str.chars().nth(n).unwrap() as usize - 48 {
-            return n;
+fn run(str: &str) -> usize {
+    let chars: Vec<char> = str.chars().collect();
+
+    for i in 0..=9 {
+        if !chars.contains(&((i as u8 + b'0') as char)) {
+            return i as usize
         }
     }
 
-    9
+    unreachable!()
 }
 
 #[cfg(test)]
 mod tests {
     use super::*;
 
+    struct TestCase(&'static str, usize);
+
     #[test]
     fn test() {
-        assert_eq!(3, run("012456789"));
-        assert_eq!(0, run("123456789"));
-        assert_eq!(9, run("012345678"));
+        let tests = [
+            TestCase("012456789", 3),
+            TestCase("123456789", 0),
+            TestCase("012345678", 9),
+            TestCase("459230781", 6),
+        ];
+
+        for TestCase(str, expected) in tests {
+            assert_eq!(run(str), expected);
+        }
     }
 }
