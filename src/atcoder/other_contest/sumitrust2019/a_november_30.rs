@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/sumitrust2019/tasks/sumitb2019_a
 
-fn run(m1: usize, d1: usize, m2: usize, d2: usize) -> usize {
+fn run(m1: usize, _d1: usize, m2: usize, _d2: usize) -> usize {
     if m1 != m2 {
         1
     } else {
