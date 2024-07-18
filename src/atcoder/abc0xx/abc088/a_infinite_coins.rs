@@ -1,12 +1,10 @@
 // https://atcoder.jp/contests/abc088/tasks/abc088_a
 
-pub fn run(price: u16, coin: u16) -> String {
-    let rest = price % 500;
-
-    if rest <= coin {
-        "Yes".to_string()
+fn run(n: usize, a: usize) -> &'static str {
+    if n % 500 <= a {
+        "Yes"
     } else {
-        "No".to_string()
+        "No"
     }
 }
 
@@ -14,12 +12,20 @@ pub fn run(price: u16, coin: u16) -> String {
 mod tests {
     use super::*;
 
+    struct TestCase(usize, usize, &'static str);
+
     #[test]
     fn test() {
-        assert_eq!(String::from("Yes"), run(2018, 218));
-        assert_eq!(String::from("No"), run(2763, 0));
-        assert_eq!(String::from("Yes"), run(37, 514));
-        assert_eq!(String::from("Yes"), run(37, 37));
-        assert_eq!(String::from("No"), run(37, 36));
+        let tests = [
+            TestCase(2018, 218, "Yes"),
+            TestCase(2763, 0, "No"),
+            TestCase(37, 514, "Yes"),
+            TestCase(37, 37, "Yes"),
+            TestCase(37, 36, "No"),
+        ];
+
+        for TestCase(n, a, expected) in tests {
+            assert_eq!(run(n, a), expected);
+        }
     }
 }
