@@ -1,23 +1,43 @@
 // https://atcoder.jp/contests/abc158/tasks/abc158_a
 
-pub fn run(s: String) -> String {
+use itertools::Itertools;
+
+fn run(s: &str) -> &'static str {
     let chars: Vec<char> = s.chars().collect();
 
     if chars[0] == chars[1] && chars[1] == chars[2] {
-        String::from("No")
+        "No"
     } else {
-        String::from("Yes")
+        "Yes"
     }
+}
+
+fn run2(s: &str) -> &'static str {
+    if s.chars()
+        .all_equal() {
+            "No"
+        } else {
+            "Yes"
+        }
 }
 
 #[cfg(test)]
 mod tests {
     use super::*;
 
+    struct TestCase(&'static str, &'static str);
+
     #[test]
     fn test() {
-        assert_eq!(String::from("Yes"), run(String::from("ABA")));
-        assert_eq!(String::from("Yes"), run(String::from("BBA")));
-        assert_eq!(String::from("No"), run(String::from("BBB")));
+        let tests = [
+            TestCase("ABA", "Yes"),
+            TestCase("BBA", "Yes"),
+            TestCase("BBB", "No"),
+        ];
+
+        for TestCase(s, expected) in tests {
+            assert_eq!(run(s), expected);
+            assert_eq!(run2(s), expected);
+        }
     }
 }
