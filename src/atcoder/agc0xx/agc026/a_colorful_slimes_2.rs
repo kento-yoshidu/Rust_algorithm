@@ -18,7 +18,7 @@ fn run_length(s: Vec<usize>) -> Vec<(usize, usize)> {
     result
 }
 
-fn run(n: usize, a: Vec<usize>) -> usize {
+fn run(_n: usize, a: Vec<usize>) -> usize {
     run_length(a)
         .into_iter()
         .map(|(_, num)| num / 2)

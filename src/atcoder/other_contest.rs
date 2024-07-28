@@ -10,6 +10,7 @@ pub mod code_festival_2017_quala;
 pub mod diverta2019;
 pub mod exawizards2019;
 pub mod hhkb2020;
+pub mod indeednow_quala;
 pub mod hitachi2020;
 pub mod keyence2019;
 pub mod kupc2017;
