@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc144/tasks/abc144_a
 
-pub fn run(a: isize, b: isize) ->isize {
+fn run(a: isize, b: isize) -> isize {
     if a > 9 || b > 9 {
         -1
     } else {
@@ -12,10 +12,18 @@ pub fn run(a: isize, b: isize) ->isize {
 mod tests {
     use super::*;
 
+    struct TestCase(isize, isize, isize);
+
     #[test]
     fn test() {
-        assert_eq!(10, run(2, 5));
-        assert_eq!(-1, run(5, 10));
-        assert_eq!(81, run(9, 9));
+        let tests = [
+            TestCase(2, 5, 10),
+            TestCase(5, 10, -1),
+            TestCase(9, 9, 81),
+        ];
+
+        for TestCase(a, b, expected) in tests {
+            assert_eq!(run(a, b), expected);
+        }
     }
 }

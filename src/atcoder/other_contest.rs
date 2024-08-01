@@ -51,6 +51,7 @@ pub mod tenka1_2013_quala;
 pub mod tenka1_2017_beginner;
 pub mod tenka1_2018_beginner;
 pub mod tenka1_2019_beginner;
+pub mod tokiomarine2020;
 pub mod utpc2011;
 pub mod utpc2013;
 pub mod yahoo_procon2019_qual;
