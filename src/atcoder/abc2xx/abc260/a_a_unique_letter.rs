@@ -2,7 +2,9 @@
 
 use std::collections::HashMap;
 
-pub fn run(s: String) -> String {
+use itertools::Itertools;
+
+pub fn run(s: &str) -> String {
     let mut map: HashMap<char, usize> = HashMap::new();
 
     for c in s.chars() {
@@ -23,21 +25,44 @@ pub fn run(s: String) -> String {
     String::from("-1")
 }
 
+fn run2(s: &str) -> String {
+    let mut hash_map = HashMap::new();
+
+    for c in s.chars() {
+        *hash_map.entry(c).or_insert(0) += 1;
+    }
+
+    hash_map.into_iter()
+        .sorted_by(|a, b| a.0.cmp(&b.0))
+        .find(|(_, cnt)| *cnt == 1)
+        .map(|(c, _)| c.to_string())
+        .unwrap_or(String::from("-1"))
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
 
+    struct TestCase(&'static str, &'static str);
+
     #[test]
     fn test() {
-        assert_eq!(String::from("o"), run(String::from("pop")));
-        assert_eq!(String::from("a"), run(String::from("abc")));
-        assert_eq!(String::from("-1"), run(String::from("xxx")));
-        assert_eq!(String::from("f"), run(String::from("jfi")));
-        assert_eq!(String::from("d"), run(String::from("mmd")));
-        assert_eq!(String::from("u"), run(String::from("sus")));
-        assert_eq!(String::from("o"), run(String::from("odd")));
-        assert_eq!(String::from("a"), run(String::from("mad")));
-        assert_eq!(String::from("a"), run(String::from("zza")));
-        assert_eq!(String::from("z"), run(String::from("aza")));
+        let tests = [
+            TestCase("pop", "o"),
+            TestCase("abc", "a"),
+            TestCase("xxx", "-1"),
+            TestCase("jfi", "f"),
+            TestCase("mmd", "d"),
+            TestCase("sus", "u"),
+            TestCase("odd", "o"),
+            TestCase("mad", "a"),
+            TestCase("zza", "a"),
+            TestCase("aza", "z"),
+        ];
+
+        for TestCase(s, expected) in tests {
+            assert_eq!(run(s), expected);
+            assert_eq!(run2(s), expected);
+        }
     }
 }
