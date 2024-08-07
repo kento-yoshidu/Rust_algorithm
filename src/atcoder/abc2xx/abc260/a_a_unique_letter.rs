@@ -1,7 +1,6 @@
 // https://atcoder.jp/contests/abc260/tasks/abc260_a
 
 use std::collections::HashMap;
-
 use itertools::Itertools;
 
 pub fn run(s: &str) -> String {

@@ -1,10 +1,10 @@
 // https://atcoder.jp/contests/abc285/tasks/abc285_a
 
-pub fn run(a: usize, b: usize) -> String {
+fn run(a: usize, b: usize) -> &'static str {
     if a*2 == b || a*2+1 == b {
-        String::from("Yes")
+        "Yes"
     } else {
-        String::from("No")
+        "No"
     }
 }
 
@@ -12,10 +12,18 @@ pub fn run(a: usize, b: usize) -> String {
 mod tests {
     use super::*;
 
+    struct TestCase(usize, usize, &'static str);
+
     #[test]
     fn test() {
-        assert_eq!(String::from("Yes"), run(1, 2));
-        assert_eq!(String::from("No"), run(2, 8));
-        assert_eq!(String::from("No"), run(14, 15));
+        let tests = [
+            TestCase(1, 2, "Yes"),
+            TestCase(2, 8, "No"),
+            TestCase(14, 15, "No"),
+        ];
+
+        for TestCase(a, b, expected) in tests {
+            assert_eq!(run(a, b), expected);
+        }
     }
 }
