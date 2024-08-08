@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc259/tasks/abc259_a
 
-pub fn run(_n: isize, m: isize, x: isize, t: isize, d: isize) -> isize {
+fn run(_n: usize, m: usize, x: usize, t: usize, d: usize) -> usize {
     if x <= m {
         return t
     }
@@ -12,17 +12,25 @@ pub fn run(_n: isize, m: isize, x: isize, t: isize, d: isize) -> isize {
 mod tests {
     use super::*;
 
+    struct TestCase(usize, usize, usize, usize, usize, usize);
+
     #[test]
     fn test() {
-        assert_eq!(168, run(38, 20, 17, 168, 3));
-        assert_eq!(1, run(1, 0, 1, 3, 2));
-        assert_eq!(90, run(100, 10, 100, 180, 1));
-        assert_eq!(199, run(100, 99, 100, 200, 1));
-        assert_eq!(1, run(1, 0, 1, 2, 1));
-        assert_eq!(121, run(64, 17, 45, 177, 2));
-        assert_eq!(180, run(29, 5, 1, 180, 100));
-        assert_eq!(80, run(100, 0, 30, 200, 4));
-        assert_eq!(143, run(23, 15, 23, 199, 7));
-        assert_eq!(108, run(53, 27, 2, 108, 50));
+        let tests = [
+            TestCase(38, 20, 17, 168, 3, 168),
+            TestCase(1, 0, 1, 3, 2, 1),
+            TestCase(100, 10, 100, 180, 1, 90),
+            TestCase(100, 99, 100, 200, 1, 199),
+            TestCase(1, 0, 1, 2, 1, 1),
+            TestCase(64, 17, 45, 177, 2, 121),
+            TestCase(29, 5, 1, 180, 100, 180),
+            TestCase(100, 0, 30, 200, 4, 80),
+            TestCase(23, 15, 23, 199, 7, 143),
+            TestCase(53, 27, 2, 108, 50, 108),
+        ];
+
+        for TestCase(n, m, x, t, d, expected) in tests {
+            assert_eq!(run(n, m, x, t, d), expected);
+        }
     }
 }
