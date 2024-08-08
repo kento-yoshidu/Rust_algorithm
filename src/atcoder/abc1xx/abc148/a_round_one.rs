@@ -1,28 +1,35 @@
 // https://atcoder.jp/contests/abc148/tasks/abc148_a
 
-pub fn run (a: usize, b: usize) -> usize {
+fn run (a: usize, b: usize) -> usize {
     6 - a - b
 }
 
-pub fn run2(a: usize, b: usize) -> usize {
-    (1..4).find(|&i| i != a && i != b).unwrap()
+fn run2(a: usize, b: usize) -> usize {
+    (1..4)
+        .find(|&i| i != a && i != b)
+        .unwrap()
+}
+
+fn run3(a: usize, b: usize) -> usize {
+    a ^ b
 }
 
 #[cfg(test)]
 mod tests {
     use super::*;
 
-    #[test]
-    fn test() {
-        assert_eq!(2, run(3, 1));
-        assert_eq!(3, run(2, 1));
-        assert_eq!(1, run(3, 2));
-    }
+    struct TestCase(usize, usize, usize);
 
     #[test]
-    fn test2() {
-        assert_eq!(2, run2(3, 1));
-        assert_eq!(3, run2(2, 1));
-        assert_eq!(1, run2(3, 2));
+    fn test() {
+        let tests = [
+            TestCase(3, 1, 2),
+            TestCase(2, 1, 3),
+            TestCase(3, 2, 1),
+        ];
+
+        for TestCase(a, b, expected) in tests {
+            assert_eq!(run(a, b), expected);
+        }
     }
 }
