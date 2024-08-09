@@ -16,6 +16,7 @@ pub mod code_festival_2017_qualb;
 pub mod code_festival_2017_qualc;
 pub mod code_formula_2014_quala;
 pub mod code_formula_2014_qualb;
+pub mod ddcc2020_qual;
 pub mod diverta2019;
 pub mod diverta2019_2;
 pub mod dwacon6th_prelims;
