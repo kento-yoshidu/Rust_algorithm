@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc189/tasks/abc189_a
 
-pub fn run(s: String) -> String {
+pub fn run(s: &str) -> &'static str {
     let mut c = s.chars();
 
     let l = c.next().unwrap();
@@ -8,21 +8,21 @@ pub fn run(s: String) -> String {
     let r = c.next().unwrap();
 
     if l == m && m == r {
-        String::from("Won")
+        "Won"
     } else {
-        String::from("Lost")
+        "Lost"
     }
 }
 
-pub fn run2(s: String) -> String {
+pub fn run2(s: &str) -> &'static str {
     let mut chars: Vec<char> = s.chars().collect();
 
     chars.dedup();
 
     if chars.len() == 1 {
-        String::from("Won")
+        "Won"
     } else {
-        String::from("Lost")
+        "Lost"
     }
 }
 
@@ -30,15 +30,18 @@ pub fn run2(s: String) -> String {
 mod tests {
     use super::*;
 
-    #[test]
-    fn test() {
-        assert_eq!(String::from("Won"), run(String::from("SSS")));
-        assert_eq!(String::from("Lost"), run(String::from("WVW")));
-    }
+    struct TestCase(&'static str, &'static str);
 
     #[test]
-    fn test2() {
-        assert_eq!(String::from("Won"), run2(String::from("SSS")));
-        assert_eq!(String::from("Lost"), run2(String::from("WVW")));
+    fn test() {
+        let tests = [
+            TestCase("SSS", "Won"),
+            TestCase("WVW", "Lost"),
+        ];
+
+        for TestCase(s, expected) in tests {
+            assert_eq!(run(s), expected);
+            assert_eq!(run2(s), expected);
+        }
     }
 }
