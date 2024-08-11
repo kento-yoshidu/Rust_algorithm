@@ -1,21 +1,29 @@
 // https://atcoder.jp/contests/abc254/tasks/abc254_a
 
-pub fn run(vec: Vec<usize>) -> String {
-    if (vec[0] <= vec[1] && vec[1] <= vec[2]) || (vec[0] >= vec[1] && vec[1] >= vec[2]) {
-        return String::from("Yes");
+pub fn run(a: usize, b: usize, c: usize) -> &'static str {
+    if a <= b && b <= c || a >= b && b >= c {
+        "Yes"
+    } else {
+        "No"
     }
-
-    String::from("No")
 }
 
 #[cfg(test)]
 mod tests {
     use super::*;
 
+    struct TestCase(usize, usize, usize, &'static str);
+
     #[test]
     fn test() {
-        assert_eq!(String::from("Yes"), run(vec![5, 3, 2]));
-        assert_eq!(String::from("No"), run(vec![2, 5, 3]));
-        assert_eq!(String::from("Yes"), run(vec![100, 100, 100]));
+        let tests = [
+            TestCase(5, 3, 2, "Yes"),
+            TestCase(2, 5, 3, "No"),
+            TestCase(100, 100, 100, "Yes"),
+        ];
+
+        for TestCase(a, b, c, expected) in tests {
+            assert_eq!(run(a, b, c), expected);
+        }
     }
 }
