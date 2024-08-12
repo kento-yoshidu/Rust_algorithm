@@ -1,10 +1,13 @@
 // https://atcoder.jp/contests/abc112/tasks/abc112_a
 
-pub fn run(n: Vec<i32>) -> String {
-    if n[0] == 1 {
+fn run(n: usize, ab: Option<Vec<usize>>) -> String {
+    if n == 1 {
         String::from("Hello World")
     } else {
-        (n[1] + n[2]).to_string()
+        ab.unwrap()
+            .into_iter()
+            .sum::<usize>()
+            .to_string()
     }
 }
 
@@ -12,9 +15,17 @@ pub fn run(n: Vec<i32>) -> String {
 mod tests {
     use super::*;
 
+    struct TestCase(usize, Option<Vec<usize>>, &'static str);
+
     #[test]
     fn test() {
-        assert_eq!(String::from("Hello World"), run(vec![1]));
-        assert_eq!(String::from("8"), run(vec![2, 3, 5]));
+        let tests = [
+            TestCase(1, None, "Hello World"),
+            TestCase(2, Some(vec![3, 5]), "8"),
+        ];
+
+        for TestCase(n, ab, expected) in tests {
+            assert_eq!(run(n, ab), expected);
+        }
     }
 }
