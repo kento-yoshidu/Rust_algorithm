@@ -1,7 +1,9 @@
 // https://atcoder.jp/contests/abc262/tasks/abc262_a
 
 pub fn run(y: usize) -> usize {
-    (y..).find(|y| y % 4 == 2).unwrap()
+    (y..)
+        .find(|y| y % 4 == 2)
+        .unwrap()
 }
 
 #[cfg(test)]
