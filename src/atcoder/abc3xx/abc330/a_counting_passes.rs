@@ -1,8 +1,8 @@
 // https://atcoder.jp/contests/abc330/tasks/abc330_a
 
 pub fn run(_n: usize, l: usize, a: Vec<usize>) -> usize {
-    a.iter()
-        .filter(|&&num| {
+    a.into_iter()
+        .filter(|&num| {
             num >= l
         })
         .count()
