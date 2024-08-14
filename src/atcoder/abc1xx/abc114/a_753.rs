@@ -1,10 +1,10 @@
 // https://atcoder.jp/contests/abc114/tasks/abc114_a
 
-fn run(x: i32) -> String {
+fn run(x: usize) -> &'static str {
     if x == 3 || x == 5 || x == 7 {
-        String::from("YES")
+        "YES"
     } else {
-        String::from("NO")
+        "NO"
     }
 }
 
@@ -12,9 +12,17 @@ fn run(x: i32) -> String {
 mod tests {
     use super::*;
 
+    struct TestCase(usize, &'static str);
+
     #[test]
     fn test() {
-        assert_eq!(String::from("YES"), run(5));
-        assert_eq!(String::from("NO"), run(6));
+        let tests = [
+            TestCase(5, "YES"),
+            TestCase(6, "NO"),
+        ];
+
+        for TestCase(x, expected) in tests {
+            assert_eq!(run(x), expected);
+        }
     }
 }
