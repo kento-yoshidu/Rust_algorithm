@@ -1,16 +1,14 @@
 // https://atcoder.jp/contests/abc348/tasks/abc348_b
 
-use num_integer::Roots;
-
 pub fn run(n: usize, xy: Vec<(isize, isize)>) -> Vec<usize> {
     let mut ans = Vec::new();
 
     for i in 0..n {
-        let mut dis = 0;
+        let mut dis = 0.0;
         let mut pos = 0;
 
         for j in 0..n {
-            let d = ((xy[i].0 - xy[j].0).pow(2) + (xy[i].1 - xy[j].1).pow(2)).sqrt();
+            let d = ((xy[i].0 - xy[j].0).pow(2) as f64 + (xy[i].1 - xy[j].1).pow(2) as f64).sqrt();
 
             if dis < d {
                 dis = d;
