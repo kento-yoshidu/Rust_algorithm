@@ -1,12 +1,12 @@
 // https://atcoder.jp/contests/abc119/tasks/abc119_b
 
-pub fn run(s: String) -> String {
+pub fn run(s: &str) -> &'static str {
     let temp: Vec<_> = s.split("/").collect();
 
     if temp[1].parse::<i32>().unwrap() > 4 {
-        String::from("TBD")
+        "TBD"
     } else {
-        String::from("Heisei")
+        "Heisei"
     }
 }
 
@@ -14,9 +14,17 @@ pub fn run(s: String) -> String {
 mod tests {
     use super::*;
 
+    struct TestCase(&'static str, &'static str);
+
     #[test]
     fn test() {
-        assert_eq!(String::from("Heisei"), run(String::from("2019/04/30")));
-        assert_eq!(String::from("TBD"), run(String::from("2019/11/30")));
+        let tests = [
+            TestCase("2019/04/30", "Heisei"),
+            TestCase("2019/11/30", "TBD"),
+        ];
+
+        for TestCase(s, expected) in tests {
+            assert_eq!(run(s), expected);
+        }
     }
 }

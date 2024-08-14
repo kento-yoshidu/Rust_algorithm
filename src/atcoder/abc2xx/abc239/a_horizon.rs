@@ -1,16 +1,24 @@
 // https://atcoder.jp/contests/abc239/tasks/abc239_a
 
-pub fn run(h: usize) -> f64 {
-    ((h * (h + 12800000)) as f64).sqrt()
+pub fn run(h: f64) -> f64 {
+    ((h * (h + 12800000.0))).sqrt()
 }
 
 #[cfg(test)]
 mod tests {
     use super::*;
 
+    struct TestCase(f64, f64);
+
     #[test]
     fn test() {
-        assert_eq!(65287.9076782217, run(333));
-        assert_eq!(90086.63583462311, run(634));
+        let tests = [
+            TestCase(333.0, 65287.9076782217),
+            TestCase(634.0,90086.63583462311),
+        ];
+
+        for TestCase(h, expected) in tests {
+            assert_eq!(run(h), expected);
+        }
     }
 }

@@ -1,14 +1,14 @@
 // https://atcoder.jp/contests/abc243/tasks/abc243_a
 
-pub fn run(v: isize, a: isize, b: isize, c: isize) -> String {
+pub fn run(v: usize, a: usize, b: usize, c: usize) -> char {
     let rest = v % (a + b + c);
 
-    if rest - a < 0 {
-        String::from("F")
-    } else if rest - (a + b) < 0 {
-        String::from("M")
+    if rest < a {
+        'F'
+    } else if rest < (a + b) {
+        'M'
     } else {
-        String::from("T")
+        'T'
     }
 }
 
@@ -16,11 +16,18 @@ pub fn run(v: isize, a: isize, b: isize, c: isize) -> String {
 mod tests {
     use super::*;
 
+    struct TestCase(usize, usize, usize, usize, char);
+
     #[test]
     fn test() {
-        assert_eq!(String::from("T"), run(25, 10, 11, 12));
-        assert_eq!(String::from("F"), run(30, 10, 10, 10));
-        assert_eq!(String::from("M"), run(100000, 1, 1, 1))
+        let tests = [
+            TestCase(25, 10, 11, 12, 'T'),
+            TestCase(30, 10, 10, 10, 'F'),
+            TestCase(100000, 1, 1, 1, 'M'),
+        ];
+
+        for TestCase(v, a, b, c, expected) in tests {
+            assert_eq!(run(v, a, b, c), expected);
+        }
     }
 }
-
