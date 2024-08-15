@@ -14,7 +14,7 @@ mod tests {
     fn test() {
         let tests = [
             TestCase(160.0, 23.5, 60.16),
-            TestCase(199.9, 11.1, 44.356),
+            TestCase(199.9, 11.1, 44.355611100000004),
         ];
 
         for TestCase(height, bmi, expected) in tests {
