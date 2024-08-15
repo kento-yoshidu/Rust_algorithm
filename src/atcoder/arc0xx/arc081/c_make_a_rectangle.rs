@@ -16,14 +16,18 @@ fn run(_n: usize, a: Vec<usize>) -> usize {
         })
         .collect();
 
-    if vec.len() < 2 {
+    if vec.len() == 0 {
         return 0;
     }
 
     vec.sort_by(|a, b| a.0.cmp(&b.0));
     vec.reverse();
 
-    vec[0].0 * vec[1].0
+    if vec[0].1 >= 4 {
+        vec[0].0 * vec[0].0
+    } else {
+        vec[0].0 * vec[1].0
+    }
 }
 
 #[cfg(test)]
@@ -38,6 +42,7 @@ mod tests {
             TestCase(6, vec![3, 1, 2, 4, 2, 1], 2),
             TestCase(4, vec![1, 2, 3, 4], 0),
             TestCase(10, vec![3, 3, 3, 3, 4, 4, 4, 5, 5, 5], 20),
+            TestCase(4, vec![5, 5, 5, 5], 25),
         ];
 
         for TestCase(n, a, expected) in tests {

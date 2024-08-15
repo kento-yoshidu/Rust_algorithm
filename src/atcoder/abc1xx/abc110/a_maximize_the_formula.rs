@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc110/tasks/abc110_a
 
-pub fn run(a: i32, b: i32, c: i32) -> i32 {
+fn run(a: usize, b: usize, c: usize) -> usize {
     let mut vec = vec![a, b, c];
 
     vec.sort();
@@ -12,10 +12,18 @@ pub fn run(a: i32, b: i32, c: i32) -> i32 {
 mod tests {
     use super::*;
 
+    struct TestCase(usize, usize, usize, usize);
+
     #[test]
     fn test() {
-        assert_eq!(53, run(1, 5, 2));
-        assert_eq!(108, run(9, 9, 9));
-        assert_eq!(82, run(6, 6, 7));
+        let tests = [
+            TestCase(1, 5, 2, 53),
+            TestCase(9, 9, 9, 108),
+            TestCase(6, 6, 7, 82),
+        ];
+
+        for TestCase(a, b, c, expected) in tests {
+            assert_eq!(run(a, b, c), expected);
+        }
     }
 }
