@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc001/tasks/abc001_2
 
-pub fn run(m: usize) -> String {
+fn run(m: usize) -> String {
     if m < 100 {
         String::from("00")
     } else if 100 <= m && m <= 5000 {
@@ -18,12 +18,20 @@ pub fn run(m: usize) -> String {
 mod tests {
     use super::*;
 
+    struct TestCase(usize, &'static str);
+
     #[test]
     fn test() {
-        assert_eq!(String::from("65"), run(15000));
-        assert_eq!(String::from("89"), run(75000));
-        assert_eq!(String::from("02"), run(200));
-        assert_eq!(String::from("20"), run(2000));
-        assert_eq!(String::from("82"), run(40000));
+        let tests = [
+            TestCase(15000, "65"),
+            TestCase(75000, "89"),
+            TestCase(200, "02"),
+            TestCase(2000, "20"),
+            TestCase(40000, "82"),
+        ];
+
+        for TestCase(m, expected) in tests {
+            assert_eq!(run(m), expected);
+        }
     }
 }
