@@ -1,7 +1,7 @@
 // https://atcoder.jp/contests/abc098/tasks/abc098_a
 
 fn run(a: isize, b: isize) -> isize {
-	*[a + b, a - b, a * b].iter().max().unwrap()
+	[a + b, a - b, a * b].into_iter().max().unwrap()
 }
 
 
@@ -9,10 +9,18 @@ fn run(a: isize, b: isize) -> isize {
 mod tests {
 	use super::*;
 
+	struct TestCase(isize, isize, isize);
+
 	#[test]
 	fn test() {
-		assert_eq!(4, run(3, 1));
-		assert_eq!(6, run(4, -2));
-		assert_eq!(0, run(0, 0));
+		let tests = [
+			TestCase(3, 1, 4),
+			TestCase(4, -2, 6),
+			TestCase(0, 0, 0),
+		];
+
+		for TestCase(a, b, expected) in tests {
+			assert_eq!(run(a, b), expected);
+		}
 	}
 }

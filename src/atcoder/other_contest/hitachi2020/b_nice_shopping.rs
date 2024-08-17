@@ -1,31 +1,35 @@
 // https://atcoder.jp/contests/hitachi2020/tasks/hitachi2020_b
 
-pub fn run(_a: usize, _b: usize, _m: usize, a_vec: Vec<usize>, b_vec: Vec<usize>, vec: Vec<Vec<usize>>) -> usize {
-    // 割引券を使わない場合
+use std::cmp::min;
+
+fn run(_a: usize, _b: usize, _m: usize, a_vec: Vec<usize>, b_vec: Vec<usize>, vec: Vec<(usize, usize, usize)>) -> usize {
     let non_discount = a_vec.iter().min().unwrap() + b_vec.iter().min().unwrap();
 
-    // 割引券を使う場合
-    let mut discount = 100;
+    let mut ans = std::usize::MAX;
 
-    for v in vec.iter() {
-        discount = discount.min(a_vec[v[0]-1] + b_vec[v[1]-1] - v[2]);
+    for (x, y, c) in vec.iter() {
+        ans = ans.min(a_vec[x-1] + b_vec[y-1] - c);
     }
 
-    if non_discount > discount {
-        discount
-    } else {
-        non_discount
-    }
+    min(ans, non_discount)
 }
 
 #[cfg(test)]
 mod tests {
     use super::*;
 
+    struct TestCase(usize, usize, usize, Vec<usize>, Vec<usize>, Vec<(usize, usize, usize)>, usize);
+
     #[test]
     fn test() {
-        assert_eq!(5, run(2, 3, 1, vec![3, 3], vec![3, 3, 3], vec![vec![1, 2, 1]]));
-        assert_eq!(10, run(1, 1, 2, vec![10], vec![10], vec![vec![1, 1, 5], vec![1, 1, 10]]));
-        assert_eq!(6, run(2, 2, 1, vec![3, 5], vec![3, 5], vec![vec![2, 2, 2]]));
+        let tests = [
+            TestCase(2, 3, 1, vec![3, 3], vec![3, 3, 3], vec![(1, 2, 1)], 5),
+            TestCase(1, 1, 2, vec![10], vec![10], vec![(1, 1, 5), (1, 1, 10)], 10),
+            TestCase(2, 2, 1, vec![3, 5], vec![3, 5], vec![(2, 2, 2)], 6),
+        ];
+
+        for TestCase(a, b, m, a_vec, b_vec, vec, expected) in tests {
+            assert_eq!(run(a, b, m, a_vec, b_vec, vec), expected);
+        }
     }
 }
