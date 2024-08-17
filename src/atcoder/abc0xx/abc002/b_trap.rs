@@ -1,21 +1,30 @@
 // https://atcoder.jp/contests/abc002/tasks/abc002_2
 
-pub fn run(s: String) -> String {
-    s.chars().filter(|c| {
-        !"aiueo".contains(*c)
-    }).collect()
+fn run(s: &str) -> String {
+    s.chars()
+        .filter(|c| {
+            !"aiueo".contains(*c)
+        })
+        .collect()
 }
 
 #[cfg(test)]
 mod tests {
     use super::*;
 
+    struct TestCase(&'static str, &'static str);
+
     #[test]
     fn test() {
-        assert_eq!(String::from("chkd"), run(String::from("chokudai")));
-        assert_eq!(String::from("knmch"), run(String::from("okanemochi")));
-        assert_eq!(String::from("k"), run(String::from("aoki")));
-        assert_eq!(String::from("mzsh"), run(String::from("mazushii")));
+        let tests = [
+            TestCase("chokudai", "chkd"),
+            TestCase("okanemochi", "knmch"),
+            TestCase("aoki", "k"),
+            TestCase("mazushii", "mzsh"),
+        ];
+
+        for TestCase(s, expected) in tests {
+            assert_eq!(run(s), expected);
+        }
     }
 }
-
