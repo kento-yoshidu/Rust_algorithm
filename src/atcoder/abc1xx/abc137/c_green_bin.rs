@@ -1,38 +1,28 @@
 // https://atcoder.jp/contests/abc137/tasks/abc137_c
 
+use std::collections::HashMap;
 use itertools::Itertools;
 
-pub fn run(n: usize, s: Vec<&str>) -> usize {
-    let mut vec: Vec<String> = s.iter()
-        .map(|str| {
-            str.chars()
-                .collect::<Vec<char>>()
-                .iter()
-                .sorted()
-                .collect::<String>()
-        })
-        .collect();
+fn run(_n: usize, s: Vec<&str>) -> usize {
+    let mut hash_map = HashMap::new();
 
-    vec.sort();
-    vec.dedup();
+    for str in s.iter() {
+        let s: String = str.chars().sorted().collect();
 
-    println!("{:?}", vec);
-    let ans = n - vec.len();
-
-    /*
-    for i in 0..vec.len() {
-        for j in i+1..vec.len() {
-            if vec[i] == vec[j] {
-                ans += 1;
-            }
-        }
+        *hash_map.entry(s).or_insert(0) += 1;
     }
-    */
 
-    ans * (ans - 1) / 2
+    hash_map.into_iter()
+        .map(|(_, v)| {
+            if v > 1 {
+                v * (v-1) / 2
+            } else {
+                0
+            }
+        })
+        .sum()
 }
 
-/*
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -53,4 +43,3 @@ mod tests {
         }
     }
 }
-*/
