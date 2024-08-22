@@ -12,9 +12,6 @@ fn run(n: usize, a: Vec<isize>) -> isize {
     min.abs() + cum.iter().last().unwrap()
 }
 
-fn main() {
-}
-
 #[cfg(test)]
 mod tests {
     use super::*;

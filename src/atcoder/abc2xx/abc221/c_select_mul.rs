@@ -1,23 +1,52 @@
 // https://atcoder.jp/contests/abc221/tasks/abc221_c
 
-// bit全探索（無理目）
+use itertools::Itertools;
+
 pub fn run(n: usize) -> usize {
-    let ans = 0;
+    let str = n.to_string();
 
-    let str: Vec<char> = n.to_string().chars().collect();
+    let mut ans = 0;
 
-    for bit in 1..=(str.len() << 1) {
-        let mut left = Vec::<usize>::new();
-        let mut right = Vec::<usize>::new();
+    for chars in str.chars().permutations(str.len()) {
+        for j in 1..str.len() {
+            let l_chars = &chars[0..j];
+            let r_chars = &chars[j..];
 
-        for i in 0..str.len() {
-            if bit & (1 << i) != 0 {
-                left.push(str[i] as usize -48);
-            } else {
-                right.push(str[i] as usize -48);
+            if l_chars[0] == '0' || r_chars[0] == '0' {
+                continue;
             }
+
+            let l = l_chars.iter()
+                .map(|&c| c.to_digit(10).unwrap() as usize)
+                .fold(0, |acc, x| acc * 10 + x);
+
+            let r = r_chars.iter()
+                .map(|&c| c.to_digit(10).unwrap() as usize)
+                .fold(0, |acc, x| acc * 10 + x);
+
+            ans = ans.max(l*r);
         }
     }
 
     ans
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    struct TestCase(usize, usize);
+
+    #[test]
+    fn test() {
+        let tests = [
+            TestCase(123, 63),
+            TestCase(1010, 100),
+            TestCase(998244353, 939337176),
+        ];
+
+        for TestCase(n, expected) in tests {
+            assert_eq!(run(n), expected);
+        }
+    }
 }
