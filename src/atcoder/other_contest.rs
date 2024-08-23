@@ -4,6 +4,7 @@ pub mod aising2020;
 pub mod bcu30;
 pub mod bcu30_2018_qual;
 pub mod caddi2018b;
+pub mod cf16_final;
 pub mod code_festival_2014_qualb;
 pub mod code_festival_2015_quala;
 pub mod code_festival_2016_quala;
