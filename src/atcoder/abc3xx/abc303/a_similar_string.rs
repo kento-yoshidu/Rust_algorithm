@@ -1,10 +1,10 @@
 // https://atcoder.jp/contests/abc303/tasks/abc303_a
 
-pub fn run(s: String, t: String) -> String {
+fn run(_n: usize, s: &'static str, t: &'static str) -> &'static str {
     if s.replace("0", "o").replace("1", "l") == t.replace("0", "o").replace("1", "l") {
-        String::from("Yes")
+        "Yes"
     } else {
-        String::from("No")
+        "No"
     }
 }
 
@@ -12,10 +12,18 @@ pub fn run(s: String, t: String) -> String {
 mod tests {
     use super::*;
 
+    struct TestCase(usize, &'static str, &'static str, &'static str);
+
     #[test]
     fn test() {
-        assert_eq!(String::from("Yes"), run(String::from("l0w"), String::from("1ow")));
-        assert_eq!(String::from("No"), run(String::from("abc"), String::from("abr")));
-        assert_eq!(String::from("Yes"), run(String::from("nok0"), String::from("n0ko")));
+        let tests = [
+            TestCase(3, "l0w", "1ow", "Yes"),
+            TestCase(3, "abc", "abr", "No"),
+            TestCase(4, "nok0", "n0ko", "Yes"),
+        ];
+
+        for TestCase(n, s, t, expected) in tests {
+            assert_eq!(run(n, s, t), expected);
+        }
     }
 }
