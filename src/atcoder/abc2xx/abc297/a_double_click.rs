@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc297/tasks/abc297_a
 
-pub fn run(n: i32, d: i32, t: Vec<i32>) -> i32 {
+pub fn run(n: usize, d: isize, t: Vec<isize>) -> isize {
     for i in 0..n-1 {
         if t[i as usize + 1] - t[i as usize] <= d {
             return t[i as usize + 1];
@@ -10,31 +10,32 @@ pub fn run(n: i32, d: i32, t: Vec<i32>) -> i32 {
     -1
 }
 
-/*
-pub fn run2(_n: isize, d: isize, t: Vec<isize>) -> String {
-    t.windows(2).find(|v| {
-        v[1] - v[0] <= d
-    })
+pub fn run2(n: usize, d: isize, t: Vec<isize>) -> isize {
+    (0..n-1)
+        .find(|i| {
+            t[i+1] - t[*i] <= d
+        })
+        .map(|i| t[i+1])
+        .unwrap_or(-1)
 }
-*/
 
 #[cfg(test)]
 mod tests {
     use super::*;
 
+    struct TestCase(usize, isize, Vec<isize>, isize);
+
     #[test]
     fn test() {
-        assert_eq!(1300, run(4, 500, vec![300, 900, 1300, 1700]));
-        assert_eq!(-1, run(5, 99, vec![100, 200, 300, 400, 500]));
-        assert_eq!(600, run(4, 500, vec![100, 600, 1100, 1600]));
-    }
+        let tests = [
+            TestCase(4, 500, vec![300, 900, 1300, 1700], 1300),
+            TestCase(5, 99, vec![100, 200, 300, 400, 500], -1),
+            TestCase(4, 500, vec![100, 600, 1100, 1600], 600),
+        ];
 
-    /*
-    #[test]
-    fn test2() {
-        assert_eq!(String::from("1300"), run2(4, 500, vec![300, 900, 1300, 1700]));
-        assert_eq!(String::from("-1"), run2(5, 99, vec![100, 200, 300, 400, 500]));
-        assert_eq!(String::from("600"), run2(4, 500, vec![100, 600, 1100, 1600]));
+        for TestCase(n, d, t, expected) in tests {
+            assert_eq!(run(n, d, t.clone()), expected);
+            assert_eq!(run2(n, d, t.clone()), expected);
+        }
     }
-    */
 }
