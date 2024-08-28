@@ -2,11 +2,17 @@
 
 use std::collections::HashMap;
 
-fn run(_n: usize, a: Vec<usize>, _q: usize, bc: Vec<(usize, usize)>) -> Vec<usize> {
-    let mut hash_map = HashMap::new();
+fn run(_n: usize, a: Vec<usize>, _q: usize, bc: Vec<(isize, isize)>) -> Vec<isize> {
+    let mut hash_map: HashMap<isize, isize> = HashMap::new();
 
     for i in a.into_iter() {
-        *hash_map.entry(i).or_insert(0) += 1;
+        *hash_map.entry(i.try_into().unwrap()).or_insert(0) += 1;
+    }
+
+    let mut sum = 0;
+
+    for (k, v) in &hash_map {
+        sum += k * v;
     }
 
     let mut ans = Vec::new();
@@ -14,11 +20,13 @@ fn run(_n: usize, a: Vec<usize>, _q: usize, bc: Vec<(usize, usize)>) -> Vec<usiz
     for (b, c) in bc.into_iter() {
         if let Some(&count) = hash_map.get(&b) {
             // bのカウントを削除してcのカウントに加算
-            *hash_map.entry(c).or_insert(0) += count;
+            *hash_map.entry(c.try_into().unwrap()).or_insert(0) += count;
             hash_map.remove(&b);
+
+            sum += (c - b) * count;
         }
 
-        ans.push(hash_map.iter().map(|(k, v)| k*v).sum::<usize>());
+        ans.push(sum);
     }
 
     ans
@@ -28,7 +36,7 @@ fn run(_n: usize, a: Vec<usize>, _q: usize, bc: Vec<(usize, usize)>) -> Vec<usiz
 mod tests {
     use super::*;
 
-    struct TestCase(usize, Vec<usize>, usize, Vec<(usize, usize)>, Vec<usize>);
+    struct TestCase(usize, Vec<usize>, usize, Vec<(isize, isize)>, Vec<isize>);
 
     #[test]
     fn test() {
