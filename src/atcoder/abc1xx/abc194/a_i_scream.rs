@@ -1,14 +1,14 @@
 // https://atcoder.jp/contests/abc194/tasks/abc194_a
 
-pub fn run(a: i32, b: i32) -> String {
+pub fn run(a: usize, b: usize) -> usize {
     if a + b >= 15 && b >= 8 {
-        String::from("アイスクリーム")
+        1
     } else if a + b >= 10 && b >= 3 {
-        String::from("アイスミルク")
+        2
     } else if a + b >= 3 {
-        String::from("ラクトアイス")
+        3
     } else {
-        String::from("氷菓")
+        4
     }
 }
 
@@ -18,8 +18,8 @@ mod tests {
 
     #[test]
     fn test() {
-        assert_eq!(String::from("アイスクリーム"), run(10, 8));
-        assert_eq!(String::from("ラクトアイス"), run(1, 2));
-        assert_eq!(String::from("氷菓"), run(0, 0));
+        assert_eq!(1, run(10, 8));
+        assert_eq!(3, run(1, 2));
+        assert_eq!(4, run(0, 0));
     }
 }
