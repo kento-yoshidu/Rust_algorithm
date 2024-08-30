@@ -1,7 +1,7 @@
 // https://atcoder.jp/contests/abc363/tasks/abc363_c
 
-use std::collections::HashSet;
 use itertools::Itertools;
+use std::collections::HashSet;
 
 fn check(chars: &[char]) -> bool {
     chars.iter().eq(chars.iter().rev())
@@ -14,16 +14,15 @@ fn run(n: usize, k: usize, s: &str) -> usize {
 
     for str in chars.into_iter().permutations(n) {
         hash_set.insert(str);
-
     }
 
     let mut ans = 0;
 
     'outer: for str in hash_set.into_iter() {
+        // k文字の部分文字列生成
         for arr in str.windows(k) {
-            let res = check(arr);
-
-            if res == true {
+            // 部分文字列に一つでも回文があったら次の文字に進む
+            if check(arr) == true {
                 continue 'outer;
             }
         }
