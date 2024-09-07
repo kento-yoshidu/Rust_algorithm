@@ -1,15 +1,27 @@
 // https://atcoder.jp/contests/abc155/tasks/abc155_a
 
-pub fn run(a: usize, b: usize, c: usize) -> String {
+use std::collections::HashSet;
+
+fn run(a: usize, b: usize, c: usize) -> &'static str {
     let mut vec = vec![a, b, c];
 
     vec.sort();
     vec.dedup();
 
     if vec.len() == 2 {
-        String::from("Yes")
+        "Yes"
     } else {
-        String::from("No")
+        "No"
+    }
+}
+
+fn run2(a: usize, b: usize, c: usize) -> &'static str {
+    let hash_set = HashSet::from([a, b, c]);
+
+    if hash_set.len() == 2 {
+        "Yes"
+    } else {
+        "No"
     }
 }
 
@@ -17,11 +29,20 @@ pub fn run(a: usize, b: usize, c: usize) -> String {
 mod tests {
     use super::*;
 
+    struct TestCase(usize, usize, usize, &'static str);
+
     #[test]
     fn test() {
-        assert_eq!(String::from("Yes"), run(5, 7, 5));
-        assert_eq!(String::from("No"), run(4, 4, 4));
-        assert_eq!(String::from("No"), run(4, 9, 6));
-        assert_eq!(String::from("Yes"), run(3, 3, 4));
+        let tests = [
+            TestCase(5, 7, 5, "Yes"),
+            TestCase(4, 4, 4, "No"),
+            TestCase(4, 9, 6, "No"),
+            TestCase(3, 3, 4, "Yes"),
+        ];
+
+        for TestCase(a, b, c, expected) in tests {
+            assert_eq!(run(a, b, c), expected);
+            assert_eq!(run2(a, b, c), expected);
+        }
     }
 }

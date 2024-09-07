@@ -1,18 +1,18 @@
 // https://atcoder.jp/contests/abc190/tasks/abc190_a
 
-pub fn run(t: i32, a: i32, n: i32) -> String {
-    if t == a {
-        if n == 0 {
-            return String::from("Aoki");
+pub fn run(a: usize, b: usize, c: usize) -> &'static str {
+    if c == 0 {
+        if a > b {
+            "Takahashi"
         } else {
-            return String::from("Takahashi");
+            "Aoki"
         }
-    }
-
-    if t > a {
-        String::from("Takahashi")
     } else {
-        String::from("Aoki")
+        if a >= b {
+            "Takahashi"
+        } else {
+            "Aoki"
+        }
     }
 }
 
@@ -20,10 +20,19 @@ pub fn run(t: i32, a: i32, n: i32) -> String {
 mod tests {
     use super::*;
 
+    struct TestCase(usize, usize, usize, &'static str);
+
     #[test]
     fn test() {
-        assert_eq!(String::from("Takahashi"), run(2, 1, 0));
-        assert_eq!(String::from("Aoki"), run(2, 2, 0));
-        assert_eq!(String::from("Takahashi"), run(2, 2, 1));
+        let tests = [
+            TestCase(2, 1, 0, "Takahashi"),
+            TestCase(2, 2, 0, "Aoki"),
+            TestCase(2, 2, 1, "Takahashi"),
+            TestCase(80, 81, 1, "Aoki"),
+        ];
+
+        for TestCase(a, b, c, expected) in tests {
+            assert_eq!(run(a, b, c), expected);
+        }
     }
 }
