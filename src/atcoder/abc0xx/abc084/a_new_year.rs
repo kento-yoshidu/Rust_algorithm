@@ -1,7 +1,7 @@
 // https://atcoder.jp/contests/abc084/tasks/abc084_a
 
 fn run(m: usize) -> usize {
-	(24 - m ) + 24
+	(24 - m) + 24
 }
 
 #[cfg(test)]
