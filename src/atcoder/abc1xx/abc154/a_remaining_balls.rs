@@ -1,10 +1,10 @@
 // https://atcoder.jp/contests/abc154/tasks/abc154_a
 
-pub fn run(s: &str, _t: &str, a: usize, b: usize, u: &str) -> Vec<usize> {
+pub fn run(s: &str, _t: &str, a: usize, b: usize, u: &str) -> (usize, usize) {
     if s == u {
-        vec![a-1, b]
+        (a-1, b)
     } else {
-        vec![a, b-1]
+        (a, b-1)
     }
 }
 
@@ -12,9 +12,17 @@ pub fn run(s: &str, _t: &str, a: usize, b: usize, u: &str) -> Vec<usize> {
 mod tests {
     use super::*;
 
+    struct TestCase(&'static str, &'static str, usize, usize, &'static str, (usize, usize));
+
     #[test]
     fn test() {
-        assert_eq!(vec![2, 4], run("red", "blue", 3, 4, "red"));
-        assert_eq!(vec![5, 4], run("red", "blue", 5, 5, "blue"));
+        let tests = [
+            TestCase("red", "blue", 3, 4, "red", (2, 4)),
+            TestCase("red", "blue", 5, 5, "blue", (5, 4)),
+        ];
+
+        for TestCase(s, t, a, b, u, expected) in tests {
+            assert_eq!(run(s, t, a, b, u), expected);
+        }
     }
 }
