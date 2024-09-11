@@ -16,6 +16,7 @@ pub mod code_formula_2014_quala;
 pub mod code_formula_2014_qualb;
 pub mod diverta2019;
 pub mod diverta2019_2;
+pub mod dwacon6th_prelims;
 pub mod exawizards2019;
 pub mod hhkb2020;
 pub mod indeednow_quala;
