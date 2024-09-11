@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc293/tasks/abc293_a
 
-pub fn run(s: String) -> String {
+fn run(s: &str) -> String {
     let mut ans = String::new();
 
     let str: Vec<char> = s.chars().map(|c| c).collect();
@@ -13,7 +13,7 @@ pub fn run(s: String) -> String {
     ans
 }
 
-pub fn run2(s: String) -> String {
+fn run2(s: &str) -> String {
     let mut str: Vec<char> = s.chars().collect();
 
     for i in (0..str.len()).step_by(2) {
@@ -26,21 +26,35 @@ pub fn run2(s: String) -> String {
     str.iter().collect()
 }
 
+fn run3(s: &str) -> String {
+    s.chars()
+        .collect::<Vec<char>>()
+        .chunks(2)
+        .map(|chunk| {
+            vec![chunk[1], chunk[0]]
+        })
+        .flatten()
+        .collect()
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
 
-    #[test]
-    fn test() {
-        assert_eq!(String::from("badcfe"), run(String::from("abcdef")));
-        assert_eq!(String::from("aaaa"), run(String::from("aaaa")));
-        assert_eq!(String::from("atcoderbeginnercontest"), run(String::from("taocedbrgeniencrnoetts")));
-    }
+    struct TestCase(&'static str, &'static str);
 
     #[test]
-    fn test2() {
-        assert_eq!(String::from("badcfe"), run2(String::from("abcdef")));
-        assert_eq!(String::from("aaaa"), run2(String::from("aaaa")));
-        assert_eq!(String::from("atcoderbeginnercontest"), run2(String::from("taocedbrgeniencrnoetts")));
+    fn test() {
+        let tests = [
+            TestCase("abcdef", "badcfe"),
+            TestCase("aaaa", "aaaa"),
+            TestCase("atcoderbeginnercontest", "taocedbrgeniencrnoetts"),
+        ];
+
+        for TestCase(s, expected) in tests {
+            assert_eq!(run(s), expected);
+            assert_eq!(run2(s), expected);
+            assert_eq!(run3(s), expected);
+        }
     }
 }
