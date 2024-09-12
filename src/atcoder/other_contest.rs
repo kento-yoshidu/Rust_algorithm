@@ -9,6 +9,7 @@ pub mod code_festival_2014_qualb;
 pub mod code_festival_2015_quala;
 pub mod code_festival_2016_quala;
 pub mod code_festival_2016_qualb;
+pub mod code_festival_2016_qualc;
 pub mod code_festival_2017_quala;
 pub mod code_festival_2017_qualb;
 pub mod code_festival_2017_qualc;
