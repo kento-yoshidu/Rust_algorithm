@@ -1,22 +1,22 @@
 // https://atcoder.jp/contests/code-formula-2014-quala/tasks/code_formula_2014_qualA_a
 
-pub fn run(n: usize) -> String {
+fn run(n: usize) -> &'static str {
     for i in 1..100 {
         if i*i*i == n {
-            return String::from("Yes")
+            return "YES"
         }
     }
 
-    String::from("No")
+    "NO"
 }
 
-pub fn run2(n: usize) -> String {
+fn run2(n: usize) -> &'static str {
     if (1..=100).any(|i| {
         i * i * i == n
     }) {
-        String::from("Yes")
+        "YES"
     } else {
-        String::from("No")
+        "NO"
     }
 }
 
@@ -24,15 +24,17 @@ pub fn run2(n: usize) -> String {
 mod tests {
     use super::*;
 
-    #[test]
-    fn test() {
-        assert_eq!(String::from("Yes"), run(8));
-        assert_eq!(String::from("No"), run(24));
-    }
+    struct TestCase(usize, &'static str);
 
     #[test]
-    fn test2() {
-        assert_eq!(String::from("Yes"), run2(8));
-        assert_eq!(String::from("No"), run2(24));
+    fn test() {
+        let tests = [
+            TestCase(8, "YES"),
+            TestCase(24, "NO")
+        ];
+
+        for TestCase(n, expected) in tests {
+            assert_eq!(run(n), expected);
+        }
     }
 }
