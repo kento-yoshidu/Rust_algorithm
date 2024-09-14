@@ -1,10 +1,10 @@
 // https://atcoder.jp/contests/abc287/tasks/abc287_a
 
-pub fn run(_n: usize, vec: Vec<&str>) -> String {
+fn run(_n: usize, s: &Vec<&str>) -> &'static str {
     let mut f = 0;
     let mut a = 0;
 
-    for v in vec.iter() {
+    for v in s.iter() {
         if *v == "For" {
             f += 1;
         } else {
@@ -13,39 +13,39 @@ pub fn run(_n: usize, vec: Vec<&str>) -> String {
     }
 
     if f > a {
-        String::from("Yes")
+        "Yes"
     } else {
-        String::from("No")
+        "No"
     }
 }
 
-pub fn run2(_n: usize, vec: Vec<&str>) -> String {
-    if 0 < vec.iter().map(|str| {
+fn run2(_n: usize, s: &Vec<&str>) -> &'static str {
+    if 0 < s.iter().map(|str| {
         if *str == "For" {
             1
         } else {
             -1
         }
     }).sum() {
-        String::from("Yes")
+        "Yes"
     } else {
-        String::from("No")
+        "No"
     }
 }
 
-pub fn run3(_n: usize, vec: Vec<&str>) -> String {
-    let f = vec.iter().filter(|str| **str == "For").count();
-    let a = vec.iter().filter(|str| **str == "Against").count();
+fn run3(_n: usize, s: &Vec<&str>) -> &'static str {
+    let f = s.iter().filter(|str| **str == "For").count();
+    let a = s.iter().filter(|str| **str == "Against").count();
 
     if f > a {
-        String::from("Yes")
+        "Yes"
     } else {
-        String::from("No")
+        "No"
     }
 }
 
-pub fn run4(_n: usize, vec: Vec<&str>) -> String {
-    let (f, a) = vec.iter().fold((0, 0), |(f, a), s|
+fn run4(_n: usize, s: &Vec<&str>) -> &'static str {
+    let (f, a) = s.iter().fold((0, 0), |(f, a), s|
         match *s {
             "For" => (f + 1, a),
             "Against" => (f, a + 1),
@@ -54,9 +54,9 @@ pub fn run4(_n: usize, vec: Vec<&str>) -> String {
     );
 
     if f > a {
-        String::from("Yes")
+        "Yes"
     } else {
-        String::from("No")
+        "No"
     }
 }
 
@@ -64,31 +64,21 @@ pub fn run4(_n: usize, vec: Vec<&str>) -> String {
 mod tests {
     use super::*;
 
+    struct TestCase(usize, Vec<&'static str>, &'static str);
+
     #[test]
     fn test() {
-        assert_eq!(String::from("Yes"), run(7, vec!["For", "Against", "For"]));
-        assert_eq!(String::from("No"), run(5, vec!["Against", "Against", "For", "Against", "For"]));
-        assert_eq!(String::from("Yes"), run(1, vec!["For"]));
-    }
+        let tests = [
+            TestCase(7, vec!["For", "Against", "For"], "Yes"),
+            TestCase(5, vec!["Against", "Against", "For", "Against", "For"], "No"),
+            TestCase(1, vec!["For"], "Yes"),
+        ];
 
-    #[test]
-    fn test2() {
-        assert_eq!(String::from("Yes"), run2(7, vec!["For", "Against", "For"]));
-        assert_eq!(String::from("No"), run2(5, vec!["Against", "Against", "For", "Against", "For"]));
-        assert_eq!(String::from("Yes"), run2(1, vec!["For"]));
-    }
-
-    #[test]
-    fn test3() {
-        assert_eq!(String::from("Yes"), run3(7, vec!["For", "Against", "For"]));
-        assert_eq!(String::from("No"), run3(5, vec!["Against", "Against", "For", "Against", "For"]));
-        assert_eq!(String::from("Yes"), run3(1, vec!["For"]));
-    }
-
-    #[test]
-    fn test4() {
-        assert_eq!(String::from("Yes"), run4(7, vec!["For", "Against", "For"]));
-        assert_eq!(String::from("No"), run4(5, vec!["Against", "Against", "For", "Against", "For"]));
-        assert_eq!(String::from("Yes"), run4(1, vec!["For"]));
+        for TestCase(n, s, expected) in tests {
+            assert_eq!(run(n, &s), expected);
+            assert_eq!(run2(n, &s), expected);
+            assert_eq!(run3(n, &s), expected);
+            assert_eq!(run4(n, &s), expected);
+        }
     }
 }
