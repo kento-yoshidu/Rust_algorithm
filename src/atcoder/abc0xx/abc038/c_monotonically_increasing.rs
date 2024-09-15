@@ -23,18 +23,18 @@ fn run(n: usize, a: Vec<usize>) -> usize {
 mod tests {
     use super::*;
 
-    struct TestCaes(usize, Vec<usize>, usize);
+    struct TestCase(usize, Vec<usize>, usize);
 
     #[test]
     fn test() {
         let tests = [
-            TestCaes(5, vec![1, 2, 3, 2, 1], 8),
-            TestCaes(4, vec![1, 2, 3, 4], 10),
-            TestCaes(6, vec![3, 3, 4, 1, 2, 2], 8),
-            TestCaes(6, vec![1, 5, 2, 3, 4, 2], 10),
+            TestCase(5, vec![1, 2, 3, 2, 1], 8),
+            TestCase(4, vec![1, 2, 3, 4], 10),
+            TestCase(6, vec![3, 3, 4, 1, 2, 2], 8),
+            TestCase(6, vec![1, 5, 2, 3, 4, 2], 10),
         ];
 
-        for TestCaes(n, a, expected) in tests {
+        for TestCase(n, a, expected) in tests {
             assert_eq!(run(n, a), expected);
         }
     }
