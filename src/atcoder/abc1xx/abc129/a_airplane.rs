@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc129/tasks/abc129_a
 
-pub fn run(p: i32, q: i32, r: i32) -> i32 {
+fn run(p: usize, q: usize, r: usize) -> usize {
     let mut vec = vec![p, q, r];
 
     vec.sort();
@@ -8,13 +8,26 @@ pub fn run(p: i32, q: i32, r: i32) -> i32 {
     vec[0] + vec[1]
 }
 
+fn run2(p: usize, q: usize, r: usize) -> usize {
+    [p+q, q+r, p+r].into_iter().min().unwrap()
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
 
+    struct TestCase(usize, usize, usize, usize);
+
     #[test]
     fn test() {
-        assert_eq!(4, run(1, 3, 4));
-        assert_eq!(5, run(3, 2, 3));
+        let tests = [
+            TestCase(1, 3, 4, 4),
+            TestCase(3, 2, 3, 5),
+        ];
+
+        for TestCase(p, q, r, expected) in tests {
+            assert_eq!(run(p, q, r), expected);
+            assert_eq!(run2(p, q, r), expected);
+        }
     }
 }
