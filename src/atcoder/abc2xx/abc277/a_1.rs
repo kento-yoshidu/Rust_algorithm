@@ -1,7 +1,9 @@
 // https://atcoder.jp/contests/abc277/tasks/abc277_a
 
-pub fn run(_n: usize, x: usize, p: Vec<usize>) -> usize {
-    p.iter().position(|num| *num == x).unwrap() + 1
+fn run(_n: usize, x: usize, p: Vec<usize>) -> usize {
+    p.into_iter()
+        .position(|num| num == x)
+        .unwrap() + 1
 }
 
 #[cfg(test)]

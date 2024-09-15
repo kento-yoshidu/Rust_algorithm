@@ -2,13 +2,13 @@
 
 fn calc(n: usize) -> usize {
     if n == 0 {
-        return 1
+        1
+    } else {
+        n * calc(n - 1)
     }
-
-    n * calc(n - 1)
 }
 
-pub fn run(n: usize) -> usize {
+fn run(n: usize) -> usize {
     calc(n)
 }
 
@@ -16,8 +16,19 @@ pub fn run(n: usize) -> usize {
 mod tests {
     use super::*;
 
+    struct TestCase(usize, usize);
+
     #[test]
     fn test() {
-        assert_eq!(3628800, run(10));
+        let tests = [
+            TestCase(2, 2),
+            TestCase(3, 6),
+            TestCase(0, 1),
+            TestCase(10, 3628800),
+        ];
+
+        for TestCase(n, expected) in tests {
+            assert_eq!(run(n), expected);
+        }
     }
 }
