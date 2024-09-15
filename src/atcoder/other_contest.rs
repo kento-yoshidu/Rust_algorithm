@@ -25,6 +25,7 @@ pub mod dwacon6th_prelims;
 pub mod exawizards2019;
 pub mod hhkb2020;
 pub mod indeednow_quala;
+pub mod indeednow_qualb;
 pub mod hitachi2020;
 pub mod keyence2019;
 pub mod keyence2020;
