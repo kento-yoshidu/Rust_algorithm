@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc157/tasks/abc157_a
 
-pub fn run(n: i32) -> i32 {
+fn run(n: usize) -> usize {
     if n % 2 == 0 {
         return  n / 2;
     }
@@ -8,25 +8,32 @@ pub fn run(n: i32) -> i32 {
     (n / 2) + 1
 }
 
-pub fn run2(n: usize) -> usize {
+fn run2(n: usize) -> usize {
     (n as f64 / 2.0).ceil() as usize
+}
+
+fn run3(n: usize) -> usize {
+    (n + 1) / 2
 }
 
 #[cfg(test)]
 mod tests {
     use super::*;
 
-    #[test]
-    fn test() {
-        assert_eq!(3, run(5));
-        assert_eq!(1, run(2));
-        assert_eq!(50, run(100));
-    }
+    struct TestCase(usize, usize);
 
     #[test]
-    fn test2() {
-        assert_eq!(3, run2(5));
-        assert_eq!(1, run2(2));
-        assert_eq!(50, run2(100));
+    fn test() {
+        let tests = [
+            TestCase(5, 3),
+            TestCase(2, 1),
+            TestCase(100, 50),
+        ];
+
+        for TestCase(n, expected) in tests {
+            assert_eq!(run(n), expected);
+            assert_eq!(run2(n), expected);
+            assert_eq!(run3(n), expected);
+        }
     }
 }
