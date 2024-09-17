@@ -42,6 +42,7 @@ pub mod jsc2023_final;
 pub mod m_solutions2019;
 pub mod m_solutions2020;
 pub mod nikkei2019_qual;
+pub mod nikkei2019_2_qual;
 pub mod nomura2020;
 pub mod oupc2023_day1;
 pub mod pakencamp2019;
