@@ -2,20 +2,18 @@
 
 fn run(m: isize) -> (usize, Vec<isize>) {
     let mut rest = m;
-    let mut count = 0;
     let mut vec = Vec::new();
 
-    for i in (0..=20).rev() {
+    for i in (0..=10).rev() {
         let num = 3_isize.pow(i);
 
         while num <= rest {
-            count += 1;
             rest -= num;
             vec.push(i as isize);
         }
     }
 
-    (count, vec)
+    (vec.len(), vec)
 }
 
 #[cfg(test)]

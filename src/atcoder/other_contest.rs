@@ -29,6 +29,7 @@ pub mod indeednow_qualb;
 pub mod hitachi2020;
 pub mod keyence2019;
 pub mod keyence2020;
+pub mod keyence2021;
 pub mod kupc2017;
 pub mod joi2006yo;
 pub mod joi2007ho;
