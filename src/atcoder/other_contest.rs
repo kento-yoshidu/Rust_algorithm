@@ -33,6 +33,7 @@ pub mod keyence2021;
 pub mod kupc2017;
 pub mod joi2006yo;
 pub mod joi2007ho;
+pub mod joi2007yo;
 pub mod joi2014yo;
 pub mod joi2021yo1c;
 pub mod joi2023yo1a;
