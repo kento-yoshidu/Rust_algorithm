@@ -1,14 +1,14 @@
 // https://atcoder.jp/contests/abc244/tasks/abc244_a
 
-pub fn run(n: usize, s: String) -> char {
+fn run(n: usize, s: &'static str) -> char {
     s.chars().nth(n-1).unwrap()
 }
 
-pub fn run2(_n: usize, s: String) -> char {
+fn run2(_n: usize, s: &'static str) -> char {
     s.chars().rev().nth(0).unwrap()
 }
 
-pub fn run3(_n: usize, s: String) -> char {
+fn run3(_n: usize, s: &'static str) -> char {
     s.chars().last().unwrap()
 }
 
@@ -16,21 +16,19 @@ pub fn run3(_n: usize, s: String) -> char {
 mod tests {
     use super::*;
 
+    struct TestCase(usize, &'static str, char);
+
     #[test]
     fn test() {
-        assert_eq!('e', run(5, String::from("abcde")));
-        assert_eq!('a', run(1, String::from("a")));
-    }
+        let tests = [
+            TestCase(5, "abcde", 'e'),
+            TestCase(1, "a", 'a'),
+        ];
 
-    #[test]
-    fn test2() {
-        assert_eq!('e', run2(5, String::from("abcde")));
-        assert_eq!('a', run2(1, String::from("a")));
-    }
-
-    #[test]
-    fn test3() {
-        assert_eq!('e', run3(5, String::from("abcde")));
-        assert_eq!('a', run3(1, String::from("a")));
+        for TestCase(n, s, expected) in tests {
+            assert_eq!(run(n, s), expected);
+            assert_eq!(run2(n, s), expected);
+            assert_eq!(run3(n, s), expected);
+        }
     }
 }

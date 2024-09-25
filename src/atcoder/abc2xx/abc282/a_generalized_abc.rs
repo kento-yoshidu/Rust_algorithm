@@ -1,24 +1,26 @@
 // https://atcoder.jp/contests/abc282/tasks/abc282_a
 
-pub fn run(k: usize) -> String {
-    (0..k).map(|i| {
-        match i % 3 {
-            0 => "A",
-            1 => "B",
-            2 => "C",
-            _ => unreachable!(),
-        }
-    }).collect()
+fn run(k: usize) -> String {
+    (0..k)
+        .map(|c| (b'A' + c as u8) as char)
+        .collect()
 }
 
 #[cfg(test)]
 mod tests {
     use super::*;
 
+    struct TestCase(usize, &'static str);
+
     #[test]
     fn test() {
-        assert_eq!(String::from("ABC"), run(3));
-        assert_eq!(String::from("ABCA"), run(4));
-        assert_eq!(String::from("A"), run(1));
+        let tests = [
+            TestCase(3, "ABC"),
+            TestCase(1, "A"),
+        ];
+
+        for TestCase(k, expected) in tests {
+            assert_eq!(run(k), expected);
+        }
     }
 }

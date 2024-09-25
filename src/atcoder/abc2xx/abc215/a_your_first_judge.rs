@@ -1,10 +1,10 @@
 // https://atcoder.jp/contests/abc215/tasks/abc215_a
 
-pub fn run(s: String) -> String {
-    if s == String::from("Hello,World!") {
-        String::from("AC")
+fn run(s: &str) -> &'static str {
+    if s == "Hello,World!" {
+        "AC"
     } else {
-        String::from("WA")
+        "WA"
     }
 }
 
@@ -12,10 +12,18 @@ pub fn run(s: String) -> String {
 mod tests {
     use super::*;
 
+    struct TestCase(&'static str, &'static str);
+
     #[test]
     fn test() {
-        assert_eq!(String::from("AC"), run(String::from("Hello,World!")));
-        assert_eq!(String::from("WA"), run(String::from("Hello,world!")));
-        assert_eq!(String::from("WA"), run(String::from("Hello!World!")));
+        let tests = [
+            TestCase("Hello,World!", "AC"),
+            TestCase("Hello,world!", "WA"),
+            TestCase("Hello!World!", "WA"),
+        ];
+
+        for TestCase(s, expected) in tests {
+            assert_eq!(run(s), expected);
+        }
     }
 }
