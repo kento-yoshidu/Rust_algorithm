@@ -1,44 +1,37 @@
 // https://atcoder.jp/contests/abc202/tasks/abc202_a
 
-pub fn run(a: usize, b: usize, c: usize) -> usize {
+fn run(a: usize, b: usize, c: usize) -> usize {
     21 - (a + b + c)
 }
 
-pub fn run2(vec: Vec<usize>) -> usize {
-    vec.iter().map(|num| {
-        7 - num
-    }).sum()
+fn run2(a: usize, b: usize, c: usize) -> usize {
+    [a, b, c].into_iter()
+        .map(|num| 7 - num)
+        .sum()
 }
 
 #[cfg(test)]
 mod tests {
     use super::*;
 
-    #[test]
-    fn test() {
-        assert_eq!(13, run(1, 4, 3));
-        assert_eq!(6, run(5, 6, 4));
-        assert_eq!(14, run(2, 3, 2));
-        assert_eq!(14, run(5, 1, 1));
-        assert_eq!(13, run(2, 1, 5));
-        assert_eq!(10, run(5, 1, 5));
-        assert_eq!(11, run(6, 2, 2));
-        assert_eq!(14, run(5, 1, 1));
-        assert_eq!(6, run(6, 5, 4));
-        assert_eq!(9, run(2, 6, 4));
-    }
+    struct TestCase(usize, usize, usize, usize);
 
     #[test]
-    fn test2() {
-        assert_eq!(13, run2(vec![1, 4, 3]));
-        assert_eq!(6, run2(vec![5, 6, 4]));
-        assert_eq!(14, run2(vec![2, 3, 2]));
-        assert_eq!(14, run2(vec![5, 1, 1]));
-        assert_eq!(13, run2(vec![2, 1, 5]));
-        assert_eq!(10, run2(vec![5, 1, 5]));
-        assert_eq!(11, run2(vec![6, 2, 2]));
-        assert_eq!(14, run2(vec![5, 1, 1]));
-        assert_eq!(6, run2(vec![6, 5, 4]));
-        assert_eq!(9, run2(vec![2, 6, 4]));
+    fn test() {
+        let tests = [
+            TestCase(1, 4, 3, 13),
+            TestCase(5, 6, 4, 6),
+            TestCase(6, 6, 4, 5),
+            TestCase(4, 3, 2, 12),
+            TestCase(6, 1, 1, 13),
+            TestCase(4, 1, 5, 11),
+            TestCase(6, 1, 5, 9),
+            TestCase(4, 6, 4, 7),
+        ];
+
+        for TestCase(a, b, c, expected) in tests {
+            assert_eq!(run(a, b, c), expected);
+            assert_eq!(run2(a, b, c), expected);
+        }
     }
 }
