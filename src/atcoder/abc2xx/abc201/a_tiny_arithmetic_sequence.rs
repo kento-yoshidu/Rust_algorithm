@@ -1,14 +1,14 @@
 // https://atcoder.jp/contests/abc201/tasks/abc201_a
 
-pub fn run(a: Vec<usize>) -> String {
+fn run(a: [usize; 3]) -> &'static str {
     let mut vec = a.clone();
 
     vec.sort();
 
     if vec[2] - vec[1] == vec[1] - vec[0] {
-        String::from("Yes")
+        "Yes"
     } else {
-        String::from("No")
+        "No"
     }
 }
 
@@ -16,10 +16,18 @@ pub fn run(a: Vec<usize>) -> String {
 mod tests {
     use super::*;
 
+    struct TestCase([usize; 3], &'static str);
+
     #[test]
     fn test() {
-        assert_eq!(String::from("Yes"), run(vec![5, 1, 3]));
-        assert_eq!(String::from("No"), run(vec![1, 4, 3]));
-        assert_eq!(String::from("Yes"), run(vec![5, 5, 5]));
+        let tests = [
+            TestCase([5, 1, 3], "Yes"),
+            TestCase([1, 4, 3], "No"),
+            TestCase([5, 5, 5], "Yes"),
+        ];
+
+        for TestCase(a, expected) in tests {
+            assert_eq!(run(a), expected);
+        }
     }
 }
