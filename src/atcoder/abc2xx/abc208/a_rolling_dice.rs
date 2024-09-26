@@ -1,7 +1,7 @@
 // https://atcoder.jp/contests/abc206/tasks/abc206_a
 
 pub fn run(a: usize, b: usize) -> String {
-    if a * 6 >= b {
+    if a * 6 >= b && a != 0 {
         String::from("Yes")
     } else {
         String::from("No")
