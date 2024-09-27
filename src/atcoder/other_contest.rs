@@ -41,6 +41,7 @@ pub mod jsc2021;
 pub mod jsc2023_final;
 pub mod m_solutions2019;
 pub mod m_solutions2020;
+pub mod mujin_pc_2016;
 pub mod nikkei2019_qual;
 pub mod nikkei2019_2_qual;
 pub mod nomura2020;

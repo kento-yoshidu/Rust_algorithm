@@ -10,21 +10,6 @@ fn run(_n: usize, p: usize, q: usize, r: usize, s: usize, a: &Vec<usize>) -> Vec
     vec
 }
 
-fn run2(_n: usize, p: usize, q: usize, r: usize, s: usize, a: &Vec<usize>) -> Vec<usize> {
-    a.iter()
-        .enumerate()
-        .map(|(i, x)| {
-            if (p..=q).contains(&(i + 1)) {
-                a[i - p + r].clone()
-            } else if (r..=s).contains(&(i + 1)) {
-                a[i - r + p].clone()
-            } else {
-                *x
-            }
-        })
-        .collect()
-}
-
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -47,7 +32,6 @@ mod tests {
 
         for TestCase(n, p, q, r, s, a, expected) in tests {
             assert_eq!(run(n, p, q, r, s, a), expected);
-            assert_eq!(run2(n, p, q, r, s, a), expected);
         }
     }
 }
