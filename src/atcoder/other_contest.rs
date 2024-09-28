@@ -40,6 +40,7 @@ pub mod joi2023yo1a;
 pub mod joi2023yo1b;
 pub mod joi2024yo1a;
 pub mod joi2024yo1b;
+pub mod joi2024yo1c;
 pub mod joi2025yo1a;
 pub mod joigsp2023;
 pub mod jsc2019_qual;
