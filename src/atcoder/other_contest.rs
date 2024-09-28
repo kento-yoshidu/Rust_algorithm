@@ -8,6 +8,7 @@ pub mod caddi2018b;
 pub mod cf16_final;
 pub mod code_festival_2014_qualb;
 pub mod code_festival_2015_quala;
+pub mod code_festival_2015_qualb;
 pub mod code_festival_2016_quala;
 pub mod code_festival_2016_qualb;
 pub mod code_festival_2016_qualc;
