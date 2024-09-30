@@ -1,7 +1,11 @@
 // https://atcoder.jp/contests/abc105/tasks/abc105_a
 
 pub fn run(n: usize, k: usize) -> usize {
-	n % k
+	if n % k == 0 {
+		0
+	} else {
+		1
+	}
 }
 
 #[cfg(test)]
