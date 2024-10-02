@@ -45,6 +45,7 @@ pub mod joi2024yo1c;
 pub mod joi2024yo2;
 pub mod joi2025yo1a;
 pub mod joigsp2023;
+pub mod joig2024open;
 pub mod jsc2019_qual;
 pub mod jsc2021;
 pub mod jsc2023_final;
