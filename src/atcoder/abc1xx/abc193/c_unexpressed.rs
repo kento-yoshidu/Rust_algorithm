@@ -3,7 +3,7 @@
 use std::collections::HashSet;
 use num_integer::Roots;
 
-pub fn run(n: usize) -> usize {
+fn run(n: usize) -> usize {
     let mut hash_set: HashSet<usize> = HashSet::new();
 
     for num in 2..=(n.sqrt()) {
