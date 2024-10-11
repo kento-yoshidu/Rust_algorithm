@@ -1,10 +1,10 @@
 // https://atcoder.jp/contests/abc038/tasks/abc038_a
 
-pub fn run(s: String) -> String {
+fn run(s: &str) -> &'static str {
 	if s.chars().last().unwrap() == 'T' {
-		String::from("Yes")
+		"YES"
 	} else {
-		String::from("No")
+		"NO"
 	}
 }
 
@@ -12,12 +12,20 @@ pub fn run(s: String) -> String {
 mod tests {
 	use super::*;
 
+	struct TestCase(&'static str, &'static str);
+
 	#[test]
 	fn test() {
-		assert_eq!(String::from("Yes"), run(String::from("ICEDT")));
-		assert_eq!(String::from("No"), run(String::from("MUGICHA")));
-		assert_eq!(String::from("Yes"), run(String::from("OOLONGT")));
-		assert_eq!(String::from("Yes"), run(String::from("T")));
-		assert_eq!(String::from("No"), run(String::from("TEA")));
+		let tests = [
+			TestCase("ICEDT", "YES"),
+			TestCase("MUGICHA", "NO"),
+			TestCase("OOLONGT", "YES"),
+			TestCase("T", "YES"),
+			TestCase("TEA", "NO"),
+		];
+
+		for TestCase(s, expected) in tests {
+			assert_eq!(run(s), expected);
+		}
 	}
 }

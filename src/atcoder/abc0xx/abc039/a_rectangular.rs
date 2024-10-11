@@ -1,17 +1,26 @@
 // https://atcoder.jp/contests/abc039/tasks/abc039_a
 
-pub fn run(a: usize, b: usize, c: usize) -> usize {
+fn run(a: usize, b: usize, c: usize) -> usize {
 	2 * (a*b + a*c + b*c)
 }
+
 
 #[cfg(test)]
 mod tests {
 	use super::*;
 
+	struct TestCase(usize, usize, usize, usize);
+
 	#[test]
 	fn test() {
-		assert_eq!(52, run(2, 3, 4));
-		assert_eq!(52, run(3, 4, 2));
-		assert_eq!(60000, run(100, 100, 100));
+		let tests = [
+			TestCase(2, 3, 4, 52),
+			TestCase(3, 4, 2, 52),
+			TestCase(100, 100, 100, 60000),
+		];
+
+		for TestCase(a, b, c, expected) in tests {
+			assert_eq!(run(a, b, c), expected);
+		}
 	}
 }
