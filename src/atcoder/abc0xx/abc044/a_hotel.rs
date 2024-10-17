@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc044/tasks/abc044_a
 
-pub fn run(n: i32, k: i32, x: i32, y: i32) -> i32 {
+fn run(n: usize, k: usize, x: usize, y: usize) -> usize {
     let first =
         if n <= k {
             n * x
@@ -18,7 +18,7 @@ pub fn run(n: i32, k: i32, x: i32, y: i32) -> i32 {
     first + second
 }
 
-pub fn run2(n: i32, k: i32, x: i32, y: i32) -> i32 {
+fn run2(n: usize, k: usize, x: usize, y: usize) -> usize {
     if n <= k {
         n * x
     } else {
@@ -30,15 +30,17 @@ pub fn run2(n: i32, k: i32, x: i32, y: i32) -> i32 {
 mod tests {
     use super::*;
 
-    #[test]
-    fn test() {
-        assert_eq!(48000, run(5, 3, 10000, 9000));
-        assert_eq!(20000, run(2, 3, 10000, 9000));
-    }
+    struct TestCase(usize, usize, usize, usize, usize);
 
     #[test]
-    fn test2() {
-        assert_eq!(48000, run2(5, 3, 10000, 9000));
-        assert_eq!(20000, run2(2, 3, 10000, 9000));
+    fn test() {
+        let tests = [
+            TestCase(5, 3, 10000, 9000, 48000),
+            TestCase(2, 3, 10000, 9000, 20000),
+        ];
+
+        for TestCase(n, k, x, y, expected) in tests {
+            assert_eq!(run(n, k, x, y), expected);
+        }
     }
 }
