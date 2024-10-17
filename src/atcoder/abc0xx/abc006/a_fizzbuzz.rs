@@ -1,10 +1,10 @@
 // https://atcoder.jp/contests/abc006/tasks/abc006_1
 
-pub fn run(n: u8) -> String{
+fn run(n: usize) -> &'static str {
     if n % 3 == 0 {
-        String::from("Yes")
+        "Yes"
     } else {
-        String::from("No")
+        "No"
     }
 }
 
@@ -12,10 +12,18 @@ pub fn run(n: u8) -> String{
 mod tests {
     use super::*;
 
+    struct TestCase(usize, &'static str);
+
     #[test]
     fn test () {
-        assert_eq!(String::from("No"), run(2));
-        assert_eq!(String::from("Yes"), run(9));
-        assert_eq!(String::from("Yes"), run(3));
+        let tests = [
+            TestCase(2, "No"),
+            TestCase(9, "Yes"),
+            TestCase(3, "Yes"),
+        ];
+
+        for TestCase(n, expected) in tests {
+            assert_eq!(run(n), expected);
+        }
     }
 }
