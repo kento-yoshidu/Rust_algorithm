@@ -1,6 +1,8 @@
 // https://atcoder.jp/contests/abc042/tasks/abc042_a
 
-pub fn run(a: usize, b: usize, c: usize) -> String {
+use itertools::Itertools;
+
+fn run(a: usize, b: usize, c: usize) -> &'static str {
     let vec = vec![a, b, c];
 
     let mut five = 0;
@@ -15,13 +17,13 @@ pub fn run(a: usize, b: usize, c: usize) -> String {
     }
 
     if five == 2 && seven == 1 {
-        String::from("YES")
+        "YES"
     } else {
-        String::from("NO")
+        "NO"
     }
 }
 
-pub fn run2(a: usize, b: usize, c: usize) -> &'static str {
+fn run2(a: usize, b: usize, c: usize) -> &'static str {
     if a * b * c == 5 * 7 * 5 {
         "YES"
     } else {
@@ -29,11 +31,8 @@ pub fn run2(a: usize, b: usize, c: usize) -> &'static str {
     }
 }
 
-pub fn run3(a: usize, b: usize, c: usize) -> &'static str {
-    let mut vec = vec![a, b, c];
-    vec.sort();
-
-    if vec == [5, 5, 7] {
+fn run3(a: usize, b: usize, c: usize) -> &'static str {
+    if vec![a, b, c].into_iter().sorted().collect::<Vec<usize>>() == [5, 5, 7] {
         "YES"
     } else {
         "NO"
