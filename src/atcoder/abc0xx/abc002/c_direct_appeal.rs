@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc002/tasks/abc002_3
 
-pub fn run(xa: isize, ya: isize, xb: isize, yb: isize, xc: isize, yc: isize) -> f64 {
+fn run(xa: isize, ya: isize, xb: isize, yb: isize, xc: isize, yc: isize) -> f64 {
     let a = (xb - xa) as f64;
     let b = (yb - ya) as f64;
     let c = (xc - xa) as f64;
