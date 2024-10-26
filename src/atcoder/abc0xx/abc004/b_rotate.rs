@@ -26,6 +26,7 @@ mod tests {
     fn test() {
         let tests = [
             TestCase(vec!["....", ".oo.", ".xx.", "...."], vec!["....", ".xx.", ".oo.", "...."]),
+            TestCase(vec!["....", "....", "....", "...o"], vec!["o...", "....", "....", "...."]),
         ];
 
         for TestCase(s, expected) in tests {
@@ -33,14 +34,3 @@ mod tests {
         }
     }
 }
-
-        /*
-        assert_eq!(vec![String::from("o..."),
-                        String::from("...."),
-                        String::from("...."),
-                        String::from("....")],
-                            run(vec!["....",
-                                     "....",
-                                     "....",
-                                     "...o"]));
-                                     */
