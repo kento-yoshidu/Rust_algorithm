@@ -1,10 +1,10 @@
 // https://atcoder.jp/contests/abc007/tasks/abc007_2
 
-fn run(a: String) -> String {
+fn run(a: &str) -> &'static str {
     if a == "a" {
-        String::from("-1")
+        "-1"
     } else {
-        String::from("a")
+        "a"
     }
 }
 
@@ -12,11 +12,19 @@ fn run(a: String) -> String {
 mod tests {
     use super::*;
 
+    struct TestCase(&'static str, &'static str);
+
     #[test]
     fn test() {
-        assert_eq!(String::from("a"), run(String::from("xyz")));
-        assert_eq!(String::from("a"), run(String::from("c")));
-        assert_eq!(String::from("-1"), run(String::from("a")));
-        assert_eq!(String::from("a"), run(String::from("aaaaa")));
+        let tests = [
+            TestCase("xyz", "a"),
+            TestCase("c", "a"),
+            TestCase("a", "-1"),
+            TestCase("aaaaa", "a"),
+        ];
+
+        for TestCase(a, expected) in tests {
+            assert_eq!(run(a), expected);
+        }
     }
 }
