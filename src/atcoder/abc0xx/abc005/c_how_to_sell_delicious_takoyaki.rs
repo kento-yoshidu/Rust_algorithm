@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc005/tasks/abc005_3
 
-pub fn run(t: usize, n: usize, a: Vec<usize>, _m: usize, b: Vec<usize>) -> &'static str {
+fn run(t: usize, n: usize, a: Vec<usize>, _m: usize, b: Vec<usize>) -> &'static str {
     let mut cur = 0;
 
     for num in b.into_iter() {
@@ -13,11 +13,10 @@ pub fn run(t: usize, n: usize, a: Vec<usize>, _m: usize, b: Vec<usize>) -> &'sta
                 return "no";
             }
 
-            if a[cur] + t >= num {
-                cur += 1;
+            cur += 1;
+
+            if a[cur-1] + t >= num {
                 break;
-            } else {
-                cur += 1;
             }
         }
     }

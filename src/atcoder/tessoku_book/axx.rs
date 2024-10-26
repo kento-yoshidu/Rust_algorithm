@@ -9,6 +9,7 @@ pub mod a08_two_dimensional_sum;
 pub mod a11_binary_search1;
 pub mod a12_printer;
 pub mod a13_close_pairs;
+pub mod a14_four_boxes;
 pub mod a16_dungeon_1;
 pub mod a17_dungeon_2;
 pub mod a26_prime_check;
