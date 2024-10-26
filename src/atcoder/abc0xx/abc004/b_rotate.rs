@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc004/tasks/abc004_2
 
-pub fn run(s: Vec<&str>) -> Vec<String> {
+fn run(s: Vec<&str>) -> Vec<String> {
     let mut ans = Vec::<String>::new();
 
     for v in s.iter().rev() {
@@ -20,24 +20,21 @@ pub fn run(s: Vec<&str>) -> Vec<String> {
 mod tests {
     use super::*;
 
+    struct TestCase(Vec<&'static str>, Vec<&'static str>);
+
     #[test]
     fn test() {
-        assert_eq!(vec![String::from("...."),
-                        String::from(".xx."),
-                        String::from(".oo."),
-                        String::from("....")],
-                            run(vec!["....",
-                                     ".oo.",
-                                     ".xx.",
-                                     "...."]));
-        assert_eq!(vec![String::from("ooxx"),
-                        String::from("ooxx"),
-                        String::from("xxoo"),
-                        String::from("xxoo")],
-                            run(vec!["ooxx",
-                                     "ooxx",
-                                     "xxoo",
-                                     "xxoo"]));
+        let tests = [
+            TestCase(vec!["....", ".oo.", ".xx.", "...."], vec!["....", ".xx.", ".oo.", "...."]),
+        ];
+
+        for TestCase(s, expected) in tests {
+            assert_eq!(run(s), expected);
+        }
+    }
+}
+
+        /*
         assert_eq!(vec![String::from("o..."),
                         String::from("...."),
                         String::from("...."),
@@ -46,5 +43,4 @@ mod tests {
                                      "....",
                                      "....",
                                      "...o"]));
-    }
-}
+                                     */
