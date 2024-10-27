@@ -1,9 +1,11 @@
 // https://atcoder.jp/contests/abc184/tasks/abc184_f
 
-use std::cmp::Ordering;
 use itertools::Itertools;
+use std::cmp::Ordering;
 
-pub fn lower_bound<T: Ord>(vec: &[T], value: T) -> Option<usize> {
+// upper_boundの拡張
+// n以下の最大の数を返す
+pub fn max_under_n<T: Ord>(vec: &[T], value: T) -> Option<usize> {
     vec.binary_search_by(|x| {
         if *x <= value {
             Ordering::Less
@@ -20,7 +22,7 @@ pub fn lower_bound<T: Ord>(vec: &[T], value: T) -> Option<usize> {
     .flatten()
 }
 
-pub fn run(n: usize, t: usize, a: Vec<usize>) -> usize {
+fn run(n: usize, t: usize, a: Vec<usize>) -> usize {
     let (l, r) = a.split_at(n/2);
 
     let mut p = Vec::new();
@@ -49,7 +51,7 @@ pub fn run(n: usize, t: usize, a: Vec<usize>) -> usize {
             continue;
         }
 
-        if let Some(right_idx) = lower_bound(&q, t - left) {
+        if let Some(right_idx) = max_under_n(&q, t - left) {
             ans = ans.max(q[right_idx] + left)
         }
     }
