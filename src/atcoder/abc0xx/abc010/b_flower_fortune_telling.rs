@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc010/tasks/abc010_2
 
-pub fn run(_n: usize, a: Vec<usize>) -> usize {
+fn run(_n: usize, a: Vec<usize>) -> usize {
     let mut ans = 0;
 
     for i in a {
@@ -26,9 +26,17 @@ pub fn run(_n: usize, a: Vec<usize>) -> usize {
 mod tests {
     use super::*;
 
+    struct TestCase(usize, Vec<usize>, usize);
+
     #[test]
     fn test() {
-        assert_eq!(4, run(3, vec![5, 8, 2]));
-        assert_eq!(8, run(9, vec![1, 2, 3, 4, 5, 6, 7, 8, 9]));
+        let tests = [
+            TestCase(3, vec![5, 8, 2], 4),
+            TestCase(9, vec![1, 2, 3, 4, 5, 6, 7, 8, 9], 8),
+        ];
+
+        for TestCase(n, a, expected) in tests {
+            assert_eq!(run(n, a), expected);
+        }
     }
 }
