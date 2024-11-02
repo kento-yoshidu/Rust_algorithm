@@ -15,6 +15,7 @@ pub mod a17_dungeon_2;
 pub mod a26_prime_check;
 pub mod a27_calculate_gcd;
 pub mod a28_blackboard;
+pub mod a36_travel;
 pub mod a51_stack;
 pub mod a52_queue;
 pub mod a53_priority_queue;
