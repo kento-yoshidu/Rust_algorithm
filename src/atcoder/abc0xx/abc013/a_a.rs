@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc013/tasks/abc013_1
 
-pub fn run(x: char) -> u8 {
+fn run(x: char) -> u8 {
     (x as u8 - 'A' as u8) + 1
 }
 
@@ -8,11 +8,19 @@ pub fn run(x: char) -> u8 {
 mod tests {
     use super::*;
 
+    struct TestCase(char, u8);
+
     #[test]
     fn test() {
-        assert_eq!(1, run('A'));
-        assert_eq!(2, run('B'));
-        assert_eq!(3, run('C'));
-        assert_eq!(4, run('D'));
+        let tests = [
+            TestCase('A', 1),
+            TestCase('B', 2),
+            TestCase('C', 3),
+            TestCase('D', 4),
+        ];
+
+        for TestCase(x, expected) in tests {
+            assert_eq!(run(x), expected);
+        }
     }
 }
