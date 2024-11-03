@@ -1,10 +1,10 @@
 // https://atcoder.jp/contests/abc378/tasks/abc378_a
 
 fn run(a1: usize, a2: usize, a3: usize, a4: usize) -> usize {
-    let mut vec = [0; 5];
+    let mut vec = [0; 4];
 
     for i in [a1, a2, a3, a4] {
-        vec[i] += 1;
+        vec[i-1] += 1;
     }
 
     vec.into_iter()
