@@ -35,6 +35,7 @@ pub mod joi2006yo;
 pub mod joi2007ho;
 pub mod joi2007yo;
 pub mod joi2008yo;
+pub mod joi2009yo;
 pub mod joi2010yo;
 pub mod joi2014yo;
 pub mod joi2018yo;
