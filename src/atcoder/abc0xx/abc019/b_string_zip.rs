@@ -18,7 +18,7 @@ fn run_length(s: Vec<char>) -> Vec<(char, usize)> {
     result
 }
 
-pub fn run(s: &str) -> String {
+fn run(s: &str) -> String {
     let rle = run_length(s.chars().collect());
 
     rle.iter()
@@ -32,10 +32,18 @@ pub fn run(s: &str) -> String {
 mod tests {
     use super::*;
 
+    struct TestCase(&'static str, &'static str);
+
     #[test]
     fn test() {
-        assert_eq!(String::from("a2b3a2d1"), run("aabbbaad"));
-        assert_eq!(String::from("a2b12x1y1z1a1"), run("aabbbbbbbbbbbbxyza"));
-        assert_eq!(String::from("e1d1c1b1a1"), run("edcba"));
+        let tests = [
+            TestCase("aabbbaad", "a2b3a2d1"),
+            TestCase("aabbbbbbbbbbbbxyza", "a2b12x1y1z1a1"),
+            TestCase("edcba", "e1d1c1b1a1"),
+        ];
+
+        for TestCase(s, expected) in tests {
+            assert_eq!(run(s), expected);
+        }
     }
 }
