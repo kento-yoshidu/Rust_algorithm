@@ -30,7 +30,6 @@ fn run(s: &str) -> &'static str {
 #[cfg(test)]
 mod tests {
     use super::*;
-
     struct TestCase(&'static str, &'static str);
 
     #[test]
