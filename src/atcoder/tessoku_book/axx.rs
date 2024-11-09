@@ -22,3 +22,4 @@ pub mod a51_stack;
 pub mod a52_queue;
 pub mod a53_priority_queue;
 pub mod a61_adjacent_vertices;
+pub mod a62_depth_first_search;

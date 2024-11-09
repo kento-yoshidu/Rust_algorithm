@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc018/tasks/abc018_2
 
-pub fn run(s: &str, _n: usize, l: Vec<(usize, usize)>) -> String {
+fn run(s: &str, _n: usize, l: Vec<(usize, usize)>) -> String {
     let mut chars: Vec<char> = s.chars().collect();
 
     for (l, r) in l {
@@ -14,9 +14,17 @@ pub fn run(s: &str, _n: usize, l: Vec<(usize, usize)>) -> String {
 mod tests {
     use super::*;
 
+    struct TestCase(&'static str, usize, Vec<(usize, usize)>, &'static str);
+
     #[test]
     fn test() {
-        assert_eq!(String::from("debacf"), run("abcdef", 2, vec![(3, 5), (1, 4)]));
-        assert_eq!(String::from("atcoder"), run("redcoat", 3, vec![(1, 7), (1, 2), (3, 4)]));
+        let tests = [
+            TestCase("abcdef", 2, vec![(3, 5), (1, 4)], "debacf"),
+            TestCase("redcoat", 3, vec![(1, 7), (1, 2), (3, 4)], "atcoder"),
+        ];
+
+        for TestCase(s, n, l, expected) in tests {
+            assert_eq!(run(s, n, l), expected);
+        }
     }
 }
