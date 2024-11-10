@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc020/tasks/abc020_b
 
-pub fn run(a: usize, b: usize) -> usize {
+fn run(a: usize, b: usize) -> usize {
     let num = a.to_string() + &b.to_string();
 
     num.parse::<usize>().unwrap() * 2
