@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc021/tasks/abc021_a
 
-pub fn run(n: usize) -> Vec<usize> {
+fn run(n: usize) -> Vec<usize> {
     let mut ans = vec![n];
 
     for i in 0..4 {
@@ -16,17 +16,25 @@ pub fn run(n: usize) -> Vec<usize> {
 mod tests {
     use super::*;
 
+    struct TestCase(usize, Vec<usize>);
+
     #[test]
     fn test() {
-        assert_eq!(vec![10, 2, 8], run(10));
-        assert_eq!(vec![9, 1, 8], run(9));
-        assert_eq!(vec![8, 8], run(8));
-        assert_eq!(vec![7, 1, 2, 4], run(7));
-        assert_eq!(vec![6, 2, 4], run(6));
-        assert_eq!(vec![5, 1, 4], run(5));
-        assert_eq!(vec![4, 4], run(4));
-        assert_eq!(vec![3, 1, 2], run(3));
-        assert_eq!(vec![2, 2], run(2));
-        assert_eq!(vec![1, 1], run(1));
+        let tests = [
+            TestCase(10, vec![10, 2, 8]),
+            TestCase(9, vec![9, 1, 8]),
+            TestCase(8, vec![8, 8]),
+            TestCase(7, vec![7, 1, 2, 4]),
+            TestCase(6, vec![6, 2, 4]),
+            TestCase(5, vec![5, 1, 4]),
+            TestCase(4, vec![4, 4]),
+            TestCase(3, vec![3, 1, 2]),
+            TestCase(2, vec![2, 2]),
+            TestCase(1, vec![1, 1]),
+        ];
+
+        for TestCase(n, expected) in tests {
+            assert_eq!(run(n), expected);
+        }
     }
 }
