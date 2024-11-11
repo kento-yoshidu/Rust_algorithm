@@ -2,8 +2,8 @@
 
 use std::collections::HashMap;
 
-pub fn run(n: usize, a: Vec<usize>) -> usize {
-    let mut x = n * (n - 1) / 2;
+fn run(n: usize, a: Vec<usize>) -> usize {
+    let x = n*(n-1)/2;
 
     let mut hash_map = HashMap::new();
 
@@ -11,13 +11,14 @@ pub fn run(n: usize, a: Vec<usize>) -> usize {
         *hash_map.entry(num).or_insert(0) += 1;
     }
 
-    for (_, v) in hash_map.iter() {
-        if *v > 1 {
-            x -= v*(v-1)/2;
-        }
-    }
-
-    x
+    hash_map.into_iter()
+        .fold(x, |state, (_, v)| {
+            if v > 1 {
+                state - v*(v-1)/2
+            } else {
+                state
+            }
+        })
 }
 
 #[cfg(test)]
