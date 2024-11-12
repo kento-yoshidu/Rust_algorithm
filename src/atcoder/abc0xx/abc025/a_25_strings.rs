@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc025/tasks/abc025_a
 
-pub fn run(s: String, n: usize) -> String {
+fn run(s: &str, n: usize) -> String {
     let vec: Vec<_> = s.chars().collect();
 
     let mut count = 0;
@@ -20,7 +20,7 @@ pub fn run(s: String, n: usize) -> String {
     ans
 }
 
-pub fn run2(s: String, n: usize) -> String {
+fn run2(s: &str, n: usize) -> String {
     let vec: Vec<_> = s.chars().collect();
 
     let mut ans = String::new();
@@ -35,17 +35,18 @@ pub fn run2(s: String, n: usize) -> String {
 mod tests {
     use super::*;
 
-    #[test]
-    fn test() {
-        assert_eq!(String::from("bc"), run(String::from("abcde"), 8));
-        assert_eq!(String::from("ue"), run(String::from("aeiou"), 22));
-        assert_eq!(String::from("zz"), run(String::from("vwxyz"), 25));
-    }
+    struct TestCase(&'static str, usize, &'static str);
 
     #[test]
-    fn test2() {
-        assert_eq!(String::from("bc"), run2(String::from("abcde"), 8));
-        assert_eq!(String::from("ue"), run2(String::from("aeiou"), 22));
-        assert_eq!(String::from("zz"), run2(String::from("vwxyz"), 25));
+    fn test() {
+        let tests = [
+            TestCase("abcde", 8, "bc"),
+            TestCase("aeiou", 22, "ue"),
+            TestCase("vwxyz", 25, "zz"),
+        ];
+
+        for TestCase(s, n, expected) in tests {
+            assert_eq!(run(s, n), expected);
+        }
     }
 }
