@@ -1,15 +1,15 @@
 // https://atcoder.jp/contests/abc022/tasks/abc022_a
 
-pub fn run(_n: usize, s: isize, t: isize, w: Vec<isize>) -> usize {
-    let vec = w.iter()
-        .scan(0, |state, &x| {
+fn run(_n: usize, s: isize, t: isize, w: Vec<isize>) -> usize {
+    let vec = w.into_iter()
+        .scan(0, |state, x| {
             *state = *state + x;
             Some(*state)
         }).collect::<Vec::<isize>>();
 
-    vec.iter()
+    vec.into_iter()
         .filter(|num| {
-            s <= **num && **num <= t
+            s <= *num && *num <= t
         }).count()
 }
 
