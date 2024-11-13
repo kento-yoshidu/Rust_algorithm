@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc321/tasks/abc321_a
 
-pub fn run(s: &str) -> &'static str {
+fn run(s: &str) -> &'static str {
     let chars: Vec<char> = s.chars().collect();
 
     for i in 1..chars.len() {
@@ -43,6 +43,7 @@ mod tests {
 
         for TestCase(s, expected) in tests {
             assert_eq!(run(s), expected);
+            assert_eq!(run2(s), expected);
         }
     }
 }
