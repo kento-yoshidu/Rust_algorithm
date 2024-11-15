@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc322/tasks/abc322_a
 
-pub fn run(n: usize, s: String) -> isize {
+fn run(n: usize, s: &str) -> isize {
     if !s.contains("ABC") {
         return -1;
     }
@@ -16,38 +16,38 @@ pub fn run(n: usize, s: String) -> isize {
     unreachable!()
 }
 
-pub fn run2(_n: usize, s: String) -> isize {
+fn run2(_n: usize, s: &str) -> isize {
     (s.find("ABC").unwrap_or(!0-1) + 1) as isize
 }
 
-pub fn run3(_n: usize, s: String) -> isize {
-    s.chars().collect::<Vec<char>>().windows(3).position(|v| {
-        v == ['A', 'B', 'C']
-    }).unwrap_or(!0-1) as isize + 1
+fn run3(_n: usize, s: &str) -> isize {
+    s.chars()
+        .collect::<Vec<char>>()
+        .windows(3)
+        .position(|v| {
+            v == ['A', 'B', 'C']
+        })
+        .unwrap_or(!0-1) as isize + 1
 }
 
 #[cfg(test)]
 mod tests {
     use super::*;
 
+    struct TestCase(usize, &'static str, isize);
+
     #[test]
     fn test() {
-        assert_eq!(3, run(8, String::from("ABABCABC")));
-        assert_eq!(-1, run(8, String::from("ACB")));
-        assert_eq!(13, run(20, String::from("BBAAABBACAACABCBABAB")));
-    }
+        let tests = [
+            TestCase(8, "ABABCABC", 3),
+            TestCase(8, "ACB", -1),
+            TestCase(20, "BBAAABBACAACABCBABAB", 13),
+        ];
 
-    #[test]
-    fn test2() {
-        assert_eq!(3, run2(8, String::from("ABABCABC")));
-        assert_eq!(-1, run2(8, String::from("ACB")));
-        assert_eq!(13, run2(20, String::from("BBAAABBACAACABCBABAB")));
-    }
-
-    #[test]
-    fn test3() {
-        assert_eq!(3, run3(8, String::from("ABABCABC")));
-        assert_eq!(-1, run3(8, String::from("ACB")));
-        assert_eq!(13, run3(20, String::from("BBAAABBACAACABCBABAB")));
+        for TestCase(n, s, expected) in tests {
+            assert_eq!(run(n, s), expected);
+            assert_eq!(run2(n, s), expected);
+            assert_eq!(run3(n, s), expected);
+        }
     }
 }
