@@ -1,10 +1,10 @@
 // https://atcoder.jp/contests/abc027/tasks/abc027_a
 
-pub fn run(a: usize, b: usize, c: usize) -> usize {
+fn run(a: usize, b: usize, c: usize) -> usize {
     a ^ b ^ c
 }
 
-pub fn run2(a: usize, b: usize, c: usize) -> usize {
+fn run2(a: usize, b: usize, c: usize) -> usize {
     if a == b && b == c {
         return a
     }
@@ -22,17 +22,19 @@ pub fn run2(a: usize, b: usize, c: usize) -> usize {
 mod tests {
     use super::*;
 
-    #[test]
-    fn test() {
-        assert_eq!(2, run(1, 1, 2));
-        assert_eq!(3, run(4, 3, 4));
-        assert_eq!(5, run(5, 5, 5));
-    }
+    struct TestCase(usize, usize, usize, usize);
 
     #[test]
-    fn test2() {
-        assert_eq!(2, run2(1, 1, 2));
-        assert_eq!(3, run2(4, 3, 4));
-        assert_eq!(5, run2(5, 5, 5));
+    fn test() {
+        let tests = [
+            TestCase(1, 1, 2, 2),
+            TestCase(4, 3, 4, 3),
+            TestCase(5, 5, 5, 5),
+        ];
+
+        for TestCase(a, b, c, expected) in tests {
+            assert_eq!(run(a, b, c), expected);
+            assert_eq!(run2(a, b, c), expected);
+        }
     }
 }

@@ -18,6 +18,7 @@ pub mod a28_blackboard;
 pub mod a36_travel;
 pub mod a37_travel_2;
 pub mod a38_black_company_1;
+pub mod a39_interval_scheduling_problem;
 pub mod a51_stack;
 pub mod a52_queue;
 pub mod a53_priority_queue;
