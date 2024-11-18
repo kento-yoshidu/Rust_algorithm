@@ -1,5 +1,7 @@
 // https://atcoder.jp/contests/abc259/tasks/abc259_c
 
+use std::iter::zip;
+
 fn run_lengths(s: Vec<char>) -> Vec<(char, usize)> {
     let mut i = 0;
     let mut run_lengths = vec![];
@@ -23,18 +25,25 @@ fn run_lengths(s: Vec<char>) -> Vec<(char, usize)> {
     run_lengths
 }
 
-pub fn run(s: &str, t: &str) -> String {
+fn run(s: &str, t: &str) -> &'static str {
     let s_length = run_lengths(s.chars().collect());
     let t_length = run_lengths(t.chars().collect());
 
-    if s_length.iter()
-        .zip(t_length.iter())
-        .all(|(a, b)| {
-            a.0 == b.0 && (a.1 == b.1 || (a.1 < b.1 && a.1 > 1))
+    if s_length.len() != t_length.len() {
+        return "No";
+    }
+
+    if s_length.into_iter()
+        .zip(t_length.into_iter())
+        .any(|(s, t)| {
+            // 文字が違う場合
+            // tが長さ2以上なのにsが長さ1しかない場合
+            // sの方が長い場合（tを増やすことはできないので）
+            s.0 != t.0 || (t.1 > 1 && s.1 == 1) || s.1 > t.1
         }) {
-            String::from("Yes")
+            "No"
         } else {
-            String::from("No")
+            "Yes"
         }
 }
 
@@ -42,10 +51,19 @@ pub fn run(s: &str, t: &str) -> String {
 mod tests {
     use super::*;
 
+    struct TestCase(&'static str, &'static str, &'static str);
+
     #[test]
     fn test() {
-        assert_eq!(String::from("Yes"), run("abbaac", "abbbbaaac"));
-        assert_eq!(String::from("No"), run("xyzz", "xyyzz"));
-        assert_eq!(String::from("Yes"), run("aa", "aa"));
+        let tests = [
+            TestCase("abbaac", "abbbbaaac", "Yes"),
+            TestCase("xyzz", "xyyzz", "No"),
+            TestCase("aa", "aa", "Yes"),
+            TestCase("aa", "aabb", "No"),
+        ];
+
+        for TestCase(s, t, expected) in tests {
+            assert_eq!(run(s, t), expected);
+        }
     }
 }
