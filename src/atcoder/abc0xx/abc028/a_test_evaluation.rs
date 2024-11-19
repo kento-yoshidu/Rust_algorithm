@@ -1,14 +1,14 @@
 // https://atcoder.jp/contests/abc028/tasks/abc028_a
 
-pub fn run(n: usize) -> String {
+fn run(n: usize) -> &'static str {
     if n == 100 {
-        String::from("Perfect")
+        "Perfect"
     } else if n >= 90 {
-        String::from("Great")
+        "Great"
     } else if n >= 60 {
-        String::from("Good")
+        "Good"
     } else {
-        String::from("Bad")
+        "Bad"
     }
 }
 
@@ -16,11 +16,19 @@ pub fn run(n: usize) -> String {
 mod tests {
     use super::*;
 
+    struct TestCase(usize, &'static str);
+
     #[test]
     fn test() {
-        assert_eq!(String::from("Good"), run(80));
-        assert_eq!(String::from("Perfect"), run(100));
-        assert_eq!(String::from("Bad"), run(59));
-        assert_eq!(String::from("Great"), run(95));
+        let tests = [
+            TestCase(80, "Good"),
+            TestCase(100, "Perfect"),
+            TestCase(59, "Bad"),
+            TestCase(95, "Great"),
+        ];
+
+        for TestCase(n, expected) in tests {
+            assert_eq!(run(n), expected);
+        }
     }
 }
