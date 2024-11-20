@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc029/tasks/abc029_a
 
-pub fn run(w: String) -> String {
+fn run(w: String) -> String {
     w + "s"
 }
 
@@ -8,9 +8,17 @@ pub fn run(w: String) -> String {
 mod tests {
     use super::*;
 
+    struct TestCase(&'static str, &'static str);
+
     #[test]
     fn test() {
-        assert_eq!(String::from("dogs"), run(String::from("dog")));
-        assert_eq!(String::from("chokudais"), run(String::from("chokudai")));
+        let tests = [
+            TestCase("dog", "dogs"),
+            TestCase("chokudai", "chokudais"),
+        ];
+
+        for TestCase(w, expected) in tests {
+            assert_eq!(run(w.to_string()), expected);
+        }
     }
 }
