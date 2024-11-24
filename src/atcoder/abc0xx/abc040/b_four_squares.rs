@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc040/tasks/abc040_b
 
-pub fn run(n: isize) -> isize {
+fn run(n: isize) -> isize {
     let mut ans = std::isize::MAX;
 
     for i in 1..n {
@@ -14,7 +14,7 @@ pub fn run(n: isize) -> isize {
     ans
 }
 
-pub fn run2(n: isize) -> isize {
+fn run2(n: isize) -> isize {
     (1..n)
         .map(|i| {
             let amari = n % i;
@@ -29,10 +29,19 @@ pub fn run2(n: isize) -> isize {
 mod tests {
     use super::*;
 
+    struct TestCase(isize, isize);
+
     #[test]
     fn test() {
-        assert_eq!(1, run(26));
-        assert_eq!(4, run(41));
-        assert_eq!(37, run(100000));
+        let tests = [
+            TestCase(26, 1),
+            TestCase(41, 4),
+            TestCase(100000, 37),
+        ];
+
+        for TestCase(n, expected) in tests {
+            assert_eq!(run(n), expected);
+            assert_eq!(run2(n), expected);
+        }
     }
 }
