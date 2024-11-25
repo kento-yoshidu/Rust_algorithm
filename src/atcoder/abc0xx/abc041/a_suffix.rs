@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc041/tasks/abc041_a
 
-pub fn run(s: String, i: usize) -> char {
+fn run(s: &str, i: usize) -> char {
     s.chars().nth(i - 1).unwrap()
 }
 
@@ -8,10 +8,18 @@ pub fn run(s: String, i: usize) -> char {
 mod tests {
     use super::*;
 
+    struct TestCase(&'static str, usize, char);
+
     #[test]
     fn test() {
-        assert_eq!('c', run(String::from("atcoder"), 3));
-        assert_eq!('b', run(String::from("beginner"), 1));
-        assert_eq!('t', run(String::from("contest"), 7));
+        let tests = [
+            TestCase("atcoder", 3, 'c'),
+            TestCase("beginner", 1, 'b'),
+            TestCase("contest", 7, 't'),
+        ];
+
+        for TestCase(s, i, expected) in tests {
+            assert_eq!(run(s, i), expected);
+        }
     }
 }
