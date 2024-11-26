@@ -1,10 +1,10 @@
 // https://atcoder.jp/contests/abc034/tasks/abc034_a
 
-pub fn run(x: usize, y: usize) -> String {
+fn run(x: usize, y: usize) -> &'static str {
     if x < y {
-        String::from("Better")
+        "Better"
     } else {
-        String::from("Worse")
+        "Worse"
     }
 }
 
@@ -12,9 +12,17 @@ pub fn run(x: usize, y: usize) -> String {
 mod tests {
     use super::*;
 
+    struct TestCase(usize, usize, &'static str);
+
     #[test]
     fn test() {
-        assert_eq!(String::from("Better"), run(12, 34));
-        assert_eq!(String::from("Worse"), run(98, 56));
+        let tests = [
+            TestCase(12, 34, "Better"),
+            TestCase(98, 56, "Worse"),
+        ];
+
+        for TestCase(x, y, expected) in tests {
+            assert_eq!(run(x, y), expected);
+        }
     }
 }
