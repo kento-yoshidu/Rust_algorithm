@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc031/tasks/abc031_a
 
-pub fn run(a: usize, d: usize) -> usize {
+fn run(a: usize, d: usize) -> usize {
     a.max(d) * (a.min(d) + 1)
 }
 
@@ -8,10 +8,18 @@ pub fn run(a: usize, d: usize) -> usize {
 mod tests {
     use super::*;
 
+    struct TestCase(usize, usize, usize);
+
     #[test]
     fn test() {
-        assert_eq!(2784, run(31, 87));
-        assert_eq!(6666, run(101, 65));
-        assert_eq!(12, run(3, 3));
+        let tests = [
+            TestCase(31, 87, 2784),
+            TestCase(101, 65, 6666),
+            TestCase(3, 3, 12),
+        ];
+
+        for TestCase(n, d, expected) in tests {
+            assert_eq!(run(n, d), expected);
+        }
     }
 }
