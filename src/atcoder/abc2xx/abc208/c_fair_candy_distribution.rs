@@ -1,12 +1,15 @@
 // https://atcoder.jp/contests/abc208/tasks/abc208_c
 
-pub fn run(n: usize, k: usize, a: Vec<usize>) -> Vec<usize> {
+use std::collections::HashSet;
+
+fn run(n: usize, k: usize, a: Vec<usize>) -> Vec<usize> {
     let base = k / n;
     let rest = k % n;
 
     let mut order = a.clone();
     order.sort();
-    let list = &order[0..rest];
+
+    let list: HashSet<_> = order[0..rest].into_iter().collect();
 
     (0..n)
         .map(|i| {
