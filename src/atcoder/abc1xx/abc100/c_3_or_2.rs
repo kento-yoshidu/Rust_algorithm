@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc100/tasks/abc100_c
 
-pub fn run(n: usize, a: Vec<usize>) -> usize {
+fn run(n: usize, a: &Vec<usize>) -> usize {
     let mut vec = a.clone();
     let mut ans = 0;
 
@@ -26,7 +26,7 @@ fn calc(num: usize, count: usize) -> usize {
     }
 }
 
-pub fn run2(_n: usize, a: Vec<usize>) -> usize {
+fn run2(_n: usize, a: &Vec<usize>) -> usize {
     a.iter()
         .map(|num| {
             // 各要素が2で何回割り切れるかを合計
@@ -39,17 +39,19 @@ pub fn run2(_n: usize, a: Vec<usize>) -> usize {
 mod tests {
     use super::*;
 
-    #[test]
-    fn test() {
-        assert_eq!(3, run(3, vec![5, 2, 4]));
-        assert_eq!(0, run(4, vec![631, 577, 243, 199]));
-        assert_eq!(39, run(10, vec![2184, 2126, 1721, 1800, 1024, 2528, 3360, 1945, 1280, 1776]));
-    }
+    struct TestCase(usize, Vec<usize>, usize);
 
     #[test]
-    fn test2() {
-        assert_eq!(3, run2(3, vec![5, 2, 4]));
-        assert_eq!(0, run2(4, vec![631, 577, 243, 199]));
-        assert_eq!(39, run2(10, vec![2184, 2126, 1721, 1800, 1024, 2528, 3360, 1945, 1280, 1776]));
+    fn test() {
+        let tests = [
+            TestCase(3, vec![5, 2, 4], 3),
+            TestCase(4, vec![631, 577, 243, 199], 0),
+            TestCase(10, vec![2184, 2126, 1721, 1800, 1024, 2528, 3360, 1945, 1280, 1776], 39),
+        ];
+
+        for TestCase(n, a, expected) in tests {
+            assert_eq!(run(n , &a), expected);
+            assert_eq!(run2(n , &a), expected);
+        }
     }
 }
