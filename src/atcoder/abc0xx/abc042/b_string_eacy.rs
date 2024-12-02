@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc042/tasks/abc042_b
 
-pub fn run(_n: usize, _l: usize, s: Vec<&str>) -> String {
+fn run(_n: usize, _l: usize, s: Vec<&str>) -> String {
     let mut vec = s.clone();
     vec.sort();
 
@@ -13,8 +13,16 @@ pub fn run(_n: usize, _l: usize, s: Vec<&str>) -> String {
 mod tests {
     use super::*;
 
+    struct TestCase(usize, usize, Vec<&'static str>, &'static str);
+
     #[test]
     fn test() {
-        assert_eq!(String::from("axxcxxdxx"), run(3, 3, vec!["dxx", "axx", "cxx"]));
+        let tests = [
+            TestCase(3, 3, vec!["dxx", "axx", "cxx"], "axxcxxdxx"),
+        ];
+
+        for TestCase(n, l, s, expected) in tests {
+            assert_eq!(run(n, l, s), expected);
+        }
     }
 }
