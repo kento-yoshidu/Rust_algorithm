@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc045/tasks/abc045_a
 
-pub fn run(a: i32, b: i32, h: i32) -> i32 {
+fn run(a: i32, b: i32, h: i32) -> i32 {
     (a + b) * h / 2
 }
 
@@ -8,9 +8,17 @@ pub fn run(a: i32, b: i32, h: i32) -> i32 {
 mod tests {
     use super::*;
 
+    struct TestCase(i32, i32, i32, i32);
+
     #[test]
     fn test() {
-        assert_eq!(7, run(3, 4, 2));
-        assert_eq!(16, run(4, 4, 4));
+        let tests = [
+            TestCase(3, 4, 2, 7),
+            TestCase(4, 4, 4, 16),
+        ];
+
+        for TestCase(a, b, h, expected) in tests {
+            assert_eq!(run(a, b, h), expected)
+        }
     }
 }
