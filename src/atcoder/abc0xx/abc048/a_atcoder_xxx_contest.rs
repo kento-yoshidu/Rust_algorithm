@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc048/tasks/abc048_a
 
-pub fn run(a: &str, b: &str, c: &str) -> String {
+fn run(a: &str, b: &str, c: &str) -> String {
     let vec = vec![a, b, c];
 
     let mut ans = String::new();
@@ -12,7 +12,7 @@ pub fn run(a: &str, b: &str, c: &str) -> String {
     ans
 }
 
-pub fn run2(a: &str, b: &str, c: &str) -> String {
+fn run2(a: &str, b: &str, c: &str) -> String {
     let vec = vec![a, b, c];
 
     vec.iter()
@@ -22,7 +22,7 @@ pub fn run2(a: &str, b: &str, c: &str) -> String {
         .collect()
 }
 
-pub fn run3(_a: &str, b: &str, _c: &str) -> String {
+fn run3(_a: &str, b: &str, _c: &str) -> String {
     format!("A{}C", b.chars().nth(0).unwrap())
 }
 
