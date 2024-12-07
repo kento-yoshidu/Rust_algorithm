@@ -1,14 +1,14 @@
 // https://atcoder.jp/contests/abc047/tasks/abc047_a
 
-pub fn run(a: i32, b: i32, c: i32) -> String {
+fn run(a: usize, b: usize, c: usize) -> &'static str {
     let mut vec = vec![a, b, c];
 
     vec.sort();
 
     if vec[0] + vec[1] == vec[2] {
-        String::from("Yes")
+        "Yes"
     } else {
-        String::from("No")
+        "No"
     }
 }
 
@@ -16,10 +16,18 @@ pub fn run(a: i32, b: i32, c: i32) -> String {
 mod tests {
     use super::*;
 
+    struct TestCase(usize, usize, usize, &'static str);
+
     #[test]
     fn test() {
-        assert_eq!(String::from("Yes"), run(10, 30, 20));
-        assert_eq!(String::from("No"), run(30, 30, 100));
-        assert_eq!(String::from("Yes"), run(56, 25, 31));
+        let tests = [
+            TestCase(10, 30, 20, "Yes"),
+            TestCase(30, 30, 100, "No"),
+            TestCase(56, 25, 31, "Yes"),
+        ];
+
+        for TestCase(a, b, c, expected) in tests {
+            assert_eq!(run(a, b, c), expected);
+        }
     }
 }
