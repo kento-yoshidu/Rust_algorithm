@@ -41,6 +41,7 @@ mod tests {
 
         for TestCase(n, k, x, y, expected) in tests {
             assert_eq!(run(n, k, x, y), expected);
+            assert_eq!(run2(n, k, x, y), expected);
         }
     }
 }

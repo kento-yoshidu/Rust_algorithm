@@ -2,15 +2,15 @@
 
 use itertools::Itertools;
 
-pub fn run(w: String) -> String {
+fn run(w: &str) -> &'static str {
     let hashmap = w.chars().counts();
 
     if hashmap.iter().all(|(_, value)| {
         value % 2 == 0
     }) {
-        String::from("Yes")
+        "Yes"
     } else {
-        String::from("No")
+        "No"
     }
 }
 
@@ -18,9 +18,17 @@ pub fn run(w: String) -> String {
 mod tests {
     use super::*;
 
+    struct TestCase(&'static str, &'static str);
+
     #[test]
     fn test() {
-        assert_eq!(String::from("Yes"), run(String::from("abaccaba")));
-        assert_eq!(String::from("No"), run(String::from("hthth")));
+        let tests = [
+            TestCase("abaccaba", "Yes"),
+            TestCase("hthth", "No"),
+        ];
+
+        for TestCase(w, expected) in tests {
+            assert_eq!(run(w), expected);
+        }
     }
 }
