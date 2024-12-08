@@ -1,9 +1,9 @@
 // https://atcoder.jp/contests/abc049/tasks/abc049_a
 
-pub fn run(c: &str) -> String {
+fn run(c: &str) -> &'static str {
     match c {
-        "a" | "i" | "u" | "e" | "o" => String::from("vowel"),
-        _ => String::from("consonant")
+        "a" | "i" | "u" | "e" | "o" => "vowel",
+        _ => "consonant"
     }
 }
 
@@ -11,10 +11,18 @@ pub fn run(c: &str) -> String {
 mod tests {
     use super::*;
 
+    struct TestCase(&'static str, &'static str);
+
     #[test]
     fn test() {
-        assert_eq!(String::from("vowel"), run("a"));
-        assert_eq!(String::from("consonant"), run("z"));
-        assert_eq!(String::from("consonant"), run("s"));
+        let tests = [
+            TestCase("a", "vowel"),
+            TestCase("z", "consonant"),
+            TestCase("s", "consonant"),
+        ];
+
+        for TestCase(c, expected) in tests {
+            assert_eq!(run(c), expected);
+        }
     }
 }
