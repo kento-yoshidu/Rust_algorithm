@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc050/tasks/abc050_a
 
-fn run(s: String) -> isize {
+fn run(s: &str) -> isize {
 	let chars: Vec<&str> = s.split(" ").collect();
 
 	let left: isize = chars[0].parse().unwrap();
@@ -17,9 +17,17 @@ fn run(s: String) -> isize {
 mod tests {
 	use super::*;
 
+	struct TestCase(&'static str, isize);
+
 	#[test]
 	fn test() {
-		assert_eq!(3, run(String::from("1 + 2")));
-		assert_eq!(-2, run(String::from("5 - 7")));
+		let tests = [
+			TestCase("1 + 2", 3),
+			TestCase("5 - 7", -2),
+		];
+
+		for TestCase(s, expected) in tests {
+			assert_eq!(run(s), expected);
+		}
 	}
 }
