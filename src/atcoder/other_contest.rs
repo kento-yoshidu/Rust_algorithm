@@ -39,7 +39,6 @@ pub mod joi2009yo;
 pub mod joi2010yo;
 pub mod joi2014yo;
 pub mod joi2018yo;
-// pub mod joi2022yo1c;
 // pub mod joi2023yo1a;
 pub mod joi2023yo2;
 // pub mod joi2023yo1b;

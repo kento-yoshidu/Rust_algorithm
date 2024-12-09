@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc051/tasks/abc051_a
 
-pub fn run(s: String) -> String {
+fn run(s: &str) -> String {
     s.replace(",", " ")
 }
 
@@ -8,10 +8,18 @@ pub fn run(s: String) -> String {
 mod tests {
     use super::*;
 
+    struct TestCase(&'static str, &'static str);
+
     #[test]
     fn test() {
-        assert_eq!("happy newyear enjoy", run(String::from("happy,newyear,enjoy")));
-        assert_eq!("haiku atcoder tasks", run(String::from("haiku,atcoder,tasks")));
-        assert_eq!("abcde fghihgf edcba", run(String::from("abcde,fghihgf,edcba")));
+        let tests = [
+            TestCase("happy,newyear,enjoy", "happy newyear enjoy"),
+            TestCase("haiku,atcoder,tasks", "haiku atcoder tasks"),
+            TestCase("abcde,fghihgf,edcba", "abcde fghihgf edcba"),
+        ];
+
+        for TestCase(s, expected) in tests {
+            assert_eq!(run(s), expected);
+        }
     }
 }
