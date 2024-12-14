@@ -1,14 +1,12 @@
 // https://atcoder.jp/contests/abc056/tasks/abc056_a
 
-pub fn run<'a>(a: &'a str, b: &'a str) -> &'a str {
-    if a == "H" {
-        return b;
-    }
-
-    if b == "H" {
-        "D"
+fn run(a: char, b: char) -> char {
+    if a == 'H' {
+        b
+    } else if b == 'H' {
+        'D'
     } else {
-        "H"
+        'H'
     }
 }
 
@@ -16,10 +14,18 @@ pub fn run<'a>(a: &'a str, b: &'a str) -> &'a str {
 mod tests {
     use super::*;
 
+    struct TestCase(char, char, char);
+
     #[test]
     fn test() {
-        assert_eq!("H", run("H", "H"));
-        assert_eq!("D", run("D", "H"));
-        assert_eq!("H", run("D", "D"));
+        let tests = [
+            TestCase('H', 'H', 'H'),
+            TestCase('D', 'H', 'D'),
+            TestCase('D', 'D', 'H'),
+        ];
+
+        for TestCase(a, b, expected) in tests {
+            assert_eq!(run(a, b), expected);
+        }
     }
 }
