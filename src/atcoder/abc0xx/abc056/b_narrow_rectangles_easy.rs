@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc056/tasks/abc056_b
 
-pub fn run(w: i32, a: i32, b: i32) -> i32 {
+fn run(w: i32, a: i32, b: i32) -> i32 {
     if (a - b).abs() <= w {
         0
     } else {
@@ -12,10 +12,18 @@ pub fn run(w: i32, a: i32, b: i32) -> i32 {
 mod tests {
     use super::*;
 
+    struct TestCase(i32, i32, i32, i32);
+
     #[test]
     fn test() {
-        assert_eq!(1, run(3, 2, 6));
-        assert_eq!(0, run(3, 1, 3));
-        assert_eq!(4, run(5, 10, 1));
+        let tests = [
+            TestCase(3, 2, 6, 1),
+            TestCase(3, 1, 3, 0),
+            TestCase(5, 10, 1, 4),
+        ];
+
+        for TestCase(w, a, b, expected) in tests {
+            assert_eq!(run(w, a, b), expected);
+        }
     }
 }
