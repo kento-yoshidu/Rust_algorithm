@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc057/tasks/abc057_a
 
-pub fn run(a: usize, b: usize) -> usize {
+fn run(a: usize, b: usize) -> usize {
     let time = a + b;
 
     if time >= 24 {
@@ -10,7 +10,7 @@ pub fn run(a: usize, b: usize) -> usize {
     }
 }
 
-pub fn run2(a: usize, b: usize) -> usize {
+fn run2(a: usize, b: usize) -> usize {
     (a + b) % 24
 }
 
@@ -30,6 +30,7 @@ mod tests {
 
         for TestCase(a, b, expected) in tests {
             assert_eq!(run(a, b), expected);
+            assert_eq!(run2(a, b), expected);
         }
     }
 }

@@ -5,6 +5,7 @@ pub mod joi2008yo;
 pub mod joi2009yo;
 pub mod joi2010yo;
 pub mod joi2014yo;
+pub mod joi2018yo;
 // pub mod joi2020yo1b;
 // pub mod joi2021yo1a;
 pub mod joi2021yo1b;
