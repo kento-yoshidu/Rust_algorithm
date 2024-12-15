@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/joi2024yo1c/tasks/joi2024_yo1c_d
 
-fn run(k: usize, n: usize, a: Vec<usize>, m: usize, b: Vec<usize>) -> usize {
+fn run(k: usize, _n: usize, a: Vec<usize>, _m: usize, b: Vec<usize>) -> usize {
     let mut ans = 0;
 
     for i in a.iter() {
@@ -25,7 +25,7 @@ mod tests {
         let tests = [
             TestCase(1, 4, vec![1, 8, 6, 8], 3, vec![7, 9, 4], 3),
             TestCase(66, 4, vec![31, 41, 59, 26], 5, vec![29, 97, 92, 45, 8], 2),
-            TestCase(99, 5, vec![1, 1, 1, 1, 1], 6, vec![100, 100, 100, 100, 100, 100], 50),
+            TestCase(99, 5, vec![1, 1, 1, 1, 1], 6, vec![100, 100, 100, 100, 100, 100], 30),
             TestCase(100, 1, vec![11], 1, vec![18], 0),
         ];
 

@@ -10,7 +10,8 @@
 #[allow(unused_imports)]
 use proconio::input;
 use itertools::Itertools;
-use std::collections::{HashMap, HashSet};
+use std::collections::{BtreeMap, BtreeSet, HashMap, HashSet};
+use std::cmp::{min, max};
 
 #[allow(unused)]
 fn main() {
@@ -19,7 +20,13 @@ fn main() {
         a: [usize; n],
     }
 
-    println!("{}", n);
+    let mut ans = 0;
+
+    for i in a {
+        ans += i;
+    }
+
+    println!("{ans}");
 }
 ```
 
