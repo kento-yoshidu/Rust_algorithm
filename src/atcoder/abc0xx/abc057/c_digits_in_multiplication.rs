@@ -17,7 +17,7 @@ fn calc(n: usize) -> usize {
     ans
 }
 
-pub fn run(n: usize) -> usize {
+fn run(n: usize) -> usize {
     let mut ans = n;
 
     for i in 1..=n {
@@ -41,10 +41,18 @@ pub fn run(n: usize) -> usize {
 mod tests {
     use super::*;
 
+    struct TestCase(usize, usize);
+
     #[test]
     fn test() {
-        assert_eq!(3, run(10000));
-        assert_eq!(7, run(1000003));
-        assert_eq!(6, run(9876543210));
+        let tests = [
+            TestCase(10000, 3),
+            TestCase(1000003, 7),
+            TestCase(9876543210, 6),
+        ];
+
+        for TestCase(n, expected) in tests {
+            assert_eq!(run(n), expected);
+        }
     }
 }
