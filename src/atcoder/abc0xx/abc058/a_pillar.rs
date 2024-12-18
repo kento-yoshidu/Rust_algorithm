@@ -1,10 +1,10 @@
 // https://atcoder.jp/contests/abc058/tasks/abc058_a
 
-pub fn run(a: i32, b: i32, c: i32) -> String {
+fn run(a: i32, b: i32, c: i32) -> &'static str {
     if b - a == c - b {
-        String::from("Yes")
+        "Yes"
     } else {
-        String::from("No")
+        "No"
     }
 }
 
@@ -12,10 +12,18 @@ pub fn run(a: i32, b: i32, c: i32) -> String {
 mod tests {
     use super::*;
 
+    struct TestCase(i32, i32, i32, &'static str);
+
     #[test]
     fn test() {
-        assert_eq!(String::from("Yes"), run(2, 4, 6));
-        assert_eq!(String::from("No"), run(2, 5, 6));
-        assert_eq!(String::from("Yes"), run(3, 2, 1));
+        let tests = [
+            TestCase(2, 4, 6, "Yes"),
+            TestCase(2, 5, 6, "No"),
+            TestCase(3, 2, 1, "Yes"),
+        ];
+
+        for TestCase(a, b, c , expected) in tests {
+            assert_eq!(run(a, b, c), expected);
+        }
     }
 }
