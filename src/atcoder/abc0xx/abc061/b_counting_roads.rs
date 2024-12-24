@@ -2,7 +2,7 @@
 
 use std::collections::HashMap;
 
-pub fn run(_n: usize, _m: usize, a: Vec<(usize, usize)>) -> Vec<usize> {
+fn run(_n: usize, _m: usize, a: &Vec<(usize, usize)>) -> Vec<usize> {
     let mut hashmap = HashMap::new();
 
     for t in a {
@@ -19,7 +19,7 @@ pub fn run(_n: usize, _m: usize, a: Vec<(usize, usize)>) -> Vec<usize> {
         .collect()
 }
 
-pub fn run2(n: usize, _m: usize, a: Vec<(usize, usize)>) -> Vec<usize> {
+fn run2(n: usize, _m: usize, a: &Vec<(usize, usize)>) -> Vec<usize> {
     let mut ans = vec![0; n];
 
     for (a, b) in a {
@@ -34,19 +34,20 @@ pub fn run2(n: usize, _m: usize, a: Vec<(usize, usize)>) -> Vec<usize> {
 mod tests {
     use super::*;
 
-    #[test]
-    fn test() {
-        assert_eq!(vec![1, 1], run(2, 2, vec![(1, 2)]));
-        assert_eq!(vec![2, 2, 1, 1], run(4, 3, vec![(1, 2), (2, 3), (1, 4)]));
-        assert_eq!(vec![5, 5], run(2, 5, vec![(1, 2), (2, 1), (1, 2), (2, 1), (1, 2)]));
-        assert_eq!(vec![3, 3, 2, 2, 2, 1, 1, 2], run(8, 8, vec![(1, 2), (3, 4), (1, 5), (2, 8), (3, 7), (5, 2), (4, 1), (6, 8)]));
-    }
+    struct TestCase(usize, usize, Vec<(usize, usize)>, Vec<usize>);
 
     #[test]
-    fn test2() {
-        assert_eq!(vec![1, 1], run2(2, 2, vec![(1, 2)]));
-        assert_eq!(vec![2, 2, 1, 1], run2(4, 3, vec![(1, 2), (2, 3), (1, 4)]));
-        assert_eq!(vec![5, 5], run2(2, 5, vec![(1, 2), (2, 1), (1, 2), (2, 1), (1, 2)]));
-        assert_eq!(vec![3, 3, 2, 2, 2, 1, 1, 2], run2(8, 8, vec![(1, 2), (3, 4), (1, 5), (2, 8), (3, 7), (5, 2), (4, 1), (6, 8)]));
+    fn test() {
+        let tests = [
+            TestCase(2, 2, vec![(1, 2)], vec![1, 1]),
+            TestCase(4, 3, vec![(1, 2), (2, 3), (1, 4)], vec![2, 2, 1, 1]),
+            TestCase(2, 5, vec![(1, 2), (2, 1), (1, 2), (2, 1), (1, 2)], vec![5, 5]),
+            TestCase(8, 8, vec![(1, 2), (3, 4), (1, 5), (2, 8), (3, 7), (5, 2), (4, 1), (6, 8)], vec![3, 3, 2, 2, 2, 1, 1, 2]),
+        ];
+
+        for TestCase(n, m, a, expected) in tests {
+            assert_eq!(run(n, m, &a), expected);
+            assert_eq!(run2(n, m, &a), expected);
+        }
     }
 }

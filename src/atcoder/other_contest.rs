@@ -31,7 +31,6 @@ pub mod keyence2019;
 pub mod keyence2020;
 pub mod keyence2021;
 pub mod kupc2017;
-pub mod joi2024yo2;
 // pub mod joi2025yo1a;
 // pub mod joi2025yo1b;
 pub mod joigsp2023;
