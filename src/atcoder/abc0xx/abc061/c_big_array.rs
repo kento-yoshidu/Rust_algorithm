@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc061/tasks/abc061_c
 
-pub fn run(_n: usize, k: usize, ab: Vec<(usize, usize)>) -> usize {
+fn run(_n: usize, k: usize, ab: Vec<(usize, usize)>) -> usize {
     let mut vec = ab.clone();
 
     vec.sort_by(|a, b| a.0.cmp(&b.0));
@@ -22,9 +22,17 @@ pub fn run(_n: usize, k: usize, ab: Vec<(usize, usize)>) -> usize {
 mod tests {
     use super::*;
 
+    struct TestCase(usize, usize, Vec<(usize, usize)>, usize);
+
     #[test]
     fn test() {
-        assert_eq!(3, run(3, 4, vec![(1, 1), (2, 2), (3, 3)]));
-        assert_eq!(1, run(10, 500000, vec![(1, 100000), (1, 100000), (1, 100000), (1, 100000), (1, 100000), (100000, 100000), (100000, 100000), (100000, 100000), (100000, 100000), (100000, 100000)]));
+        let tests = [
+            TestCase(3, 4, vec![(1, 1), (2, 2), (3, 3)], 3),
+            TestCase(10, 500000, vec![(1, 100000), (1, 100000), (1, 100000), (1, 100000), (1, 100000), (100000, 100000), (100000, 100000), (100000, 100000), (100000, 100000), (100000, 100000)], 1),
+        ];
+
+        for TestCase(n, k, ab, expected) in tests {
+            assert_eq!(run(n, k, ab), expected);
+        }
     }
 }
