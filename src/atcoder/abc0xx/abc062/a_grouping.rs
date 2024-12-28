@@ -1,12 +1,12 @@
 // https://atcoder.jp/contests/abc062/tasks/abc062_a
 
-fn run(x: usize, y: usize) -> String {
+fn run(x: usize, y: usize) -> &'static str {
 	let g = [0, 2, 0, 1, 0, 1, 0, 0, 1, 0, 1, 0];
 
 	if g[x-1] == g[y-1] {
-		String::from("Yes")
+		"Yes"
 	} else {
-		String::from("No")
+		"No"
 	}
 
 }
@@ -20,11 +20,11 @@ fn check(num: usize) -> usize {
 	}
 }
 
-pub fn run2(x: usize, y: usize) -> String {
+pub fn run2(x: usize, y: usize) -> &'static str {
 	if check(x) == check(y) {
-		String::from("Yes")
+		"Yes"
 	} else {
-		String::from("No")
+		"No"
 	}
 }
 
@@ -32,9 +32,18 @@ pub fn run2(x: usize, y: usize) -> String {
 mod tests {
 	use super::*;
 
+	struct TestCase(usize, usize, &'static str);
+
 	#[test]
 	fn test() {
-		assert_eq!(String::from("Yes"), run(1, 3));
-		assert_eq!(String::from("No"), run(2, 4));
+		let tests = [
+			TestCase(1, 3, "Yes"),
+			TestCase(2, 4, "No"),
+		];
+
+		for TestCase(x, y, expected) in tests {
+			assert_eq!(run(x, y), expected);
+			assert_eq!(run2(x, y), expected);
+		}
 	}
 }
