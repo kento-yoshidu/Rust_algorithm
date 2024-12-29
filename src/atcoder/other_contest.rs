@@ -31,8 +31,6 @@ pub mod keyence2019;
 pub mod keyence2020;
 pub mod keyence2021;
 pub mod kupc2017;
-pub mod joigsp2023;
-pub mod joig2024open;
 pub mod jsc2019_qual;
 pub mod jsc2021;
 pub mod jsc2023_final;

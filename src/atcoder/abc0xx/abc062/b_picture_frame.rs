@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc062/tasks/abc062_b
 
-pub fn run(h: usize, w: usize, a: Vec<&str>) -> Vec<String> {
+fn run(h: usize, w: usize, a: Vec<&str>) -> Vec<String> {
     (0..h+2)
         .enumerate()
         .map(|(i, _)| {
@@ -17,9 +17,16 @@ pub fn run(h: usize, w: usize, a: Vec<&str>) -> Vec<String> {
 mod tests {
     use super::*;
 
+    struct TestCase(usize, usize, Vec<&'static str>, Vec<&'static str>);
     #[test]
     fn test() {
-        assert_eq!(vec![String::from("#####"), String::from("#abc#"), String::from("#arc#"), String::from("#####")], run(2, 3, vec!["abc", "arc"]));
-        assert_eq!(vec![String::from("###"), String::from("#z#"), String::from("###")], run(1, 1, vec!["z"]));
+        let tests = [
+            TestCase(2, 3, vec!["abc", "arc"], vec!["#####", "#abc#", "#arc#", "#####"]),
+            TestCase(1, 1, vec!["z"], vec!["###", "#z#", "###"]),
+        ];
+
+        for TestCase(h, w, a, expected) in tests {
+            assert_eq!(run(h, w, a), expected);
+        }
     }
 }
