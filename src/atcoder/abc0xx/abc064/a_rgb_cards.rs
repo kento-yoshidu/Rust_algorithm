@@ -1,12 +1,12 @@
 // https://atcoder.jp/contests/abc064/tasks/abc064_a
 
-pub fn run(r: u16, g: u16, b: u16) -> String {
+fn run(r: usize, g: usize, b: usize) -> &'static str {
     let num = r * 100 + g * 10 + b;
 
     if num % 4 == 0 {
-        String::from("Yes")
+        "Yes"
     } else {
-        String::from("No")
+        "No"
     }
 }
 
@@ -14,9 +14,17 @@ pub fn run(r: u16, g: u16, b: u16) -> String {
 mod tests {
     use super::*;
 
+    struct TestCase(usize, usize, usize, &'static str);
+
     #[test]
     fn test() {
-        assert_eq!(String::from("Yes"), run(4, 3, 2));
-        assert_eq!(String::from("No"), run(2, 3, 4));
+        let tests = [
+            TestCase(4, 3, 2, "Yes"),
+            TestCase(2, 3, 4, "No"),
+        ];
+
+        for TestCase(r, g, b, expected) in tests {
+            assert_eq!(run(r, g, b), expected);
+        }
     }
 }
