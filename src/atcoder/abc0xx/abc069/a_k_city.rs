@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc069/tasks/abc069_a
 
-pub fn run(n: i32, m: i32) -> i32 {
+fn run(n: usize, m: usize) -> usize {
     (n - 1) * (m - 1)
 }
 
@@ -8,9 +8,17 @@ pub fn run(n: i32, m: i32) -> i32 {
 mod tests {
     use super::*;
 
+    struct TestCase(usize, usize, usize);
+
     #[test]
     fn test() {
-        assert_eq!(6, run(3, 4));
-        assert_eq!(1, run(2, 2));
+        let tests = [
+            TestCase(3, 4, 6),
+            TestCase(2, 2, 1),
+        ];
+
+        for TestCase(n, m ,expected) in tests {
+            assert_eq!(run(n, m), expected);
+        }
     }
 }
