@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc069/tasks/abc069_b
 
-pub fn run(s: String) -> String {
+fn run(s: &str) -> String {
     format!("{}{}{}", &s.chars().nth(0).unwrap(), s.len()-2, &s.chars().last().unwrap())
 }
 
@@ -8,10 +8,18 @@ pub fn run(s: String) -> String {
 mod tests {
     use super::*;
 
+    struct TestCase(&'static str, &'static str);
+
     #[test]
     fn test() {
-        assert_eq!(String::from("i18n"), run(String::from("internationalization")));
-        assert_eq!(String::from("s4s"), run(String::from("smiles")));
-        assert_eq!(String::from("x1z"), run(String::from("xyz")));
+        let tests = [
+            TestCase("internationalization", "i18n"),
+            TestCase("smiles", "s4s"),
+            TestCase("xyz", "x1z"),
+        ];
+
+        for TestCase(s, expected) in tests {
+            assert_eq!(run(s), expected);
+        }
     }
 }
