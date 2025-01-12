@@ -1,13 +1,13 @@
 // https://atcoder.jp/contests/abc071/tasks/abc071_a
 
-pub fn run(x: isize, a: isize, b: isize) -> String {
+fn run(x: isize, a: isize, b: isize) -> char {
 	let abs_a = (x - a).abs();
 	let abs_b = (x - b).abs();
 
 	if abs_a < abs_b {
-		String::from("A")
+		'A'
 	} else {
-		String::from("B")
+		'B'
 	}
 }
 
@@ -15,9 +15,17 @@ pub fn run(x: isize, a: isize, b: isize) -> String {
 mod tests {
 	use super::*;
 
+	struct TestCase(isize, isize, isize, char);
+
 	#[test]
 	fn test() {
-		assert_eq!(String::from("B"), run(5, 2, 7));
-		assert_eq!(String::from("A"), run(1, 999, 1000));
+		let tests = [
+			TestCase(5, 2, 7, 'B'),
+			TestCase(1, 999, 1000, 'A'),
+		];
+
+		for TestCase(x, a, b, expected) in tests {
+			assert_eq!(run(x, a, b), expected);
+		}
 	}
 }
