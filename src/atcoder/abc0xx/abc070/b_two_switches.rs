@@ -2,7 +2,7 @@
 
 use std::cmp::{min, max};
 
-pub fn run(a: isize, b: isize, c: isize, d: isize) -> isize {
+fn run(a: isize, b: isize, c: isize, d: isize) -> isize {
     let start = max(a, c);
     let end = min(b, d);
 
@@ -13,10 +13,18 @@ pub fn run(a: isize, b: isize, c: isize, d: isize) -> isize {
 mod tests {
     use super::*;
 
+    struct TestCase(isize, isize, isize, isize, isize);
+
     #[test]
     fn test() {
-        assert_eq!(50, run(0, 75, 25, 100));
-        assert_eq!(0, run(0, 33, 66, 99));
-        assert_eq!(60, run(10, 90, 20, 80));
+        let tests = [
+            TestCase(0, 75, 25, 100, 50),
+            TestCase(0, 33, 66, 99, 0),
+            TestCase(10, 90, 20, 80, 60),
+        ];
+
+        for TestCase(a, b, c, d, expected) in tests {
+            assert_eq!(run(a, b, c, d), expected);
+        }
     }
 }
