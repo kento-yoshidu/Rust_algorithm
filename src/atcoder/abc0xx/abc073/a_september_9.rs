@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc073/tasks/abc073_a
 
-pub fn run(n: usize) -> &'static str {
+fn run(n: usize) -> &'static str {
 	if n >= 90 || n % 10 == 9 {
 		"Yes"
 	} else {
@@ -8,7 +8,7 @@ pub fn run(n: usize) -> &'static str {
 	}
 }
 
-pub fn run2(n: usize) -> &'static str {
+fn run2(n: usize) -> &'static str {
 	if n.to_string().chars().any(|c| {
 		c == '9'
 	}) {
@@ -34,6 +34,7 @@ mod tests {
 
 		for TestCase(n, expected) in tests {
 			assert_eq!(run(n), expected);
+			assert_eq!(run2(n), expected);
 		}
 	}
 }
