@@ -8,10 +8,18 @@ fn run(n: usize, a: usize) -> usize {
 mod tests {
 	use super::*;
 
+	struct TestCase(usize, usize, usize);
+
 	#[test]
 	fn test() {
-		assert_eq!(5, run(3, 4));
-		assert_eq!(261, run(19, 100));
-		assert_eq!(100, run(10, 0));
+		let tests = [
+			TestCase(3, 4, 5),
+			TestCase(19, 100, 261),
+			TestCase(10, 0, 100),
+		];
+
+		for TestCase(n, a, expected) in tests {
+			assert_eq!(run(n, a), expected);
+		}
 	}
 }
