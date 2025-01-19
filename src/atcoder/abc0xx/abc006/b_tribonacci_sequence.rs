@@ -1,8 +1,6 @@
 // https://atcoder.jp/contests/abc006/tasks/abc006_2
 
-// https://atcoder.jp/contests/abc006/tasks/abc006_2
-
-pub fn run(n: usize) -> usize {
+fn run(n: usize) -> usize {
     (0..n-1)
         .fold((0, 0, 1), |state, _| {
             let sum = state.0 + state.1 + state.2;
@@ -15,10 +13,18 @@ pub fn run(n: usize) -> usize {
 mod tests {
     use super::*;
 
+    struct TestCase(usize, usize);
+
     #[test]
     fn test() {
-        assert_eq!(7, run(7));
-        assert_eq!(0, run(2));
-        assert_eq!(7927, run(100000));
+        let tests = [
+            TestCase(7, 7),
+            TestCase(2, 0),
+            TestCase(100000, 7927),
+        ];
+
+        for TestCase(n, expected) in tests {
+            assert_eq!(run(n),  expected);
+        }
     }
 }
