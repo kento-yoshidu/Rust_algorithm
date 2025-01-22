@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc003/tasks/abc003_1
 
-pub fn run(n: usize) -> usize {
+fn run(n: usize) -> usize {
     let mut sum = 0_f64;
 
     for i in 1..=n {
@@ -10,7 +10,7 @@ pub fn run(n: usize) -> usize {
     sum as usize / n
 }
 
-pub fn run2(n: usize) -> usize {
+fn run2(n: usize) -> usize {
     (1..=n).map(|num| {
         num * 10000
     }).sum::<usize>() / n
@@ -20,15 +20,18 @@ pub fn run2(n: usize) -> usize {
 mod tests {
     use super::*;
 
-    #[test]
-    fn test() {
-        assert_eq!(35000, run(6));
-        assert_eq!(460000, run(91));
-    }
+    struct TestCase(usize, usize);
 
     #[test]
-    fn test2() {
-        assert_eq!(35000, run2(6));
-        assert_eq!(460000, run2(91));
+    fn test() {
+        let tests = [
+            TestCase(6, 35000),
+            TestCase(91, 460000),
+        ];
+
+        for TestCase(n, expected) in tests {
+            assert_eq!(run(n), expected);
+            assert_eq!(run2(n), expected);
+        }
     }
 }
