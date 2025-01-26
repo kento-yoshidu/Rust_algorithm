@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc075/tasks/abc075_b
 
-pub fn run(h: isize, w: isize, s: Vec<&str>) -> Vec<Vec<char>> {
+fn run(h: isize, w: isize, s: Vec<&str>) -> Vec<Vec<char>> {
     let mut vec: Vec<Vec<char>> = s.iter().map(|str| str.chars().collect::<Vec<char>>()).collect();
 
     // 8方向の内、どの方向をチェックするか
@@ -22,13 +22,8 @@ pub fn run(h: isize, w: isize, s: Vec<&str>) -> Vec<Vec<char>> {
                 let dj = j + dy[d]; // y軸
 
                 // 範囲外にアクセスしようとした時
-                if di < 0 || h <= di {
+                if di < 0 || h <= di || dj < 0 || w <= dj {
                     continue;
-                }
-
-                // 範囲外にアクセスしようとした時
-                if dj < 0 || w <= dj {
-                    continue
                 }
 
                 if vec[di as usize][dj as usize] == '#' {
@@ -60,6 +55,5 @@ mod tests {
         for TestCase(h, w, s, expected) in tests {
             assert_eq!(expected, run(h, w, s));
         }
-
     }
 }
