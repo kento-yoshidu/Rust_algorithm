@@ -12,7 +12,7 @@ fn calc(num: usize) -> usize {
     result
 }
 
-pub fn run(n: usize, a: usize, b: usize) -> usize {
+fn run(n: usize, a: usize, b: usize) -> usize {
     let mut result = 0;
 
     for i in 1..=n {
@@ -26,17 +26,17 @@ pub fn run(n: usize, a: usize, b: usize) -> usize {
     result
 }
 
-fn calc2(num: usize, total: usize) -> usize {
+fn rec(num: usize, total: usize) -> usize {
     if num == 0 {
         total
     } else {
-        calc2(num/10, total + num % 10)
+        rec(num/10, total + num % 10)
     }
 }
 
-pub fn run2(n: usize, a: usize, b: usize) -> usize {
+fn run2(n: usize, a: usize, b: usize) -> usize {
     (1..=n).filter(|num| {
-        let res = calc2(*num, 0);
+        let res = rec(*num, 0);
 
         a <= res && res <= b
     }).sum()
@@ -46,19 +46,20 @@ pub fn run2(n: usize, a: usize, b: usize) -> usize {
 mod tests {
     use super::*;
 
-    #[test]
-    fn test() {
-        assert_eq!(45, run(14, 2, 4));
-        assert_eq!(84, run(20, 2, 5));
-        assert_eq!(13, run(10, 1, 2));
-        assert_eq!(4554, run(100, 4, 16));
-    }
+    struct TestCase(usize, usize, usize, usize);
 
     #[test]
-    fn test2() {
-        assert_eq!(45, run2(14, 2, 4));
-        assert_eq!(84, run2(20, 2, 5));
-        assert_eq!(13, run2(10, 1, 2));
-        assert_eq!(4554, run2(100, 4, 16));
+    fn test() {
+        let tests = [
+            TestCase(14, 2, 4, 45),
+            TestCase(20, 2, 5, 84),
+            TestCase(10, 1, 2, 13),
+            TestCase(100, 4, 16, 4554),
+        ];
+
+        for TestCase(n, a, b, expected) in tests {
+            assert_eq!(run(n, a, b), expected);
+            assert_eq!(run2(n, a, b), expected);
+        }
     }
 }

@@ -2,7 +2,7 @@
 
 use std::collections::HashMap;
 
-pub fn run(_n: usize, k: usize, a: Vec<usize>) -> usize {
+fn run(_n: usize, k: usize, a: Vec<usize>) -> usize {
     let mut hash_map = HashMap::new();
 
     for num in a {

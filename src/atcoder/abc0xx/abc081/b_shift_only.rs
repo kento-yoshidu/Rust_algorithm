@@ -1,7 +1,7 @@
 // https://atcoder.jp/contests/abc081/tasks/abc081_b
 
-fn run(s: Vec<i32>) -> i32 {
-    let result: Vec<i32> = s.iter().map(|&i| {
+fn run(_n: usize, s: &Vec<usize>) -> usize {
+    let result: Vec<usize> = s.iter().map(|&i| {
         let mut count = 0;
         let mut tmp = i;
 
@@ -17,21 +17,21 @@ fn run(s: Vec<i32>) -> i32 {
         count
     }).collect();
 
-    *result.iter().min().unwrap()
+    result.into_iter().min().unwrap()
 }
 
-fn calc(num: usize, count: usize) -> usize {
+fn rec(num: usize, count: usize) -> usize {
     if num % 2 != 0 {
         count
     } else {
-        calc(num/2, count+1)
+        rec(num/2, count+1)
     }
 }
 
-fn run2(_n: usize, a: Vec<usize>) -> usize {
-    a.iter()
+fn run2(_n: usize, a: &Vec<usize>) -> usize {
+    a.into_iter()
         .map(|num| {
-            calc(*num, 0)
+            rec(*num, 0)
         })
         .min()
         .unwrap_or(0)
@@ -41,17 +41,19 @@ fn run2(_n: usize, a: Vec<usize>) -> usize {
 mod tests {
     use super::*;
 
-    #[test]
-    fn test() {
-        assert_eq!(2, run(vec![8, 12, 40]));
-        assert_eq!(0, run(vec![5, 6, 8, 10]));
-        assert_eq!(8, run(vec![382253568, 723152896, 37802240, 379425024, 404894720, 471526144]));
-    }
+    struct TestCase(usize, Vec<usize>, usize);
 
     #[test]
-    fn test2() {
-        assert_eq!(2, run2(3, vec![8, 12, 40]));
-        assert_eq!(0, run2(4, vec![5, 6, 8, 10]));
-        assert_eq!(8, run2(6, vec![382253568, 723152896, 37802240, 379425024, 404894720, 471526144]));
+    fn test() {
+        let tests = [
+            TestCase(3, vec![8, 12, 40], 2),
+            TestCase(4, vec![5, 6, 8, 10], 0),
+            TestCase(6, vec![382253568, 723152896, 37802240, 379425024, 404894720, 471526144], 8),
+        ];
+
+        for TestCase(n, a, expected) in tests {
+            assert_eq!(run(n, &a), expected);
+            assert_eq!(run2(n, &a), expected);
+        }
     }
 }

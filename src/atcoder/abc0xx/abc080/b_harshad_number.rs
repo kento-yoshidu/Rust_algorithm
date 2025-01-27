@@ -6,13 +6,13 @@ fn calc(n: String) -> u32 {
         .sum()
 }
 
-pub fn run(n: usize) -> String {
+pub fn run(n: usize) -> &'static str {
     let num = calc(n.to_string()) as usize;
 
     if n % num == 0 {
-        String::from("Yes")
+        "Yes"
     } else {
-        String::from("No")
+        "No"
     }
 }
 
@@ -20,11 +20,19 @@ pub fn run(n: usize) -> String {
 mod tests {
     use super::*;
 
+    struct TestCase(usize, &'static str);
+
     #[test]
     fn test() {
-        assert_eq!(String::from("Yes"), run(12));
-        assert_eq!(String::from("No"), run(57));
-        assert_eq!(String::from("No"), run(148));
-        assert_eq!(String::from("Yes"), run(27));
+        let tests = [
+            TestCase(12, "Yes"),
+            TestCase(57, "No"),
+            TestCase(148, "No"),
+            TestCase(27, "Yes"),
+        ];
+
+        for TestCase(n, expected) in tests {
+            assert_eq!(run(n), expected);
+        }
     }
 }
