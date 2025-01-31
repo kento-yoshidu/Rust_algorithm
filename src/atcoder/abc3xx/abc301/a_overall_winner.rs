@@ -1,10 +1,8 @@
 // https://atcoder.jp/contests/abc300/tasks/abc300_a
 
-pub fn run(n: i32, s: String) -> String {
+fn run(n: usize, s: &str) -> &'static str {
     let mut t = 0;
     let mut a = 0;
-
-    let mut ans = String::from("");
 
     for c in s.chars() {
         if c == 'A' {
@@ -14,27 +12,33 @@ pub fn run(n: i32, s: String) -> String {
         }
 
         if t == (n + 1) / 2 {
-            ans = String::from("T");
-            break;
+            return "T";
         }
 
         if a == (n + 1) / 2 {
-            ans = String::from("A");
-            break;
+            return "A";
         }
     }
 
-    ans
+    unreachable!();
 }
 
 #[cfg(test)]
 mod tests {
     use super::*;
 
+    struct TestCase(usize, &'static str, &'static str);
+
     #[test]
     fn test() {
-        assert_eq!(String::from("T"), run(5, String::from("TTAAT")));
-        assert_eq!(String::from("T"), run(6, String::from("ATTATA")));
-        assert_eq!(String::from("A"), run(1, String::from("A")));
+        let tests = [
+            TestCase(5, "TTAAT", "T"),
+            TestCase(6, "ATTATA", "T"),
+            TestCase(1, "A", "A"),
+        ];
+
+        for TestCase(n, s, expected) in tests {
+            assert_eq!(run(n, s), expected);
+        }
     }
 }
