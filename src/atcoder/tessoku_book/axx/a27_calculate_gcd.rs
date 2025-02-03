@@ -1,18 +1,14 @@
-use std::cmp::max;
+// https://atcoder.jp/contests/tessoku-book/tasks/math_and_algorithm_o
 
 fn gcd(a: usize, b: usize) -> usize {
-    if a == 0 || b == 0 {
-        return max(a, b);
-    }
-
-    if a >= b {
-        gcd(a%b, b)
+    if b == 0 {
+        a
     } else {
-        gcd(b%a, a)
+        gcd(b, a % b)
     }
 }
 
-pub fn run(a: usize, b: usize) -> usize {
+fn run(a: usize, b: usize) -> usize {
     gcd(a, b)
 }
 

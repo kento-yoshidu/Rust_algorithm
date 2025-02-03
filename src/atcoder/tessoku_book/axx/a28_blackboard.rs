@@ -1,3 +1,5 @@
+// https://atcoder.jp/contests/tessoku-book/tasks/math_and_algorithm_o
+
 fn run(_n: usize, ta: Vec<(char, isize)>) -> Vec<isize> {
     ta.into_iter()
         .scan(0, |state, (c, num)| {
@@ -8,12 +10,11 @@ fn run(_n: usize, ta: Vec<(char, isize)>) -> Vec<isize> {
                 },
                 '-' => {
                     if *state - num < 0 {
-                        *state = (*state - num + 10000) % 10000;
-                        Some(*state)
-                    } else {
-                        *state = (*state - num) % 10000;
-                        Some(*state)
+                        *state += 10000;
                     }
+
+                    *state = (*state - num) % 10000;
+                    Some(*state)
                 },
                 '*' => {
                     *state = *state * 100 % 10000;
