@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc086/tasks/abc086_a
 
-pub fn run(a: i32, b: i32) -> &'static str {
+fn run(a: usize, b: usize) -> &'static str {
     if (a * b) % 2 == 0 {
         "Even"
     } else {
@@ -12,9 +12,17 @@ pub fn run(a: i32, b: i32) -> &'static str {
 mod tests {
     use super::*;
 
+    struct TestCase(usize, usize, &'static str);
+
     #[test]
     fn test() {
-        assert_eq!("Even", run(3, 4));
-        assert_eq!("Odd", run(3, 3));
+        let tests = [
+            TestCase(3, 4, "Even"),
+            TestCase(3, 3, "Odd"),
+        ];
+
+        for TestCase(a, b, expected) in tests {
+            assert_eq!(run(a, b), expected);
+        }
     }
 }

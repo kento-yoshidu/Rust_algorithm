@@ -1,24 +1,16 @@
 // https://atcoder.jp/contests/abc097/tasks/abc097_b
 
-pub fn run(n: i32) -> i32 {
+use std::cmp::max;
+
+fn run(x: usize) -> usize {
     let mut ans = 1;
 
-    for i in 2..1000 {
-        let mut j = 2;
+    for i in 2..x {
+        let mut j = i * i;
 
-        if i > n {
-            break
-        }
-
-        loop {
-            let num = (i as i32).pow(j);
-
-            if num > n {
-                break
-            }  else {
-                ans = ans.max(num);
-                j += 1;
-            }
+        while j <= x {
+            ans = max(ans, j);
+            j *= i;
         }
     }
 
@@ -29,10 +21,18 @@ pub fn run(n: i32) -> i32 {
 mod tests {
     use super::*;
 
+    struct TestCase(usize, usize);
+
     #[test]
     fn test() {
-        assert_eq!(9, run(10));
-        assert_eq!(1, run(1));
-        assert_eq!(961, run(999));
+        let tests = [
+            TestCase(10, 9),
+            TestCase(1, 1),
+            TestCase(999, 961),
+        ];
+
+        for TestCase(x, expected) in tests {
+            assert_eq!(run(x), expected);
+        }
     }
 }

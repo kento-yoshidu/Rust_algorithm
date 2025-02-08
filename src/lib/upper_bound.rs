@@ -12,6 +12,25 @@ pub fn upper_bound<T: Ord>(vec: &[T], value: T) -> usize {
     .unwrap()
 }
 
+// upper_boundの拡張
+// n以下の最大の数を返す
+fn max_under_n<T: Ord>(vec: &[T], value: T) -> Option<usize> {
+    vec.binary_search_by(|x| {
+        if *x <= value {
+            Ordering::Less
+        } else {
+            Ordering::Greater
+        }
+    })
+    .err()
+    .map(|x| if x == 0 {
+        None
+    } else {
+        Some(x - 1)
+    })
+    .flatten()
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
