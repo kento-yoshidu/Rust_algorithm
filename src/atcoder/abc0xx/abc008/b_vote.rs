@@ -2,24 +2,31 @@
 
 use itertools::Itertools;
 
-pub fn run(_n: usize, s: Vec<&str>) -> String {
+fn run<'a>(_n: usize, s: Vec<&'a str>) -> &'a str {
     let hashmap = s.iter().counts();
 
     hashmap.iter()
         .max_by(|a, b| a.1.cmp(&b.1))
         .unwrap()
         .0
-        .to_string()
 }
 
 #[cfg(test)]
 mod tests {
     use super::*;
 
+    struct TestCase(usize, Vec<&'static str>, &'static str);
+
     #[test]
     fn test() {
-        assert_eq!(String::from("taro"), run(4, vec!["taro", "jiro", "taro", "saburo"]));
-        assert_eq!(String::from("takahashikun"), run(1, vec!["takahashikun"]));
-        assert_eq!(String::from("b"), run(9, vec!["a", "b", "c", "c", "b", "c", "b", "d", "e", "b"]));
+        let tests = [
+            TestCase(4, vec!["taro", "jiro", "taro", "saburo"], "taro"),
+            TestCase(1, vec!["takahashikun"], "takahashikun"),
+            TestCase(9, vec!["a", "b", "c", "c", "b", "c", "b", "d", "e", "b"], "b"),
+        ];
+
+        for TestCase(n, s, expected) in tests {
+            assert_eq!(run(n, s), expected);
+        }
     }
 }
