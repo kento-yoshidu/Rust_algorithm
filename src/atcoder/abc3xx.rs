@@ -89,3 +89,4 @@ pub mod abc388;
 pub mod abc389;
 pub mod abc390;
 pub mod abc391;
+pub mod abc392;
