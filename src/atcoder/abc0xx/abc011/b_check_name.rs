@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc011/tasks/abc011_2
 
-pub fn run(s: String) -> String {
+fn run(s: &str) -> String {
     s.chars()
         .enumerate()
         .map(|(i, c)| {
@@ -17,9 +17,17 @@ pub fn run(s: String) -> String {
 mod tests {
     use super::*;
 
+    struct TestCase(&'static str, &'static str);
+
     #[test]
     fn test() {
-        assert_eq!(String::from("Takahashi"), run(String::from("taKahAshI")));
-        assert_eq!(String::from("A"), run(String::from("A")));
+        let tests = [
+            TestCase("taKahAshI", "Takahashi"),
+            TestCase("A", "A"),
+        ];
+
+        for TestCase(s, expected) in tests {
+            assert_eq!(run(s), expected);
+        }
     }
 }
