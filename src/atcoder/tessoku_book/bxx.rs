@@ -5,6 +5,7 @@ pub mod b04_binary_representation_2;
 pub mod b06_lottery;
 pub mod b07_convenience_store_2;
 pub mod b11_binary_search_2;
+pub mod b12_equation;
 pub mod b14_another_subset_sum;
 pub mod b16_flog_1;
 // pub mod b17_flog_1_with_restoration;
