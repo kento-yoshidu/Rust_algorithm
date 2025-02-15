@@ -1,7 +1,6 @@
 // https://atcoder.jp/contests/abc360/tasks/abc360_d
 
-use library::lib::lower_bound::lower_bound;
-use library::lib::upper_bound::upper_bound;
+use library::lib::binary_search::{lower_bound::*, upper_bound::*};
 
 fn run(_n: usize, t: usize, s: &str, x: Vec<isize>) -> usize {
     let mut to_left = Vec::new();

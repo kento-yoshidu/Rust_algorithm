@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc388/tasks/abc388_c
 
-use library::lib::upper_bound::upper_bound;
+use library::lib::binary_search::upper_bound::*;
 
 fn run(_n: usize, a: Vec<usize>) -> usize {
     a.iter()

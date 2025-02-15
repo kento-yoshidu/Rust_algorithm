@@ -2,47 +2,47 @@
 
 use num_integer::Roots;
 
-pub fn run(a: String, b: String) -> String {
-    let num: i32 = (a + b.as_str()).parse().unwrap();
+fn run(a: usize, b: usize) -> &'static str {
+    let num = a + b;
 
     if num.sqrt().pow(2) == num {
-        String::from("Yes")
+        "Yes"
     }
     else {
-        String::from("No")
+        "No"
     }
 }
 
-pub fn run2(a: String, b: String) -> String {
-    let num: i32 = (a + b.as_str()).parse().unwrap();
+fn run2(a: usize, b: usize) -> &'static str {
+    let num = a + b;
 
     for i in 1..=(num.sqrt()) {
         if i * i == num {
-            return String::from("Yes");
+            return "Yes";
         }
     }
 
-    String::from("No")
+    "No"
 }
 
 #[cfg(test)]
 mod tests {
     use super::*;
 
-    #[test]
-    fn test() {
-        assert_eq!(String::from("Yes"), run(String::from("1"), String::from("21")));
-        assert_eq!(String::from("Yes"), run(String::from("1"), String::from("44")));
-        assert_eq!(String::from("Yes"), run(String::from("1"), String::from("69")));
-        assert_eq!(String::from("No"), run(String::from("100"), String::from("100")));
-        assert_eq!(String::from("No"), run(String::from("12"), String::from("10")));
-    }
+    struct TestCase(usize, usize, &'static str);
 
     #[test]
-    fn test2() {
-        assert_eq!(String::from("Yes"), run2(String::from("1"), String::from("21")));
-        assert_eq!(String::from("Yes"), run2(String::from("1"), String::from("44")));
-        assert_eq!(String::from("Yes"), run2(String::from("1"), String::from("69")));
-        assert_eq!(String::from("No"), run2(String::from("12"), String::from("10")));
+    fn test() {
+        let tests = [
+            TestCase(1, 21, "Yes"),
+            TestCase(1, 44, "Yes"),
+            TestCase(1, 69, "Yes"),
+            TestCase(100, 100, "No"),
+            TestCase(12, 10, "No"),
+        ];
+
+        for TestCase(a, b, expected) in tests {
+            assert_eq!(run(a, b), expected);
+        }
     }
 }

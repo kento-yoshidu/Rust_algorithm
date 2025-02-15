@@ -2,7 +2,7 @@
 
 use itertools::Itertools;
 
-use library::lib::upper_bound::upper_bound;
+use library::lib::binary_search::upper_bound::*;
 
 fn run(n: usize, l: Vec<usize>) -> usize {
     let vec: Vec<usize> = l.into_iter().sorted().collect();

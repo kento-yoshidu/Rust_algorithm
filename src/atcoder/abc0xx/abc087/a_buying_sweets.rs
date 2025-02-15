@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc087/tasks/abc087_a
 
-pub fn run(x: u16, a: u16, b: u16) -> u16 {
+fn run(x: usize, a: usize, b: usize) -> usize {
 	let b_count = (x - a) / b;
 
 	x - a - b * b_count
@@ -10,11 +10,19 @@ pub fn run(x: u16, a: u16, b: u16) -> u16 {
 mod test {
 	use super::*;
 
+	struct TestCase(usize, usize, usize, usize);
+
 	#[test]
 	fn test() {
-		assert_eq!(84, run(1234, 150, 100));
-		assert_eq!(28, run(1000, 108, 108));
-		assert_eq!(0, run(579, 123, 456));
-		assert_eq!(405, run(7477, 549, 593));
+		let tests = [
+			TestCase(1234, 150, 100, 84),
+			TestCase(1000, 108, 108, 24),
+			TestCase(579, 123, 456, 0),
+			TestCase(7477, 549, 593, 405),
+		];
+
+		for TestCase(x, a, b, expected) in tests {
+			assert_eq!(run(x, a, b), expected);
+		}
 	}
 }
