@@ -7,4 +7,5 @@ pub mod ma005_modulo_100;
 pub mod ma006_print_2n_plus_3;
 pub mod ma007_number_of_multiples_1;
 pub mod ma008_brute_force_1;
+pub mod ma009_brute_force_2;
 pub mod ma010_factorial;
