@@ -9,5 +9,6 @@ pub mod b12_equation;
 pub mod b14_another_subset_sum;
 pub mod b16_flog_1;
 // pub mod b17_flog_1_with_restoration;
+pub mod b36_switching_lights;
 pub mod b51_bracket;
 pub mod b61_influencer;
