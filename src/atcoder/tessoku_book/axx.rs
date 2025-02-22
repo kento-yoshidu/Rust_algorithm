@@ -25,3 +25,4 @@ pub mod a53_priority_queue;
 pub mod a61_adjacent_vertices;
 pub mod a62_depth_first_search;
 pub mod a63_shortest_path_1;
+pub mod a64_shortest_path_2;
