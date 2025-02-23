@@ -1,19 +1,19 @@
 // https://atcoder.jp/contests/abc017/tasks/abc017_2
 
-pub fn run(s: String) -> String {
+fn run(s: &str) -> &'static str {
     if s.chars()
         .any(|c| {
             !['c', 'h', 'o', 'k', 'u'].contains(&c)
         }) {
-            return String::from("NO")
+            return "NO";
         }
 
     if s.chars().last().unwrap() == 'c' {
-        return String::from("NO")
+        return "NO";
     }
 
     if s.chars().nth(0).unwrap() == 'h' {
-        return String::from("NO")
+        return "NO";
     }
 
     if s.chars().collect::<Vec<char>>()
@@ -21,9 +21,9 @@ pub fn run(s: String) -> String {
         .any(|t| {
             (t[0] == 'c' && t[1] != 'h') || (t[0] != 'c' && t[1] == 'h')
         }) {
-            return String::from("NO")
+            return "NO";
         } else {
-            return String::from("YES")
+            return "YES";
         }
 }
 
@@ -31,10 +31,18 @@ pub fn run(s: String) -> String {
 mod tests {
     use super::*;
 
+    struct TestCase(&'static str, &'static str);
+
     #[test]
     fn test() {
-        assert_eq!(String::from("YES"), run(String::from("chokuou")));
-        assert_eq!(String::from("NO"), run(String::from("kuccho")));
-        assert_eq!(String::from("NO"), run(String::from("atcoder")));
+        let tests = [
+            TestCase("chokuou", "YES"),
+            TestCase("kuccho", "NO"),
+            TestCase("atcoder", "NO"),
+        ];
+
+        for TestCase(s, expected) in tests {
+            assert_eq!(run(s), expected);
+        }
     }
 }
