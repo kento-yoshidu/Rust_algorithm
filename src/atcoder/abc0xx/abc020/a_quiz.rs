@@ -1,10 +1,10 @@
 // https://atcoder.jp/contests/abc020/tasks/abc020_a
 
-pub fn run(q: usize) -> String {
+fn run(q: usize) -> &'static str {
     if q == 1 {
-        String::from("ABC")
+        "ABC"
     } else {
-        String::from("chokudai")
+        "chokudai"
     }
 }
 
@@ -12,9 +12,17 @@ pub fn run(q: usize) -> String {
 mod tests {
     use super::*;
 
+    struct TestCase(usize, &'static str);
+
     #[test]
     fn test() {
-        assert_eq!("ABC", run(1));
-        assert_eq!("chokudai", run(2));
+        let tests = [
+            TestCase(1, "ABC"),
+            TestCase(2, "chokudai"),
+        ];
+
+        for TestCase(q, expected) in tests {
+            assert_eq!(run(q), expected);
+        }
     }
 }
