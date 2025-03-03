@@ -1,3 +1,3 @@
 pub mod a_handing_out_sweets;
 pub mod b_total_price;
-pub mod c_atcoder;
+pub mod c_atcolor;
