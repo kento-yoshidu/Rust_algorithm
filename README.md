@@ -71,3 +71,14 @@ fn main() {
 ## memo
 
 [Why chars().nth(index).unwrap() is so slow?](https://www.reddit.com/r/rust/comments/tbsffu/why_charsnthindexunwrap_is_so_slow/?rdt=43355)
+
+## Not AC
+
+### ダイクストラ
+
+- [ABC252 E - Road Reduction](https://atcoder.jp/contests/abc252/tasks/abc252_e)
+- [ABC355 E - Non-Decreasing Colorful Path](https://atcoder.jp/contests/abc335/tasks/abc335_e)(TLE)
+
+### 01-BFS
+
+- [E - Stronger Takahashi](https://atcoder.jp/contests/abc213/tasks/abc213_e)
