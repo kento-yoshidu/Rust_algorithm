@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc025/tasks/abc025_b
 
-pub fn run(_n: usize, a: isize, b: isize, v: Vec<(&str, isize)>) -> (&'static str, isize) {
+fn run(_n: usize, a: isize, b: isize, v: Vec<(&str, isize)>) -> (&'static str, isize) {
     let point: isize = v.iter()
         .map(|t| {
             let distance = t.1.max(a).min(b);
