@@ -2,7 +2,7 @@
 
 use std::collections::HashSet;
 
-pub fn run(_n: usize, a: Vec<usize>) -> usize {
+fn run(_n: usize, a: Vec<usize>) -> usize {
     let mut hash_set = HashSet::new();
 
     let mut ans = 0;
