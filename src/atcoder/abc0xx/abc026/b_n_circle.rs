@@ -1,14 +1,12 @@
 // https://atcoder.jp/contests/abc026/tasks/abc026_b
 
 use std::f64::consts::PI;
+use itertools::Itertools;
 
-pub fn run(_n: i32, r: Vec<i32>) -> f64 {
-    let mut vec = r.clone();
+fn run(_n: i32, r: Vec<i32>) -> f64 {
+    let vec: Vec<i32> = r.into_iter().sorted().rev().collect();
 
-    vec.sort();
-    vec.reverse();
-
-    (vec.iter()
+    vec.iter()
         .enumerate()
         .map(|(i, num)| {
             if i % 2 == 0 {
@@ -17,16 +15,24 @@ pub fn run(_n: i32, r: Vec<i32>) -> f64 {
                 -(num * num)
             }
         })
-        .sum::<i32>()) as f64 * PI
+        .sum::<i32>() as f64 * PI
 }
 
 #[cfg(test)]
 mod tests {
     use super::*;
 
+    struct TestCase(i32, Vec<i32>, f64);
+
     #[test]
     fn test() {
-        assert_eq!(18.84955592153876, run(3, vec![1, 2, 3]));
-        assert_eq!(508.93800988154646, run(6, vec![15, 2, 3, 7, 6, 9]));
+        let tests = [
+            TestCase(3, vec![1, 2, 3], 18.84955592153876),
+            TestCase(6, vec![15, 2, 3, 7, 6, 9], 508.93800988154646),
+        ];
+
+        for TestCase(n, r, expected) in tests {
+            assert_eq!(run(n, r), expected);
+        }
     }
 }
