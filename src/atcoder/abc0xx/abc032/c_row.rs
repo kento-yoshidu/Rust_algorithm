@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc032/tasks/abc032_c
 
-pub fn run(n: usize, k: usize, s: Vec<usize>) -> usize {
+fn run(n: usize, k: usize, s: Vec<usize>) -> usize {
     if s.contains(&0) {
         return n
     }
@@ -33,11 +33,19 @@ pub fn run(n: usize, k: usize, s: Vec<usize>) -> usize {
 mod tests {
     use super::*;
 
+    struct TestCase(usize, usize, Vec<usize>, usize);
+
     #[test]
     fn test() {
-        assert_eq!(4, run(7, 6, vec![4, 3, 1, 1, 2, 10, 2]));
-        assert_eq!(6, run(6, 10, vec![10, 10, 10, 10, 0, 10]));
-        assert_eq!(0, run(6, 9, vec![10, 10, 10, 10, 10, 10]));
-        assert_eq!(0, run(4, 0, vec![1, 2, 3, 4]));
+        let tests = [
+            TestCase(7, 6, vec![4, 3, 1, 1, 2, 10, 2], 4),
+            TestCase(6, 10, vec![10, 10, 10, 10, 0, 10], 6),
+            TestCase(6, 9, vec![10, 10, 10, 10, 10, 10], 0),
+            TestCase(4, 0, vec![1, 2, 3, 4], 0),
+        ];
+
+        for TestCase(n, k, s, expected) in tests {
+            assert_eq!(run(n, k, s), expected);
+        }
     }
 }
