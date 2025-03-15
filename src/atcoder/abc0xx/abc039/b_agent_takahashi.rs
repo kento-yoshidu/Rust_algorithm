@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc039/tasks/abc039_b
 
-pub fn run(n: usize) -> usize {
+fn run(n: usize) -> usize {
     for i in 1..=1000 {
         if i*i*i*i == n {
             return i;
@@ -10,7 +10,7 @@ pub fn run(n: usize) -> usize {
     unreachable!();
 }
 
-pub fn run2(n: usize) -> usize {
+fn run2(n: usize) -> usize {
     ((n as f64).sqrt()).sqrt() as usize
 }
 
@@ -18,10 +18,19 @@ pub fn run2(n: usize) -> usize {
 mod tests {
     use super::*;
 
+    struct TestCase(usize, usize);
+
     #[test]
     fn test() {
-        assert_eq!(1, run(1));
-        assert_eq!(25, run(390625));
-        assert_eq!(177, run(981506241));
+        let tests = [
+            TestCase(1, 1),
+            TestCase(390625, 25),
+            TestCase(981506241, 177),
+        ];
+
+        for TestCase(n, expected) in tests {
+            assert_eq!(run(n), expected);
+            assert_eq!(run2(n), expected);
+        }
     }
 }
