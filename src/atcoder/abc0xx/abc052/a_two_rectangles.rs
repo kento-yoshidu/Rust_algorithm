@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc052/tasks/abc052_a
 
-pub fn run(a: usize, b: usize, c: usize, d: usize) -> usize {
+fn run(a: usize, b: usize, c: usize, d: usize) -> usize {
     if a*b >= c*d {
         a*b
     } else {

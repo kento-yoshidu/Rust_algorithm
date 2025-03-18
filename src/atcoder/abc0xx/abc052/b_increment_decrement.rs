@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc052/tasks/abc052_b
 
-pub fn run(_n: usize, s: String) -> isize {
+fn run(_n: usize, s: &str) -> isize {
     let mut ans = 0;
     let mut tmp = 0;
 
@@ -20,31 +20,33 @@ pub fn run(_n: usize, s: String) -> isize {
     ans
 }
 
-pub fn run2(_n: usize, s: String) -> isize {
-    s.chars().fold((0, 0), |(tmp, max), c| {
-        match c {
-            'I' => (tmp+1, max.max(tmp+1)),
-            'D' => (tmp-1, max),
-            _ => unreachable!(),
-        }
-    }).1
+fn run2(_n: usize, s: &str) -> isize {
+    s.chars()
+        .fold((0, 0), |(tmp, max), c| {
+            match c {
+                'I' => (tmp+1, max.max(tmp+1)),
+                'D' => (tmp-1, max),
+                _ => unreachable!(),
+            }
+        }).1
 }
 
 #[cfg(test)]
 mod tests {
     use super::*;
 
-    #[test]
-    fn test() {
-        assert_eq!(2, run(5, String::from("IIDID")));
-        assert_eq!(0, run(7, String::from("DDIDDII")));
-        assert_eq!(0, run(7, String::from("DDDDDDD")));
-    }
+    struct TestCase(usize, &'static str, isize);
 
     #[test]
-    fn test2() {
-        assert_eq!(2, run2(5, String::from("IIDID")));
-        assert_eq!(0, run2(7, String::from("DDIDDII")));
-        assert_eq!(0, run2(7, String::from("DDDDDDD")));
+    fn test() {
+        let tests = [
+            TestCase(5, "IIDID", 2),
+            TestCase(7, "DDIDDII", 0),
+            TestCase(7, "DDDDDDD", 0),
+        ];
+
+        for TestCase(n, s, expected) in tests {
+            assert_eq!(run(n, s), expected);
+        }
     }
 }
