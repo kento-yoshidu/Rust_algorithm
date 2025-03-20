@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc033/tasks/abc033_a
 
-pub fn run(n: &str) -> &'static str {
+fn run(n: &str) -> &'static str {
     let chars: Vec<char> = n.chars().collect();
 
     if chars[0] == chars[1] && chars[2] == chars[3] && chars[0] == chars[3] {
@@ -10,7 +10,7 @@ pub fn run(n: &str) -> &'static str {
     }
 }
 
-pub fn run2(n: &str) -> &'static str {
+fn run2(n: &str) -> &'static str {
     use std::collections::HashSet;
 
     let map: HashSet<char> = n.chars().collect();
@@ -22,7 +22,7 @@ pub fn run2(n: &str) -> &'static str {
     }
 }
 
-pub fn run3(n: &str) -> &'static str {
+fn run3(n: &str) -> &'static str {
     let mut vec: Vec<char> = n.chars().collect();
 
     vec.dedup();
@@ -34,7 +34,7 @@ pub fn run3(n: &str) -> &'static str {
     }
 }
 
-pub fn run4(n: usize) -> &'static str {
+fn run4(n: usize) -> &'static str {
     if n % 1111 == 0 {
         "SAME"
     } else {
@@ -60,6 +60,7 @@ mod tests {
             assert_eq!(run(n), expected);
             assert_eq!(run2(n), expected);
             assert_eq!(run3(n), expected);
+            assert_eq!(run4(n.parse().unwrap()), expected);
         }
     }
 }
