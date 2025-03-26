@@ -8,24 +8,22 @@ fn run(n: usize, s: &str) -> usize {
 
     for i in 0..n {
         if chars[i] == '/' {
-            let mut j = 1;
-            let mut temp = 0;
+            let mut dis = 0;
 
             loop {
-                if j > i || i+j >= n {
+                if dis >= i || i+dis >= n {
                     break;
                 }
 
-                if chars[i-j] == '1' && chars[i+j] == '2' {
-                    temp += 1;
-                    j += 1;
+                if chars[i-dis-1] == '1' && chars[i+dis+1] == '2' {
+                    dis += 1;
                 } else {
                     break
                 }
 
             }
 
-            ans = ans.max(temp);
+            ans = ans.max(dis);
         }
     }
 
