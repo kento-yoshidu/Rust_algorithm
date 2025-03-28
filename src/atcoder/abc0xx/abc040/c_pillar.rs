@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc040/tasks/abc040_c
 
-pub fn run(n: i32, a: Vec<i32>) -> i32 {
+ fn run(n: i32, a: Vec<i32>) -> i32 {
     let mut dp = vec![std::i32::MAX; n as usize];
 
     dp[0] = 0;
@@ -20,10 +20,18 @@ pub fn run(n: i32, a: Vec<i32>) -> i32 {
 mod tests {
     use super::*;
 
+    struct TestCase(i32, Vec<i32>, i32);
+
     #[test]
     fn test() {
-        assert_eq!(40, run(4, vec![100, 150, 130, 120]));
-        assert_eq!(40, run(4, vec![100, 125, 80, 110]));
-        assert_eq!(310, run(9, vec![314, 159, 265, 358, 979, 323, 846, 264, 338]))
+        let tests = [
+            TestCase(4, vec![100, 150, 130, 120], 40),
+            TestCase(4, vec![100, 125, 80, 110], 40),
+            TestCase(9, vec![314, 159, 265, 358, 979, 323, 846, 264, 338], 310),
+        ];
+
+        for TestCase(n, a, expected) in tests {
+            assert_eq!(run(n, a), expected);
+        }
     }
 }
