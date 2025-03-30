@@ -16,7 +16,7 @@ mod test {
 	fn test() {
 		let tests = [
 			TestCase(1234, 150, 100, 84),
-			TestCase(1000, 108, 108, 24),
+			TestCase(1000, 108, 108, 28),
 			TestCase(579, 123, 456, 0),
 			TestCase(7477, 549, 593, 405),
 		];

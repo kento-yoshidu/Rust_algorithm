@@ -1,12 +1,12 @@
 // https://atcoder.jp/contests/abc096/tasks/abc096_b
 
-pub fn run(v: Vec<usize>, k: usize) -> usize {
+fn run(v: &Vec<usize>, k: usize) -> usize {
     let sum: usize = v.iter().sum();
 
     sum + v.iter().max().unwrap() * (2 * k -1)
 }
 
-pub fn run2(v: Vec<usize>, k: usize) -> usize {
+fn run2(v: &Vec<usize>, k: usize) -> usize {
     let max = v.iter().max().unwrap();
 
     let rest: usize = v.iter().filter(|num| *num != max).sum();
@@ -18,15 +18,18 @@ pub fn run2(v: Vec<usize>, k: usize) -> usize {
 mod tests {
     use super::*;
 
-    #[test]
-    fn test() {
-        assert_eq!(30, run(vec![5, 3, 11], 1));
-        assert_eq!(22, run(vec![3, 3, 4], 2));
-    }
+    struct TestCase(Vec<usize>, usize, usize);
 
     #[test]
-    fn test2() {
-        assert_eq!(30, run2(vec![5, 3, 11], 1));
-        assert_eq!(22, run2(vec![3, 3, 4], 2));
+    fn test() {
+        let tests = [
+            TestCase(vec![5, 3, 11], 1, 30),
+            TestCase(vec![3, 3, 4], 2, 22),
+        ];
+
+        for TestCase(v, k, expected) in tests {
+            assert_eq!(run(&v, k), expected);
+            assert_eq!(run2(&v, k), expected);
+        }
     }
 }

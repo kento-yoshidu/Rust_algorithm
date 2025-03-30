@@ -2,7 +2,7 @@
 
 use std::collections::HashSet;
 
-fn calc(s1: &str, s2: &str) -> usize {
+fn rec(s1: &str, s2: &str) -> usize {
     let set1: HashSet<_> = s1.chars().collect();
     let mut common_characters = HashSet::new();
 
@@ -15,10 +15,10 @@ fn calc(s1: &str, s2: &str) -> usize {
     common_characters.len()
 }
 
-pub fn run(n: usize, s: String) -> usize {
+fn run(n: usize, s: &str) -> usize {
     *(1..n)
         .map(|i| {
-            calc(&s[0..i], &s[i..])
+            rec(&s[0..i], &s[i..])
         })
         .collect::<Vec<usize>>()
         .iter()
@@ -30,10 +30,18 @@ pub fn run(n: usize, s: String) -> usize {
 mod tests {
     use super::*;
 
+    struct TestCase(usize, &'static str, usize);
+
     #[test]
     fn test() {
-        assert_eq!(2, run(6, String::from("aabbca")));
-        assert_eq!(1, run(10, String::from("aaaaaaaaaa")));
-        assert_eq!(9, run(45, String::from("tgxgdqkyjzhyputjjtllptdfxocrylqfqjynmfbfucbir")));
+        let tests = [
+            TestCase(6, "aabbca", 2),
+            TestCase(10, "aaaaaaaaaa", 1),
+            TestCase(45, "tgxgdqkyjzhyputjjtllptdfxocrylqfqjynmfbfucbir", 9),
+        ];
+
+        for TestCase(n, s, expected) in tests {
+            assert_eq!(run(n, s), expected);
+        }
     }
 }
