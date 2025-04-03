@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc043/tasks/abc043_a
 
-fn func(n: i32) -> i32 {
+fn func(n: usize) -> usize {
     if n == 1 {
         1
     } else {
@@ -8,7 +8,7 @@ fn func(n: i32) -> i32 {
     }
 }
 
-pub fn run(n: i32) -> i32 {
+fn run(n: usize) -> usize {
     func(n)
 }
 
@@ -16,10 +16,18 @@ pub fn run(n: i32) -> i32 {
 mod tests {
     use super::*;
 
+    struct TestCase(usize, usize);
+
     #[test]
     fn test() {
-        assert_eq!(6, run(3));
-        assert_eq!(55, run(10));
-        assert_eq!(1, run(1));
+        let tests = [
+            TestCase(3, 6),
+            TestCase(10, 55),
+            TestCase(1, 1),
+        ];
+
+        for TestCase(n, expected) in tests {
+            assert_eq!(run(n), expected);
+        }
     }
 }
