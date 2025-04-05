@@ -1,7 +1,7 @@
 // https://atcoder.jp/contests/abc043/tasks/abc043_b
 
-pub fn run(s: String) -> String {
-    let mut ans = Vec::<char>::new();
+fn run(s: &str) -> String {
+    let mut ans = Vec::new();
 
     for c in s.chars() {
         if c == '0' {
@@ -13,16 +13,26 @@ pub fn run(s: String) -> String {
         }
     }
 
-    ans.iter().collect()
+    ans.into_iter().collect()
 }
 
 #[cfg(test)]
 mod tests {
+    use crate::atcoder::arc0xx::arc004::a_the_longest_distance;
+
     use super::*;
+
+    struct TestCase(&'static str, &'static str);
 
     #[test]
     fn test() {
-        assert_eq!(String::from("00"), run(String::from("01B0")));
-        assert_eq!(String::from("1"), run(String::from("0BB1")));
+        let tests = [
+            TestCase("01B0", "00"),
+            TestCase("0BB1", "1"),
+        ];
+
+        for TestCase(s, expected) in tests {
+            assert_eq!(run(s), expected);
+        }
     }
 }
