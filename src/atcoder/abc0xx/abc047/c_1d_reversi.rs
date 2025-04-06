@@ -18,7 +18,7 @@ fn run_lengths(s: Vec<char>) -> Vec<(char, usize)> {
     run_lengths
 }
 
-pub fn run(s: &str) -> usize {
+fn run(s: &str) -> usize {
     run_lengths(s.chars().collect()).len() - 1
 }
 
@@ -26,10 +26,18 @@ pub fn run(s: &str) -> usize {
 mod tests {
     use super::*;
 
+    struct TestCase(&'static str, usize);
+
     #[test]
     fn test() {
-        assert_eq!(1, run("BBBWW"));
-        assert_eq!(0, run("WWWWWW"));
-        assert_eq!(9, run("WBWBWBWBWB"));
+        let tests = [
+            TestCase("BBBWW", 1),
+            TestCase("WWWWWW", 0),
+            TestCase("WBWBWBWBWB", 9),
+        ];
+
+        for TestCase(s, expected) in tests {
+            assert_eq!(run(s), expected);
+        }
     }
 }
