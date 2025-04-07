@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc043/tasks/arc059_a
 
-pub fn run(_n: usize, a: Vec<isize>) -> isize {
+fn run(_n: usize, a: Vec<isize>) -> isize {
     let min = *a.iter().min().unwrap();
     let max = *a.iter().max().unwrap();
 
@@ -19,7 +19,7 @@ pub fn run(_n: usize, a: Vec<isize>) -> isize {
     ans
 }
 
-pub fn run2(_n: usize, a: Vec<isize>) -> isize {
+fn run2(_n: usize, a: Vec<isize>) -> isize {
     let min = *a.iter().min().unwrap();
     let max = *a.iter().max().unwrap();
 
@@ -37,21 +37,23 @@ pub fn run2(_n: usize, a: Vec<isize>) -> isize {
 
 #[cfg(test)]
 mod tests {
+    use crate::atcoder::abc0xx::abc028::a_test_evaluation;
+
     use super::*;
+
+    struct TestCase(usize, Vec<isize>, isize);
 
     #[test]
     fn test() {
-        assert_eq!(8, run(2, vec![4, 8]));
-        assert_eq!(3, run(3, vec![1, 1, 3]));
-        assert_eq!(5, run(3, vec![4, 2, 5]));
-        assert_eq!(0, run(4, vec![-100, -100, -100, -100]));
-    }
+        let tests = [
+            TestCase(2, vec![4, 8], 8),
+            TestCase(3, vec![1, 1, 3], 3),
+            TestCase(3, vec![4, 2, 5], 5),
+            TestCase(4, vec![-100, -100, -100, -100], 0),
+        ];
 
-    #[test]
-    fn test2() {
-        assert_eq!(8, run2(2, vec![4, 8]));
-        assert_eq!(3, run2(3, vec![1, 1, 3]));
-        assert_eq!(5, run2(3, vec![4, 2, 5]));
-        assert_eq!(0, run2(4, vec![-100, -100, -100, -100]));
+        for TestCase(n, a, expected) in tests {
+            assert_eq!(run(n, a), expected);
+        }
     }
 }
