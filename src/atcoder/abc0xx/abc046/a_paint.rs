@@ -2,7 +2,7 @@
 
 use std::collections::HashSet;
 
-pub fn run(a: usize, b: usize, c: usize) -> usize {
+fn run(a: usize, b: usize, c: usize) -> usize {
     let vec = vec![a, b, c];
 
     let u: HashSet<usize> = vec.into_iter().collect();

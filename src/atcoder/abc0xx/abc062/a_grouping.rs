@@ -20,7 +20,7 @@ fn check(num: usize) -> usize {
 	}
 }
 
-pub fn run2(x: usize, y: usize) -> &'static str {
+fn run2(x: usize, y: usize) -> &'static str {
 	if check(x) == check(y) {
 		"Yes"
 	} else {

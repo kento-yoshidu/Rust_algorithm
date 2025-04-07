@@ -2,7 +2,7 @@
 
 use itertools::{Itertools, EitherOrBoth::*};
 
-pub fn run(o: &str, e: &str) -> String {
+fn run(o: &str, e: &str) -> String {
     o.chars()
         .zip_longest(e.chars())
         .map(|t| {

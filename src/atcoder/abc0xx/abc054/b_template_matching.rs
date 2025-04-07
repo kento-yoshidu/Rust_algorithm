@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc054/tasks/abc054_b
 
-pub fn run(n: usize, m: usize, a_vec: Vec<&str>, b_vec: Vec<&str>) -> &'static str {
+fn run(n: usize, m: usize, a_vec: Vec<&str>, b_vec: Vec<&str>) -> &'static str {
     let a_vec: Vec<Vec<char>> = a_vec.iter().map(|str| str.chars().collect()).collect();
     let b_vec: Vec<Vec<char>> = b_vec.iter().map(|str| str.chars().collect()).collect();
 

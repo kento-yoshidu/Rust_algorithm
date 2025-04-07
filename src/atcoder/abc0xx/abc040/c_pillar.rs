@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc040/tasks/abc040_c
 
- fn run(n: i32, a: Vec<i32>) -> i32 {
+fn run(n: i32, a: Vec<i32>) -> i32 {
     let mut dp = vec![std::i32::MAX; n as usize];
 
     dp[0] = 0;

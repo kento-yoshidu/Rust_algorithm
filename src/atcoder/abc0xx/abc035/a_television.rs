@@ -1,10 +1,10 @@
 // https://atcoder.jp/contests/abc035/tasks/abc035_a
 
-pub fn run(h: usize, w: usize) -> String {
+fn run(h: usize, w: usize) -> &'static str {
     if h / 4 == w / 3 {
-        String::from("4:3")
+        "4:3"
     } else {
-        String::from("16:9")
+        "16:9"
     }
 }
 
@@ -12,10 +12,18 @@ pub fn run(h: usize, w: usize) -> String {
 mod tests {
     use super::*;
 
+    struct TestCase(usize, usize, &'static str);
+
     #[test]
     fn test() {
-        assert_eq!(String::from("4:3"), run(4, 3));
-        assert_eq!(String::from("16:9"), run(16, 9));
-        assert_eq!(String::from("4:3"), run(28, 21));
+        let tests = [
+            TestCase(4, 3, "4:3"),
+            TestCase(16, 9, "16:9"),
+            TestCase(28, 21, "4:3"),
+        ];
+
+        for TestCase(h, w, expected) in tests {
+            assert_eq!(run(h, w), expected);
+        }
     }
 }

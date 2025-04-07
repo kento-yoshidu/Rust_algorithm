@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc065/tasks/abc065_a
 
-pub fn run(x: i32, a: i32, b: i32) -> &'static str {
+fn run(x: i32, a: i32, b: i32) -> &'static str {
     if a >= b {
         return "delicious";
     }

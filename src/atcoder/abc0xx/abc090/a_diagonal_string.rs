@@ -12,9 +12,17 @@ fn run(c: Vec<&str>) -> String {
 mod test {
 	use super::*;
 
+	struct TestCase(Vec<&'static str>, &'static str);
+
 	#[test]
 	fn test() {
-		assert_eq!(String::from("abc"), run(vec!["ant", "obe", "rec"]));
-		assert_eq!(String::from("ean"), run(vec!["edu", "cat", "ion"]));
+		let tests = [
+			TestCase(vec!["ant", "obe", "rec"], "abc"),
+			TestCase(vec!["edu", "cat", "ion"], "ean"),
+		];
+
+		for TestCase(c, expected) in tests {
+			assert_eq!(run(c), expected);
+		}
 	}
 }

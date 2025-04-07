@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc056/tasks/arc070_a
 
-pub fn run(n: usize) -> usize {
+fn run(n: usize) -> usize {
     let mut ans = 0;
     let mut sum = 0;
 

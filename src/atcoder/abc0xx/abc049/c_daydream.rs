@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc049/tasks/arc065_a
 
-pub fn run(s: &str) -> &'static str {
+fn run(s: &str) -> &'static str {
     let strings = ["dream", "dreamer", "erase", "eraser"];
 
     let mut dp = vec![false; s.len()+1];

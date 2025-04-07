@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc055/tasks/abc055_a
 
-pub fn run(n: usize) -> usize {
+fn run(n: usize) -> usize {
     let pay = n * 800;
     let back = (n / 15) * 200;
 

@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc036/tasks/abc036_b
 
-pub fn run(n: usize, s: Vec<&str>) -> Vec<String> {
+fn run(n: usize, s: Vec<&str>) -> Vec<String> {
     let mut ans = vec![vec![' '; n]; n];
 
     s.iter()
@@ -25,8 +25,16 @@ pub fn run(n: usize, s: Vec<&str>) -> Vec<String> {
 mod tests {
     use super::*;
 
+    struct TestCase(usize, Vec<&'static str>, Vec<&'static str>);
+
     #[test]
     fn test() {
-        assert_eq!(vec![String::from("xxxo"), String::from("xxoo"), String::from("xxox"), String::from("xxxx")], run(4, vec!["ooxx", "xoox", "xxxx", "xxxx"]));
+        let tests = [
+            TestCase(4, vec!["ooxx", "xoox", "xxxx", "xxxx"], vec!["xxxo", "xxoo", "xxox", "xxxx"]),
+        ];
+
+        for TestCase(n, s, expected) in tests {
+            assert_eq!(run(n, s), expected);
+        }
     }
 }

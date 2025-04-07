@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc054/tasks/abc054_a
 
-pub fn run(a: usize, b: usize) -> &'static str {
+fn run(a: usize, b: usize) -> &'static str {
     if a == b {
         return "Draw";
     }

@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc058/tasks/arc071_a
 
-pub fn run(n: usize, s: Vec<&str>) -> String {
+fn run(n: usize, s: Vec<&str>) -> String {
     let mut count = vec![vec![0; 26]; n];
 
     for i in 0..n {

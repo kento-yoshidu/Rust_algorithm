@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc090/tasks/abc090_b
 
-pub fn run(a: i32, b: i32) -> i32 {
+fn run(a: usize, b: usize) -> usize {
     let mut ans = 0;
 
     for i in a..=b {
@@ -21,7 +21,7 @@ fn calc(s: String) -> bool {
     s.chars().eq(s.chars().rev())
 }
 
-pub fn run2(a: usize, b: usize) -> usize {
+fn run2(a: usize, b: usize) -> usize {
     (a..=b)
         .filter(|num| {
             calc(num.to_string())
@@ -33,15 +33,18 @@ pub fn run2(a: usize, b: usize) -> usize {
 mod tests {
     use super::*;
 
-    #[test]
-    fn test() {
-        assert_eq!(4, run(11009, 11332));
-        assert_eq!(612, run(31415, 92653))
-    }
+    struct TestCase(usize, usize, usize);
 
     #[test]
-    fn test2() {
-        assert_eq!(4, run2(11009, 11332));
-        assert_eq!(612, run2(31415, 92653))
+    fn test() {
+        let tests = [
+            TestCase(11009, 11332, 4),
+            TestCase(31415, 92653, 612),
+        ];
+
+        for TestCase(a, b, expected) in tests {
+            assert_eq!(run(a, b), expected);
+            assert_eq!(run2(a, b), expected);
+        }
     }
 }

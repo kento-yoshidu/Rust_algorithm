@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc049/tasks/abc049_b
 
-pub fn run(_h: usize, _w: usize, c: Vec<&str>) -> Vec<String> {
+fn run(_h: usize, _w: usize, c: Vec<&str>) -> Vec<String> {
     c.iter().map(|r| {
         format!("{}", r).repeat(2)
     })
@@ -9,12 +9,17 @@ pub fn run(_h: usize, _w: usize, c: Vec<&str>) -> Vec<String> {
 
 #[cfg(test)]
 mod tests {
+    use std::usize;
+
     use super::*;
+
+    struct TestCase(usize, usize, Vec<&'static str>, Vec<&'static str>);
 
     #[test]
     fn test() {
-        assert_eq!(vec![String::from("*.*."), String::from(".*.*")], run(2, 2, vec!["*.", ".*"]));
-        assert_eq!(vec![String::from("***.***.")], run(1, 4, vec!["***."]));
+        let tests = [
+            TestCase(2, 2, vec!["*.", ".*"], vec!["*.*.", ".*.*"]),
+            TestCase(1, 4, vec!["***."], vec!["***.***."]),
         /*
         assert_eq!(vec![String::from(".....***....***.........***....***......"),
                         String::from("....*...*..*...*........*...*..*...*...."),
@@ -35,5 +40,10 @@ mod tests {
                                     "........**.*........",
                                     ".........**........."]));
         */
+        ];
+
+        for TestCase(n, w, c, expected) in tests {
+            assert_eq!(run(n, w, c), expected);
+        }
     }
 }

@@ -2,28 +2,28 @@
 
 use itertools::Itertools;
 
-pub fn run(s: String) -> String {
+fn run(s: String) -> &'static str {
     if s.chars().all_unique() {
-        String::from("yes")
+        "yes"
     } else {
-        String::from("no")
+        "no"
     }
 }
 
-pub fn run2(s: String) -> String {
+fn run2(s: String) -> &'static str {
     let mut chars: Vec<char> = s.chars().collect();
 
     chars.sort();
     chars.dedup();
 
     if s.len() == chars.len() {
-        String::from("yes")
+        "yes"
     } else {
-        String::from("no")
+        "no"
     }
 }
 
-pub fn run3(s: String) -> String {
+fn run3(s: String) -> &'static str {
     let mut chars: Vec<char> = s.chars().collect();
 
     chars.sort();
@@ -31,9 +31,9 @@ pub fn run3(s: String) -> String {
     if chars.windows(2).all(|v| {
         v[0] != v[1]
     }) {
-        String::from("yes")
+        "yes"
     } else {
-        String::from("no")
+        "no"
     }
 }
 
@@ -41,24 +41,20 @@ pub fn run3(s: String) -> String {
 mod tests {
     use super::*;
 
+    struct TestCase(&'static str, &'static str);
+
     #[test]
     fn test() {
-        assert_eq!(String::from("yes"), run(String::from("uncopyrightable")));
-        assert_eq!(String::from("no"), run(String::from("different")));
-        assert_eq!(String::from("yes"), run(String::from("no")));
-    }
+        let tests = [
+            TestCase("uncopyrightable", "yes"),
+            TestCase("different", "no"),
+            TestCase("no", "yes"),
+        ];
 
-    #[test]
-    fn test2() {
-        assert_eq!(String::from("yes"), run2(String::from("uncopyrightable")));
-        assert_eq!(String::from("no"), run2(String::from("different")));
-        assert_eq!(String::from("yes"), run2(String::from("no")));
-    }
-
-    #[test]
-    fn test3() {
-        assert_eq!(String::from("yes"), run3(String::from("uncopyrightable")));
-        assert_eq!(String::from("no"), run3(String::from("different")));
-        assert_eq!(String::from("yes"), run3(String::from("no")));
+        for TestCase(s, expected) in tests {
+            assert_eq!(run(s.to_string()), expected);
+            assert_eq!(run2(s.to_string()), expected);
+            assert_eq!(run3(s.to_string()), expected);
+        }
     }
 }

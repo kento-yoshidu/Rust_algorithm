@@ -2,7 +2,7 @@
 
 use std::collections::HashSet;
 
-pub fn run(n: usize, _m: usize, ab: Vec<(usize, usize)>) -> &'static str {
+fn run(n: usize, _m: usize, ab: Vec<(usize, usize)>) -> &'static str {
     let mut vec = vec![HashSet::new(); n];
 
     for (a, b) in ab.iter() {

@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc055/tasks/arc069_a
 
-pub fn run(n: isize, m: isize) -> isize {
+fn run(n: isize, m: isize) -> isize {
     if n >= m {
         m / 2
     } else {

@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc088/tasks/abc088_c
 
-pub fn run(c: Vec<Vec<isize>>) -> &'static str {
+fn run(c: Vec<Vec<isize>>) -> &'static str {
     let s1 = c[0][0] + c[1][1] + c[2][2];
     let s2 = c[0][1] + c[1][2] + c[2][0];
     let s3 = c[0][2] + c[1][0] + c[2][1];
