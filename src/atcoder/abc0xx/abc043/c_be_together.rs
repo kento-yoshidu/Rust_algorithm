@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc043/tasks/arc059_a
 
-fn run(_n: usize, a: Vec<isize>) -> isize {
+fn run(_n: usize, a: &Vec<isize>) -> isize {
     let min = *a.iter().min().unwrap();
     let max = *a.iter().max().unwrap();
 
@@ -19,7 +19,7 @@ fn run(_n: usize, a: Vec<isize>) -> isize {
     ans
 }
 
-fn run2(_n: usize, a: Vec<isize>) -> isize {
+fn run2(_n: usize, a: &Vec<isize>) -> isize {
     let min = *a.iter().min().unwrap();
     let max = *a.iter().max().unwrap();
 
@@ -53,7 +53,8 @@ mod tests {
         ];
 
         for TestCase(n, a, expected) in tests {
-            assert_eq!(run(n, a), expected);
+            assert_eq!(run(n, &a), expected);
+            assert_eq!(run2(n, &a), expected);
         }
     }
 }
