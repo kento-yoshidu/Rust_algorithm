@@ -2,14 +2,12 @@
 
 use std::collections::{HashMap, VecDeque};
 
-fn run(n: usize, _m: usize, ab: Vec<(usize, usize)>) -> isize {
+fn run(_n: usize, _m: usize, ab: Vec<(usize, usize)>) -> isize {
     let mut hash_map = HashMap::new();
 
     for (a, b) in ab {
         hash_map.entry(a).or_insert_with(|| Vec::new()).push(b);
     }
-
-    let mut graph = vec![false; n+1];
 
     let mut queue = VecDeque::new();
     queue.push_back((1, 0));
@@ -19,16 +17,11 @@ fn run(n: usize, _m: usize, ab: Vec<(usize, usize)>) -> isize {
             continue;
         };
 
-        for next in next.iter() {
+        for next in next {
             if *next == 1 {
                 return count + 1;
             }
 
-            if graph[*next] {
-                continue;
-            }
-
-            graph[*next] = true;
             queue.push_back((*next, count+1));
         }
     }

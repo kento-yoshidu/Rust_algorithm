@@ -1,8 +1,8 @@
 // https://atcoder.jp/contests/abc318/tasks/abc318_a
 
-pub fn run(n: isize, m: isize, p: isize) -> isize {
+fn run(n: isize, m: isize, p: isize) -> isize {
     if n - m < 0 {
-        return 0
+        return 0;
     }
 
     (n - m) / p + 1
@@ -12,10 +12,18 @@ pub fn run(n: isize, m: isize, p: isize) -> isize {
 mod tests {
     use super::*;
 
+    struct TestCase(isize, isize, isize, isize);
+
     #[test]
     fn test() {
-        assert_eq!(3, run(13, 3, 5));
-        assert_eq!(0, run(5, 6, 6));
-        assert_eq!(628, run(200000, 314, 318));
+        let tests = [
+            TestCase(13, 3, 5, 3),
+            TestCase(5, 6, 6, 0),
+            TestCase(200000, 314, 318, 628),
+        ];
+
+        for TestCase(n, m, p, expected) in tests {
+            assert_eq!(run(n, m, p), expected);
+        }
     }
 }

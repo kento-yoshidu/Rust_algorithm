@@ -1,7 +1,6 @@
 // https://atcoder.jp/contests/abc396/tasks/abc396_d
 
-use core::hash;
-use std::collections::{hash_map, HashMap};
+use std::collections::HashMap;
 
 fn dfs(
     n: usize,

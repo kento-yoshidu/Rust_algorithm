@@ -1,7 +1,7 @@
 // https://atcoder.jp/contests/abc319/tasks/abc319_b
 
-pub fn run(n: usize) -> String {
-    let mut ans = String::from("");
+fn run(n: usize) -> String {
+    let mut ans = Vec::new();
 
     'outer: for i in 0..=n {
         for j in 1..=9 {
@@ -17,17 +17,25 @@ pub fn run(n: usize) -> String {
         ans.push('-');
     }
 
-    ans.chars().collect::<String>()
+    ans.into_iter().collect()
 }
 
 #[cfg(test)]
 mod tests {
     use super::*;
 
+    struct TestCase(usize, &'static str);
+
     #[test]
     fn test() {
-        assert_eq!(String::from("1-643-2-346-1"), run(12));
-        assert_eq!(String::from("17777771"), run(7));
-        assert_eq!(String::from("11"), run(1));
+        let tests = [
+            TestCase(12, "1-643-2-346-1"),
+            TestCase(7, "17777771"),
+            TestCase(1, "11"),
+        ];
+
+        for TestCase(n, expected) in tests {
+            assert_eq!(run(n), expected);
+        }
     }
 }

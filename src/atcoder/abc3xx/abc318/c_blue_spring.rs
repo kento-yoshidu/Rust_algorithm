@@ -1,27 +1,31 @@
 // https://atcoder.jp/contests/abc318/tasks/abc318_c
 
-pub fn run(n: usize, d: usize, p: usize, f: Vec<usize>) -> usize {
+fn run(n: usize, d: usize, p: usize, f: Vec<usize>) -> usize {
     let mut vec = f.clone();
-    vec.sort();
-    vec.reverse();
+    vec.sort_by(|a, b| b.cmp(a));
+
+    // 累積和
+    let mut acc = vec![0; n + 1];
+    for i in 0..n {
+        acc[i + 1] = acc[i] + vec[i];
+    }
 
     // フリーパスを使わずに通常料金で乗った場合
-    // これを基準にフリーパスを適用した場合の料金と比較する
-    let mut ans: usize = f.iter().sum();
+    let mut ans = acc[n];
 
-    // フリーパスを1枚から使えるだけ使った場合まで試行する
-    for i in 1..=((n as f64 / d as f64)).ceil() as usize {
-        // フリーパスの料金
-        let mut tmp = p * i;
+    let mut i = 1;
 
-        // フリーパスを使う日がn日未満なら、通常料金を加算する
-        if i*d < n {
-            // 降順に並んでいるので、先頭からi*d日分を飛ばして加算する
-            tmp += &vec[i*d..].iter().sum();
-        }
-        // フリーパスを使う日がn日以上なら、フリーパスの料金のみなので何もしない
+    while i * d <= n {
+        let covered = i * d;
+        let cost = p * i + acc[n] - acc[covered];
+        ans = ans.min(cost);
+        i += 1;
+    }
 
-        ans = ans.min(tmp);
+    let covered = i * d;
+    if covered >= n {
+        let cost = p * i;
+        ans = ans.min(cost);
     }
 
     ans
