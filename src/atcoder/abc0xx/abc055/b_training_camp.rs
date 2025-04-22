@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc055/tasks/abc055_b
 
-pub fn run(n: usize) -> usize {
+fn run(n: usize) -> usize {
     (1..=n).fold(1, |state, i| { state * i % 1000000007 })
 }
 
@@ -8,10 +8,18 @@ pub fn run(n: usize) -> usize {
 mod tests {
     use super::*;
 
+    struct TestCase(usize, usize);
+
     #[test]
     fn test() {
-        assert_eq!(6, run(3));
-        assert_eq!(3628800, run(10));
-        assert_eq!(457992974, run(100000));
+        let tests = [
+            TestCase(3, 6),
+            TestCase(10, 3628800),
+            TestCase(100000, 457992974),
+        ];
+
+        for TestCase(n, expected) in tests {
+            assert_eq!(run(n), expected);
+        }
     }
 }
