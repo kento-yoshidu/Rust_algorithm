@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc059/tasks/abc059_a
 
-fn run(a: String, b: String, c: String) -> String {
+fn run(a: &str, b: &str, c: &str) -> String {
     let vec = vec![a, b, c];
 
     let mut ans = String::new();
@@ -12,7 +12,7 @@ fn run(a: String, b: String, c: String) -> String {
     ans.to_uppercase()
 }
 
-fn run2(a: String, b: String, c: String) -> String {
+fn run2(a: &str, b: &str, c: &str) -> String {
     let vec = vec![a, b, c];
 
     vec
@@ -28,19 +28,20 @@ fn run2(a: String, b: String, c: String) -> String {
 mod tests {
     use super::*;
 
-    #[test]
-    fn test() {
-        assert_eq!(String::from("ABC"), run(String::from("atcoder"), String::from("beginner"), String::from("contest")));
-        assert_eq!(String::from("RRN"), run(String::from("resident"), String::from("register"), String::from("number")));
-        assert_eq!(String::from("KNN"), run(String::from("k"), String::from("nearest"), String::from("neighbor")));
-        assert_eq!(String::from("ALC"), run(String::from("async"), String::from("layered"), String::from("coding")));
-    }
+    struct TestCase(&'static str, &'static str, &'static str, &'static str);
 
     #[test]
-    fn test2() {
-        assert_eq!(String::from("ABC"), run2(String::from("atcoder"), String::from("beginner"), String::from("contest")));
-        assert_eq!(String::from("RRN"), run2(String::from("resident"), String::from("register"), String::from("number")));
-        assert_eq!(String::from("KNN"), run2(String::from("k"), String::from("nearest"), String::from("neighbor")));
-        assert_eq!(String::from("ALC"), run2(String::from("async"), String::from("layered"), String::from("coding")));
+    fn test() {
+        let tests = [
+            TestCase("atcoder", "beginner", "contest", "ABC"),
+            TestCase("resident", "register", "number", "RRN"),
+            TestCase("k", "nearest", "neighbor", "KNN"),
+            TestCase("async", "layered", "coding", "ALC"),
+        ];
+
+        for TestCase(a, b, c, expected) in tests {
+            assert_eq!(run(a, b, c), expected);
+            assert_eq!(run2(a, b, c), expected);
+        }
     }
 }
