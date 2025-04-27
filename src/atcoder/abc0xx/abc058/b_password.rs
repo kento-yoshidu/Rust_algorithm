@@ -2,7 +2,7 @@
 
 use itertools::{Itertools, EitherOrBoth::*};
 
-pub fn run(o: String, e: String) -> String {
+pub fn run(o: &str, e: &str) -> String {
     o.chars()
         .zip_longest(e.chars())
         .map(|t| {
@@ -19,10 +19,18 @@ pub fn run(o: String, e: String) -> String {
 mod tests {
     use super::*;
 
+    struct TestCase(&'static str, &'static str, &'static str);
+
     #[test]
     fn test() {
-        assert_eq!(String::from("xaybzc"), run(String::from("xyz"), String::from("abc")));
-        assert_eq!(String::from("ab"), run(String::from("a"), String::from("b")));
-        assert_eq!(String::from("aattccooddeerrbreeggiunlnaerrccoonntteesstt"), run(String::from("atcoderbeginnercontest"), String::from("atcoderregularcontest")));
+        let tests = [
+            TestCase("xyz", "abc", "xaybzc"),
+            TestCase("a", "b", "ab"),
+            TestCase("atcoderbeginnercontest", "atcoderregularcontest", "aattccooddeerrbreeggiunlnaerrccoonntteesstt"),
+        ];
+
+        for TestCase(o, e, expected) in tests {
+            assert_eq!(run(o, e), expected);
+        }
     }
 }
