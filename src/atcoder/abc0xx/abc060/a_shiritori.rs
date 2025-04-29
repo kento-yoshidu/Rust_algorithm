@@ -1,15 +1,15 @@
 // https://atcoder.jp/contests/abc060/tasks/abc060_a
 
-fn run(a: String, b: String, c: String) -> String {
+fn run(a: &str, b: &str, c: &str) -> &'static str {
     let ar = a.chars().last().unwrap();
     let bl = b.chars().nth(0).unwrap();
     let br = b.chars().last().unwrap();
     let cl = c.chars().nth(0).unwrap();
 
     if ar == bl && br == cl {
-        String::from("Yes")
+        "Yes"
     } else {
-        String::from("No")
+        "No"
     }
 }
 
@@ -17,11 +17,19 @@ fn run(a: String, b: String, c: String) -> String {
 mod tests {
     use super::*;
 
+    struct TestCase(&'static str, &'static str, &'static str, &'static str);
+
     #[test]
     fn test() {
-        assert_eq!(String::from("Yes"), run(String::from("rng"), String::from("gorilla"), String::from("apple")));
-        assert_eq!(String::from("No"), run(String::from("yakiniku"), String::from("unagi"), String::from("sushi")));
-        assert_eq!(String::from("Yes"), run(String::from("a"), String::from("a"), String::from("a")));
-        assert_eq!(String::from("No"), run(String::from("aaaaaaaaab"), String::from("aaaaaaaaaa aaaaaaaaab"), String::from("a")));
+        let tests = [
+            TestCase("rng", "gorilla", "apple", "Yes"),
+            TestCase("yakiniku", "unagi", "sushi", "No"),
+            TestCase("a", "a", "a", "Yes"),
+            TestCase("aaaaaaaaab", "aaaaaaaaaa aaaaaaaaab", "a", "No"),
+        ];
+
+        for TestCase(a, b, c, expected) in tests {
+            assert_eq!(run(a, b, c), expected);
+        }
     }
 }
