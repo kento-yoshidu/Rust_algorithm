@@ -21,4 +21,5 @@ pub mod joi2023yo2;
 // pub mod joi2024yo1a;
 // pub mod joi2024yo1b;
 // pub mod joi2024yo1c;
+pub mod joi2024yo2;
 // pub mod joi2025yo1c;
