@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc101/tasks/abc101_a
 
-pub fn run(s: String) -> isize {
+pub fn run(s: &str) -> isize {
     s.chars().map(|c| {
         if c == '+' {
             1
@@ -14,10 +14,18 @@ pub fn run(s: String) -> isize {
 mod tests {
     use super::*;
 
+    struct TestCase(&'static str, isize);
+
     #[test]
     fn test() {
-        assert_eq!(2, run(String::from("+-++")));
-        assert_eq!(-2, run(String::from("-+--")));
-        assert_eq!(-4, run(String::from("----")));
+        let tests = [
+            TestCase("+-++", 2),
+            TestCase("-+--", -2),
+            TestCase("----", -4),
+        ];
+
+        for TestCase(s, expected) in tests {
+            assert_eq!(run(s), expected);
+        }
     }
 }

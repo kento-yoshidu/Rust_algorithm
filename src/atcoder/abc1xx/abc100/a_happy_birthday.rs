@@ -1,10 +1,10 @@
 // https://atcoder.jp/contests/abc100/tasks/abc100_a
 
-pub fn run(a: usize, b: usize) -> String {
+fn run(a: usize, b: usize) -> &'static str {
     if a.max(b) <= 8 {
-        String::from("Yay!")
+        "Yay!"
     } else {
-        String::from(":(")
+        ":("
     }
 }
 
@@ -12,10 +12,18 @@ pub fn run(a: usize, b: usize) -> String {
 mod tests {
     use super::*;
 
+    struct TestCase(usize, usize, &'static str);
+
     #[test]
     fn test() {
-        assert_eq!(String::from("Yay!"), run(5, 4));
-        assert_eq!(String::from("Yay!"), run(8, 8));
-        assert_eq!(String::from(":("), run(11, 4));
+        let tests = [
+            TestCase(5, 4, "Yay!"),
+            TestCase(8, 8, "Yay!"),
+            TestCase(11, 4, ":("),
+        ];
+
+        for TestCase(a, b, expected) in tests {
+            assert_eq!(run(a, b), expected);
+        }
     }
 }

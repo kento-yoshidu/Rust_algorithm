@@ -1,12 +1,12 @@
 // https://atcoder.jp/contests/abc104/tasks/abc104_a
 
-pub fn run(r: usize) -> String {
+fn run(r: usize) -> &'static str {
     if r < 1200 {
-        String::from("ABC")
+        "ABC"
     } else if r < 2800 {
-        String::from("ARC")
+        "ARC"
     } else {
-        String::from("AGC")
+        "AGC"
     }
 }
 
@@ -14,10 +14,18 @@ pub fn run(r: usize) -> String {
 mod tests {
     use super::*;
 
+    struct TestCase(usize, &'static str);
+
     #[test]
     fn test() {
-        assert_eq!(String::from("ABC"), run(1199));
-        assert_eq!(String::from("ARC"), run(1200));
-        assert_eq!(String::from("AGC"), run(4208));
+        let tests = [
+            TestCase(1199, "ABC"),
+            TestCase(1200, "ARC"),
+            TestCase(4208, "AGC"),
+        ];
+
+        for TestCase(r, expected) in tests {
+            assert_eq!(run(r), expected);
+        }
     }
 }

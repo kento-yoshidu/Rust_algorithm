@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc102/tasks/abc102_a
 
-pub fn run(n: usize) -> usize {
+fn run(n: usize) -> usize {
 	if n % 2 == 0 {
 		n
 	} else {
@@ -12,10 +12,18 @@ pub fn run(n: usize) -> usize {
 mod tests {
 	use super::*;
 
+	struct TestCase(usize, usize);
+
 	#[test]
 	fn test() {
-		assert_eq!(6, run(3));
-		assert_eq!(10, run(10));
-		assert_eq!(1999999998, run(999999999));
+		let tests = [
+			TestCase(3, 6),
+			TestCase(10, 10),
+			TestCase(999999999, 1999999998),
+		];
+
+		for TestCase(n, expected) in tests {
+			assert_eq!(run(n), expected);
+		}
 	}
 }
