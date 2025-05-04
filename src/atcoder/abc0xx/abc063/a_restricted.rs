@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc063/tasks/abc063_a
 
-pub fn run(a: i32, b: i32) -> String {
+fn run(a: usize, b: usize) -> String {
     if a + b >= 10 {
         String::from("error")
     } else {
@@ -12,9 +12,17 @@ pub fn run(a: i32, b: i32) -> String {
 mod tests {
     use super::*;
 
+    struct TestCase(usize, usize, &'static str);
+
     #[test]
     fn test() {
-        assert_eq!(String::from("9"), run(6, 3));
-        assert_eq!(String::from("error"), run(6, 4));
+        let tests = [
+            TestCase(6, 3, "9"),
+            TestCase(6, 4, "error"),
+        ];
+
+        for TestCase(a, b, expected) in tests {
+            assert_eq!(run(a, b), expected);
+        }
     }
 }
