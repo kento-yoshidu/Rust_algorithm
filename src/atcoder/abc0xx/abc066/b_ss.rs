@@ -8,7 +8,7 @@ fn check(s: &str) -> bool {
     }
 }
 
-pub fn run(s: String) -> usize {
+fn run(s: &str) -> usize {
     (0..s.len())
         .rev()
         .skip(1)
@@ -22,11 +22,19 @@ pub fn run(s: String) -> usize {
 mod tests {
     use super::*;
 
+    struct TestCase(&'static str, usize);
+
     #[test]
     fn test() {
-        assert_eq!(6, run(String::from("abaababaab")));
-        assert_eq!(2, run(String::from("xxxx")));
-        assert_eq!(6, run(String::from("abcabcabcabc")));
-        assert_eq!(14, run(String::from("akasakaakasakasakaakas")));
+        let tests = [
+            TestCase("abaababaab", 6),
+            TestCase("xxxx", 2),
+            TestCase("abcabcabcabc", 6),
+            TestCase("akasakaakasakasakaakas", 14),
+        ];
+
+        for TestCase(s, expected) in tests {
+            assert_eq!(run(s), expected);
+        }
     }
 }
