@@ -1,10 +1,10 @@
 // https://atcoder.jp/contests/abc067/tasks/abc067_a
 
-pub fn run(a: i32, b: i32) -> String {
+fn run(a: usize, b: usize) -> &'static str {
     if a % 3 == 0 || b % 3 == 0 || (a + b) % 3 == 0 {
-        String::from("Possible")
+        "Possible"
     } else {
-        String::from("Impossible")
+        "Impossible"
     }
 }
 
@@ -12,9 +12,17 @@ pub fn run(a: i32, b: i32) -> String {
 mod tests {
     use super::*;
 
+    struct TestCase(usize, usize, &'static str);
+
     #[test]
     fn test() {
-        assert_eq!(String::from("Possible"), run(4, 5));
-        assert_eq!(String::from("Impossible"), run(1, 1));
+        let tests = [
+            TestCase(4, 5, "Possible"),
+            TestCase(1, 1, "Impossible"),
+        ];
+
+        for TestCase(a, b, expected) in tests {
+            assert_eq!(run(a, b), expected);
+        }
     }
 }
