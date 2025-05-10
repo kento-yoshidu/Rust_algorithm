@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc107/tasks/abc107_a
 
-pub fn run(n: usize, i: usize) -> usize {
+fn run(n: usize, i: usize) -> usize {
 	n - i + 1
 }
 
@@ -8,10 +8,18 @@ pub fn run(n: usize, i: usize) -> usize {
 mod tests {
 	use super::*;
 
+	struct TestCase(usize, usize, usize);
+
 	#[test]
 	fn test() {
-		assert_eq!(3, run(4, 2));
-		assert_eq!(1, run(1, 1));
-		assert_eq!(5, run(15, 11));
+		let tests = [
+			TestCase(4, 2, 3),
+			TestCase(1, 1, 1),
+			TestCase(15, 11, 5),
+		];
+
+		for TestCase(n, i, expected) in tests {
+			assert_eq!(run(n, i), expected);
+		}
 	}
 }
