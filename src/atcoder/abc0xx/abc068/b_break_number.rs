@@ -8,7 +8,7 @@ fn calc(n: usize, count: usize) -> usize {
     }
 }
 
-pub fn run(n: usize) -> usize {
+fn run(n: usize) -> usize {
     (1..=n)
         .skip(1)
         .step_by(2)
@@ -36,7 +36,7 @@ fn calc2(n: usize) -> bool {
     calc2(n / 2)
 }
 
-pub fn run2(n: usize) -> usize {
+fn run2(n: usize) -> usize {
     (1..=n)
         .rev()
         .find(|num| {
@@ -49,19 +49,20 @@ pub fn run2(n: usize) -> usize {
 mod tests {
     use super::*;
 
-    #[test]
-    fn test() {
-        assert_eq!(4, run(7));
-        assert_eq!(32, run(32));
-        assert_eq!(1, run(1));
-        assert_eq!(64, run(100));
-    }
+    struct TestCase(usize, usize);
 
     #[test]
-    fn test2() {
-        assert_eq!(4, run2(7));
-        assert_eq!(32, run2(32));
-        assert_eq!(1, run2(1));
-        assert_eq!(64, run2(100));
+    fn test() {
+        let tests = [
+            TestCase(7, 4),
+            TestCase(32, 32),
+            TestCase(1, 1),
+            TestCase(100, 64),
+        ];
+
+        for TestCase(n, expected) in tests {
+            assert_eq!(run(n), expected);
+            assert_eq!(run2(n), expected);
+        }
     }
 }
