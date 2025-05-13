@@ -1,10 +1,10 @@
 // https://atcoder.jp/contests/abc070/tasks/abc070_a
 
-fn run(s: String) -> String {
+fn run(s: &str) -> &'static str {
 	if s.chars().eq(s.chars().rev()) {
-		String::from("Yes")
+		"Yes"
 	} else {
-		String::from("No")
+		"No"
 	}
 }
 
@@ -12,10 +12,18 @@ fn run(s: String) -> String {
 mod tests {
 	use super::*;
 
+	struct TestCase(&'static str, &'static str);
+
 	#[test]
 	fn test() {
-		assert_eq!(String::from("Yes"), run(String::from("575")));
-		assert_eq!(String::from("No"), run(String::from("123")));
-		assert_eq!(String::from("No"), run(String::from("812")));
+		let tests = [
+			TestCase("575", "Yes"),
+			TestCase("123", "No"),
+			TestCase("812", "No"),
+		];
+
+		for TestCase(s, expected) in tests {
+			assert_eq!(run(s), expected);
+		}
 	}
 }
