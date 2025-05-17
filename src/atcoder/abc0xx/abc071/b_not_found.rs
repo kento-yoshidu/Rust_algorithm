@@ -2,7 +2,7 @@
 
 use itertools::Itertools;
 
-pub fn run(s: String) -> String {
+fn run(s: &str) -> String {
     ('a'..='z').find(|c| {
         !s.chars().contains(c)
     })
@@ -15,10 +15,18 @@ pub fn run(s: String) -> String {
 mod tests {
     use super::*;
 
+    struct TestCase(&'static str, &'static str);
+
     #[test]
     fn test() {
-        assert_eq!(String::from("b"), run(String::from("atcoderregularcontest")));
-        assert_eq!(String::from("None"), run(String::from("abcdefghijklmnopqrstuvwxyz")));
-        assert_eq!(String::from("d"), run(String::from("fajsonlslfepbjtsaayxbymeskptcumtwrmkkinjxnnucagfrg")));
+        let tests = [
+            TestCase("atcoderregularcontest", "b"),
+            TestCase("abcdefghijklmnopqrstuvwxyz", "None"),
+            TestCase("fajsonlslfepbjtsaayxbymeskptcumtwrmkkinjxnnucagfrg", "d"),
+        ];
+
+        for TestCase(s, expected) in tests {
+            assert_eq!(run(s), expected);
+        }
     }
 }
