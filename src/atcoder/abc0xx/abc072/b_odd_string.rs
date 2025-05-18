@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc072/tasks/abc072_b
 
-pub fn run(s: String) -> String {
+fn run(s: &str) -> String {
     s.chars().step_by(2).collect()
 }
 
@@ -8,11 +8,19 @@ pub fn run(s: String) -> String {
 mod tests {
     use super::*;
 
+    struct TestCase(&'static str, &'static str);
+
     #[test]
     fn test() {
-        assert_eq!(String::from("acdr"), run(String::from("atcoder")));
-        assert_eq!(String::from("aa"), run(String::from("aaaa")));
-        assert_eq!(String::from("z"), run(String::from("z")));
-        assert_eq!(String::from("fkoaaauh"), run(String::from("fukuokayamaguchi")));
+        let tests = [
+            TestCase("atcoder", "acdr"),
+            TestCase("aaaa", "aa"),
+            TestCase("z", "z"),
+            TestCase("fukuokayamaguchi", "fkoaaauh"),
+        ];
+
+        for TestCase(s, expected) in tests {
+            assert_eq!(run(s), expected);
+        }
     }
 }
