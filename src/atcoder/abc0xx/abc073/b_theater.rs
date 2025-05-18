@@ -1,13 +1,13 @@
 // https://atcoder.jp/contests/abc073/tasks/abc073_b
 
-pub fn run(n: usize, l: Vec<(usize, usize)>) -> usize {
+fn run(n: usize, l: &Vec<(usize, usize)>) -> usize {
     l.iter().map(|t| {
         t.1 - t.0
     })
     .sum::<usize>() + n
 }
 
-pub fn run2(n: usize, l: Vec<(usize, usize)>) -> usize {
+fn run2(n: usize, l: &Vec<(usize, usize)>) -> usize {
     l.iter().fold(0, |sum, (l, r)| sum + r - l) + n
 }
 
@@ -15,15 +15,18 @@ pub fn run2(n: usize, l: Vec<(usize, usize)>) -> usize {
 mod tests {
     use super::*;
 
-    #[test]
-    fn test() {
-        assert_eq!(7, run(1, vec![(24, 30)]));
-        assert_eq!(4, run(2, vec![(6, 8), (3, 3)]));
-    }
+    struct TestCase(usize, Vec<(usize, usize)>, usize);
 
     #[test]
-    fn test2() {
-        assert_eq!(7, run2(1, vec![(24, 30)]));
-        assert_eq!(4, run2(2, vec![(6, 8), (3, 3)]));
+    fn test() {
+        let tests = [
+            TestCase(1, vec![(24, 30)], 7),
+            TestCase(2, vec![(6, 8), (3, 3)], 4),
+        ];
+
+        for TestCase(n, l, expected) in tests {
+            assert_eq!(run(n, &l), expected);
+            assert_eq!(run2(n, &l), expected);
+        }
     }
 }

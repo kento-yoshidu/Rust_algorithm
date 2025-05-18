@@ -8,14 +8,14 @@ fn check(r: isize, c: isize, h: usize, w: usize) -> bool {
 }
 
 fn run(h: usize, w: usize, a: Vec<&str>) -> usize {
-    let chars: Vec<Vec<char>> = a.into_iter().map(|s| s.chars().collect()).collect();
+    let vec: Vec<Vec<char>> = a.into_iter().map(|s| s.chars().collect()).collect();
 
     let mut graph = vec![vec![-1; w]; h];
     let mut queue = VecDeque::new();
 
     for i in 0..h {
         for j in 0..w {
-            if chars[i][j] == '#' {
+            if vec[i][j] == '#' {
                 graph[i][j] = 0;
                 queue.push_back((i, j));
             }
@@ -36,7 +36,7 @@ fn run(h: usize, w: usize, a: Vec<&str>) -> usize {
 
             let (new_r, new_c) = (new_r as usize, new_c as usize);
 
-            if chars[new_r][new_c] == '#' || graph[new_r][new_c] != -1 {
+            if vec[new_r][new_c] == '#' || graph[new_r][new_c] != -1 {
                 continue;
             }
 
