@@ -1,7 +1,7 @@
 
 // https://atcoder.jp/contests/abc072/tasks/arc082_a
 
-pub fn run(_n: i32, vec: Vec<i32>) -> usize {
+fn run(_n: isize, vec: Vec<isize>) -> usize {
     let mut ans = 0;
 
     let min = vec.iter().min().unwrap();
@@ -26,10 +26,18 @@ pub fn run(_n: i32, vec: Vec<i32>) -> usize {
 mod tests {
     use super::*;
 
+    struct TestCase(isize, Vec<isize>, usize);
+
     #[test]
     fn test() {
-        assert_eq!(4, run(7, vec![3, 1, 4, 1, 5, 9, 2]));
-        assert_eq!(3, run(10, vec![0, 1, 2, 3, 4, 5, 6, 7, 8, 9]));
-        assert_eq!(1, run(1, vec![99999]));
+        let tests = [
+            TestCase(7, vec![3, 1, 4, 1, 5, 9, 2], 4),
+            TestCase(10, vec![0, 1, 2, 3, 4, 5, 6, 7, 8, 9], 3),
+            TestCase(1, vec![99999], 1),
+        ];
+
+        for TestCase(n, vec, expected) in tests {
+            assert_eq!(run(n, vec), expected);
+        }
     }
 }
