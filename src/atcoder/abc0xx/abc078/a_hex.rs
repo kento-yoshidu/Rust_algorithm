@@ -17,10 +17,18 @@ fn run(x: char, y: char) -> char {
 mod tests {
 	use super::*;
 
+	struct TestCase(char, char, char);
+
 	#[test]
 	fn test() {
-		assert_eq!('<', run('A', 'B'));
-		assert_eq!('>', run('E', 'C'));
-		assert_eq!('=', run('F', 'F'));
+		let tests = [
+			TestCase('A', 'B', '<'),
+			TestCase('E', 'C', '>'),
+			TestCase('F', 'F', '='),
+		];
+
+		for TestCase(x, y, expected) in tests {
+			assert_eq!(run(x, y), expected);
+		}
 	}
 }
