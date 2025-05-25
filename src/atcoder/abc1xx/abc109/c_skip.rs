@@ -8,7 +8,7 @@ fn gcd(a: isize, b: isize) -> isize {
     }
 }
 
-pub fn run(n: usize, x: isize, v: Vec<isize>) -> isize {
+fn run(n: usize, x: isize, v: &Vec<isize>) -> isize {
     let vec: Vec<_> = v.iter().collect();
 
     let mut ans = (x - *vec[0]).abs();
@@ -21,7 +21,7 @@ pub fn run(n: usize, x: isize, v: Vec<isize>) -> isize {
     ans
 }
 
-pub fn run2(_n: usize, x: isize, v: Vec<isize>) -> isize {
+fn run2(_n: usize, x: isize, v: &Vec<isize>) -> isize {
     v.iter()
         .skip(1)
         .fold((x - &v[0]).abs(), |state, num| {
@@ -33,17 +33,19 @@ pub fn run2(_n: usize, x: isize, v: Vec<isize>) -> isize {
 mod tests {
     use super::*;
 
-    #[test]
-    fn test() {
-        assert_eq!(2, run(3, 3, vec![1, 7, 11]));
-        assert_eq!(24, run(3, 81, vec![33, 105, 57]));
-        assert_eq!(999999999, run(1, 1, vec![1000000000]));
-    }
+    struct TestCase(usize, isize, Vec<isize>, isize);
 
     #[test]
-    fn test2() {
-        assert_eq!(2, run2(3, 3, vec![1, 7, 11]));
-        assert_eq!(24, run2(3, 81, vec![33, 105, 57]));
-        assert_eq!(999999999, run2(1, 1, vec![1000000000]));
+    fn abc109_c() {
+        let tests = [
+            TestCase(3, 3, vec![1, 7, 11], 2),
+            TestCase(3, 81, vec![33, 105, 57], 24),
+            TestCase(1, 1, vec![1000000000], 999999999),
+        ];
+
+        for TestCase(n, x, v, expected) in tests {
+            assert_eq!(run(n, x, &v), expected);
+            assert_eq!(run2(n, x, &v), expected);
+        }
     }
 }

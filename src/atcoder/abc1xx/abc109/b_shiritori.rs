@@ -2,18 +2,18 @@
 
 use itertools::Itertools;
 
-pub fn run(_n: usize, w: Vec<&str>) -> String {
+fn run(_n: usize, w: Vec<&str>) -> &'static str {
     if !w.iter().all_unique() {
-        return String::from("No")
+        return "No";
     }
 
     if w.windows(2)
         .all(|t| {
             t[0].chars().last().unwrap() == t[1].chars().nth(0).unwrap()
         }) {
-            String::from("Yes")
+            "Yes"
         } else {
-            String::from("No")
+            "No"
         }
 }
 
@@ -21,11 +21,19 @@ pub fn run(_n: usize, w: Vec<&str>) -> String {
 mod tests {
     use super::*;
 
+    struct TestCase(usize, Vec<&'static str>, &'static str);
+
     #[test]
-    fn test() {
-        assert_eq!(String::from("No"), run(4, vec!["hoge", "english", "hoge", "enigma"]));
-        assert_eq!(String::from("Yes"), run(9, vec!["basic", "c", "cpp", "php", "python", "nadesico", "ocaml", "lua", "assembly"]));
-        assert_eq!(String::from("No"), run(8, vec!["a", "aa", "aaa", "aaaa", "aaaaa", "aaaaaa", "aaa", "aaaaaaa"]));
-        assert_eq!(String::from("No"), run(3, vec!["abc", "arc", "agc"]));
+    fn abc109_b() {
+        let tests = [
+            TestCase(4, vec!["hoge", "english", "hoge", "enigma"], "No"),
+            TestCase(9, vec!["basic", "c", "cpp", "php", "python", "nadesico", "ocaml", "lua", "assembly"], "Yes"),
+            TestCase(8, vec!["a", "aa", "aaa", "aaaa", "aaaaa", "aaaaaa", "aaa", "aaaaaaa"], "No"),
+            TestCase(3, vec!["abc", "arc", "agc"], "No"),
+        ];
+
+        for TestCase(n, w, expected) in tests {
+            assert_eq!(run(n, w), expected);
+        }
     }
 }

@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc112/tasks/abc112_b
 
-pub fn run(_n: usize, t: usize, vec: Vec<(usize, usize)>) -> String {
+fn run(_n: usize, t: usize, vec: Vec<(usize, usize)>) -> String {
     vec.iter()
         .filter(|tup| {
             tup.1 <= t
@@ -18,10 +18,18 @@ pub fn run(_n: usize, t: usize, vec: Vec<(usize, usize)>) -> String {
 mod tests {
     use super::*;
 
+    struct TestCase(usize, usize, Vec<(usize, usize)>, &'static str);
+
     #[test]
-    fn test() {
-        assert_eq!(String::from("4"), run(3, 70, vec![(7, 60), (1, 80), (4, 50)]));
-        assert_eq!(String::from("TLE"), run(4, 3, vec![(1, 1000), (2, 4), (3, 1000), (4, 500)]));
-        assert_eq!(String::from("5"), run(5, 9, vec![(25, 8), (5, 9), (4, 10), (1000, 1000), (6, 1)]));
+    fn abc112_b() {
+        let tests = [
+            TestCase(3, 70, vec![(7, 60), (1, 80), (4, 50)], "4"),
+            TestCase(4, 3, vec![(1, 1000), (2, 4), (3, 1000), (4, 500)], "TLE"),
+            TestCase(5, 9, vec![(25, 8), (5, 9), (4, 10), (1000, 1000), (6, 1)], "5"),
+        ];
+
+        for TestCase(n, t, vec, expected) in tests {
+            assert_eq!(run(n, t, vec), expected);
+        }
     }
 }

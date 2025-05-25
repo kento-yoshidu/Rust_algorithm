@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc114/tasks/abc114_b
 
-pub fn run(s: String) -> i32 {
+fn run(s: &str) -> usize {
     let mut ans = 1000;
 
     let chars = s.chars().collect::<Vec<char>>();
@@ -11,14 +11,14 @@ pub fn run(s: String) -> i32 {
         ans = ans.min((753 - num).abs());
     }
 
-    ans
+    ans as usize
 }
 
 fn check(s: String) -> usize {
     (s.parse::<isize>().unwrap() - 753).abs() as usize
 }
 
-pub fn run2(s: String) -> usize {
+fn run2(s: &str) -> usize {
     let chars: Vec<char> = s.chars().collect();
 
     chars.windows(3)
@@ -33,17 +33,19 @@ pub fn run2(s: String) -> usize {
 mod tests {
     use super::*;
 
-    #[test]
-    fn test() {
-        assert_eq!(34, run(String::from("1234567876")));
-        assert_eq!(0, run(String::from("35753")));
-        assert_eq!(642, run(String::from("1111111111")));
-    }
+    struct TestCase(&'static str, usize);
 
     #[test]
-    fn test2() {
-        assert_eq!(34, run2(String::from("1234567876")));
-        assert_eq!(0, run2(String::from("35753")));
-        assert_eq!(642, run2(String::from("1111111111")));
+    fn abc114_b() {
+        let tests = [
+            TestCase("1234567876", 34),
+            TestCase("35753", 0),
+            TestCase("1111111111", 642),
+        ];
+
+        for TestCase(s, expected) in tests {
+            assert_eq!(run(s), expected);
+            assert_eq!(run2(s), expected);
+        }
     }
 }

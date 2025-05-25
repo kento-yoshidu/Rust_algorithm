@@ -15,7 +15,7 @@ mod tests {
     struct TestCase(usize, usize, usize);
 
     #[test]
-    fn test() {
+    fn abc100_b() {
         let tests = [
             TestCase(0, 5, 5),
             TestCase(1, 11, 1100),

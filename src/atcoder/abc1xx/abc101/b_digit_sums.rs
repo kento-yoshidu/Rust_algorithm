@@ -1,15 +1,15 @@
 // https://atcoder.jp/contests/abc101/tasks/abc101_b
 
-fn calc(num: usize, sum: usize) -> usize {
+fn rec(num: usize, sum: usize) -> usize {
     if num == 0 {
         sum
     } else {
-        calc(num/10, sum + num % 10)
+        rec(num/10, sum + num % 10)
     }
 }
 
 fn run(n: usize) -> &'static str {
-    let num = calc(n, 0);
+    let num = rec(n, 0);
 
     if n % num == 0 {
         "Yes"
@@ -25,7 +25,7 @@ mod tests {
     struct TestCase(usize, &'static str);
 
     #[test]
-    fn test() {
+    fn abc101_b() {
         let tests = [
             TestCase(12, "Yes"),
             TestCase(101, "No"),

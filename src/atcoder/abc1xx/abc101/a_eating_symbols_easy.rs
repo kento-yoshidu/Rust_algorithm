@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc101/tasks/abc101_a
 
-pub fn run(s: &str) -> isize {
+fn run(s: &str) -> isize {
     s.chars().map(|c| {
         if c == '+' {
             1
@@ -17,7 +17,7 @@ mod tests {
     struct TestCase(&'static str, isize);
 
     #[test]
-    fn test() {
+    fn abc101_a() {
         let tests = [
             TestCase("+-++", 2),
             TestCase("-+--", -2),
