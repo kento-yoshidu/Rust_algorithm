@@ -3,7 +3,7 @@
 use std::collections::HashSet;
 
 fn run(n: usize, m: usize, a: Vec<usize>) -> usize {
-    let mut a = a.clone();
+    let a = a.clone();
 
     for i in 0..=n {
         let vec = &a[..n-i];

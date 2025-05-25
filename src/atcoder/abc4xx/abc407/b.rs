@@ -1,6 +1,8 @@
+// https://atcoder.jp/contests/abc407/tasks/abc407_b
+
 use std::cmp::{min, max};
 
-pub fn run(x: usize, y: usize) -> f64 {
+fn run(x: usize, y: usize) -> f64 {
     let mut count = 0;
 
     for i in 1..=6 {

@@ -2,7 +2,7 @@
 
 use std::collections::VecDeque;
 
-fn run(q: usize, query: Vec<(usize, Option<usize>)>) -> Vec<usize> {
+fn run(_q: usize, query: Vec<(usize, Option<usize>)>) -> Vec<usize> {
     let mut ans = Vec::new();
     let mut queue = VecDeque::new();
 

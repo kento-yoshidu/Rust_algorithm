@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc403/tasks/abc403_a
 
-fn run(n: usize, a: Vec<usize>) -> usize {
+fn run(_n: usize, a: Vec<usize>) -> usize {
     a.into_iter()
         .enumerate()
         .filter(|(i, _)| i % 2 == 0)
