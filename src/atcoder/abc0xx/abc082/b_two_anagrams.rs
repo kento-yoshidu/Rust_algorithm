@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc082/tasks/abc082_b
 
-pub fn run(s: String, t: String) -> String {
+fn run(s: &str, t: &str) -> &'static str {
     let mut ss: Vec<char> = s.chars().collect();
     ss.sort();
 
@@ -9,9 +9,9 @@ pub fn run(s: String, t: String) -> String {
     tt.reverse();
 
     if ss < tt {
-        String::from("Yes")
+        "Yes"
     } else {
-        String::from("No")
+        "No"
     }
 }
 
@@ -19,12 +19,20 @@ pub fn run(s: String, t: String) -> String {
 mod tests {
     use super::*;
 
+    struct  TestCase(&'static str, &'static str, &'static str);
+
     #[test]
     fn test() {
-        assert_eq!(String::from("Yes"), run(String::from("yx"), String::from("axy")));
-        assert_eq!(String::from("Yes"), run(String::from("ratcode"), String::from("atlas")));
-        assert_eq!(String::from("No"), run(String::from("cd"), String::from("abc")));
-        assert_eq!(String::from("Yes"), run(String::from("w"), String::from("ww")));
-        assert_eq!(String::from("No"), run(String::from("zzz"), String::from("zzz")));
+        let tests = [
+            TestCase("yx", "axy", "Yes"),
+            TestCase("ratcode", "atlas", "Yes"),
+            TestCase("cd", "abc", "No"),
+            TestCase("w", "ww", "Yes"),
+            TestCase("zzz", "zzz", "No"),
+        ];
+
+        for TestCase(s, t, expected) in tests {
+            assert_eq!(run(s, t), expected);
+        }
     }
 }

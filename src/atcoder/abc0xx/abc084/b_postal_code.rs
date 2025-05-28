@@ -1,29 +1,37 @@
 // https://atcoder.jp/contests/abc084/tasks/abc084_b
 
-pub fn run(a: usize, _b: usize, s: String) -> String {
+fn run(a: usize, _b: usize, s: &str) -> &'static str {
     let c: Vec<char> = s.chars().collect();
 
     if c[a] != '-' {
-        return String::from("No")
+        return "No";
     }
 
     if c.iter().filter(|&c| {
         *c == '-'
     }).count() != 1 {
-        return String::from("No");
+        return "No";
     }
 
-    String::from("Yes")
+    "Yes"
 }
 
 #[cfg(test)]
 mod tests {
     use super::*;
 
+    struct TestCase(usize, usize, &'static str, &'static str);
+
     #[test]
     fn test() {
-        assert_eq!(String::from("Yes"), run(3, 4, String::from("269-6650")));
-        assert_eq!(String::from("No"), run(1, 1, String::from("---")));
-        assert_eq!(String::from("No"), run(1, 2, String::from("7444")));
+        let tests = [
+            TestCase(3, 4, "269-6650", "Yes"),
+            TestCase(1, 1, "---", "No"),
+            TestCase(1, 2, "7444", "No"),
+        ];
+
+        for TestCase(a, b, s, expected) in tests {
+            assert_eq!(run(a, b, s), expected);
+        }
     }
 }
