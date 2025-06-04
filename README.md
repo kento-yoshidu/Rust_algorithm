@@ -10,8 +10,32 @@
 #[allow(unused_imports)]
 use proconio::input;
 use itertools::Itertools;
-use std::collections::{BtreeMap, BtreeSet, HashMap, HashSet};
+use std::collections::{BtreeMap, BtreeSet, HashMap, HashSet, VecDeque};
 use std::cmp::{min, max};
+
+fn lower_bound<T: Ord>(vec: &[T], value: T) -> usize {
+    vec.binary_search_by(|x| {
+        if *x < value {
+            Ordering::Less
+        } else {
+            Ordering::Greater
+        }
+    })
+    .err()
+    .unwrap()
+}
+
+fn upper_bound<T: Ord>(vec: &[T], value: T) -> usize {
+    vec.binary_search_by(|x| {
+        if *x <= value {
+            Ordering::Less
+        } else {
+            Ordering::Greater
+        }
+    })
+    .err()
+    .unwrap()
+}
 
 #[allow(unused)]
 fn main() {
@@ -30,27 +54,9 @@ fn main() {
 }
 ```
 
-## Todo
+## 未提出
 
-- abc061 b
-- abc147 b
+- abc035 b
 - abc183 d
-- abc187 c (TLE)
-- abc221 c
 - abc247 d
-- abc253 b
-- abc259 c
-- abc272 b
-- abc294 a
-- abc296 a run2
 - abc326 c
-- abc275 b
-- abc303 c
-- abc328 c
-
-## Refactoring
-
-- abc197 b
-- abc237 c
-- tessoku bc
-- joigsp2023 a
