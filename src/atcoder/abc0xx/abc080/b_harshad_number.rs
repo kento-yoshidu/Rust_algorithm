@@ -6,7 +6,7 @@ fn calc(n: String) -> u32 {
         .sum()
 }
 
-pub fn run(n: usize) -> &'static str {
+fn run(n: usize) -> &'static str {
     let num = calc(n.to_string()) as usize;
 
     if n % num == 0 {

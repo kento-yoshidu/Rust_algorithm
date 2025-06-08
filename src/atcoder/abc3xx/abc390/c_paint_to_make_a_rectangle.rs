@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc390/tasks/abc390_c
 
-pub fn run(h: usize, w: usize, s: Vec<&str>) -> &'static str {
+fn run(h: usize, w: usize, s: Vec<&str>) -> &'static str {
     let chars: Vec<Vec<char>> = s.into_iter().map(|str| str.chars().collect()).collect();
 
     let mut hmin = 1000;
@@ -18,8 +18,6 @@ pub fn run(h: usize, w: usize, s: Vec<&str>) -> &'static str {
             }
         }
     }
-
-    println!("{}-{}, {}-{}", hmax, hmin, wmin, wmax);
 
     for i in hmin..=hmax {
         for j in wmin..=wmax {

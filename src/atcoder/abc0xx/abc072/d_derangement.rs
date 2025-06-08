@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc072/tasks/arc082_b
 
-pub fn run(n: usize, p: Vec<usize>) -> usize {
+fn run(n: usize, p: Vec<usize>) -> usize {
     let mut ans = 0;
 
     let mut vec = p.clone();

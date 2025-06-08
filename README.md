@@ -1,9 +1,5 @@
 # Rust_algorithm
 
-## memo
-
-[Why chars().nth(index).unwrap() is so slow?](https://www.reddit.com/r/rust/comments/tbsffu/why_charsnthindexunwrap_is_so_slow/?rdt=43355)
-
 ## AtCoder Template
 
 ```rust
@@ -11,7 +7,7 @@
 use proconio::input;
 use itertools::Itertools;
 use std::collections::{BtreeMap, BtreeSet, HashMap, HashSet, VecDeque};
-use std::cmp::{min, max};
+use std::cmp::{min, max, Ordering};
 
 fn lower_bound<T: Ord>(vec: &[T], value: T) -> usize {
     vec.binary_search_by(|x| {
@@ -37,6 +33,24 @@ fn upper_bound<T: Ord>(vec: &[T], value: T) -> usize {
     .unwrap()
 }
 
+// n以下の最大の数を返す
+fn max_under_n<T: Ord>(vec: &[T], value: T) -> Option<usize> {
+    vec.binary_search_by(|x| {
+        if *x <= value {
+            Ordering::Less
+        } else {
+            Ordering::Greater
+        }
+    })
+    .err()
+    .map(|x| if x == 0 {
+        None
+    } else {
+        Some(x - 1)
+    })
+    .flatten()
+}
+
 #[allow(unused)]
 fn main() {
     input! {
@@ -54,9 +68,6 @@ fn main() {
 }
 ```
 
-## 未提出
+## memo
 
-- abc035 b
-- abc183 d
-- abc247 d
-- abc326 c
+[Why chars().nth(index).unwrap() is so slow?](https://www.reddit.com/r/rust/comments/tbsffu/why_charsnthindexunwrap_is_so_slow/?rdt=43355)
