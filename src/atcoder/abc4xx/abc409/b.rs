@@ -1,6 +1,6 @@
-//
+// https://atcoder.jp/contests/abc409/tasks/abc409_b
 
-pub fn run(_n: usize, a: Vec<usize>) -> usize {
+fn run(_n: usize, a: Vec<usize>) -> usize {
     for i in (0..=100).rev() {
         let mut count = 0;
 
