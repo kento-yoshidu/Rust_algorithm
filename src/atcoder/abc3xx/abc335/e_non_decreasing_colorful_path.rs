@@ -1,36 +1,38 @@
 // https://atcoder.jp/contests/abc335/tasks/abc335_e
 
 use std::collections::{BinaryHeap, HashMap};
+use std::cmp::Reverse;
 
 fn dijkstra(n: usize, hash_map: &HashMap<usize, Vec<usize>>, a: &Vec<usize>) -> usize {
-    let mut dist = vec![0; n+1];
-    dist[1] = a[0];
     let mut count = vec![0; n+1];
     count[1] = 1;
 
     let mut priority_queue = BinaryHeap::new();
-    priority_queue.push((dist[1], 1));
+    priority_queue.push((Reverse(a[0]), 1, 1));
 
-    while let Some((total_point, cur_i)) = priority_queue.pop() {
+    while let Some((_, cur_count, cur_i)) = priority_queue.pop() {
+        if count[cur_i] > cur_count {
+            continue;
+        }
+
         let Some(next) = hash_map.get(&cur_i) else {
             continue;
         };
 
         for next_i in next {
-            if a[cur_i-1] >= a[*next_i-1] {
+            if a[cur_i-1] > a[*next_i-1] {
                 continue;
             }
 
-            let new_point = total_point + a[*next_i-1];
+            let new_count = if a[cur_i - 1] < a[next_i - 1] {
+                cur_count + 1
+            } else {
+                cur_count
+            };
 
-            if new_point == dist[*next_i] {
-                continue;
-            }
-
-            if new_point > dist[*next_i] {
-                dist[*next_i] = new_point;
-                count[*next_i] = count[cur_i] + 1;
-                priority_queue.push((new_point, *next_i));
+            if count[*next_i] < new_count {
+                count[*next_i] = new_count;
+                priority_queue.push((Reverse(a[*next_i-1]), new_count, *next_i));
             }
         }
     }
@@ -38,7 +40,7 @@ fn dijkstra(n: usize, hash_map: &HashMap<usize, Vec<usize>>, a: &Vec<usize>) -> 
     count[n]
 }
 
-pub fn run(n: usize, _m: usize, a: Vec<usize>, uv: Vec<(usize, usize)>) -> usize {
+fn run(n: usize, _m: usize, a: Vec<usize>, uv: Vec<(usize, usize)>) -> usize {
     let mut hash_map = HashMap::new();
 
     for (u, v) in uv {
