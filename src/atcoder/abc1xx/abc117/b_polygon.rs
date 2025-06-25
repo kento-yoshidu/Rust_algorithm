@@ -1,13 +1,13 @@
 // https://atcoder.jp/contests/abc117/tasks/abc117_b
 
-pub fn run(_n: usize, l: Vec<usize>) -> String {
+fn run(_n: usize, l: Vec<usize>) -> &'static str {
     let total: usize = l.iter().sum();
     let max = l.iter().max().unwrap();
 
     if total - max > *max {
-        String::from("Yes")
+        "Yes"
     } else {
-        String::from("No")
+        "No"
     }
 }
 
@@ -15,10 +15,18 @@ pub fn run(_n: usize, l: Vec<usize>) -> String {
 mod tests {
     use super::*;
 
+    struct TestCase(usize, Vec<usize>, &'static str);
+
     #[test]
-    fn test() {
-        assert_eq!(String::from("Yes"), run(4, vec![3, 8, 5, 1]));
-        assert_eq!(String::from("No"), run(4, vec![3, 8, 4, 1]));
-        assert_eq!(String::from("No"), run(10, vec![1, 8, 10, 5, 8, 12, 34, 100, 11, 3]));
+    fn abc117_b() {
+        let tests = [
+            TestCase(4, vec![3, 8, 5, 1], "Yes"),
+            TestCase(4, vec![3, 8, 4, 1], "No"),
+            TestCase(10, vec![1, 8, 10, 5, 8, 12, 34, 100, 11, 3], "No"),
+        ];
+
+        for TestCase(n, l, expected) in tests {
+            assert_eq!(run(n, l), expected);
+        }
     }
 }

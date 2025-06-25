@@ -13,8 +13,6 @@ fn run(n: usize, _q: usize, s: &str, query: Vec<(usize, usize)>) -> Vec<char> {
                 count += x;
             },
             2 => {
-                println!("2");
-
                 if x < count {
                     count %= n;
                 }
@@ -35,7 +33,7 @@ mod tests {
     struct TestCase(usize, usize, &'static str, Vec<(usize, usize)>, Vec<char>);
 
     #[test]
-    fn test() {
+    fn abc258_c() {
         let tests = [
             TestCase(3, 3, "abc", vec![(2, 2), (1, 1), (2, 2)], vec!['b', 'a']),
             TestCase(10, 8, "dsuccxulnl", vec![(2, 4), (2, 7), (1, 2), (2, 7), (1, 1), (1, 2), (1, 3), (2, 5)], vec!['c', 'u', 'c', 'u']),
