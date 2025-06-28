@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc240/tasks/abc240_b
 
-pub fn run(_n: usize, a: Vec<usize>) -> usize {
+fn run(_n: usize, a: Vec<usize>) -> usize {
     let mut vec = a.clone();
 
     vec.sort();
@@ -13,10 +13,18 @@ pub fn run(_n: usize, a: Vec<usize>) -> usize {
 mod tests {
     use super::*;
 
+    struct TestCase(usize, Vec<usize>, usize);
+
     #[test]
-    fn test() {
-        assert_eq!(3, run(6, vec![1, 4, 1, 2, 2, 1]));
-        assert_eq!(1, run(1, vec![1]));
-        assert_eq!(7, run(11, vec![3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5]));
+    fn abc240_b() {
+        let tests = [
+            TestCase(6, vec![1, 4, 1, 2, 2, 1], 3),
+            TestCase(1, vec![1], 1),
+            TestCase(11, vec![3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5], 7),
+        ];
+
+        for TestCase(n, a, expected) in tests {
+            assert_eq!(run(n, a), expected);
+        }
     }
 }
