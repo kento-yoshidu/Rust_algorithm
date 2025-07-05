@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc120/tasks/abc120_c
 
-pub fn run(s: &str) -> usize {
+fn run(s: &str) -> usize {
     let chars: Vec<char> = s.chars().collect();
 
     chars.iter()
@@ -23,10 +23,18 @@ pub fn run(s: &str) -> usize {
 mod tests {
     use super::*;
 
+    struct TestCase(&'static str, usize);
+
     #[test]
-    fn test() {
-        assert_eq!(4, run("0011"));
-        assert_eq!(12, run("11011010001011"));
-        assert_eq!(0, run("0"));
+    fn abc120_c() {
+        let tests = [
+            TestCase("0011", 4),
+            TestCase("11011010001011", 12),
+            TestCase("0", 0),
+        ];
+
+        for TestCase(s, expected) in tests {
+            assert_eq!(run(s), expected);
+        }
     }
 }

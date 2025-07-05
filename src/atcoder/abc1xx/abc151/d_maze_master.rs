@@ -2,7 +2,7 @@
 
 use std::collections::VecDeque;
 
-fn check(i: isize, j: isize, h: isize, w: isize) -> bool {
+fn out_of_bounds(i: isize, j: isize, h: isize, w: isize) -> bool {
     i < 0 || j < 0 || i >= h || j >= w
 }
 
@@ -11,8 +11,8 @@ fn run(h: usize, w: usize, s: Vec<&str>) -> usize {
 
     let mut ans = 0;
 
-    let dx = [0, -1, 0, 1];
-    let dy = [-1, 0, 1, 0];
+    let di = [0, -1, 0, 1];
+    let dj = [-1, 0, 1, 0];
 
     // '.'である全ての座標をスタートに設定し、最も大きい距離とansを比べる
     for i in 0..h {
@@ -29,12 +29,12 @@ fn run(h: usize, w: usize, s: Vec<&str>) -> usize {
 
             while let Some((cur_i, cur_j)) = queue.pop_front() {
                 for k in 0..4 {
-                    if check(cur_i as isize + dx[k], cur_j as isize + dy[k], h as isize, w as isize) {
+                    if out_of_bounds(cur_i as isize + di[k], cur_j as isize + dj[k], h as isize, w as isize) {
                         continue;
                     }
 
-                    let new_i = (cur_i as isize + dx[k]) as usize;
-                    let new_j = (cur_j as isize + dy[k]) as usize;
+                    let new_i = (cur_i as isize + di[k]) as usize;
+                    let new_j = (cur_j as isize + dj[k]) as usize;
 
                     if vec[new_i][new_j] == '#' || graph[new_i][new_j] != -1 {
                         continue;
@@ -58,7 +58,7 @@ mod tests {
     struct TestCase(usize, usize, Vec<&'static str>, usize);
 
     #[test]
-    fn test() {
+    fn abc151_d() {
         let tests = [
             TestCase(3, 3, vec!["...", "...", "..."], 4),
             TestCase(3, 5, vec!["...#.", ".#.#.", ".#..."], 10),

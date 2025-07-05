@@ -25,15 +25,12 @@ fn run(h: usize, w: usize, s: Vec<&str>) -> Vec<String> {
 
     while let Some((cur_i, cur_j)) = queue.pop_front() {
         for i in 0..4 {
-            let new_i = cur_i as isize + di[i];
-            let new_j = cur_j as isize + dj[i];
-
-            if out_of_bounds(h, w, new_i, new_j) {
+            if out_of_bounds(h, w, cur_i as isize + di[i], cur_j as isize + dj[i]) {
                 continue;
             }
 
-            let new_i = new_i as usize;
-            let new_j = new_j as usize;
+            let new_i = (cur_i as isize + di[i]) as usize;
+            let new_j = (cur_j as isize + dj[i]) as usize;
 
             if vec[new_i][new_j] != '.' {
                 continue;

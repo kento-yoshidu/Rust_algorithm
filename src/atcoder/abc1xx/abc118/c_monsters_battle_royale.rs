@@ -8,7 +8,7 @@ fn gcd(a: usize, b: usize) -> usize {
     }
 }
 
-pub fn run(_n: usize, v: Vec<usize>) -> usize {
+fn run(_n: usize, v: Vec<usize>) -> usize {
     v.iter()
         .fold(0, |state, num| {
             gcd(state, *num)
@@ -19,10 +19,18 @@ pub fn run(_n: usize, v: Vec<usize>) -> usize {
 mod tests {
     use super::*;
 
+    struct TestCase(usize, Vec<usize>, usize);
+
     #[test]
-    fn test() {
-        assert_eq!(2, run(4, vec![2, 10, 8, 40]));
-        assert_eq!(1, run(4, vec![5, 13, 8, 1000000000]));
-        assert_eq!(1000000000, run(3, vec![1000000000, 1000000000, 1000000000]));
+    fn abc118_c() {
+        let tests = [
+            TestCase(4, vec![2, 10, 8, 40], 2),
+            TestCase(4, vec![5, 13, 8, 1000000000], 1),
+            TestCase(3, vec![1000000000, 1000000000, 1000000000], 1000000000),
+        ];
+
+        for TestCase(a, b, expected) in tests {
+            assert_eq!(run(a, b), expected);
+        }
     }
 }

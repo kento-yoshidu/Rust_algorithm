@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc120/tasks/abc120_b
 
-pub fn run(a: i32, b: i32, k: i32) -> i32 {
+fn run(a: usize, b: usize, k: usize) -> usize {
     let mut count = 0;
     let mut result = 0;
 
@@ -22,10 +22,18 @@ pub fn run(a: i32, b: i32, k: i32) -> i32 {
 mod tests {
     use super::*;
 
+    struct TestCase(usize, usize, usize, usize);
+
     #[test]
-    fn test() {
-        assert_eq!(2, run(8, 12, 2));
-        assert_eq!(5, run(100, 50, 4));
-        assert_eq!(1, run(1, 1, 1));
+    fn abc120_b() {
+        let tests = [
+            TestCase(8, 12, 2, 2),
+            TestCase(100, 50, 4, 5),
+            TestCase(1, 1, 1, 1),
+        ];
+
+        for TestCase(a, b, k, expected) in tests {
+            assert_eq!(run(a, b, k), expected);
+        }
     }
 }

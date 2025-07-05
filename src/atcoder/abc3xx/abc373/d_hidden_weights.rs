@@ -28,15 +28,17 @@ fn run(n: usize, _m: usize, uvw: Vec<(usize, usize, isize)>) -> Vec<isize> {
 
             visited[cur] = true;
 
-            if let Some(next) = hash_map.get(&cur) {
-                for &(next_v, w) in next {
-                    if visited[next_v] {
-                        continue;
-                    }
+            let Some(next) = hash_map.get(&cur) else {
+                continue;
+            };
 
-                    graph[next_v] = graph[cur] + w;
-                    queue.push_back(next_v);
+            for &(next_v, w) in next {
+                if visited[next_v] {
+                    continue;
                 }
+
+                graph[next_v] = graph[cur] + w;
+                queue.push_back(next_v);
             }
         }
     }
@@ -51,7 +53,7 @@ mod tests {
     struct TestCase(usize, usize, Vec<(usize, usize, isize)>, Vec<isize>);
 
     #[test]
-    fn test() {
+    fn abc373_d() {
         let tests = [
             TestCase(3, 3, vec![(1, 2, 2), (3, 2, 3), (1, 3, -1)], vec![0, 2, -1]),
             TestCase(4, 2, vec![(2, 1, 5), (3, 4, -3)], vec![0, -5, 0, -3]),

@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc120/tasks/abc120_a
 
-pub fn run(a: i32, b: i32, c: i32) -> i32 {
+fn run(a: usize, b: usize, c: usize) -> usize {
     if b / a >= c {
         c
     } else {
@@ -12,10 +12,18 @@ pub fn run(a: i32, b: i32, c: i32) -> i32 {
 mod tests {
     use super::*;
 
+    struct TestCase(usize, usize, usize, usize);
+
     #[test]
-    fn test() {
-        assert_eq!(4, run(2, 11, 4));
-        assert_eq!(3, run(3, 9, 5));
-        assert_eq!(0, run(100, 1, 10));
+    fn abc120_a() {
+        let tests = [
+            TestCase(2, 11, 4, 4),
+            TestCase(3, 9, 5, 3),
+            TestCase(100, 1, 10, 0),
+        ];
+
+        for TestCase(a, b, c, expected) in tests {
+            assert_eq!(run(a, b, c), expected);
+        }
     }
 }
