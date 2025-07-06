@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc413/tasks/abc413_a
 
-fn run(n: usize, m: usize, a: Vec<usize>) -> &'static str {
+fn run(_n: usize, m: usize, a: Vec<usize>) -> &'static str {
     if m >= a.into_iter().sum() {
         "Yes"
     } else {
