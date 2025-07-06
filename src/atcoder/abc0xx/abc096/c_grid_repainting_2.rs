@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc096/tasks/abc096_c
 
-pub fn run(h: usize, w: usize, s: Vec<&str>) -> &'static str {
+fn run(h: usize, w: usize, s: Vec<&str>) -> &'static str {
     let mut grid: Vec<Vec<char>> = s.iter().map(|str| str.chars().collect()).collect();
 
     // 範囲外アクセスを防ぐため、周りをxで囲う
