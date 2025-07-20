@@ -1,14 +1,14 @@
 // https://atcoder.jp/contests/abc060/tasks/abc060_b
 
-pub fn run( a: usize, b: usize, c: usize) -> String {
+fn run(a: usize, b: usize, c: usize) -> &'static str {
     if (a..=a*b)
         .step_by(a)
         .any(|num| {
             num % b == c
         }) {
-            String::from("YES")
+            "YES"
         } else {
-            String::from("NO")
+            "NO"
         }
 }
 
@@ -16,12 +16,20 @@ pub fn run( a: usize, b: usize, c: usize) -> String {
 mod tests {
     use super::*;
 
+    struct TestCase(usize, usize, usize, &'static str);
+
     #[test]
     fn test() {
-        assert_eq!(String::from("YES"), run(7, 5, 1));
-        assert_eq!(String::from("NO"), run(2, 2, 1));
-        assert_eq!(String::from("YES"), run(1, 100, 97));
-        assert_eq!(String::from("YES"), run(40, 98, 58));
-        assert_eq!(String::from("NO"), run(77, 42, 36));
+        let tests = [
+            TestCase(7, 5, 1, "YES"),
+            TestCase(2, 2, 1, "NO"),
+            TestCase(1, 100, 97, "YES"),
+            TestCase(40, 98, 58, "YES"),
+            TestCase(77, 42, 36, "NO"),
+        ];
+
+        for TestCase(a, b, c, expected) in tests {
+            assert_eq!(run(a, b, c), expected);
+        }
     }
 }

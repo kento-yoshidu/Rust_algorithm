@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc093/tasks/arc094_a
 
-pub fn run(a: usize, b: usize, c: usize) -> usize {
+fn run(a: usize, b: usize, c: usize) -> usize {
     let mut vec = vec![a, b, c];
     vec.sort();
 

@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc088/tasks/abc088_b
 
-pub fn run(_n: i32, vec: &mut Vec<i32>) -> i32 {
+fn run(_n: i32, vec: &mut Vec<i32>) -> i32 {
     vec.sort();
 
     let mut ans = 0;
@@ -16,7 +16,7 @@ pub fn run(_n: i32, vec: &mut Vec<i32>) -> i32 {
     ans
 }
 
-pub fn run2(_n: isize, vec: &mut Vec<isize>) -> isize {
+fn run2(_n: isize, vec: &mut Vec<isize>) -> isize {
     vec.sort();
 
     vec
@@ -36,17 +36,19 @@ pub fn run2(_n: isize, vec: &mut Vec<isize>) -> isize {
 mod tests {
     use super::*;
 
-    #[test]
-    fn test() {
-        assert_eq!(2, run(2, &mut vec![3, 1]));
-        assert_eq!(5, run(2, &mut vec![2, 7, 4]));
-        assert_eq!(18, run(2, &mut vec![20, 18, 2, 18]));
-    }
+    struct TestCase(isize, Vec<isize>, isize);
 
     #[test]
-    fn test2() {
-        assert_eq!(2, run2(2, &mut vec![3, 1]));
-        assert_eq!(5, run2(2, &mut vec![2, 7, 4]));
-        assert_eq!(18, run2(2, &mut vec![20, 18, 2, 18]));
+    fn test() {
+        let tests = [
+            TestCase(2, &mut vec![3, 1], 2),
+            TestCase(2, &mut vec![2, 7, 4], 5),
+            TestCase(2, &mut vec![20, 18, 2, 18], 18),
+        ];
+
+        for TestCase(n, vec, expected) in tests {
+            assert_eq!(run(n, &mut vec), expected);
+            assert_eq!(run2(n, &mut vec), expected);
+        }
     }
 }

@@ -1,7 +1,5 @@
 // https://atcoder.jp/contests/abc039/tasks/abc039_d
 
-use crate::atcoder::abc0xx::abc084::a_new_year;
-
 fn run(h: isize, w: isize, s: Vec<&str>) -> &'static str {
     let vec: Vec<Vec<char>> = s.iter().map(|s| s.chars().collect()).collect();
 

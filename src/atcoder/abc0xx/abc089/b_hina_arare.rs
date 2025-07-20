@@ -1,14 +1,14 @@
 // https://atcoder.jp/contests/abc089/tasks/abc089_b
 
-pub fn run(_n: usize, s: String) -> String {
+fn run(_n: usize, s: &str) -> &'static str {
     let mut chars: Vec<char> = s.chars().collect();
 
     chars.sort();
     chars.dedup();
 
     match chars.len() {
-        3 => String::from("Three"),
-        4 => String::from("Four"),
+        3 => "Three",
+        4 => "Four",
         _ => unreachable!(),
     }
 }
@@ -17,10 +17,18 @@ pub fn run(_n: usize, s: String) -> String {
 mod tests {
     use super::*;
 
+    struct TestCase(usize, &'static str, &'static str);
+
     #[test]
     fn test() {
-        assert_eq!(String::from("Four"), run(6, String::from("GWYPYW")));
-        assert_eq!(String::from("Three"), run(9, String::from("GWWGPWPGG")));
-        assert_eq!(String::from("Four"), run(8, String::from("PYWGYWYY")));
+        let tests = [
+            TestCase(6, "GWYPYW", "Four"),
+            TestCase(9, "GWWGPWPGG", "Three"),
+            TestCase(8, "PYWGYWYY", "Four"),
+        ];
+
+        for TestCase(n, s, expected) in tests {
+            assert_eq!(run(n, s), expected);
+        }
     }
 }

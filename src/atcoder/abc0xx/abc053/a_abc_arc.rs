@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc053/tasks/abc053_a
 
-pub fn run(x: usize) -> &'static str {
+fn run(x: usize) -> &'static str {
     if x < 1200 {
         "ABC"
     } else {

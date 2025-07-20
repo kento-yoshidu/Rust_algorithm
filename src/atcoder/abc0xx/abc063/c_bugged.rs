@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc063/tasks/arc075_a
 
-pub fn run(_n: usize, s: Vec<usize>) -> usize {
+fn run(_n: usize, s: Vec<usize>) -> usize {
     if s.iter()
         .all(|num| num % 10 == 0) {
             return 0

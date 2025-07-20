@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc041/tasks/abc041_c
 
-pub fn run(_n: usize, a: Vec<usize>) -> Vec<usize> {
+fn run(_n: usize, a: Vec<usize>) -> Vec<usize> {
     let mut vec: Vec<(usize, &usize)> = a.iter().enumerate().collect();
 
     vec.sort_by(|a, b| a.1.cmp(b.1));

@@ -2,7 +2,7 @@
 
 use std::collections::VecDeque;
 
-pub fn run(n: usize, a: Vec<usize>) -> VecDeque<usize> {
+fn run(n: usize, a: Vec<usize>) -> VecDeque<usize> {
     let mut deque = VecDeque::new();
 
     for (i, num) in a.into_iter().enumerate() {

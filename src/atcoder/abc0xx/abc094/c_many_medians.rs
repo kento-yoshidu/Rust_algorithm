@@ -2,7 +2,7 @@
 
 use itertools::Itertools;
 
-pub fn run(n: usize, x: Vec<usize>) -> Vec<usize> {
+fn run(n: usize, x: Vec<usize>) -> Vec<usize> {
     let vec: Vec<&usize> = x.iter().sorted().collect();
 
     let mid1 = vec[n/2 - 1];
@@ -38,6 +38,5 @@ mod tests {
         for TestCase(n, x, expected) in tests {
             assert_eq!(run(n, x), expected);
         }
-
     }
 }

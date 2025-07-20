@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc045/tasks/arc061_a
 
-pub fn run(s: &str) -> usize {
+fn run(s: &str) -> usize {
     let len = s.len();
     let chars: Vec<char> = s.chars().collect();
 

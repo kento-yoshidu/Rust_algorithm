@@ -2,7 +2,7 @@
 
 use std::cmp::min;
 
-pub fn run(_n: usize, t: usize, vec: Vec<usize>) -> usize {
+fn run(_n: usize, t: usize, vec: Vec<usize>) -> usize {
     vec.windows(2)
         .map(|v| {
             min(t, v[1] - v[0])

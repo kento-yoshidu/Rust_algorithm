@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc046/tasks/abc046_b
 
-pub fn run(n: usize, k: usize) -> usize {
+fn run(n: usize, k: usize) -> usize {
     k * (k - 1).pow(n as u32 - 1)
 }
 
