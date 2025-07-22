@@ -2,19 +2,19 @@
 
 use std::collections::HashMap;
 
-pub fn run(s: String) -> usize {
+fn run(s: &str) -> usize {
     let mut map = HashMap::new();
 
-    map.insert(String::from("tourist"), 3858);
-    map.insert(String::from("ksun48"), 3679);
-    map.insert(String::from("Benq"), 3658);
-    map.insert(String::from("Um_nik"),3648);
-    map.insert(String::from("apiad"), 3638);
-    map.insert(String::from("Stonefeang"), 3630);
-    map.insert(String::from("ecnerwala"), 3613);
-    map.insert(String::from("mnbvmar"), 3555);
-    map.insert(String::from("newbiedmy"), 3516);
-    map.insert(String::from("semiexp"), 3481);
+    map.insert("tourist", 3858);
+    map.insert("ksun48", 3679);
+    map.insert("Benq", 3658);
+    map.insert("Um_nik",3648);
+    map.insert("apiad", 3638);
+    map.insert("Stonefeang", 3630);
+    map.insert("ecnerwala", 3613);
+    map.insert("mnbvmar", 3555);
+    map.insert("newbiedmy", 3516);
+    map.insert("semiexp", 3481);
 
     *map.get(&s).unwrap()
 }
@@ -23,9 +23,17 @@ pub fn run(s: String) -> usize {
 mod tests {
     use super::*;
 
+    struct TestCase(&'static str, usize);
+
     #[test]
     fn test() {
-        assert_eq!(3858, run(String::from("tourist")));
-        assert_eq!(3481, run(String::from("semiexp")));
+        let tests = [
+            TestCase("tourist", 3858),
+            TestCase("semiexp", 3481),
+        ];
+
+        for TestCase(s, expected) in tests {
+            assert_eq!(run(s), expected);
+        }
     }
 }
