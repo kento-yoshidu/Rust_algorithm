@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_ay
 
-pub fn run<'a>(_q: usize, q_vec: Vec<(usize, Option<&'a str>)>) -> Vec<&'a str> {
+fn run<'a>(_q: usize, q_vec: Vec<(usize, Option<&'a str>)>) -> Vec<&'a str> {
     let mut stack = Vec::new();
     let mut ans = Vec::new();
 
@@ -29,7 +29,7 @@ mod tests {
     struct TestCase(usize, Vec<(usize, Option<&'static str>)>, Vec<&'static str>);
 
     #[test]
-    fn test() {
+    fn tessoku_a51() {
         let tests = [
             TestCase(5, vec![(1, Some("futuremap")), (1, Some("howtospeak")), (2, None), (3, None), (2, None)], vec!["howtospeak", "futuremap"]),
         ];

@@ -3,7 +3,7 @@
 use itertools::Itertools;
 use std::collections::HashMap;
 
-pub fn run(_n: usize, _m: usize, ab: Vec<(usize, usize)>) -> Vec<Vec<usize>> {
+fn run(_n: usize, _m: usize, ab: Vec<(usize, usize)>) -> Vec<Vec<usize>> {
     let mut hash_map = HashMap::new();
 
     for (a, b) in ab.iter() {
@@ -27,7 +27,7 @@ mod tests {
     struct TestCase(usize, usize, Vec<(usize, usize)>, Vec<Vec<usize>>);
 
     #[test]
-    fn test() {
+    fn tessoku_a61() {
         let tests = [
             TestCase(5, 4, vec![(1, 2), (2, 3), (3, 4), (3, 5)], vec![vec![2], vec![1, 3], vec![2, 4, 5], vec![3], vec![3]]),
             TestCase(15, 30,   vec![(6, 9),

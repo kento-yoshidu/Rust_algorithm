@@ -33,7 +33,7 @@ mod tests {
     struct TestCase(usize, Vec<(char, isize)>, Vec<isize>);
 
     #[test]
-    fn test() {
+    fn tessoku_a28() {
         let tests = [
             TestCase(4, vec![('+', 57), ('+', 43), ('*', 100), ('-', 1)], vec![57, 100, 0, 9999]),
         ];

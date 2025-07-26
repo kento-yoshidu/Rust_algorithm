@@ -1,6 +1,8 @@
+// https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_q
+
 use std::cmp::min;
 
-pub fn run(n: usize, a: Vec<isize>, b: Vec<isize>) -> (usize, Vec<usize>) {
+fn run(n: usize, a: Vec<isize>, b: Vec<isize>) -> (usize, Vec<usize>) {
     let mut dp = vec![0];
     dp.push(a[0]);
 
@@ -38,7 +40,7 @@ mod tests {
     struct TestCase(usize, Vec<isize>, Vec<isize>, (usize, Vec<usize>));
 
     #[test]
-    fn test() {
+    fn tessoku_a17() {
         let tests = [
             TestCase(5, vec![2, 4, 1, 3], vec![5, 3, 7], (4, vec![1, 2, 4, 5])),
         ];
