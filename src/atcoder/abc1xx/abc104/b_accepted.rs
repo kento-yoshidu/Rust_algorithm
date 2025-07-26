@@ -1,10 +1,10 @@
 // https://atcoder.jp/contests/abc104/tasks/abc104_b
 
-pub fn run(s: String) -> String {
+fn run(s: &str) -> &'static str {
     let c: Vec<char> = s.chars().collect();
 
     if c[0] != 'A' {
-        return String::from("WA");
+        return "WA";
     }
 
     let c_count = c[2..c.len()-1].iter().filter(|&c| {
@@ -12,7 +12,7 @@ pub fn run(s: String) -> String {
     }).count();
 
     if c_count != 1 {
-        return String::from("WA");
+        return "WA";
     }
 
     let upper_count = c.iter().filter(|&c| {
@@ -20,22 +20,30 @@ pub fn run(s: String) -> String {
     }).count();
 
     if upper_count != 2 {
-        return String::from("WA");
+        return "WA";
     }
 
-    return String::from("AC")
+    "AC"
 }
 
 #[cfg(test)]
 mod tests {
     use super::*;
 
+    struct TestCase(&'static str, &'static str);
+
     #[test]
-    fn test() {
-        assert_eq!(String::from("AC"), run(String::from("AtCoder")));
-        assert_eq!(String::from("WA"), run(String::from("ACoder")));
-        assert_eq!(String::from("WA"), run(String::from("AcycliC")));
-        assert_eq!(String::from("WA"), run(String::from("AtCoCo")));
-        assert_eq!(String::from("WA"), run(String::from("Atcoder")));
+    fn abc104_b() {
+        let tests = [
+            TestCase("AtCoder", "AC"),
+            TestCase("ACoder", "WA"),
+            TestCase("AcycliC", "WA"),
+            TestCase("AtCoCo", "WA"),
+            TestCase("Atcoder", "WA"),
+        ];
+
+        for TestCase(s, expected) in tests {
+            assert_eq!(run(s), expected);
+        }
     }
 }

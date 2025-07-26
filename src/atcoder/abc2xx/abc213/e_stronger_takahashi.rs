@@ -2,11 +2,11 @@
 
 use std::collections::VecDeque;
 
-fn check(i: isize, j: isize, h: isize, w: isize) -> bool {
-    i < 0 || j < 0 || i >= h || j >= w
+fn out_of_bounds(h: usize, w: usize, i: isize, j: isize) -> bool {
+    i < 0 || j < 0 || h as isize <= i || w as isize <= j
 }
 
-pub fn run(h: usize, w: usize, s: Vec<&str>) -> usize {
+fn run(h: usize, w: usize, s: Vec<&str>) -> usize {
     let vec: Vec<Vec<char>> = s.into_iter().map(|str| str.chars().collect()).collect();
 
     let mut dist = vec![vec![std::usize::MAX; w]; h];
@@ -15,56 +15,74 @@ pub fn run(h: usize, w: usize, s: Vec<&str>) -> usize {
     let mut queue = VecDeque::new();
     queue.push_back((0, 0));
 
-    let dx = [0, 1, 0, -1];
-    let dy = [1, 0, -1, 0];
+    let di = [0, 1, 0, -1];
+    let dj = [1, 0, -1, 0];
 
     while let Some((cur_i, cur_j)) = queue.pop_front() {
         for i in 0..4 {
-            if check(cur_i as isize + dx[i], cur_j as isize + dy[i], h as isize, w as isize) {
+            let new_i = cur_i as isize + di[i];
+            let new_j = cur_j as isize + dj[i];
+
+            if out_of_bounds(h, w, new_i, new_j) {
                 continue;
             }
 
-            let next_i = (cur_i as isize + dx[i]) as usize;
-            let next_j = (cur_j as isize + dy[i]) as usize;
+            let new_i = new_i as usize;
+            let new_j = new_j as usize;
 
-            if vec[next_i][next_j] == '#' || dist[next_i][next_j] != std::usize::MAX {
+            if vec[new_i][new_j] == '#' {
                 continue;
             }
 
-            dist[next_i][next_j] = dist[cur_i][cur_j];
-            queue.push_front((next_i, next_j));
+            if dist[new_i][new_j] > dist[cur_i][cur_j] {
+                dist[new_i][new_j] = dist[cur_i][cur_j];
+                queue.push_front((new_i, new_j));
+            }
         }
 
-        for i in -2..=2 {
-            for j in -2..=2 {
-                let new_i = cur_i as isize + i;
-                let new_j = cur_j as isize + j;
+        for di in -2..=2 {
+            for dj in -2..=2 {
+                let new_i = cur_i as isize + di;
+                let new_j = cur_j as isize + dj;
 
-                if check(new_i as isize, new_j as isize, h as isize, w as isize) {
+                if di.abs() + dj.abs() == 4 {
                     continue;
                 }
 
-                if dist[new_i as usize][new_j as usize] > dist[cur_i][cur_j] + 1 {
-                    dist[new_i as usize][new_j as usize] = dist[cur_i][cur_j] + 1;
-                    queue.push_back((new_i as usize, new_j as usize));
+                if out_of_bounds(h, w, new_i, new_j) {
+                    continue;
+                }
+
+                let new_i = new_i as usize;
+                let new_j = new_j as usize;
+
+                if dist[new_i][new_j] > dist[cur_i][cur_j] + 1 {
+                    dist[new_i][new_j] = dist[cur_i][cur_j] + 1;
+                    queue.push_back((new_i, new_j));
                 }
             }
         }
     }
 
-    for vec in dist {
-        for c in vec {
-            if c == std::usize::MAX {
-                print!("#");
-            } else {
-                print!("{c}");
-            }
+    dist[h-1][w-1]
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    struct TestCase(usize, usize, Vec<&'static str>, usize);
+
+    #[test]
+    fn abc213_e() {
+        let tests = [
+            TestCase(5, 5, vec!["..#..", "#.#.#", "##.##", "#.#.#", "..#.."], 1),
+            TestCase(5, 7, vec![".......", "######.", ".......", ".######", "......."], 0),
+            TestCase(8, 8, vec![".#######", "########", "########", "########", "########", "########", "########", "#######."], 5),
+        ];
+
+        for TestCase(h, w, s, expected) in tests {
+            assert_eq!(run(h, w, s), expected);
         }
-
-        println!();
     }
-
-    let mut ans = 0;
-
-    ans
 }

@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc115/tasks/abc115_d
 
-fn func(n: usize, x: usize) -> usize {
+fn rec(n: usize, x: usize) -> usize {
     if n == 0 {
         return 1;
     } else {
@@ -10,11 +10,11 @@ fn func(n: usize, x: usize) -> usize {
         if x == 1 {
             return 0;
         } else if x <= length+1 {
-            return  func(n-1, x-1);
+            return  rec(n-1, x-1);
         } else if x == length + 2 {
             return  num + 1;
         } else if x <= (length+1)*2 {
-            return num + 1 + func(n-1, x-length-2);
+            return num + 1 + rec(n-1, x-length-2);
         } else {
             return num * 2 + 1;
         }
@@ -22,7 +22,7 @@ fn func(n: usize, x: usize) -> usize {
 }
 
 fn run(n: usize, x: usize) -> usize {
-    func(n, x)
+    rec(n, x)
 }
 
 #[cfg(test)]

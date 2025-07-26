@@ -1,12 +1,12 @@
 // https://atcoder.jp/contests/abc103/tasks/abc103_b
 
-pub fn run(s: &str, t: &str) -> String {
+fn run(s: &str, t: &str) -> &'static str {
     if (0..s.len()).any(|i| {
         s[i..].to_string() + &s[..i] == t
     }) {
-        String::from("Yes")
+        "Yes"
     } else {
-        String::from("No")
+        "No"
     }
 }
 
@@ -14,10 +14,18 @@ pub fn run(s: &str, t: &str) -> String {
 mod tests {
     use super::*;
 
+    struct TestCase(&'static str, &'static str, &'static str);
+
     #[test]
-    fn test() {
-        assert_eq!(String::from("Yes"), run("kyoto", "tokyo"));
-        assert_eq!(String::from("No"), run("abc", "arc"));
-        assert_eq!(String::from("Yes"), run("aaaaaaaaaaaaaaab", "aaaaaaaaaaaaaaab"));
+    fn abc103_b() {
+        let tests = [
+            TestCase("kyoto", "tokyo", "Yes"),
+            TestCase("abc", "arc", "No"),
+            TestCase("aaaaaaaaaaaaaaab", "aaaaaaaaaaaaaaab", "Yes"),
+        ];
+
+        for TestCase(s, t, expected) in tests {
+            assert_eq!(run(s, t), expected);
+        }
     }
 }

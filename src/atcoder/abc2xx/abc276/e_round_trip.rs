@@ -2,7 +2,7 @@
 
 use std::collections::VecDeque;
 
-fn check(i: isize, j: isize, h: isize, w: isize) -> bool {
+fn out_of_bounds(i: isize, j: isize, h: isize, w: isize) -> bool {
     i < 0 || j < 0 || i >= h || j >= w
 }
 
@@ -21,16 +21,16 @@ fn run(h: usize, w: usize, c: Vec<&str>) -> &'static str {
 
     // スタートとゴールの組み合わせ
     let pair = [
-        ((-1, 0), (1, 0)), // 下上
-        ((-1, 0), (0, 1)), // 下右
-        ((-1, 0), (0, -1)), // 下左
-        ((0, 1), (0, -1)), // 右左
-        ((1, 0), (0, 1)), // 下右
-        ((1, 0), (0, -1)), // 下左
-        ];
+        ((-1, 0), (1, 0)),
+        ((-1, 0), (0, 1)),
+        ((-1, 0), (0, -1)),
+        ((0, 1), (0, -1)),
+        ((1, 0), (0, 1)),
+        ((1, 0), (0, -1)),
+    ];
 
-    let dx = [0, 1, 0, -1];
-    let dy = [1, 0, -1, 0];
+    let di = [0, 1, 0, -1];
+    let dj = [1, 0, -1, 0];
 
     for i in 0..6 {
         let start_i = s_pos.0 + pair[i].0.0;
@@ -39,7 +39,7 @@ fn run(h: usize, w: usize, c: Vec<&str>) -> &'static str {
         let end_i = s_pos.0 + pair[i].1.0;
         let end_j = s_pos.1 + pair[i].1.1;
 
-        if check(start_i, start_j, h as isize, w as isize) || check(end_i, end_j, h as isize, w as isize) {
+        if out_of_bounds(start_i, start_j, h as isize, w as isize) || out_of_bounds(end_i, end_j, h as isize, w as isize) {
             continue;
         }
 
@@ -58,12 +58,12 @@ fn run(h: usize, w: usize, c: Vec<&str>) -> &'static str {
 
         while let Some((cur_i, cur_j)) = queue.pop_front() {
             for i in 0..4 {
-                if check(cur_i as isize + dx[i], cur_j as isize + dy[i], h as isize, w as isize) {
+                if out_of_bounds(cur_i as isize + di[i], cur_j as isize + dj[i], h as isize, w as isize) {
                     continue;
                 }
 
-                let next_i = (cur_i as isize + dx[i]) as usize;
-                let next_j = (cur_j as isize + dy[i]) as usize;
+                let next_i = (cur_i as isize + di[i]) as usize;
+                let next_j = (cur_j as isize + dj[i]) as usize;
 
                 if vec[next_i][next_j] == '#' || dist[next_i][next_j] != -1 {
                     continue;
@@ -89,7 +89,7 @@ mod tests {
     struct TestCase(usize, usize, Vec<&'static str>, &'static str);
 
     #[test]
-    fn test() {
+    fn abc276_e() {
         let tests = [
             TestCase(4, 4, vec!["....", "#.#.", ".S..", ".##."], "Yes"),
             TestCase(2, 2, vec!["S.", ".#"], "No"),

@@ -27,17 +27,19 @@ fn run(n: usize, _m: usize, ab: Vec<(usize, usize)>) -> Vec<usize> {
                 continue;
             }
 
-            if let Some(next) = hash_map.get(&x) {
-                for &n in next {
-                    if !graph[n] {
-                        graph[n] = true;
-                        if k == 1 {
-                            count += 1;
-                        }
-                        queue.push_back((n, k-1));
-                    }
-                }
+            let Some(next) = hash_map.get(&x) else {
+                continue;
             };
+
+            for &n in next {
+                if !graph[n] {
+                    graph[n] = true;
+                    if k == 1 {
+                        count += 1;
+                    }
+                    queue.push_back((n, k-1));
+                }
+            }
         }
 
         ans.push(count);
@@ -53,7 +55,7 @@ mod tests {
     struct TestCase(usize, usize, Vec<(usize, usize)>, Vec<usize>);
 
     #[test]
-    fn test() {
+    fn abc016_c() {
         let tests = [
             TestCase(3, 2, vec![(1, 2), (2, 3)], vec![1, 0, 1]),
             TestCase(3, 3, vec![(1, 2), (1, 3), (2, 3)], vec![0, 0, 0]),

@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc107/tasks/abc107_b
 
-pub fn run(h: usize, w: usize, a: Vec<&str>) -> Vec<String> {
+fn run(h: usize, w: usize, a: Vec<&str>) -> Vec<String> {
     let vec: Vec<Vec<char>> = a.iter().map(|str| str.chars().collect()).collect();
 
     // 何行目を残すか
@@ -25,9 +25,9 @@ pub fn run(h: usize, w: usize, a: Vec<&str>) -> Vec<String> {
         }
     });
 
-    row_i.iter().map(|r| {
+    row_i.into_iter().map(|r| {
         col_i.iter().map(|c| {
-            vec[*r][*c]
+            vec[r][*c]
         })
         .collect()
     })
@@ -38,12 +38,20 @@ pub fn run(h: usize, w: usize, a: Vec<&str>) -> Vec<String> {
 mod tests {
     use super::*;
 
+    struct TestCase(usize, usize, Vec<&'static str>, Vec<&'static str>);
+
     #[test]
-    fn test() {
-        assert_eq!(vec!["###", "###", ".##"], run(4, 4, vec!["##.#", "....", "##.#", ".#.#"]));
-        assert_eq!(vec!["#..", ".#.", "..#"], run(3, 3, vec!["#..", ".#.", "..#"]));
-        assert_eq!(vec!["#"], run(4, 5, vec![".....", ".....", "..#..", "....."]));
-        assert_eq!(vec!["..#", "#..", ".#.", ".#.", "#.#"], run(7, 6, vec!["......", "....#.", ".#....", "..#...", "..#...", "......", ".#..#."]));
+    fn abc107_b() {
+        let tests = [
+            TestCase(4, 4, vec!["##.#", "....", "##.#", ".#.#"], vec!["###", "###", ".##"]),
+            TestCase(3, 3, vec!["#..", ".#.", "..#"], vec!["#..", ".#.", "..#"]),
+            TestCase(4, 5, vec![".....", ".....", "..#..", "....."], vec!["#"]),
+            TestCase(7, 6, vec!["......", "....#.", ".#....", "..#...", "..#...", "......", ".#..#."], vec!["..#", "#..", ".#.", ".#.", "#.#"]),
+        ];
+
+        for TestCase(h, w, a, expected) in tests {
+            assert_eq!(run(h, w, a), expected);
+        }
     }
 }
 

@@ -1,7 +1,7 @@
 // https://atcoder.jp/contests/abc119/tasks/abc119_b
 
-pub fn run(_n: usize, vec: Vec<(f32, &str)>) -> f32 {
-    vec.iter()
+fn run(_n: usize, vec: Vec<(f32, &str)>) -> f32 {
+    vec.into_iter()
         .map(|t| {
             match t.1 {
                 "JPY" => t.0,
@@ -16,10 +16,17 @@ pub fn run(_n: usize, vec: Vec<(f32, &str)>) -> f32 {
 mod tests {
     use super::*;
 
+    struct TestCase(usize, Vec<(f32, &'static str)>, f32);
+
     #[test]
-    fn test() {
-        assert_eq!(48000.0, run(2, vec![(10000.0, "JPY"), (0.10000000, "BTC")]));
-        assert_eq!(138000000.0038, run(3, vec![(100000000.0, "JPY"), (100.00000000, "BTC"), (0.00000001, "BTC")]));
+    fn abc119_b() {
+        let tests = [
+            TestCase(2, vec![(10000.0, "JPY"), (0.10000000, "BTC")], 48000.0),
+            TestCase(3, vec![(100000000.0, "JPY"), (100.00000000, "BTC"), (0.00000001, "BTC")], 138000000.0038),
+        ];
+
+        for TestCase(n, vec, expected) in tests {
+            assert_eq!(run(n, vec), expected);
+        }
     }
 }
-

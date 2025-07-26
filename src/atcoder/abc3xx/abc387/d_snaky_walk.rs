@@ -2,8 +2,8 @@
 
 use std::collections::VecDeque;
 
-fn check(r: isize, c: isize, h: isize, w: isize) -> bool {
-    r < 0 || c < 0 || r >= h || c >= w
+fn out_of_bounds(i: isize, j: isize, h: isize, w: isize) -> bool {
+    i < 0 || j < 0 || i >= h || j >= w
 }
 
 fn run(h: usize, w: usize, s: Vec<&str>) -> isize {
@@ -43,7 +43,7 @@ fn run(h: usize, w: usize, s: Vec<&str>) -> isize {
                         (cur_i as isize, cur_j as isize + d[j])
                     };
 
-                    if check(new_i, new_j, h as isize, w as isize) {
+                    if out_of_bounds(new_i, new_j, h as isize, w as isize) {
                         continue;
                     }
 
@@ -72,7 +72,7 @@ mod tests {
     struct TestCase(usize, usize, Vec<&'static str>, isize);
 
     #[test]
-    fn test() {
+    fn abc387_d() {
         let tests = [
             TestCase(3, 5, vec![".S#.G", ".....", ".#..."], 7),
             TestCase(3, 5, vec!["..#.G", ".....", "S#..."], -1),

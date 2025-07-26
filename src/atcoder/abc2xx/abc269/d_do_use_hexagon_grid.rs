@@ -2,8 +2,8 @@
 
 use std::collections::VecDeque;
 
-fn check(r: isize, c: isize) -> bool {
-    r < 0 || c < 0 || r >= 2001 || c >= 2001
+fn out_of_bounds(i: isize, j: isize) -> bool {
+    i < 0 || j < 0 || i >= 2001 || j >= 2001
 }
 
 fn run(_n: usize, xy: Vec<(isize, isize)>) -> usize {
@@ -17,8 +17,8 @@ fn run(_n: usize, xy: Vec<(isize, isize)>) -> usize {
         vec[*x as usize][*y as usize] = true;
     }
 
-    let dx = [0, 1, 1, 0, -1, -1];
-    let dy = [1, 1, 0, -1, -1, 0];
+    let di = [0, 1, 1, 0, -1, -1];
+    let dj = [1, 1, 0, -1, -1, 0];
 
     let mut ans = 0;
 
@@ -41,12 +41,12 @@ fn run(_n: usize, xy: Vec<(isize, isize)>) -> usize {
             vec[cur_i as usize][cur_j as usize] = false;
 
             for i in 0..6 {
-                if check(cur_i as isize + dx[i], cur_j as isize + dy[i]) {
+                if out_of_bounds(cur_i as isize + di[i], cur_j as isize + dj[i]) {
                     continue;
                 }
 
-                let new_i = (cur_i as isize + dx[i]) as usize;
-                let new_j = (cur_j as isize + dy[i]) as usize;
+                let new_i = (cur_i as isize + di[i]) as usize;
+                let new_j = (cur_j as isize + dj[i]) as usize;
 
                 if vec[new_i][new_j] {
                     queue.push_back((new_i as isize, new_j as isize));
@@ -65,7 +65,7 @@ mod tests {
     struct TestCase(usize, Vec<(isize, isize)>, usize);
 
     #[test]
-    fn test() {
+    fn abc269_d() {
         let tests = [
             TestCase(6, vec![(-1, -1), (0, 1), (0, 2), (1, 0), (1, 2), (2, 0)], 3),
             TestCase(4, vec![(5, 0), (4, 1), (-3, 4), (-2, -5)], 4),

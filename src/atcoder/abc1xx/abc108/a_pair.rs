@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc108/tasks/abc108_a
 
-pub fn run(n: usize) -> usize {
+fn run(n: usize) -> usize {
     ((n + 1) / 2) * (n / 2)
 }
 
@@ -8,11 +8,19 @@ pub fn run(n: usize) -> usize {
 mod tests {
     use super::*;
 
+    struct TestCase(usize, usize);
+
     #[test]
-    fn test() {
-        assert_eq!(2, run(3));
-        assert_eq!(9, run(6));
-        assert_eq!(30, run(11));
-        assert_eq!(625, run(50));
+    fn abc108_a() {
+        let tests = [
+            TestCase(3, 2),
+            TestCase(6, 9),
+            TestCase(11, 30),
+            TestCase(50, 625),
+        ];
+
+        for TestCase(n, expected) in tests {
+            assert_eq!(run(n), expected);
+        }
     }
 }

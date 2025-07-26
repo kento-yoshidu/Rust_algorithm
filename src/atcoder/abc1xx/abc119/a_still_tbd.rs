@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc119/tasks/abc119_b
 
-pub fn run(s: &str) -> &'static str {
+fn run(s: &str) -> &'static str {
     let temp: Vec<_> = s.split("/").collect();
 
     if temp[1].parse::<i32>().unwrap() > 4 {
@@ -17,7 +17,7 @@ mod tests {
     struct TestCase(&'static str, &'static str);
 
     #[test]
-    fn test() {
+    fn abc119_a() {
         let tests = [
             TestCase("2019/04/30", "Heisei"),
             TestCase("2019/11/30", "TBD"),

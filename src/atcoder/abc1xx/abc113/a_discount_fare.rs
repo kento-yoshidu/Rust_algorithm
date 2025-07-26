@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc113/tasks/abc113_a
 
-fn run(x: i32, y: i32) -> i32 {
+fn run(x: usize, y: usize) -> usize {
     x + y / 2
 }
 
@@ -8,9 +8,17 @@ fn run(x: i32, y: i32) -> i32 {
 mod tests {
     use super::*;
 
+    struct TestCase(usize, usize, usize);
+
     #[test]
-    fn test() {
-        assert_eq!(110, run(81, 58));
-        assert_eq!(31, run(4, 54));
+    fn abc113_a() {
+        let tests = [
+            TestCase(81, 58, 110),
+            TestCase(4, 54, 31),
+        ];
+
+        for TestCase(x, y, expected) in tests {
+            assert_eq!(run(x, y), expected);
+        }
     }
 }

@@ -11,21 +11,19 @@ fn run(r: usize, c: usize, s: (usize, usize), g: (usize, usize), v: Vec<&str>) -
     graph[s.0-1][s.1-1] = 0;
     queue.push_back((s.0-1, s.1-1));
 
-    let dx = [0, -1, 0, 1];
-    let dy = [-1, 0, 1, 0];
+    let di = [0, -1, 0, 1];
+    let dj = [-1, 0, 1, 0];
 
-    while queue.len() > 0 {
-        let cur = queue.pop_front().unwrap();
-
+    while let Some((cur_i, cur_j)) = queue.pop_front() {
         for i in 0..4 {
-            let h = (cur.0 as isize + dx[i]) as usize;
-            let w = (cur.1 as isize + dy[i]) as usize;
+            let h = (cur_i as isize + di[i]) as usize;
+            let w = (cur_j as isize + dj[i]) as usize;
 
             if vec[h][w] == '#' || graph[h][w] != -1 {
                 continue;
             }
 
-            graph[h][w] = graph[cur.0][cur.1] + 1;
+            graph[h][w] = graph[cur_i][cur_j] + 1;
 
             queue.push_back((h, w));
         }
@@ -41,7 +39,7 @@ mod tests {
     struct TestCase(usize, usize, (usize, usize), (usize, usize), Vec<&'static str>, usize);
 
     #[test]
-    fn test() {
+    fn abc007_c() {
         let tests = [
             TestCase(7, 8, (2, 2), (4, 5), vec!["########", "#......#", "#.######", "#..#...#", "#..##..#", "##.....#", "########"], 11),
             TestCase(5, 8, (2, 2), (2, 4), vec!["########", "#.#....#", "#.###..#", "#......#", "########"], 10),

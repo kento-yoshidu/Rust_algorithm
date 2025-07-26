@@ -2,7 +2,7 @@
 
 use std::collections::HashSet;
 
-pub fn run(s: usize) -> usize {
+fn run(s: usize) -> usize {
     let mut ans = 0;
     let mut num = s;
 
@@ -30,10 +30,18 @@ pub fn run(s: usize) -> usize {
 mod tests {
     use super::*;
 
+    struct TestCase(usize, usize);
+
     #[test]
-    fn test() {
-        assert_eq!(5, run(8));
-        assert_eq!(18, run(7));
-        assert_eq!(114, run(54));
+    fn abc116_b() {
+        let tests = [
+            TestCase(8, 5),
+            TestCase(7, 18),
+            TestCase(54, 114),
+        ];
+
+        for TestCase(s, expected) in tests {
+            assert_eq!(run(s), expected);
+        }
     }
 }
