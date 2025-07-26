@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc122/tasks/abc122_c
 
-pub fn run(n: usize, _q: usize, s: &str, lr: Vec<(usize, usize)>) -> Vec<usize> {
+fn run(n: usize, _q: usize, s: &str, lr: Vec<(usize, usize)>) -> Vec<usize> {
     let mut ans = Vec::new();
 
     let mut cum_sum = vec![0; n];
@@ -29,7 +29,7 @@ mod tests {
     struct TestCase(usize, usize, &'static str, Vec<(usize, usize)>, Vec<usize>);
 
     #[test]
-    fn test() {
+    fn abc122_c() {
         let tests = [
             TestCase(8, 3, "ACACTACG", vec![(3, 7), (2, 3), (1, 8)], vec![2, 0, 3]),
         ];

@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc121/tasks/abc121_a
 
-pub fn run(a: i32, b: i32, c: i32, d: i32) -> i32 {
+fn run(a: isize, b: isize, c: isize, d: isize) -> isize {
     (a - c) * (b - d)
 }
 
@@ -8,10 +8,18 @@ pub fn run(a: i32, b: i32, c: i32, d: i32) -> i32 {
 mod tests {
     use super::*;
 
+    struct TestCase(isize, isize, isize, isize, isize);
+
     #[test]
-    fn test() {
-        assert_eq!(1, run(3, 2, 2, 1));
-        assert_eq!(6, run(5, 5, 2, 3));
-        assert_eq!(0, run(2, 4, 2, 4));
+    fn abc121_a() {
+        let tests = [
+            TestCase(3, 2, 2, 1, 1),
+            TestCase(5, 5, 2, 3, 6),
+            TestCase(2, 4, 2, 4, 0),
+        ];
+
+        for TestCase(a, b, c, d, expected) in tests {
+            assert_eq!(run(a, b, c, d), expected);
+        }
     }
 }

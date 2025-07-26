@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc122/tasks/abc122_b
 
-pub fn run(str: String) -> i32 {
+fn run(str: &str) -> usize {
     let mut len = 0;
     let mut max_len = 0;
 
@@ -16,7 +16,7 @@ pub fn run(str: String) -> i32 {
     max_len
 }
 
-pub fn run2(str: &str) -> usize {
+fn run2(str: &str) -> usize {
     let chars: Vec<char> = str.chars().collect();
 
     chars.iter()
@@ -34,17 +34,18 @@ pub fn run2(str: &str) -> usize {
 mod tests {
     use super::*;
 
-    #[test]
-    fn test() {
-        assert_eq!(3, run(String::from("ATCODER")));
-        assert_eq!(5, run(String::from("HATAGAYA")));
-        assert_eq!(0, run(String::from("SHINJUKU")));
-    }
+    struct TestCase(&'static str, usize);
 
     #[test]
-    fn test2() {
-        assert_eq!(3, run2("ATCODER"));
-        assert_eq!(5, run2("HATAGAYA"));
-        assert_eq!(0, run2("SHINJUKU"));
+    fn abc122_b() {
+        let tests = [
+            TestCase("ATCODER", 3),
+            TestCase("HATAGAYA", 5),
+            TestCase("SHINJUKU", 0),
+        ];
+
+        for TestCase(s, expected) in tests {
+            assert_eq!(run(s), expected);
+        }
     }
 }
