@@ -1,7 +1,5 @@
 // https://atcoder.jp/contests/abc405/tasks/abc405_b
 
-use std::collections::HashSet;
-
 fn run(n: usize, m: usize, a: Vec<usize>) -> usize {
     let a = a.clone();
 

@@ -1,7 +1,5 @@
 // https://atcoder.jp/contests/abc385/tasks/abc385_b
 
-use std::collections::HashSet;
-
 fn run(_h: usize, _w: usize, x: usize, y: usize, s: Vec<&str>, t: &str) -> (usize, usize, usize) {
     let mut vec: Vec<Vec<char>> = s.into_iter().map(|s| s.chars().collect()).collect();
 

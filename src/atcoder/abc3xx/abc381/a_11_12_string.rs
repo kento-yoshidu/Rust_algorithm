@@ -1,7 +1,5 @@
 // https://atcoder.jp/contests/abc381/tasks/abc381_a
 
-use itertools::concat;
-
 fn run(n: usize, s: &str) -> &'static str {
     if n % 2 == 0 {
         return "No";

@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc412/tasks/abc412_a
 
-fn run(n: usize, ab: Vec<(usize, usize)>) -> usize {
+fn run(_n: usize, ab: Vec<(usize, usize)>) -> usize {
     ab.into_iter()
         .filter(|(a, b)| a < b)
         .count()

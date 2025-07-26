@@ -1,7 +1,5 @@
 // https://atcoder.jp/contests/abc375/tasks/abc375_b
 
-use num_integer::Roots;
-
 fn run(_n: usize, xy: Vec<(isize, isize)>) -> f64 {
     let mut ans = 0.0;
 

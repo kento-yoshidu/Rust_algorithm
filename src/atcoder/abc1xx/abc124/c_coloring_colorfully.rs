@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc124/tasks/abc124_c
 
-pub fn run(s: &str) -> usize {
+fn run(s: &str) -> usize {
     let ans = s.chars()
         .map(|c| c.to_digit(10).unwrap())
         .enumerate()
@@ -12,19 +12,27 @@ pub fn run(s: &str) -> usize {
             }
         });
 
-    *ans.iter().min().unwrap()
+    ans.into_iter().min().unwrap()
 }
 
 #[cfg(test)]
 mod tests {
     use super::*;
 
+    struct TestCase(&'static str, usize);
+
     #[test]
-    fn test() {
-        assert_eq!(1, run("000"));
-        assert_eq!(3, run("10010010"));
-        assert_eq!(0, run("0101010101010101"));
-        assert_eq!(0, run("1010101010101010"));
-        assert_eq!(0, run("0"));
+    fn abc124_c() {
+        let tests = [
+            TestCase("000", 1),
+            TestCase("10010010", 3),
+            TestCase("0101010101010101", 0),
+            TestCase("1010101010101010", 0),
+            TestCase("0", 0),
+        ];
+
+        for TestCase(s, expected) in tests {
+            assert_eq!(run(s), expected);
+        }
     }
 }

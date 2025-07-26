@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc124/tasks/abc124_a
 
-pub fn run(a: i32, b: i32) -> i32 {
+fn run(a: usize, b: usize) -> usize {
     if a == b {
         return a * 2;
     }
@@ -14,10 +14,18 @@ pub fn run(a: i32, b: i32) -> i32 {
 mod tests {
     use super::*;
 
+    struct TestCase(usize, usize, usize);
+
     #[test]
-    fn test() {
-        assert_eq!(9, run(5, 3));
-        assert_eq!(7, run(3, 4));
-        assert_eq!(12, run(6, 6));
+    fn abc124_a() {
+        let tests = [
+            TestCase(5, 3, 9),
+            TestCase(3, 4, 7),
+            TestCase(6, 6, 12),
+        ];
+
+        for TestCase(a, b, expected) in tests {
+            assert_eq!(run(a, b), expected);
+        }
     }
 }

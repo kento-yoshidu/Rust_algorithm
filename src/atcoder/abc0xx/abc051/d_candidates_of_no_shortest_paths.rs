@@ -1,6 +1,5 @@
 // https://atcoder.jp/contests/abc051/tasks/abc051_d
 
-use core::hash;
 use std::collections::{BinaryHeap, HashMap};
 
 const INF: usize = std::usize::MAX;

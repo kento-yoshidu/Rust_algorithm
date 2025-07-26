@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc378/tasks/abc378_c
 
-use std::{collections::HashMap, hash::Hash};
+use std::collections::HashMap;
 
 fn run(_n: usize, a: Vec<isize>) -> Vec<isize> {
     let mut hash_map: HashMap<isize, isize> = HashMap::new();

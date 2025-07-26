@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc372/tasks/abc372_c
 
-pub fn run(n: usize, q: usize, s: &str, xc: Vec<(usize, char)>) {
+pub fn run(_n: usize, _q: usize, s: &str, xc: Vec<(usize, char)>) {
     let mut chars: Vec<char> = s.chars().collect();
 
     let mut count = chars.windows(3)

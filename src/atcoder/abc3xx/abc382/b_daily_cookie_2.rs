@@ -1,7 +1,5 @@
 // https://atcoder.jp/contests/abc382/tasks/abc382_b
 
-use itertools::Itertools;
-
 fn run(n: usize, d: usize, s: &str) -> String {
     let mut chars: Vec<char> = s.chars().collect();
 
