@@ -1,21 +1,22 @@
 // https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_b
 
-pub fn run(_n: usize, x: usize, vec: Vec<usize>) -> String {
-    for i in vec.iter() {
+fn run(_n: usize, x: usize, vec: &Vec<usize>) -> &'static str {
+    for i in vec.into_iter() {
         if *i == x {
-            return  String::from("Yes");
+            return  "Yes";
         }
     }
-    String::from("No")
+
+    "No"
 }
 
-pub fn run2(_n: usize, x: usize, vec: Vec<usize>) -> String {
-    if vec.iter().any(|num| {
+fn run2(_n: usize, x: usize, vec: &Vec<usize>) -> &'static str {
+    if vec.into_iter().any(|num| {
         *num == x
     }) {
-        String::from("Yes")
+        "Yes"
     } else {
-        String::from("No")
+        "No"
     }
 }
 
@@ -24,13 +25,17 @@ pub fn run2(_n: usize, x: usize, vec: Vec<usize>) -> String {
 mod tests {
     use super::*;
 
-    #[test]
-    fn test() {
-        assert_eq!(String::from("Yes"), run(5, 40, vec![10, 20, 30, 40, 50]));
-    }
+    struct TestCase(usize, usize, Vec<usize>, &'static str);
 
     #[test]
-    fn test2() {
-        assert_eq!(String::from("Yes"), run2(5, 40, vec![10, 20, 30, 40, 50]));
+    fn tessoku_a02() {
+        let tests = [
+            TestCase(5, 40, vec![10, 20, 30, 40, 50], "Yes"),
+        ];
+
+        for TestCase(n, x, vec, expected) in tests {
+            assert_eq!(run(n, x, &vec), expected);
+            assert_eq!(run2(n, x, &vec), expected);
+        }
     }
 }

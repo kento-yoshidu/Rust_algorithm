@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_e
 
-pub fn run(n: usize, k: usize) -> usize {
+fn run(n: usize, k: usize) -> usize {
     let mut count = 0;
 
     for x in 1..=n {
@@ -22,9 +22,17 @@ pub fn run(n: usize, k: usize) -> usize {
 mod tests {
     use super::*;
 
+    struct TestCase(usize, usize, usize);
+
     #[test]
-    fn test() {
-        assert_eq!(7, run(3, 6));
-        assert_eq!(6498498, run(3000, 4000));
+    fn tessoku_a05() {
+        let tests = [
+            TestCase(3, 6, 7),
+            TestCase(3000, 4000, 6498498),
+        ];
+
+        for TestCase(n, k, expected) in tests {
+            assert_eq!(run(n, k), expected);
+        }
     }
 }

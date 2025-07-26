@@ -2,10 +2,9 @@
 
 use itertools::Itertools;
 
-pub fn run(n: usize, _q: usize, a: Vec<usize>, l: Vec<Vec<usize>>) -> Vec<usize> {
+fn run(n: usize, _q: usize, a: &Vec<usize>, l: &Vec<Vec<usize>>) -> Vec<usize> {
     let mut total: Vec<usize> = Vec::from([0]);
 
-    // 累計和を求める
     for i in 0..n {
         total.push(total[i] + a[i]);
     }
@@ -19,10 +18,9 @@ pub fn run(n: usize, _q: usize, a: Vec<usize>, l: Vec<Vec<usize>>) -> Vec<usize>
     ans
 }
 
-pub fn run2(n: usize, _q: usize, a: Vec<usize>, l: Vec<Vec<usize>>) -> Vec<usize> {
+fn run2(n: usize, _q: usize, a: &Vec<usize>, l: &Vec<Vec<usize>>) -> Vec<usize> {
     let mut total: Vec<usize> = Vec::from([0]);
 
-    // 累計和を求める
     for i in 0..n {
         total.push(total[i] + a[i]);
     }
@@ -37,13 +35,17 @@ pub fn run2(n: usize, _q: usize, a: Vec<usize>, l: Vec<Vec<usize>>) -> Vec<usize
 mod tests {
     use super::*;
 
-    #[test]
-    fn test() {
-        assert_eq!(vec![15, 24, 1123, 111, 11137], run(10, 5, vec![8, 6, 9, 1, 2, 1, 10, 100, 1000, 10000], vec![vec![2, 3], vec![1, 4], vec![3, 9], vec![6, 8], vec![1, 10]]));
-    }
+    struct TestCase(usize, usize, Vec<usize>, Vec<Vec<usize>>, Vec<usize>);
 
     #[test]
-    fn test2() {
-        assert_eq!(vec![15, 24, 1123, 111, 11137], run2(10, 5, vec![8, 6, 9, 1, 2, 1, 10, 100, 1000, 10000], vec![vec![2, 3], vec![1, 4], vec![3, 9], vec![6, 8], vec![1, 10]]));
+    fn tessoku_a06() {
+        let tests = [
+            TestCase(10, 5, vec![8, 6, 9, 1, 2, 1, 10, 100, 1000, 10000], vec![vec![2, 3], vec![1, 4], vec![3, 9], vec![6, 8], vec![1, 10]], vec![15, 24, 1123, 111, 11137]),
+        ];
+
+        for TestCase(n, q, a, l, expected) in tests {
+            assert_eq!(run(n, q, &a, &l), expected);
+            assert_eq!(run2(n, q, &a, &l), expected);
+        }
     }
 }
