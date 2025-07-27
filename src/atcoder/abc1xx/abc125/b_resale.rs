@@ -22,10 +22,18 @@ fn run(n: usize, v: Vec<isize>, c: Vec<isize>) -> isize {
 mod tests {
     use super::*;
 
+    struct TestCase(usize, Vec<isize>, Vec<isize>, isize);
+
     #[test]
-    fn test() {
-        assert_eq!(5, run(3, vec![10, 2, 5], vec![6, 3, 4]));
-        assert_eq!(6, run(4, vec![13, 21, 6, 19], vec![11, 30, 6, 15]));
-        assert_eq!(0, run(1, vec![1], vec![50]));
+    fn abc125_b() {
+        let tests = [
+            TestCase(3, vec![10, 2, 5], vec![6, 3, 4], 5),
+            TestCase(4, vec![13, 21, 6, 19], vec![11, 30, 6, 15], 6),
+            TestCase(1, vec![1], vec![50], 0),
+        ];
+
+        for TestCase(n, v, c, expected) in tests {
+            assert_eq!(run(n, v, c), expected);
+        }
     }
 }
