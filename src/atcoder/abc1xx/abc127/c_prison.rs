@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc127/tasks/abc127_c
 
-pub fn run(_n: usize, _m: usize, lr: Vec<(usize, usize)>) -> usize {
+fn run(_n: usize, _m: usize, lr: Vec<(usize, usize)>) -> usize {
     let mut l_max = 0;
     let mut r_min = std::usize::MAX;
 
@@ -23,7 +23,7 @@ mod tests {
     struct TestCase(usize, usize, Vec<(usize, usize)>, usize);
 
     #[test]
-    fn test() {
+    fn abc127_c() {
         let tests = [
             TestCase(4, 2, vec![(1, 3), (2, 4)], 2),
             TestCase(10, 3, vec![(3, 6), (5, 7), (6, 9)], 1),

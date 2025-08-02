@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc127/tasks/abc127_d
 
-pub fn run(n: usize, _m: usize, a: Vec<usize>, bc: Vec<(usize, usize)>) -> usize {
+fn run(n: usize, _m: usize, a: Vec<usize>, bc: Vec<(usize, usize)>) -> usize {
     let mut bc_vec = bc.clone();
 
     let mut a_vec: Vec<(usize, usize)> = a.iter()
@@ -37,11 +37,19 @@ pub fn run(n: usize, _m: usize, a: Vec<usize>, bc: Vec<(usize, usize)>) -> usize
 mod tests {
     use super::*;
 
+    struct TestCase(usize, usize, Vec<usize>, Vec<(usize, usize)>, usize);
+
     #[test]
-    fn test() {
-        assert_eq!(14, run(3, 2, vec![5, 1, 4], vec![(2, 3), (1, 5)]));
-        assert_eq!(338, run(10, 3, vec![1, 8, 5, 7, 100, 4, 52, 33, 13, 5], vec![(3, 10), (4, 30), (1, 4)]));
-        assert_eq!(300, run(3, 2, vec![100, 100, 100], vec![(3, 99), (3, 99)]));
-        assert_eq!(10000000001, run(11, 3, vec![1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1], vec![(3, 1000000000), (4, 1000000000), (3, 1000000000)]));
+    fn abc127_d() {
+        let tests = [
+            TestCase(3, 2, vec![5, 1, 4], vec![(2, 3), (1, 5)], 14),
+            TestCase(10, 3, vec![1, 8, 5, 7, 100, 4, 52, 33, 13, 5], vec![(3, 10), (4, 30), (1, 4)], 338),
+            TestCase(3, 2, vec![100, 100, 100], vec![(3, 99), (3, 99)], 300),
+            TestCase(11, 3, vec![1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1], vec![(3, 1000000000), (4, 1000000000), (3, 1000000000)], 10000000001),
+        ];
+
+        for TestCase(n, m, a, bc, expected) in tests {
+            assert_eq!(run(n, m, a, bc), expected);
+        }
     }
 }
