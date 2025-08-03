@@ -1,11 +1,11 @@
 // https://atcoder.jp/contests/abc122/tasks/abc122_a
 
-fn run(c: &str) -> &str {
+fn run(c: char) -> char {
     match c {
-        "A" => "T",
-        "T" => "A",
-        "G" => "C",
-        _ => "G"
+        'A' => 'T',
+        'T' => 'A',
+        'G' => 'C',
+        _ => 'G'
     }
 }
 
@@ -13,9 +13,17 @@ fn run(c: &str) -> &str {
 mod tests {
     use super::*;
 
+    struct TestCase(char, char);
+
     #[test]
-    fn test() {
-        assert_eq!("T", run("A"));
-        assert_eq!("C", run("G"));
+    fn abc122_a() {
+        let tests = [
+            TestCase('A', 'T'),
+            TestCase('G', 'C'),
+        ];
+
+        for TestCase(c, expected) in tests {
+            assert_eq!(run(c), expected);
+        }
     }
 }
