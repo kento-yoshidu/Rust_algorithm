@@ -11,4 +11,4 @@ pub mod joi;
 pub mod math_and_algorithm;
 pub mod other_contest;
 pub mod tessoku_book;
-// pub mod typical90;
+pub mod typical90;
