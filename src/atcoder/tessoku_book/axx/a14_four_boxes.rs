@@ -1,8 +1,6 @@
 // https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_n
 
-use itertools::Itertools;
-
-pub fn run(_n: usize, k: usize, a: Vec<usize>, b: Vec<usize>, c: Vec<usize>, d: Vec<usize>) -> &'static str {
+fn run(_n: usize, k: usize, a: Vec<usize>, b: Vec<usize>, c: Vec<usize>, d: Vec<usize>) -> &'static str {
     let mut p = Vec::new();
     let mut q = Vec::new();
 
@@ -36,7 +34,7 @@ mod tests {
     struct TestCase(usize, usize, Vec<usize>, Vec<usize>, Vec<usize>, Vec<usize>, &'static str);
 
     #[test]
-    fn test() {
+    fn tessoku_a14() {
         let tests = [
             TestCase(3, 50, vec![3, 9, 17], vec![4, 7, 9], vec![10, 20, 30], vec![1, 2, 3], "Yes"),
         ];
