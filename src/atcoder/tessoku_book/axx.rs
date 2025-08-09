@@ -13,6 +13,7 @@ pub mod a14_four_boxes;
 pub mod a15;
 pub mod a16_dungeon_1;
 pub mod a17_dungeon_2;
+pub mod a18;
 pub mod a26_prime_check;
 pub mod a27_calculate_gcd;
 pub mod a28_blackboard;
