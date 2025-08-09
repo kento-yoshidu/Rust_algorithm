@@ -15,7 +15,7 @@ mod tests {
     struct TestCase(usize, usize, &'static str);
 
     #[test]
-    fn test() {
+    fn tessoku_a36() {
         let tests = [
             TestCase(5, 10, "Yes"),
             TestCase(5, 9, "No"),

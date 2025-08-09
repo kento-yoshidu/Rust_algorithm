@@ -2,7 +2,7 @@
 
 use std::collections::BTreeSet;
 
-pub fn run(_n: usize, q: Vec<(usize, Option<usize>)>) -> Vec<usize> {
+fn run(_n: usize, q: Vec<(usize, Option<usize>)>) -> Vec<usize> {
     let mut ans = Vec::new();
     let mut btree_set = BTreeSet::new();
 
@@ -31,7 +31,7 @@ mod tests {
     struct TestCase(usize, Vec<(usize, Option<usize>)>, Vec<usize>);
 
     #[test]
-    fn test() {
+    fn tessoku_a53() {
         let tests = [
             TestCase(3, vec![(1, Some(2420)), (1, Some(1650)), (2, None)], vec![1650]),
         ];

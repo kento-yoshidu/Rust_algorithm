@@ -2,7 +2,7 @@
 
 use std::collections::VecDeque;
 
-pub fn run<'a>(_q: usize, q_vec: Vec<(usize, Option<&'a str>)>) -> Vec<&'a str> {
+fn run<'a>(_q: usize, q_vec: Vec<(usize, Option<&'a str>)>) -> Vec<&'a str> {
     let mut ans = Vec::new();
     let mut queue = VecDeque::new();
 
@@ -27,7 +27,7 @@ mod tests {
     struct TestCase(usize, Vec<(usize, Option<&'static str>)>, Vec<&'static str>);
 
     #[test]
-    fn test() {
+    fn tessoku_a52() {
         let tests = [
             TestCase(5, vec![(1, Some("taro")), (1, Some("hanako")), (2, None), (3, None), (2, None)], vec!["taro", "hanako"]),
         ];

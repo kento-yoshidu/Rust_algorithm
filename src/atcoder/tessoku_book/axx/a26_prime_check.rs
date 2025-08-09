@@ -1,23 +1,23 @@
 // https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_z
 
-fn is_prime(num: usize) -> String {
+fn is_prime(num: usize) -> &'static str {
     if (2..=(num as f64).sqrt() as usize)
         .any(|i| num % i == 0) {
-            String::from("No")
+            "No"
         } else {
-            String::from("Yes")
+            "Yes"
         }
 }
 
-pub fn run(_q: usize, x: Vec<usize>) -> Vec<String> {
-    x.iter()
+fn run(_q: usize, x: &Vec<usize>) -> Vec<&'static str> {
+    x.into_iter()
         .map(|num| {
             is_prime(*num)
         })
         .collect()
 }
 
-pub fn run2(_q: usize, x: Vec<usize>) -> Vec<String> {
+fn run2(_q: usize, x: &Vec<usize>) -> Vec<&'static str> {
     let max = 300000;
     let sq = (max as f64).sqrt() as usize;
 
@@ -35,12 +35,12 @@ pub fn run2(_q: usize, x: Vec<usize>) -> Vec<String> {
         }
     }
 
-    x.iter()
+    x.into_iter()
         .map(|num| {
-            if sieve[*num-1] == false {
-                String::from("Yes")
+            if sieve[num-1] == false {
+                "Yes"
             } else {
-                String::from("No")
+                "No"
             }
         })
         .collect()
@@ -50,13 +50,17 @@ pub fn run2(_q: usize, x: Vec<usize>) -> Vec<String> {
 mod tests {
     use super::*;
 
-    #[test]
-    fn test() {
-        assert_eq!(vec![String::from("Yes"), String::from("Yes"), String::from("No"), String::from("No")], run(4, vec![17, 31, 35, 49]));
-    }
+    struct TestCase(usize, Vec<usize>, Vec<&'static str>);
 
     #[test]
-    fn test2() {
-        assert_eq!(vec![String::from("Yes"), String::from("Yes"), String::from("No"), String::from("No")], run2(4, vec![17, 31, 35, 49]));
+    fn tessoku_a26() {
+        let tests = [
+            TestCase(4, vec![17, 31, 35, 49], vec!["Yes", "Yes", "No", "No"]),
+        ];
+
+        for TestCase(n, x, expected) in tests {
+            assert_eq!(run(n, &x), expected);
+            assert_eq!(run2(n, &x), expected);
+        }
     }
 }

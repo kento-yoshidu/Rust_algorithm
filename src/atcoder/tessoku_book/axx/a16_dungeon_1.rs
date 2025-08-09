@@ -1,6 +1,8 @@
+// https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_p
+
 use std::cmp::min;
 
-pub fn run(n: usize, a: Vec<usize>, b: Vec<usize>) -> usize {
+fn run(n: usize, a: Vec<usize>, b: Vec<usize>) -> usize {
     let mut dp = vec![0];
     dp.push(a[0]);
 

@@ -19,7 +19,7 @@ mod tests {
     struct TestCase(usize, usize, usize);
 
     #[test]
-    fn test() {
+    fn tessoku_a27() {
         let tests = [
             TestCase(900, 700, 100),
             TestCase(117, 432, 9),

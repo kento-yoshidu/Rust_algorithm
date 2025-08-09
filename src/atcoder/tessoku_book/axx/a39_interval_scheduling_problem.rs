@@ -26,7 +26,7 @@ mod tests {
     struct TestCase(usize, Vec<(usize, usize)>, usize);
 
     #[test]
-    fn test() {
+    fn tessoku_a39() {
         let tests = [
             TestCase(3, vec![(123, 86399), (1, 86400), (86399, 86400)], 2),
         ];

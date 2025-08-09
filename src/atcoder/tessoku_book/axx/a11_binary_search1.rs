@@ -30,14 +30,14 @@ mod tests {
     struct TestCase(usize, usize, Vec<usize>, usize);
 
     #[test]
-    fn test() {
+    fn tessoku_a11() {
         let tests = [
             TestCase(15, 47, vec![11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67], 11),
             TestCase(10, 80, vec![10, 20, 30, 40, 50, 60, 70, 80, 90, 100], 8),
         ];
 
         for TestCase(n, x, a, expected) in tests {
-            // assert_eq!(run(n, x, &a), expected);
+            assert_eq!(run(n, x, &a), expected);
             assert_eq!(run2(n, x, &a), expected);
         }
     }
