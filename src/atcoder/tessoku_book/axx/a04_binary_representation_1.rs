@@ -30,7 +30,7 @@ mod tests {
     struct TestCase(usize, &'static str);
 
     #[test]
-    fn test() {
+    fn tessoku_a04() {
         let tests = [
             TestCase(13, "0000001101"),
             TestCase(37, "0000100101"),
@@ -39,6 +39,8 @@ mod tests {
 
         for TestCase(n, expected) in tests {
             assert_eq!(run(n), expected);
+            assert_eq!(run2(n), expected);
+            assert_eq!(run3(n), expected);
         }
     }
 }

@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_a
 
-pub fn run(n: usize) -> usize {
+fn run(n: usize) -> usize {
     n * n
 }
 
@@ -8,10 +8,18 @@ pub fn run(n: usize) -> usize {
 mod tests {
     use super::*;
 
+    struct TestCase(usize, usize);
+
     #[test]
-    fn test() {
-        assert_eq!(4, run(2));
-        assert_eq!(64, run(8));
-        assert_eq!(10000, run(100));
+    fn tessoku_a01() {
+        let tests = [
+            TestCase(2, 4),
+            TestCase(8, 64),
+            TestCase(100, 10000),
+        ];
+
+        for TestCase(n, expected) in tests {
+            assert_eq!(run(n), expected);
+        }
     }
 }

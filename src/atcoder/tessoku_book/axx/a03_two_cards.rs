@@ -1,26 +1,26 @@
 // https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_c
 
-pub fn run(_n: usize, k: usize, pp: Vec<usize>, qq: Vec<usize>) -> String {
+fn run(_n: usize, k: usize, pp: &Vec<usize>, qq: &Vec<usize>) -> &'static str {
     for p in pp.iter() {
         for q in qq.iter() {
             if k == (p + q) {
-                return String::from("Yes");
+                return "Yes";
             }
         }
     }
 
-    String::from("No")
+    "No"
 }
 
-pub fn run2(_n: usize, k: usize, pp: Vec<usize>, qq: Vec<usize>) -> String {
+fn run2(_n: usize, k: usize, pp: &Vec<usize>, qq: &Vec<usize>) -> &'static str {
     if pp.iter().any(|p| {
         qq.iter().any(|q| {
             *p + *q == k
         })
     }) {
-        String::from("Yes")
+        "Yes"
     } else {
-        String::from("No")
+        "No"
     }
 
 }
@@ -29,15 +29,18 @@ pub fn run2(_n: usize, k: usize, pp: Vec<usize>, qq: Vec<usize>) -> String {
 mod tests {
     use super::*;
 
-    #[test]
-    fn test() {
-        assert_eq!(String::from("No"), run(3, 100, vec![17, 57, 99], vec![10, 36, 53]));
-        assert_eq!(String::from("Yes"), run(5, 53, vec![10, 20, 30, 40, 50], vec![1, 2, 3, 4, 5]));
-    }
+    struct TestCase(usize, usize, Vec<usize>, Vec<usize>, &'static str);
 
     #[test]
-    fn test2() {
-        assert_eq!(String::from("No"), run2(3, 100, vec![17, 57, 99], vec![10, 36, 53]));
-        assert_eq!(String::from("Yes"), run2(5, 53, vec![10, 20, 30, 40, 50], vec![1, 2, 3, 4, 5]));
+    fn tessoku_a03() {
+        let tests = [
+            TestCase(3, 100, vec![17, 57, 99], vec![10, 36, 53], "No"),
+            TestCase(5, 53, vec![10, 20, 30, 40, 50], vec![1, 2, 3, 4, 5], "Yes"),
+        ];
+
+        for TestCase(n, k, pp, qq, expected) in tests {
+            assert_eq!(run(n, k, &pp, &qq), expected);
+            assert_eq!(run2(n, k, &pp, &qq), expected);
+        }
     }
 }
