@@ -1,7 +1,5 @@
 // https://atcoder.jp/contests/abc381/tasks/abc381_c
 
-use crate::atcoder::abc0xx::abc054::b_template_matching;
-
 fn run(n: usize, s: &str) -> usize {
     let chars: Vec<char> = s.chars().collect();
     let mut ans = 0;

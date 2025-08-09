@@ -1,7 +1,5 @@
 // https://atcoder.jp/contests/abc113/tasks/abc113_b
 
-use itertools::Itertools;
-
 fn run(_n: usize, t: isize, a: isize, vec: Vec<isize>) -> usize {
     let v: Vec<f32> = vec.iter().map(|n| *n as f32).collect();
 

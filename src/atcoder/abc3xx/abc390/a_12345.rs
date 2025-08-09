@@ -1,7 +1,5 @@
 // https://atcoder.jp/contests/abc390/tasks/abc390_a
 
-use std::mem::swap;
-
 fn run(a: Vec<usize>) -> &'static str {
     let mut vec = a.clone();
 

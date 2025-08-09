@@ -1,7 +1,5 @@
 // https://atcoder.jp/contests/abc376/tasks/abc376_b
 
-use std::cmp::min;
-
 pub fn run(n: usize, _q: usize, a: Vec<(char, usize)>) -> usize {
     let mut ans = 0;
 

@@ -1,7 +1,5 @@
 // https://atcoder.jp/contests/abc386/tasks/abc386_c
 
-use std::cmp::{min, max};
-
 fn check(short: &Vec<char>, long: &Vec<char>) -> &'static str {
     let mut pos_s = 0;
     let mut pos_l = 0;

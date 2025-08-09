@@ -18,8 +18,6 @@ fn run(s: &str) -> String {
 
 #[cfg(test)]
 mod tests {
-    use crate::atcoder::arc0xx::arc004::a_the_longest_distance;
-
     use super::*;
 
     struct TestCase(&'static str, &'static str);

@@ -38,7 +38,7 @@ fn dijkstra(n: usize, hash_map: &HashMap<usize, Vec<(usize, usize)>>) -> (Vec<us
     (dist, prev)
 }
 
-pub fn run(n: usize, m: usize, abc: Vec<(usize, usize, usize)>) {
+pub fn run(n: usize, _m: usize, abc: Vec<(usize, usize, usize)>) {
     let mut hash_map = HashMap::new();
 
     for (a, b, c) in abc {

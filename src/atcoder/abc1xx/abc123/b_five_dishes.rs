@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc123/tasks/abc123_b
 
-pub fn run(a: usize, b: usize, c: usize, d: usize, e: usize) -> usize {
+fn run(a: usize, b: usize, c: usize, d: usize, e: usize) -> usize {
     let vec = vec![a, b, c, d, e];
 
     let mut ans = std::usize::MAX;
@@ -30,10 +30,18 @@ pub fn run(a: usize, b: usize, c: usize, d: usize, e: usize) -> usize {
 mod tests {
     use super::*;
 
+    struct TestCase(usize, usize, usize, usize, usize, usize);
+
     #[test]
-    fn test() {
-        assert_eq!(215, run(29, 20, 7, 35, 120));
-        assert_eq!(481, run(101, 86, 119, 108, 57));
-        assert_eq!(643, run(123, 123, 123, 123, 123));
+    fn abc123_b() {
+        let tests = [
+            TestCase(29, 20, 7, 35, 120, 215),
+            TestCase(101, 86, 119, 108, 57, 481),
+            TestCase(123, 123, 123, 123, 123, 643),
+        ];
+
+        for TestCase(a, b, c, d, e, expected) in tests {
+            assert_eq!(run(a, b, c, d, e), expected);
+        }
     }
 }

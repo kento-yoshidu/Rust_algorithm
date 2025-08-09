@@ -1,7 +1,5 @@
 // https://atcoder.jp/contests/abc350/tasks/abc350_c
 
-use std::mem::swap;
-
 pub fn run(n: usize, a: Vec<usize>) -> Vec<(usize, usize)> {
     let mut a: Vec<usize> = a.into_iter().map(|x| x-1).collect();
     let mut vec = vec![0; n];

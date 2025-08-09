@@ -1,7 +1,5 @@
 // https://atcoder.jp/contests/abc259/tasks/abc259_c
 
-use std::iter::zip;
-
 fn run_lengths(s: Vec<char>) -> Vec<(char, usize)> {
     let mut i = 0;
     let mut run_lengths = vec![];

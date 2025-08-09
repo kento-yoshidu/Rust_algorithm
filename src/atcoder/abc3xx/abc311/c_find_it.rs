@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc311/tasks/abc311_c
 
-use std::collections::{HashMap, HashSet};
+use std::collections::HashMap;
 
 fn cycle(mut v: usize, hash_map: &HashMap<usize, usize>) -> Vec<usize> {
     for _ in 0..hash_map.len() {

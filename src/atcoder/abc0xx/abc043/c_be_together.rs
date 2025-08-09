@@ -37,8 +37,6 @@ fn run2(_n: usize, a: &Vec<isize>) -> isize {
 
 #[cfg(test)]
 mod tests {
-    use crate::atcoder::abc0xx::abc028::a_test_evaluation;
-
     use super::*;
 
     struct TestCase(usize, Vec<isize>, isize);
