@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc126/tasks/abc126_b
 
-pub fn run(s: usize) -> String {
+fn run(s: usize) -> &'static str {
     let left = s / 100;
     let right = s % 100;
 
@@ -9,13 +9,13 @@ pub fn run(s: usize) -> String {
     let is_right = 1 <= right && right <= 12;
 
     if is_left && is_right {
-        String::from("AMBIGUOUS")
+        "AMBIGUOUS"
     } else if is_left {
-        String::from("MMYY")
+        "MMYY"
     } else if is_right {
-        String::from("YYMM")
+        "YYMM"
     } else {
-        String::from("NA")
+        "NA"
     }
 }
 
@@ -23,11 +23,19 @@ pub fn run(s: usize) -> String {
 mod tests {
     use super::*;
 
+    struct TestCase(usize, &'static str);
+
     #[test]
-    fn test() {
-        assert_eq!(String::from("YYMM"), run(1905));
-        assert_eq!(String::from("MMYY"), run(0519));
-        assert_eq!(String::from("AMBIGUOUS"), run(0112));
-        assert_eq!(String::from("NA"), run(1700));
+    fn abc126_b() {
+        let tests = [
+            TestCase(1905, "YYMM"),
+            TestCase(0519, "MMYY"),
+            TestCase(0112, "AMBIGUOUS"),
+            TestCase(1700, "NA"),
+        ];
+
+        for TestCase(s, expected) in tests {
+            assert_eq!(run(s), expected);
+        }
     }
 }

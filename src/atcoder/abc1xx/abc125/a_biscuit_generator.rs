@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc125/tasks/abc125_a
 
-pub fn run(a: usize, b: usize, t: usize) -> usize {
+fn run(a: usize, b: usize, t: usize) -> usize {
     (t / a) * b
 }
 
@@ -8,10 +8,18 @@ pub fn run(a: usize, b: usize, t: usize) -> usize {
 mod tests {
     use super::*;
 
+    struct TestCase(usize, usize, usize, usize);
+
     #[test]
-    fn test() {
-        assert_eq!(10, run(3, 5, 7));
-        assert_eq!(6, run(3, 2, 9));
-        assert_eq!(0, run(20, 20, 19));
+    fn abc125_a() {
+        let tests = [
+            TestCase(3, 5, 7, 10),
+            TestCase(3, 2, 9, 6),
+            TestCase(20, 20, 19, 0),
+        ];
+
+        for TestCase(a, b, t, expected) in tests {
+            assert_eq!(run(a, b, t), expected);
+        }
     }
 }
