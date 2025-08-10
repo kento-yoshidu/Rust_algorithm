@@ -91,7 +91,6 @@ fn main() {
 use std::io::*;
 use std::str::FromStr;
 
-// 入力を取得する関数
 fn read<T: FromStr>() -> T {
     let stdin = stdin();
     let stdin = stdin.lock();
