@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc131/tasks/abc131_b
 
-pub fn run(n: isize, l: isize) -> isize {
+fn run(n: isize, l: isize) -> isize {
     let abs_min = (0..n).map(|i| {
         (l + i).abs()
     })
@@ -21,10 +21,18 @@ pub fn run(n: isize, l: isize) -> isize {
 mod tests {
     use super::*;
 
+    struct TestCase(isize, isize, isize);
+
     #[test]
-    fn test() {
-        assert_eq!(18, run(5, 2));
-        assert_eq!(0, run(3, -1));
-        assert_eq!(-1044, run(30, -50));
+    fn abc131_b() {
+        let tests = [
+            TestCase(5, 2, 18),
+            TestCase(3, -1, 0),
+            TestCase(30, -50, -1044),
+        ];
+
+        for TestCase(n, l, expected) in tests {
+            assert_eq!(run(n, l), expected);
+        }
     }
 }

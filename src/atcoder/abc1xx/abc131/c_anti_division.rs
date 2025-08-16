@@ -20,7 +20,7 @@ fn calc(num: usize, c: usize, d: usize) -> usize {
     num - c_count - d_count + num / l
 }
 
-pub fn run(a: usize, b: usize, c: usize, d: usize) -> usize {
+fn run(a: usize, b: usize, c: usize, d: usize) -> usize {
     calc(b, c, d) - calc(a-1, c, d)
 }
 
@@ -31,7 +31,7 @@ mod tests {
     struct TestCase(usize, usize, usize, usize, usize);
 
     #[test]
-    fn test() {
+    fn abc131_c() {
         let tests = [
             TestCase(4, 9, 2, 3, 2),
             TestCase(10, 40, 6, 8, 23),

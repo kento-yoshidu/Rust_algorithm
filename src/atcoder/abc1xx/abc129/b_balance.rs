@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc129/tasks/abc129_b
 
-pub fn run(n: i32, vec: Vec<i32>) -> i32 {
+fn run(n: isize, vec: &Vec<isize>) -> isize {
     let mut ans = 100;
 
     for i in 1..n {
@@ -15,13 +15,13 @@ pub fn run(n: i32, vec: Vec<i32>) -> i32 {
             }
         }
 
-        ans = ans.min(((l-r) as i32).abs())
+        ans = ans.min(((l-r) as isize).abs())
     }
 
     ans
 }
 
-pub fn run2(n: i32, vec: Vec<i32>) -> i32 {
+fn run2(n: isize, vec: &Vec<isize>) -> isize {
     let mut ans = 100;
 
     for i in 1..n {
@@ -29,10 +29,8 @@ pub fn run2(n: i32, vec: Vec<i32>) -> i32 {
 
         for (index, v) in vec.iter().enumerate() {
             if i > index.try_into().unwrap() {
-                println!("l={}", v);
                 tmp += v;
             } else {
-                println!("r={}", v);
                 tmp -= v;
             }
         }
@@ -47,17 +45,19 @@ pub fn run2(n: i32, vec: Vec<i32>) -> i32 {
 mod tests {
     use super::*;
 
-    #[test]
-    fn test() {
-        assert_eq!(0, run(3, vec![1, 2, 3]));
-        assert_eq!(2, run(4, vec![1, 3, 1, 1]));
-        assert_eq!(2, run(8, vec![27, 23, 76, 2, 3, 5, 62, 52]));
-    }
+    struct TestCase(isize, Vec<isize>, isize);
 
     #[test]
-    fn test2() {
-        assert_eq!(0, run2(3, vec![1, 2, 3]));
-        assert_eq!(2, run2(4, vec![1, 3, 1, 1]));
-        assert_eq!(2, run2(8, vec![27, 23, 76, 2, 3, 5, 62, 52]));
+    fn abc129_b() {
+        let tests = [
+            TestCase(3, vec![1, 2, 3], 0),
+            TestCase(4, vec![1, 3, 1, 1], 2),
+            TestCase(8, vec![27, 23, 76, 2, 3, 5, 62, 52], 2),
+        ];
+
+        for TestCase(n, vec, expected) in tests {
+            assert_eq!(run(n, &vec), expected);
+            assert_eq!(run2(n, &vec), expected);
+        }
     }
 }
