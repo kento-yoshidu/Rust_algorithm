@@ -78,6 +78,10 @@ fn main() {
 
 ## Not AC
 
+### BFS
+
+- [ABC226 C - Martial artist](https://atcoder.jp/contests/abc226/tasks/abc226_c)
+
 ### ナップサック
 
 - [ABC054 D - Mixing Experiment](https://atcoder.jp/contests/abc054/tasks/abc054_d)
