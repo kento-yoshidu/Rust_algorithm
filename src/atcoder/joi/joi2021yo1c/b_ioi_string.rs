@@ -15,8 +15,6 @@ fn run(_n: usize, s: &str) -> usize {
 
 #[cfg(test)]
 mod tests {
-    use std::f32::consts::E;
-
     use super::*;
 
     struct TestCase(usize, &'static str, usize);

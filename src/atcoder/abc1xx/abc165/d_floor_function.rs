@@ -1,7 +1,5 @@
 // https://atcoder.jp/contests/abc165/tasks/abc165_d
 
-use std::cmp::min;
-
 fn run(a: f64, b: f64, n: f64) -> usize {
     let x = f64::min(b - 1.0, n) as f64;
 
