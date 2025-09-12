@@ -1,10 +1,10 @@
 // https://atcoder.jp/contests/abc135/tasks/abc135_b
 
-pub fn run(_n: usize, p: Vec<usize>) -> String {
-    let vec = p.clone();
-    let mut new_vec = p.clone();
+use itertools::Itertools;
 
-    new_vec.sort();
+fn run(_n: usize, p: Vec<usize>) -> &'static str {
+    let vec = p.clone();
+    let new_vec: Vec<usize> = p.clone().into_iter().sorted().collect();
 
     let count = vec.iter()
         .zip(new_vec.iter())
@@ -14,9 +14,9 @@ pub fn run(_n: usize, p: Vec<usize>) -> String {
         .count();
 
     if count <= 2 {
-        String::from("YES")
+        "YES"
     } else {
-        String::from("NO")
+        "NO"
     }
 }
 
@@ -24,10 +24,18 @@ pub fn run(_n: usize, p: Vec<usize>) -> String {
 mod tests {
     use super::*;
 
+    struct TestCase(usize, Vec<usize>, &'static str);
+
     #[test]
-    fn test() {
-        assert_eq!(String::from("YES"), run(5, vec![5, 2, 3, 4, 1]));
-        assert_eq!(String::from("NO"), run(5, vec![2, 4, 3, 5, 1]));
-        assert_eq!(String::from("YES"), run(7, vec![1, 2, 3, 4, 5, 6, 7]));
+    fn abc135_b() {
+        let tests = [
+            TestCase(5, vec![5, 2, 3, 4, 1], "YES"),
+            TestCase(5, vec![2, 4, 3, 5, 1], "NO"),
+            TestCase(7, vec![1, 2, 3, 4, 5, 6, 7], "YES"),
+        ];
+
+        for TestCase(n, p, expected) in tests {
+            assert_eq!(run(n, p), expected);
+        }
     }
 }

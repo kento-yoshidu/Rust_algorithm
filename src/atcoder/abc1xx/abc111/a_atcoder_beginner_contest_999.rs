@@ -1,22 +1,6 @@
 // https://atcoder.jp/contests/abc111/tasks/abc111_a
 
 fn run(n: usize) -> usize {
-    let mut result = String::new();
-
-    n.to_string()
-        .chars()
-        .for_each(|i| {
-            if i == '9' {
-                result.push('1')
-            } else {
-                result.push('9')
-            }
-        });
-
-    result.parse::<usize>().unwrap()
-}
-
-fn run2(n: usize) -> usize {
     n.to_string()
         .chars()
         .map(|c| {
@@ -28,6 +12,10 @@ fn run2(n: usize) -> usize {
         .collect::<String>()
         .parse::<usize>()
         .unwrap()
+}
+
+fn run2(n: usize) -> usize {
+    1110 - n
 }
 
 #[cfg(test)]

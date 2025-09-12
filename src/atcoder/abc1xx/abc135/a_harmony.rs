@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc135/tasks/abc135_a
 
-pub fn run(a: usize, b: usize) -> String {
+fn run(a: usize, b: usize) -> String {
 	if (a + b) % 2 == 0 {
 		((a + b) / 2).to_string()
 	} else {
@@ -13,10 +13,18 @@ pub fn run(a: usize, b: usize) -> String {
 mod tests {
 	use super::*;
 
+	struct TestCase(usize, usize, &'static str);
+
 	#[test]
-	fn test() {
-		assert_eq!(String::from("9"), run(2, 16));
-		assert_eq!(String::from("IMPOSSIBLE"), run(0, 3));
-		assert_eq!(String::from("549034394"), run(998244353, 99824435));
+	fn abc135_a() {
+		let tests = [
+			TestCase(2, 16, "9"),
+			TestCase(0, 3, "IMPOSSIBLE"),
+			TestCase(998244353, 99824435, "549034394"),
+		];
+
+		for TestCase(a, b, expected) in tests {
+			assert_eq!(run(a, b), expected);
+		}
 	}
 }

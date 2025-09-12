@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc134/tasks/abc134_b
 
-pub fn run(n: u32, d: u32) -> usize {
+fn run(n: u32, d: u32) -> usize {
     (n as f64 / (d * 2 + 1) as f64).ceil() as usize
 }
 
@@ -8,10 +8,18 @@ pub fn run(n: u32, d: u32) -> usize {
 mod tests {
     use super::*;
 
+    struct TestCase(u32, u32, usize);
+
     #[test]
-    fn test() {
-        assert_eq!(2, run(6, 2));
-        assert_eq!(2, run(14, 3));
-        assert_eq!(3, run(20, 4));
+    fn abc134_b() {
+        let tests = [
+            TestCase(6, 2, 2),
+            TestCase(14, 3, 2),
+            TestCase(20, 4, 3),
+        ];
+
+        for TestCase(n, d, expected) in tests {
+            assert_eq!(run(n, d), expected);
+        }
     }
 }

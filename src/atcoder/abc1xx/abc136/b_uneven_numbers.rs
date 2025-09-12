@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc136/tasks/abc136_b
 
-pub fn run(n: usize) -> usize {
+fn run(n: usize) -> usize {
     (1..=n)
         .filter(|i| i.to_string().len() % 2 != 0)
         .count()
@@ -10,10 +10,18 @@ pub fn run(n: usize) -> usize {
 mod tests {
     use super::*;
 
+    struct TestCase(usize, usize);
+
     #[test]
-    fn test() {
-        assert_eq!(9, run(11));
-        assert_eq!(46, run(136));
-        assert_eq!(90909, run(100000));
+    fn abc136_b() {
+        let tests = [
+            TestCase(11, 9),
+            TestCase(136, 46),
+            TestCase(100000, 90909),
+        ];
+
+        for TestCase(n, expected) in tests {
+            assert_eq!(run(n), expected);
+        }
     }
 }
