@@ -1,4 +1,4 @@
-// 
+// https://atcoder.jp/contests/abc423/tasks/abc423_a
 
 fn run(x: usize, c: usize) -> usize {
     x / (1000 + c) * 1000
