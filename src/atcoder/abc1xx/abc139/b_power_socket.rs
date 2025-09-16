@@ -12,11 +12,19 @@ fn run(a: usize, b: usize) -> usize {
 mod tests {
     use super::*;
 
+    struct TestCase(usize, usize, usize);
+
     #[test]
-    fn test() {
-        assert_eq!(3, run(4, 10));
-        assert_eq!(2, run(8, 9));
-        assert_eq!(1, run(8, 8));
-        assert_eq!(4, run(4, 12));
+    fn abc138_b() {
+        let tests = [
+            TestCase(4, 10, 3),
+            TestCase(8, 9, 2),
+            TestCase(8, 8, 1),
+            TestCase(4, 12, 4),
+        ];
+
+        for TestCase(a, b, expected) in tests {
+            assert_eq!(run(a, b), expected);
+        }
     }
 }
