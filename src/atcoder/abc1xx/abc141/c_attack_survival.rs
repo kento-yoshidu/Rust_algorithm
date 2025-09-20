@@ -1,13 +1,13 @@
 // https://atcoder.jp/contests/abc141/tasks/abc141_c
 
-pub fn run(n: usize, k: isize, q: isize, a: Vec<usize>) -> Vec<&'static str> {
+fn run(n: usize, k: isize, q: isize, a: Vec<usize>) -> Vec<&'static str> {
     let mut vec = vec![0; n];
 
     for num in a {
         vec[num-1] += 1;
     }
 
-    vec.iter()
+    vec.into_iter()
         .map(|num| {
             if k - (q - num) <= 0 {
                 "No"
@@ -25,7 +25,7 @@ mod tests {
     struct TestCase(usize, isize, isize, Vec<usize>, Vec<&'static str>);
 
     #[test]
-    fn test() {
+    fn abc141_c() {
         let tests = [
             TestCase(6, 3, 4, vec![3, 1, 3, 2], vec!["No", "No", "Yes", "No", "No", "No"]),
             TestCase(6, 5, 4, vec![3, 1, 3, 2], vec!["Yes", "Yes", "Yes", "Yes", "Yes", "Yes"]),

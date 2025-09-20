@@ -1,10 +1,10 @@
 // https://atcoder.jp/contests/abc141/tasks/abc141_a
 
-pub fn run(s: &str) -> String {
+fn run(s: &str) -> &'static str {
 	match s {
-		"Sunny" => String::from("Cloudy"),
-		"Cloudy" => String::from("Rainy"),
-		"Rainy" => String::from("Sunny"),
+		"Sunny" => "Cloudy",
+		"Cloudy" => "Rainy",
+		"Rainy" => "Sunny",
 		_ => unreachable!()
 	}
 }
@@ -13,10 +13,18 @@ pub fn run(s: &str) -> String {
 mod tests {
 	use super::*;
 
+	struct TestCaes(&'static str, &'static str);
+
 	#[test]
-	fn test() {
-		assert_eq!(String::from("Cloudy"), run("Sunny"));
-		assert_eq!(String::from("Sunny"), run("Rainy"));
-		assert_eq!(String::from("Rainy"), run("Cloudy"));
+	fn abc141_a() {
+		let tests = [
+			TestCaes("Sunny", "Cloudy"),
+			TestCaes("Rainy", "Sunny"),
+			TestCaes("Cloudy", "Rainy"),
+		];
+
+		for TestCaes(s, expected) in tests {
+			assert_eq!(run(s), expected);
+		}
 	}
 }
