@@ -32,7 +32,7 @@ mod tests {
     use super::*;
 
     #[test]
-    fn test() {
+    fn abc324_d() {
         assert_eq!(2, run(4, "4320"));
         assert_eq!(2, run(3, "010"));
         assert_eq!(840, run(13, "8694027811503"));
