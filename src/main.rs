@@ -6,7 +6,7 @@ mod paiza;
 // mod basic;
 // mod nlp_100_knock;
 // mod project_euler;
-// mod yukicoder;
+mod yukicoder;
 
 fn main() {
 }
