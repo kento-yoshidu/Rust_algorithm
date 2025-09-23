@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc146/tasks/abc146_b
 
-pub fn run(n: u8, str: String) -> String {
+fn run(n: u8, str: &str) -> String {
     let mut result = String::from("");
 
     for c in str.chars() {
@@ -16,7 +16,7 @@ pub fn run(n: u8, str: String) -> String {
     result
 }
 
-pub fn run2(n: u8, str: String) -> String {
+fn run2(n: u8, str: &str) -> String {
     str
         .chars()
         .map(|c| {
@@ -36,17 +36,19 @@ pub fn run2(n: u8, str: String) -> String {
 mod tests {
     use super::*;
 
-    #[test]
-    fn test() {
-        assert_eq!(String::from("CDEZAB"), run(2, String::from("ABCXYZ")));
-        assert_eq!(String::from("ABCXYZ"), run(0, String::from("ABCXYZ")));
-        assert_eq!(String::from("NOPQRSTUVWXYZABCDEFGHIJKLM"), run(13, String::from("ABCDEFGHIJKLMNOPQRSTUVWXYZ")));
-    }
+    struct TestCase(u8, &'static str, &'static str);
 
     #[test]
-    fn test2() {
-        assert_eq!(String::from("CDEZAB"), run2(2, String::from("ABCXYZ")));
-        assert_eq!(String::from("ABCXYZ"), run2(0, String::from("ABCXYZ")));
-        assert_eq!(String::from("NOPQRSTUVWXYZABCDEFGHIJKLM"), run2(13, String::from("ABCDEFGHIJKLMNOPQRSTUVWXYZ")));
+    fn abc146_b() {
+        let tests = [
+            TestCase(2, "ABCXYZ", "CDEZAB"),
+            TestCase(0, "ABCXYZ", "ABCXYZ"),
+            TestCase(13, "ABCDEFGHIJKLMNOPQRSTUVWXYZ", "NOPQRSTUVWXYZABCDEFGHIJKLM"),
+        ];
+
+        for TestCase(n, s, expected) in tests {
+            assert_eq!(run(n, s), expected);
+            assert_eq!(run2(n, s), expected);
+        }
     }
 }
