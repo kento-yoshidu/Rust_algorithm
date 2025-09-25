@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc128/tasks/abc128_b
 
-pub fn run(_n: usize, st: Vec<(&str, usize)>) -> Vec<usize> {
+fn run(_n: usize, st: Vec<(&str, usize)>) -> Vec<usize> {
     let mut vec: Vec<(usize, &(&str, usize))> = st.iter()
         .enumerate()
         .map(|(i, t)| (i, t))
@@ -17,9 +17,17 @@ pub fn run(_n: usize, st: Vec<(&str, usize)>) -> Vec<usize> {
 mod tests {
     use super::*;
 
+    struct TestCase(usize, Vec<(&'static str, usize)>, Vec<usize>);
+
     #[test]
-    fn test() {
-        assert_eq!(vec![3, 4, 6, 1, 5, 2], run(6, vec![("khabarovsk", 20), ("moscow", 10), ("kazan", 50), ("kazan", 35), ("moscow", 60), ("khabarovsk", 40)]));
-        assert_eq!(vec![10, 9, 8, 7, 6, 5, 4, 3, 2, 1], run(10, vec![("yakutsk", 10), ("yakutsk", 20), ("yakutsk", 30), ("yakutsk", 40), ("yakutsk",  50), ("yakutsk", 60), ("yakutsk", 70), ("yakutsk", 80), ("yakutsk", 90), ("yakutsk", 100)]));
+    fn abc128_b() {
+        let tests = [
+            TestCase(6, vec![("khabarovsk", 20), ("moscow", 10), ("kazan", 50), ("kazan", 35), ("moscow", 60), ("khabarovsk", 40)], vec![3, 4, 6, 1, 5, 2]),
+            TestCase(10, vec![("yakutsk", 10), ("yakutsk", 20), ("yakutsk", 30), ("yakutsk", 40), ("yakutsk",  50), ("yakutsk", 60), ("yakutsk", 70), ("yakutsk", 80), ("yakutsk", 90), ("yakutsk", 100)], vec![10, 9, 8, 7, 6, 5, 4, 3, 2, 1]),
+        ];
+
+        for TestCase(n, st, expected) in tests {
+            assert_eq!(run(n, st), expected);
+        }
     }
 }

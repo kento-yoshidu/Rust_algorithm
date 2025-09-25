@@ -1,25 +1,15 @@
 // https://atcoder.jp/contests/abc131/tasks/abc131_a
 
-pub fn run(num: i32) -> String {
+fn run(num: usize) -> &'static str {
     let a = num / 1000;
     let b = num / 100 % 10;
     let c = num / 10 % 10;
     let d = num % 10;
 
     if a == b || b == c || c == d {
-        String::from("Bad")
+        "Bad"
     } else {
-        String::from("Good")
-    }
-}
-
-pub fn run2(s: String) -> String {
-    let vec: Vec<char> = s.chars().collect();
-
-    if vec.windows(2).any(|v| { v[0] == v[1] }) {
-        String::from("Bad")
-    } else {
-        String::from("Good")
+        "Good"
     }
 }
 
@@ -27,19 +17,19 @@ pub fn run2(s: String) -> String {
 mod tests {
     use super::*;
 
-    #[test]
-    fn test() {
-        assert_eq!(String::from("Bad"), run(3776));
-        assert_eq!(String::from("Good"), run(8080));
-        assert_eq!(String::from("Bad"), run(1333));
-        assert_eq!(String::from("Bad"), run(0024));
-    }
+    struct TestCaes(usize, &'static str);
 
     #[test]
-    fn test2() {
-        assert_eq!(String::from("Bad"), run2(String::from("3776")));
-        assert_eq!(String::from("Good"), run2(String::from("8080")));
-        assert_eq!(String::from("Bad"), run2(String::from("1333")));
-        assert_eq!(String::from("Bad"), run2(String::from("0024")));
+    fn abc131_a() {
+        let tests = [
+            TestCaes(3776, "Bad"),
+            TestCaes(8080, "Good"),
+            TestCaes(1333, "Bad"),
+            TestCaes(0024, "Bad"),
+        ];
+
+        for TestCaes(n, expected) in tests {
+            assert_eq!(run(n), expected);
+        }
     }
 }

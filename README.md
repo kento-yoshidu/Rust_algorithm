@@ -78,6 +78,10 @@ fn main() {
 
 ## Not AC
 
+### ナップサック
+
+- [ABC054 D - Mixing Experiment](https://atcoder.jp/contests/abc054/tasks/abc054_d)
+
 ### ダイクストラ
 
 - [ABC252 E - Road Reduction](https://atcoder.jp/contests/abc252/tasks/abc252_e)

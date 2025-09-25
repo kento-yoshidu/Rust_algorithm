@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc130/tasks/abc130_a
 
-pub fn run(x: i32, a: i32) -> i32 {
+fn run(x: usize, a: usize) -> usize {
     if x < a {
         0
     } else {
@@ -12,10 +12,18 @@ pub fn run(x: i32, a: i32) -> i32 {
 mod tests {
     use super::*;
 
+    struct TestCase(usize, usize, usize);
+
     #[test]
-    fn test() {
-        assert_eq!(0, run(3, 5));
-        assert_eq!(10, run(7, 5));
-        assert_eq!(10, run(6, 6));
+    fn abc130_a() {
+        let tests = [
+            TestCase(3, 5, 0),
+            TestCase(7, 5, 10),
+            TestCase(6, 6, 10),
+        ];
+
+        for TestCase(x, a, expected) in tests {
+            assert_eq!(run(x, a), expected);
+        }
     }
 }

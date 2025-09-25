@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc130/tasks/abc130_b
 
-pub fn run(x: i32, vec: Vec<i32>) -> i32 {
+fn run(_n: usize, x: usize, vec: &Vec<usize>) -> usize {
     let mut current = 0;
     let mut ans = 0;
 
@@ -16,7 +16,7 @@ pub fn run(x: i32, vec: Vec<i32>) -> i32 {
     ans
 }
 
-pub fn run2(_n: usize, x: usize, l: Vec<usize>) -> usize {
+fn run2(_n: usize, x: usize, l: &Vec<usize>) -> usize {
     l.iter()
         .scan(0, |state, d| {
             *state += d;
@@ -32,15 +32,18 @@ pub fn run2(_n: usize, x: usize, l: Vec<usize>) -> usize {
 mod tests {
     use super::*;
 
-    #[test]
-    fn test() {
-        assert_eq!(2, run(6, vec![3, 4, 5]));
-        assert_eq!(4, run(9, vec![3, 3, 3, 3]));
-    }
+    struct TestCase(usize, usize, Vec<usize>, usize);
 
     #[test]
-    fn test2() {
-        assert_eq!(2, run2(3, 6, vec![3, 4, 5]));
-        assert_eq!(4, run2(4, 9, vec![3, 3, 3, 3]));
+    fn abc130_b() {
+        let tests = [
+            TestCase(3, 6, vec![3, 4, 5], 2),
+            TestCase(4, 9, vec![3, 3, 3, 3], 4),
+        ];
+
+        for TestCase(n, x, l, expected) in tests {
+            assert_eq!(run(n, x, &l), expected);
+            assert_eq!(run2(n, x, &l), expected);
+        }
     }
 }
