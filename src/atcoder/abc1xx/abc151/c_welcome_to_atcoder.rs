@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc151/tasks/abc151_c
 
-pub fn run(n: usize, _m: usize, ps: Option<Vec<(usize, &str)>>) -> (usize, usize) {
+fn run(n: usize, _m: usize, ps: Option<Vec<(usize, &str)>>) -> (usize, usize) {
     if ps == None {
         return (0, 0)
     }
@@ -36,7 +36,7 @@ mod tests {
     struct TestCase(usize, usize, Option<Vec<(usize, &'static str)>>, (usize, usize));
 
     #[test]
-    fn test() {
+    fn abc151_c() {
         let tests = [
             TestCase(2, 5, Some(vec![(1, "WA"), (1, "AC"), (2, "WA"), (2, "AC"), (2, "WA")]), (2, 2)),
             TestCase(100000, 3, Some(vec![(7777, "AC"), (7777, "AC"), (7777, "AC")]), (1, 0)),
