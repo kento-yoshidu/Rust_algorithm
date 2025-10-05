@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc154/tasks/abc154_b
 
-pub fn run(s: &str) -> String {
+fn run(s: &str) -> String {
     format!("{}", "x".repeat(s.len()))
 }
 
@@ -8,10 +8,18 @@ pub fn run(s: &str) -> String {
 mod tests {
     use super::*;
 
+    struct TestCase(&'static str, &'static str);
+
     #[test]
-    fn test() {
-        assert_eq!(String::from("xxxxxxx"), run("sardine"));
-        assert_eq!(String::from("xxxx"), run("xxxx"));
-        assert_eq!(String::from("xxxx"), run("gone"));
+    fn abc154_b() {
+        let tests = [
+            TestCase("sardine", "xxxxxxx"),
+            TestCase("xxxx", "xxxx"),
+            TestCase("gone", "xxxx"),
+        ];
+
+        for TestCase(s, expected) in tests {
+            assert_eq!(run(s), expected);
+        }
     }
 }
