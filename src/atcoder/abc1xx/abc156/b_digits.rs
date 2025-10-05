@@ -10,7 +10,7 @@ fn calc(n: usize, base: usize) -> u32 {
     }
 }
 
-pub fn run(n: usize, k: usize) -> u32 {
+fn run(n: usize, k: usize) -> u32 {
     calc(n, k)
 }
 
@@ -18,10 +18,18 @@ pub fn run(n: usize, k: usize) -> u32 {
 mod tests {
     use super::*;
 
+    struct TestCase(usize, usize, u32);
+
     #[test]
-    fn test() {
-        assert_eq!(4, run(11, 2));
-        assert_eq!(7, run(1010101, 10));
-        assert_eq!(18, run(314159265, 3));
+    fn abc156_b() {
+        let tests = [
+            TestCase(11, 2, 4),
+            TestCase(1010101, 10, 7),
+            TestCase(314159265, 3, 18),
+        ];
+
+        for TestCase(n, k, expected) in tests {
+            assert_eq!(run(n, k), expected);
+        }
     }
 }
