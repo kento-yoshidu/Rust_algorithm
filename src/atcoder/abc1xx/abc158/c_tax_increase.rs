@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc158/tasks/abc158_c
 
-pub fn run(a: f64, b: f64) -> i32 {
+fn run(a: f64, b: f64) -> i32 {
     for i  in 10..=10000 {
         let tmp = f64::from(i);
 
@@ -9,17 +9,25 @@ pub fn run(a: f64, b: f64) -> i32 {
         }
     }
 
-    return -1;
+    -1
 }
 
 #[cfg(test)]
 mod tests {
     use super::*;
 
+    struct TestCase(f64, f64, i32);
+
     #[test]
-    fn test() {
-        assert_eq!(25, run(2.0, 2.0));
-        assert_eq!(100, run(8.0, 10.0));
-        assert_eq!(-1, run(19.0, 99.0));
+    fn abc158_c() {
+        let tests = [
+            TestCase(2.0, 2.0, 25),
+            TestCase(8.0, 10.0, 100),
+            TestCase(19.0, 99.0, -1),
+        ];
+
+        for TestCase(a, b, expected) in tests {
+            assert_eq!(run(a, b), expected);
+        }
     }
 }

@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc158/tasks/abc158_b
 
-pub fn run(n: usize, a: usize, b: usize) -> usize {
+fn run(n: usize, a: usize, b: usize) -> usize {
     (n / (b + a)) * a + a.min(n % (b + a))
 }
 
@@ -8,10 +8,18 @@ pub fn run(n: usize, a: usize, b: usize) -> usize {
 mod tests {
     use super::*;
 
+    struct TestCase(usize, usize, usize, usize);
+
     #[test]
-    fn test() {
-        assert_eq!(4, run(8, 3, 4));
-        assert_eq!(0, run(8, 0, 4));
-        assert_eq!(2, run(6, 2, 4));
+    fn abc158_b() {
+        let tests = [
+            TestCase(8, 3, 4, 4),
+            TestCase(8, 0, 4, 0),
+            TestCase(6, 2, 4, 2),
+        ];
+
+        for TestCase(n, a, b, expected) in tests {
+            assert_eq!(run(n, a, b), expected);
+        }
     }
 }
