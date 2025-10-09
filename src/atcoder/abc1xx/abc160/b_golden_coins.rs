@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc160/tasks/abc160_b
 
-pub fn run(x: usize) -> usize {
+fn run(x: usize) -> usize {
     let a = x / 500;
     let b = (x - a * 500) / 5;
 
@@ -11,10 +11,18 @@ pub fn run(x: usize) -> usize {
 mod tests {
     use super::*;
 
+    struct TestCase(usize, usize);
+
     #[test]
-    fn test() {
-        assert_eq!(2020, run(1024));
-        assert_eq!(0, run(0));
-        assert_eq!(2000000000, run(1000000000));
+    fn abc160_b() {
+        let tests = [
+            TestCase(1024, 2020),
+            TestCase(0, 0),
+            TestCase(1000000000, 2000000000),
+        ];
+
+        for TestCase(x, expected) in tests {
+            assert_eq!(run(x), expected);
+        }
     }
 }
