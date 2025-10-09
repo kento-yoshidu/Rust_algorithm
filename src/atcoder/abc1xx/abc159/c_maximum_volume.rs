@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc159/tasks/abc159_c
 
-pub fn run(l: usize) -> f64 {
+fn run(l: usize) -> f64 {
     ((l as f64 / 3.0) as f64).powf(3.0)
 }
 
@@ -11,7 +11,7 @@ mod tests {
     struct TestCase(usize, f64);
 
     #[test]
-    fn test() {
+    fn abc159_c() {
         let tests = [
             TestCase(3, 1.0),
             TestCase(999, 36926037.0),
