@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc161/tasks/abc161_b
 
-pub fn run(_n: usize, m: usize, a: Vec<usize>) -> String {
+fn run(_n: usize, m: usize, a: Vec<usize>) -> &'static str {
     let total: usize = a.iter().sum();
     let border = (total as f64 / (4 * m) as f64).ceil() as usize;
 
@@ -11,9 +11,9 @@ pub fn run(_n: usize, m: usize, a: Vec<usize>) -> String {
         .count();
 
     if count >= m {
-        String::from("Yes")
+        "Yes"
     } else {
-        String::from("No")
+        "No"
     }
 }
 
@@ -21,10 +21,18 @@ pub fn run(_n: usize, m: usize, a: Vec<usize>) -> String {
 mod tests {
     use super::*;
 
+    struct TestCase(usize, usize, Vec<usize>, &'static str);
+
     #[test]
-    fn test() {
-        assert_eq!(String::from("Yes"), run(4, 1, vec![5, 4, 2, 1]));
-        assert_eq!(String::from("No"), run(3, 2, vec![380, 19, 1]));
-        assert_eq!(String::from("Yes"), run(12, 3, vec![4, 56, 78, 901, 2, 345, 67, 890, 123, 45, 6, 789]));
+    fn abc161_b() {
+        let tests = [
+            TestCase(4, 1, vec![5, 4, 2, 1], "Yes"),
+            TestCase(3, 2, vec![380, 19, 1], "No"),
+            TestCase(12, 3, vec![4, 56, 78, 901, 2, 345, 67, 890, 123, 45, 6, 789], "Yes"),
+        ];
+
+        for TestCase(n, m, a, expected) in tests {
+            assert_eq!(run(n, m, a), expected);
+        }
     }
 }

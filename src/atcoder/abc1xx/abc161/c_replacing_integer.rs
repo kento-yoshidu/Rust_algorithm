@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc161/tasks/abc161_c
 
-pub fn run(n: usize, k: usize) -> usize {
+fn run(n: usize, k: usize) -> usize {
     let t = n % k;
 
     t.min(k - t)
@@ -13,7 +13,7 @@ mod tests {
     struct TestCase(usize, usize, usize);
 
     #[test]
-    fn test() {
+    fn abc161_c() {
         let tests = [
             TestCase(7, 4, 1),
             TestCase(2, 6, 2),
