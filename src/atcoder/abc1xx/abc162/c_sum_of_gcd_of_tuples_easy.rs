@@ -8,7 +8,7 @@ fn gcd(a: usize, b: usize) -> usize {
     }
 }
 
-pub fn run(k: usize) -> usize {
+fn run(k: usize) -> usize {
     let mut ans = 0;
 
     for i in 1..=k {
@@ -29,7 +29,7 @@ mod tests {
     struct TestCase(usize, usize);
 
     #[test]
-    fn test() {
+    fn abc162_c() {
         let tests = [
             TestCase(2, 9),
             TestCase(200, 10813692),

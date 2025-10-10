@@ -1,13 +1,13 @@
 // https://atcoder.jp/contests/abc162/tasks/abc162_a
 
-pub fn run(s: String) -> String {
+fn run(s: &'static str) -> &'static str {
     if s.chars()
         .any(|c| {
             c == '7'
         }) {
-            String::from("Yes")
+            "Yes"
         } else {
-            String::from("No")
+            "No"
         }
 }
 
@@ -15,10 +15,18 @@ pub fn run(s: String) -> String {
 mod tests {
     use super::*;
 
+    struct TestCase(&'static str, &'static str);
+
     #[test]
-    fn test() {
-        assert_eq!(String::from("Yes"), run(String::from("117")));
-        assert_eq!(String::from("No"), run(String::from("123")));
-        assert_eq!(String::from("Yes"), run(String::from("777")));
+    fn abc162_a() {
+        let tests = [
+            TestCase("117", "Yes"),
+            TestCase("123", "No"),
+            TestCase("777", "Yes"),
+        ];
+
+        for TestCase(s, expected) in tests {
+            assert_eq!(run(s), expected);
+        }
     }
 }
