@@ -1,27 +1,27 @@
 // https://atcoder.jp/contests/abc132/tasks/abc132_a
 
-pub fn run(s: String) -> String {
+fn run(s: &str) -> &'static str {
     let mut temp: Vec<_> = s.chars().collect();
 
     temp.sort();
 
     if temp[0] == temp[1] && temp[2] == temp[3] && temp[1] != temp[2] {
-        String::from("Yes")
+        "Yes"
     } else {
-        String::from("No")
+        "No"
     }
 }
 
-pub fn run2(s: String) -> String {
+pub fn run2(s: &str) -> &'static str {
     let mut vec: Vec<char> = s.chars().collect();
 
     vec.sort();
     vec.dedup();
 
     if vec.len() == 2 {
-        String::from("Yes")
+        "Yes"
     } else {
-        String::from("No")
+        "No"
     }
 }
 
@@ -29,19 +29,20 @@ pub fn run2(s: String) -> String {
 mod tests {
     use super::*;
 
-    #[test]
-    fn test() {
-        assert_eq!(String::from("Yes"), run(String::from("ASSA")));
-        assert_eq!(String::from("No"), run(String::from("STOP")));
-        assert_eq!(String::from("Yes"), run(String::from("FFEE")));
-        assert_eq!(String::from("No"), run(String::from("FREE")));
-    }
+    struct TestCase(&'static str, &'static str);
 
     #[test]
-    fn test2() {
-        assert_eq!(String::from("Yes"), run2(String::from("ASSA")));
-        assert_eq!(String::from("No"), run2(String::from("STOP")));
-        assert_eq!(String::from("Yes"), run2(String::from("FFEE")));
-        assert_eq!(String::from("No"), run2(String::from("FREE")));
+    fn abc132_a() {
+        let tests = [
+            TestCase("ASSA", "Yes"),
+            TestCase("STOP", "No"),
+            TestCase("FFEE", "Yes"),
+            TestCase("FREE", "No"),
+        ];
+
+        for TestCase(s, expected) in tests {
+            assert_eq!(run(s), expected);
+            assert_eq!(run2(s), expected);
+        }
     }
 }

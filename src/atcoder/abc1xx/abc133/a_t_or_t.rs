@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc133/tasks/abc133_a
 
-pub fn run(n: usize, a: usize, b: usize) -> usize {
+fn run(n: usize, a: usize, b: usize) -> usize {
 	b.min(n * a)
 }
 
@@ -9,10 +9,18 @@ pub fn run(n: usize, a: usize, b: usize) -> usize {
 mod tests {
 	use super::*;
 
+	struct TestCase(usize, usize, usize, usize);
+
 	#[test]
-	fn test() {
-		assert_eq!(8, run(4, 2, 9));
-		assert_eq!(7, run(4, 2, 7));
-		assert_eq!(8, run(4, 2, 8));
+	fn abc133_a() {
+		let tests = [
+			TestCase(4, 2, 9, 8),
+			TestCase(4, 2, 7, 7),
+			TestCase(4, 2, 8, 8),
+		];
+
+		for TestCase(n, a, b, expected) in tests {
+			assert_eq!(run(n, a, b), expected);
+		}
 	}
 }
