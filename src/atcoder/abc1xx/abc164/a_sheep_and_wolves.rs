@@ -1,10 +1,10 @@
 // https://atcoder.jp/contests/abc164/tasks/abc164_a
 
-pub fn run(s: usize, w: usize) -> String {
+fn run(s: usize, w: usize) -> &'static str {
     if w >= s {
-        String::from("unsafe")
+        "unsafe"
     } else {
-        String::from("safe")
+        "safe"
     }
 }
 
@@ -12,10 +12,18 @@ pub fn run(s: usize, w: usize) -> String {
 mod tests {
     use super::*;
 
+    struct TestCase(usize, usize, &'static str);
+
     #[test]
-    fn test() {
-        assert_eq!(String::from("unsafe"), run(4, 5));
-        assert_eq!(String::from("safe"), run(100, 2));
-        assert_eq!(String::from("unsafe"), run(10, 10));
+    fn abc164_a() {
+        let tests = [
+            TestCase(4, 5, "unsafe"),
+            TestCase(100, 2, "safe"),
+            TestCase(10, 10, "unsafe"),
+        ];
+
+        for TestCase(s, w, expected) in tests {
+            assert_eq!(run(s, w), expected);
+        }
     }
 }
