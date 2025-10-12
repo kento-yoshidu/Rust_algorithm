@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc165/tasks/abc165_a
 
-pub fn run(k: u32, a: u32, b: u32) -> &'static str {
+fn run(k: usize, a: usize, b: usize) -> &'static str {
     for n in a..=b {
         if n % k == 0 {
             return "OK";
@@ -10,13 +10,13 @@ pub fn run(k: u32, a: u32, b: u32) -> &'static str {
     "NG"
 }
 
-pub fn run2(k: usize, a: usize, b: usize) -> String {
+fn run2(k: usize, a: usize, b: usize) -> &'static str {
     if (a..=b).any(|num| {
         num % k == 0
     }) {
-        String::from("OK")
+        "OK"
     } else {
-        String::from("NG")
+        "NG"
     }
 }
 
@@ -24,17 +24,18 @@ pub fn run2(k: usize, a: usize, b: usize) -> String {
 mod tests {
     use super::*;
 
-    #[test]
-    fn test() {
-        assert_eq!("OK", run(7, 500, 600));
-        assert_eq!("NG", run(4, 5, 7));
-        assert_eq!("OK", run(1, 11, 11));
-    }
+    struct TestCase(usize, usize, usize, &'static str);
 
     #[test]
-    fn test2() {
-        assert_eq!("OK", run2(7, 500, 600));
-        assert_eq!("NG", run2(4, 5, 7));
-        assert_eq!("OK", run2(1, 11, 11));
+    fn abc165_a() {
+        let tests = [
+            TestCase(7, 500, 600, "OK"),
+            TestCase(4, 5, 7, "NG"),
+            TestCase(1, 11, 11, "OK"),
+        ];
+
+        for TestCase(k, a, b, expected) in tests {
+            assert_eq!(run(k, a, b), expected);
+        }
     }
 }
