@@ -1,9 +1,9 @@
 // https://atcoder.jp/contests/abc166/tasks/abc166_a
 
-pub fn run(s: &str) -> String {
+pub fn run(s: &str) -> &'static str {
     match s {
-        "ABC" => String::from("ARC"),
-        "ARC" => String::from("ABC"),
+        "ABC" => "ARC",
+        "ARC" => "ABC",
         _ => unreachable!(),
     }
 }
@@ -12,9 +12,17 @@ pub fn run(s: &str) -> String {
 mod tests {
     use super::*;
 
+    struct TestCase(&'static str, &'static str);
+
     #[test]
-    fn test() {
-        assert_eq!(String::from("ARC"), run("ABC"));
-        assert_eq!(String::from("ABC"), run("ARC"));
+    fn abc166_a() {
+        let tests = [
+            TestCase("ABC", "ARC"),
+            TestCase("ARC" ,"ABC"),
+        ];
+
+        for TestCase(s, expected) in tests {
+            assert_eq!(run(s), expected);
+        }
     }
 }

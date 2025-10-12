@@ -2,7 +2,7 @@
 
 use std::collections::HashSet;
 
-pub fn run(n: usize, _k: usize, vec: Vec<(usize, Vec<usize>)>) -> usize {
+fn run(n: usize, _k: usize, vec: Vec<(usize, Vec<usize>)>) -> usize {
     let mut hash_set = HashSet::new();
 
     for v in vec {
@@ -22,9 +22,17 @@ pub fn run(n: usize, _k: usize, vec: Vec<(usize, Vec<usize>)>) -> usize {
 mod tests {
     use super::*;
 
+    struct TestCase(usize, usize, Vec<(usize, Vec<usize>)>, usize);
+
     #[test]
-    fn test() {
-        assert_eq!(1, run(3, 2, vec![(2, vec![1, 3]), (1, vec![3])]));
-        assert_eq!(2, run(3, 3, vec![(1, vec![3]), (1, vec![3]), (1, vec![3])]));
+    fn abc166_b() {
+        let tests = [
+            TestCase(3, 2, vec![(2, vec![1, 3]), (1, vec![3])], 1),
+            TestCase(3, 3, vec![(1, vec![3]), (1, vec![3]), (1, vec![3])], 2),
+        ];
+
+        for TestCase(n, k, v, expected) in tests {
+            assert_eq!(run(n, k, v), expected);
+        }
     }
 }
