@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc166/tasks/abc166_a
 
-pub fn run(s: &str) -> &'static str {
+fn run(s: &str) -> &'static str {
     match s {
         "ABC" => "ARC",
         "ARC" => "ABC",

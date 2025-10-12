@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc167/tasks/abc167_c
 
-pub fn run(n: usize, m: usize, x: isize, vec: Vec<Vec<isize>>) -> isize {
+fn run(n: usize, m: usize, x: isize, vec: Vec<Vec<isize>>) -> isize {
     let mut ans = std::isize::MAX;
 
     for bit in 1..(1 << n) {
@@ -17,8 +17,8 @@ pub fn run(n: usize, m: usize, x: isize, vec: Vec<Vec<isize>>) -> isize {
             }
         }
 
-        if temp.iter()
-            .all(|num| *num >= x) {
+        if temp.into_iter()
+            .all(|num| num >= x) {
                 ans = ans.min(sum);
             }
     }
@@ -37,7 +37,7 @@ mod tests {
     struct TestCase(usize, usize, isize, Vec<Vec<isize>>, isize);
 
     #[test]
-    fn test() {
+    fn abc167_c() {
         let tests = [
             TestCase(3, 3, 10, vec![vec![60, 2, 2, 4], vec![70, 8, 7, 9], vec![50, 2, 3, 9]], 120),
             TestCase(3, 3, 10, vec![vec![100, 3, 1, 4], vec![100, 1, 5, 9], vec![100, 2, 6, 5]], -1),
