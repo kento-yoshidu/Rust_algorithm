@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc168/tasks/abc168_b
 
-pub fn run(k: usize, s: &str) -> String {
+fn run(k: usize, s: &str) -> String {
     if k >= s.len() {
         s.to_string()
     } else {
@@ -12,9 +12,17 @@ pub fn run(k: usize, s: &str) -> String {
 mod tests {
     use super::*;
 
+    struct TestCase(usize, &'static str, &'static str);
+
     #[test]
-    fn test() {
-        assert_eq!(String::from("nikoand..."), run(7, "nikoandsolstice"));
-        assert_eq!(String::from("ferelibenterhominesidquodvoluntcredunt"), run(40, "ferelibenterhominesidquodvoluntcredunt"));
+    fn abc168_b() {
+        let tests = [
+            TestCase(7, "nikoandsolstice", "nikoand..."),
+            TestCase(40, "ferelibenterhominesidquodvoluntcredunt", "ferelibenterhominesidquodvoluntcredunt"),
+        ];
+
+        for TestCase(k, s, expected) in tests {
+            assert_eq!(run(k, s), expected);
+        }
     }
 }

@@ -1,10 +1,10 @@
 // https://atcoder.jp/contests/abc168/tasks/abc168_a
 
-pub fn run(n: usize) -> String {
+fn run(n: usize) -> &'static str {
     match n % 10 {
-        2 | 4 | 5 | 7 | 9 => String::from("hon"),
-        0 | 1 | 6 | 8 => String::from("pon"),
-        3 => String::from("bon"),
+        2 | 4 | 5 | 7 | 9 => "hon",
+        0 | 1 | 6 | 8 => "pon",
+        3 => "bon",
         _ => unreachable!(),
     }
 }
@@ -13,10 +13,18 @@ pub fn run(n: usize) -> String {
 mod tests {
     use super::*;
 
+    struct TestCase(usize, &'static str);
+
     #[test]
-    fn test() {
-        assert_eq!(String::from("pon"), run(16));
-        assert_eq!(String::from("hon"), run(2));
-        assert_eq!(String::from("bon"), run(183));
+    fn abc168_a() {
+        let tests = [
+            TestCase(16, "pon"),
+            TestCase(2, "hon"),
+            TestCase(183, "bon"),
+        ];
+
+        for TestCase(n, expected) in tests {
+            assert_eq!(run(n), expected);
+        }
     }
 }
