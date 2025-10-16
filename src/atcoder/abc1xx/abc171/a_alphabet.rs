@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc171/tasks/abc171_a
 
-pub fn run(a: char) -> char {
+fn run(a: char) -> char {
     if a.is_uppercase() {
         'A'
     } else {
@@ -12,9 +12,17 @@ pub fn run(a: char) -> char {
 mod tests {
     use super::*;
 
+    struct TestCase(char, char);
+
     #[test]
-    fn test() {
-        assert_eq!('A', run('B'));
-        assert_eq!('a', run('a'));
+    fn abc171_a() {
+        let tests = [
+            TestCase('B', 'A'),
+            TestCase('a', 'a'),
+        ];
+
+        for TestCase(a, expected) in tests {
+            assert_eq!(run(a), expected);
+        }
     }
 }

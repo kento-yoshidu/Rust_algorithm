@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc172/tasks/abc172_b
 
-pub fn run(s: &str, t: &str) -> usize {
+fn run(s: &str, t: &str) -> usize {
     s.chars()
         .zip(t.chars())
         .filter(|(l, r)| {
@@ -13,10 +13,18 @@ pub fn run(s: &str, t: &str) -> usize {
 mod tests {
     use super::*;
 
+    struct TestCase(&'static str, &'static str, usize);
+
     #[test]
     fn test() {
-        assert_eq!(4, run("cupofcoffee", "cupofhottea"));
-        assert_eq!(5, run("abcde", "bcdea"));
-        assert_eq!(0, run("apple", "apple"));
+        let tests = [
+            TestCase("cupofcoffee", "cupofhottea", 4),
+            TestCase("abcde", "bcdea", 5),
+            TestCase("apple", "apple", 0),
+        ];
+
+        for TestCase(s, t, expected) in tests {
+            assert_eq!(run(s, t), expected);
+        }
     }
 }
