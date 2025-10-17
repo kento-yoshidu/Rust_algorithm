@@ -3,6 +3,7 @@ pub mod no2xx;
 pub mod no4xx;
 pub mod no5xx;
 pub mod no6xx;
+pub mod no7xx;
 pub mod no8xx;
 pub mod no9xx;
 pub mod no12xx;
