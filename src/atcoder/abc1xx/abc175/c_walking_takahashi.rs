@@ -2,7 +2,7 @@
 
 use std::cmp::min;
 
-pub fn run(x: isize, k: isize, d: isize) -> isize {
+fn run(x: isize, k: isize, d: isize) -> isize {
     let mut xx = x.abs();
     let mut kk = k;
 
@@ -26,7 +26,7 @@ mod tests {
     struct TestCase(isize, isize, isize, isize);
 
     #[test]
-    fn test() {
+    fn abc175_c() {
         let tests = [
             TestCase(6, 2, 4, 2),
             TestCase(7, 4, 3, 1),
