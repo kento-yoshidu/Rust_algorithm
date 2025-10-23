@@ -1,7 +1,7 @@
 // https://atcoder.jp/contests/abc182/tasks/abc182_c
 
-fn run(n: &str) -> i32 {
-    let mut ans = std::i32::MAX;
+fn run(n: &str) -> isize {
+    let mut ans = std::isize::MAX;
 
     if n.parse::<usize>().unwrap() % 3 == 0 {
         return 0;
@@ -25,7 +25,7 @@ fn run(n: &str) -> i32 {
         }
     }
 
-    if ans == std::i32::MAX {
+    if ans == std::isize::MAX {
         -1
     } else {
         ans
@@ -36,12 +36,20 @@ fn run(n: &str) -> i32 {
 mod tests {
     use super::*;
 
+    struct TestCase(&'static str, isize);
+
     #[test]
-    fn test() {
-        assert_eq!(1, run("35"));
-        assert_eq!(0, run("369"));
-        assert_eq!(1, run("6227384"));
-        assert_eq!(-1, run("11"));
-        assert_eq!(2, run("641"));
+    fn abc182_c() {
+        let tests = [
+            TestCase("35", 1),
+            TestCase("369", 0),
+            TestCase("6227384", 1),
+            TestCase("11", -1),
+            TestCase("641", 2),
+        ];
+
+        for TestCase(n, expected) in tests {
+            assert_eq!(run(n), expected);
+        }
     }
 }
