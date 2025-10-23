@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc181/tasks/abc181_c
 
-pub fn run(n: usize, xy: Vec<(isize, isize)>) -> &'static str {
+fn run(n: usize, xy: Vec<(isize, isize)>) -> &'static str {
     for i in 0..n {
         for j in i+1..n {
             for k in j+1..n {
@@ -25,7 +25,7 @@ mod tests {
     struct TestCase(usize, Vec<(isize, isize)>, &'static str);
 
     #[test]
-    fn test() {
+    fn abc181_c() {
         let tests = [
             TestCase(4, vec![(0, 1), (0, 2), (0, 3), (1, 1)], "Yes"),
             TestCase(14, vec![(5, 5), (0, 1), (2, 5), (8, 0), (2, 1), (0, 0), (3, 6), (8, 6), (5, 9), (7, 9), (3, 4), (9, 2), (9, 8), (7, 2)], "No"),
