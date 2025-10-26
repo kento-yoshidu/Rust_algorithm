@@ -5,7 +5,7 @@ use std::cmp::Ordering;
 
 // upper_boundの拡張
 // n以下の最大の数を返す
-pub fn max_under_n<T: Ord>(vec: &[T], value: T) -> Option<usize> {
+fn max_under_n<T: Ord>(vec: &[T], value: T) -> Option<usize> {
     vec.binary_search_by(|x| {
         if *x <= value {
             Ordering::Less
@@ -66,7 +66,7 @@ mod tests {
     struct TestCase(usize, usize, Vec<usize>, usize);
 
     #[test]
-    fn test() {
+    fn abb184_f() {
         let tests = [
             TestCase(5, 17, vec![2, 3, 5, 7, 11], 17),
             TestCase(6, 100, vec![1, 2, 7, 5, 8, 10], 33),
