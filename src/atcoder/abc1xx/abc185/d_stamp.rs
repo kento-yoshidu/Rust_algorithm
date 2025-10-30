@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc185/tasks/abc185_d
 
-pub fn run(n: usize, m: usize, a: Option<Vec<usize>>) -> usize {
+fn run(n: usize, m: usize, a: Option<Vec<usize>>) -> usize {
     if m == 0 {
         return 1;
     }
@@ -41,7 +41,7 @@ mod tests {
     struct TestCase(usize, usize, Option<Vec<usize>>, usize);
 
     #[test]
-    fn test() {
+    fn abc185_d() {
         let tests = [
             TestCase(5, 2, Some(vec![1, 3]), 3),
             TestCase(13, 3, Some(vec![13, 3, 9]), 6),
