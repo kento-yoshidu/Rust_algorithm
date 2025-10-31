@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc186/tasks/abc186_c
 
-pub fn run(n: usize) -> usize {
+fn run(n: usize) -> usize {
     (1..=n)
         .filter(|num| {
             !num.to_string().contains("7") && !format!("{:0o}", num).to_string().contains("7")
@@ -12,9 +12,17 @@ pub fn run(n: usize) -> usize {
 mod tests {
     use super::*;
 
+    struct TestCase(usize, usize);
+
     #[test]
-    fn test() {
-        assert_eq!(17, run(20));
-        assert_eq!(30555, run(100000));
+    fn abc186_c() {
+        let tests = [
+            TestCase(20, 17),
+            TestCase(100000, 30555),
+        ];
+
+        for TestCase(n, expected) in tests {
+            assert_eq!(run(n), expected);
+        }
     }
 }
