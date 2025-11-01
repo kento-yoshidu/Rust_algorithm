@@ -1,9 +1,9 @@
 // https://atcoder.jp/contests/abc138/tasks/abc138_b
 
-pub fn run(_n: usize, a: Vec<usize>) -> f64 {
-    let vec: Vec<f64> = a.iter().map(|num| *num as f64).collect();
+fn run(_n: usize, a: Vec<usize>) -> f64 {
+    let vec: Vec<f64> = a.into_iter().map(|num| num as f64).collect();
 
-    let total: f64 = vec.iter()
+    let total: f64 = vec.into_iter()
         .map(|num| {
             1.0 / num
         })
@@ -16,10 +16,18 @@ pub fn run(_n: usize, a: Vec<usize>) -> f64 {
 mod tests {
     use super::*;
 
+    struct TestCase(usize, Vec<usize>, f64);
+
     #[test]
-    fn test() {
-        assert_eq!(7.5, run(2, vec![10, 30]));
-        assert_eq!(66.66666666666667, run(3, vec![200, 200, 200]));
-        assert_eq!(1000.0, run(1, vec![1000]));
+    fn abc138_b() {
+        let tests = [
+            TestCase(2, vec![10, 30], 7.5),
+            TestCase(3, vec![200, 200, 200], 66.66666666666667),
+            TestCase(1, vec![1000], 1000.0,),
+        ];
+
+        for TestCase(n, a, expected) in tests {
+            assert_eq!(run(n, a), expected);
+        }
     }
 }
