@@ -29,6 +29,7 @@ mod tests {
     #[test]
     fn test() {
         let tests = [
+            // Todo?
             // TestCase(6, vec!["a", "!a", "b", "!c", "d", "!d"], "a"),
             TestCase(10, vec!["red", "red", "red", "!orange", "yellow", "!blue", "cyan", "!green", "brown", "!gray"], "satisfiable"),
         ];

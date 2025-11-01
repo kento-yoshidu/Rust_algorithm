@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc187/tasks/abc187_b
 
-pub fn run(n: usize, xy: Vec<(isize, isize)>) -> usize {
+fn run(n: usize, xy: Vec<(isize, isize)>) -> usize {
     let mut ans = 0;
 
     for i in 0..n {
@@ -26,10 +26,18 @@ pub fn run(n: usize, xy: Vec<(isize, isize)>) -> usize {
 mod tests {
     use super::*;
 
+    struct TestCase(usize, Vec<(isize, isize)>, usize);
+
     #[test]
     fn test() {
-        assert_eq!(2, run(3, vec![(0, 0), (1, 2), (2, 1)]));
-        assert_eq!(0, run(1, vec![(-691, 273)]));
-        assert_eq!(11, run(10, vec![(-31, -35), (8, -36), (22, 64), (5, 73), (-14, 8), (18, -58), (-41, -85), (1, -88), (-21, -85), (-11, 82)]));
+        let tests = [
+            TestCase(3, vec![(0, 0), (1, 2), (2, 1)], 2),
+            TestCase(1, vec![(-691, 273)], 0),
+            TestCase(10, vec![(-31, -35), (8, -36), (22, 64), (5, 73), (-14, 8), (18, -58), (-41, -85), (1, -88), (-21, -85), (-11, 82)], 11),
+        ];
+
+        for TestCase(n, xy, expected) in tests {
+            assert_eq!(run(n, xy), expected);
+        }
     }
 }
