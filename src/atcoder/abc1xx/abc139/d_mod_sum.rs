@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc139/tasks/abc139_d
 
-pub fn run(n: usize) -> usize {
+fn run(n: usize) -> usize {
     (1..n).sum()
 }
 
@@ -8,10 +8,18 @@ pub fn run(n: usize) -> usize {
 mod test {
     use super::*;
 
+    struct TestCase(usize, usize);
+
     #[test]
-    fn test() {
-        assert_eq!(1, run(2));
-        assert_eq!(78, run(13));
-        assert_eq!(0, run(1));
+    fn abc139_d() {
+        let tests = [
+            TestCase(2, 1),
+            TestCase(13, 78),
+            TestCase(1, 0),
+        ];
+
+        for TestCase(n, expected) in tests {
+            assert_eq!(run(n), expected);
+        }
     }
 }
