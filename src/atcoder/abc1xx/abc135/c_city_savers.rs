@@ -2,7 +2,7 @@
 
 use std::cmp::min;
 
-pub fn run(n: usize, a: Vec<usize>, b: Vec<usize>) -> usize {
+fn run(n: usize, a: Vec<usize>, b: Vec<usize>) -> usize {
     let mut ans = 0;
 
     let mut vec_a = a.clone();
@@ -31,7 +31,7 @@ mod tests {
     struct TestCase(usize, Vec<usize>, Vec<usize>, usize);
 
     #[test]
-    fn test() {
+    fn abc135_c() {
         let tests = [
             TestCase(2, vec![3, 5, 2], vec![4, 5], 9),
             TestCase(3, vec![5, 6, 3, 8], vec![5, 100, 8], 22),
