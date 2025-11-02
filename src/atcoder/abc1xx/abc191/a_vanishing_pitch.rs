@@ -1,10 +1,10 @@
 // https://atcoder.jp/contests/abc191/tasks/abc191_a
 
-pub fn run(v: i32, t: i32, s: i32, d: i32) -> String {
+fn run(v: isize, t: isize, s: isize, d: isize) -> &'static str {
     if d < v*t || v*s < d {
-        String::from("Yes")
+        "Yes"
     } else {
-        String::from("No")
+        "No"
     }
 }
 
@@ -12,9 +12,17 @@ pub fn run(v: i32, t: i32, s: i32, d: i32) -> String {
 mod tests {
     use super::*;
 
+    struct TestCase(isize, isize, isize, isize, &'static str);
+
     #[test]
-    fn test() {
-        assert_eq!(String::from("Yes"), run(10, 3, 5, 20));
-        assert_eq!(String::from("No"), run(10, 3, 5, 30));
+    fn abc191_a() {
+        let tests = [
+            TestCase(10, 3, 5, 20, "Yes"),
+            TestCase(10, 3, 5, 30, "No"),
+        ];
+
+        for TestCase(v, t, s, d, expected) in tests {
+            assert_eq!(run(v, t, s, d), expected);
+        }
     }
 }
