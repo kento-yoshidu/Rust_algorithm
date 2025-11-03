@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc192/tasks/abc192_a
 
-pub fn run(x: i32) -> i32 {
+fn run(x: usize) -> usize {
     if x % 100 == 0 {
         100
     } else {
@@ -12,9 +12,17 @@ pub fn run(x: i32) -> i32 {
 mod tests {
     use super::*;
 
+    struct TestCase(usize, usize);
+
     #[test]
-    fn test() {
-        assert_eq!(60, run(140));
-        assert_eq!(100, run(1000));
+    fn ab192_a() {
+        let tests = [
+            TestCase(140, 60),
+            TestCase(1000, 100),
+        ];
+
+        for TestCase(x, expected) in tests {
+            assert_eq!(run(x), expected);
+        }
     }
 }

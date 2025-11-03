@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc192/tasks/abc192_b
 
-pub fn run(s: &str) -> String {
+fn run(s: &str) -> &'static str {
     if s.chars()
         .enumerate()
         .all(|(i, c)| {
@@ -10,9 +10,9 @@ pub fn run(s: &str) -> String {
                 c.is_uppercase()
             }
         }) {
-            String::from("Yes")
+            "Yes"
         } else {
-            String::from("No")
+            "No"
         }
 }
 
@@ -20,11 +20,19 @@ pub fn run(s: &str) -> String {
 mod tests {
     use super::*;
 
+    struct TestCase(&'static str, &'static str);
+
     #[test]
-    fn test() {
-        assert_eq!(String::from("Yes"), run("dIfFiCuLt"));
-        assert_eq!(String::from("No"), run("eASY"));
-        assert_eq!(String::from("Yes"), run("a"));
-        assert_eq!(String::from("No"), run("A"));
+    fn abc192_b() {
+        let tests = [
+            TestCase("dIfFiCuLt", "Yes"),
+            TestCase("eASY", "No"),
+            TestCase("a", "Yes"),
+            TestCase("A", "No"),
+        ];
+
+        for TestCase(s, expected) in tests {
+            assert_eq!(run(s), expected);
+        }
     }
 }
