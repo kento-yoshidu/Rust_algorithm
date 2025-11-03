@@ -1,9 +1,9 @@
 // https://atcoder.jp/contests/abc142/tasks/abc142_c
 
-pub fn run(n: usize, a: Vec<usize>) -> Vec<usize> {
+fn run(n: usize, a: Vec<usize>) -> Vec<usize> {
     let mut vec = vec![0; n];
 
-    for (i, num) in a.iter().enumerate() {
+    for (i, num) in a.into_iter().enumerate() {
         vec[num-1] = i+1;
     }
 
@@ -17,7 +17,7 @@ mod tests {
     struct TestCase(usize, Vec<usize>, Vec<usize>);
 
     #[test]
-    fn test() {
+    fn abc142_c() {
         let tests = [
             TestCase(3, vec![2, 3, 1], vec![3, 1, 2]),
             TestCase(5, vec![1, 2, 3, 4, 5], vec![1, 2, 3, 4, 5]),
