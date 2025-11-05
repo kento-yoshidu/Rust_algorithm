@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc143/tasks/abc143_c
 
-pub fn run(_n: usize, s: &str) -> usize {
+fn run(_n: usize, s: &str) -> usize {
     let mut chars: Vec<char> = s.chars().collect();
 
     chars.dedup();
@@ -26,7 +26,7 @@ fn run_lengths(s: Vec<char>) -> Vec<(char, usize)> {
     run_lengths
 }
 
-pub fn run2(_n: usize, s: &str) -> usize {
+fn run2(_n: usize, s: &str) -> usize {
     run_lengths(s.chars().collect()).len()
 }
 
@@ -34,17 +34,19 @@ pub fn run2(_n: usize, s: &str) -> usize {
 mod tests {
     use super::*;
 
-    #[test]
-    fn test() {
-        assert_eq!(5, run(10, "aabbbbaaca"));
-        assert_eq!(1, run(5, "aaaaa"));
-        assert_eq!(10, run(20, "xxzaffeeeeddfkkkkllq"));
-    }
+    struct TestCase(usize, &'static str, usize);
 
     #[test]
-    fn test2() {
-        assert_eq!(5, run2(10, "aabbbbaaca"));
-        assert_eq!(1, run2(5, "aaaaa"));
-        assert_eq!(10, run2(20, "xxzaffeeeeddfkkkkllq"));
+    fn abc143_c() {
+        let tests = [
+            TestCase(10, "aabbbbaaca", 5),
+            TestCase(5, "aaaaa", 1),
+            TestCase(20, "xxzaffeeeeddfkkkkllq", 10),
+        ];
+
+        for TestCase(n, s, expected) in tests {
+            assert_eq!(run(n, s), expected);
+            assert_eq!(run2(n, s), expected);
+        }
     }
 }
