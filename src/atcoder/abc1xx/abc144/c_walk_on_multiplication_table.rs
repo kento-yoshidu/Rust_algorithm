@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc144/tasks/abc144_c
 
-pub fn run(n: usize) -> usize {
+fn run(n: usize) -> usize {
     let mut ans = n;
 
     for i in 1..n {
@@ -25,10 +25,18 @@ pub fn run(n: usize) -> usize {
 mod tests {
     use super::*;
 
+    struct TestCase(usize, usize);
+
     #[test]
-    fn test() {
-        assert_eq!(5, run(10));
-        assert_eq!(13, run(50));
-        assert_eq!(10000000018, run(10000000019));
+    fn abc144_c() {
+        let tests = [
+            TestCase(10, 5),
+            TestCase(50, 13),
+            TestCase(10000000019, 10000000018),
+        ];
+
+        for TestCase(n, expected) in tests {
+            assert_eq!(run(n), expected);
+        }
     }
 }

@@ -27,7 +27,7 @@ mod tests {
     struct TestCase(isize, isize, usize, Vec<char>, Vec<(isize, isize)>);
 
     #[test]
-    fn paiza_a_level_up_problem02_step01() {
+    fn paiza_a_level_up_problem02_step02() {
         let tests = [
             TestCase(0, 0, 1, vec!['N'], vec![(-1, 0)]),
             TestCase(5, 10, 4, vec!['N', 'W', 'E', 'S'], vec![(4, 10), (4, 9), (4, 10), (5, 10)]),
