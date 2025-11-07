@@ -15,7 +15,7 @@ mod tests {
     struct TestCase(usize, usize, &'static str);
 
     #[test]
-    fn test() {
+    fn abc194_a() {
         let tests = [
             TestCase(10, 120, "Yes"),
             TestCase(10, 125, "No"),

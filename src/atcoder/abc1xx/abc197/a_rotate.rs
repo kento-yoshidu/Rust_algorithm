@@ -27,7 +27,7 @@ mod tests {
     struct TestCase(&'static str, &'static str);
 
     #[test]
-    fn test() {
+    fn abc197_a() {
         let tests = [
             TestCase("abc", "bca"),
             TestCase("aab", "aba"),
