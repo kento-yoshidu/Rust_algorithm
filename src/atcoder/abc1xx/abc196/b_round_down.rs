@@ -14,10 +14,18 @@ fn run(x: &str) -> String {
 mod tests {
     use super::*;
 
+    struct TestCase(&'static str, &'static str);
+
     #[test]
-    fn test() {
-        assert_eq!(String::from("123"), run("123.456"));
-        assert_eq!(String::from("0"), run("0"));
-        assert_eq!(String::from("84939825309432908832902189"), run("84939825309432908832902189.9092309409809091329"));
+    fn abc196_b() {
+        let tests = [
+            TestCase("123.456", "123"),
+            TestCase("0", "0"),
+            TestCase("84939825309432908832902189.9092309409809091329", "84939825309432908832902189"),
+        ];
+
+        for TestCase(x, expected) in tests {
+            assert_eq!(run(x), expected);
+        }
     }
 }

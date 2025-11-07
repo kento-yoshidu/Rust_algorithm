@@ -16,7 +16,7 @@ fn func(n: usize) -> usize {
     n * num + n
 }
 
-pub fn run(n: usize) -> usize {
+fn run(n: usize) -> usize {
     let mut ans = 0;
 
     let mut i = 1;
@@ -39,10 +39,18 @@ pub fn run(n: usize) -> usize {
 mod tests {
     use super::*;
 
+    struct TestCase(usize, usize);
+
     #[test]
-    fn test() {
-        assert_eq!(3, run(33));
-        assert_eq!(13, run(1333));
-        assert_eq!(999, run(10000000));
+    fn abc196_c() {
+        let tests = [
+            TestCase(33, 3),
+            TestCase(1333, 13),
+            TestCase(10000000, 999),
+        ];
+
+        for TestCase(n, expected) in tests {
+            assert_eq!(run(n), expected);
+        }
     }
 }
