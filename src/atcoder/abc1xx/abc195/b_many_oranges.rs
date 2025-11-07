@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc195/tasks/abc195_b
 
-pub fn run(a: usize, b: usize, w: usize) -> String {
+fn run(a: usize, b: usize, w: usize) -> String {
     let mut min = std::usize::MAX;
     let mut max = 0;
 
@@ -25,7 +25,7 @@ mod tests {
     struct TestCase(usize, usize, usize, &'static str);
 
     #[test]
-    fn test() {
+    fn abc195_b() {
         let tests = [
             TestCase(100, 200, 2, "10 20"),
             TestCase(120, 150, 2, "14 16"),
