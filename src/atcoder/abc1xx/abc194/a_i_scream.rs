@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc194/tasks/abc194_a
 
-pub fn run(a: usize, b: usize) -> usize {
+fn run(a: usize, b: usize) -> usize {
     if a + b >= 15 && b >= 8 {
         1
     } else if a + b >= 10 && b >= 3 {
@@ -19,7 +19,7 @@ mod tests {
     struct TestCase(usize, usize, usize);
 
     #[test]
-    fn test() {
+    fn abc194_a() {
         let tests = [
             TestCase(10, 8, 1),
             TestCase(1, 2, 3),
