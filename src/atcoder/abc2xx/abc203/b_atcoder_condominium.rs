@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc203/tasks/abc203_b
 
-pub fn run(n: usize, k: usize) -> usize {
+fn run(n: usize, k: usize) -> usize {
     let mut ans = 0;
 
     for nn in 1..=n {
@@ -12,7 +12,7 @@ pub fn run(n: usize, k: usize) -> usize {
     ans
 }
 
-pub fn run2(n :usize, k: usize) -> usize {
+fn run2(n: usize, k: usize) -> usize {
     (1..=k)
         .map(|l|  {
             (1..=n)
@@ -28,15 +28,18 @@ pub fn run2(n :usize, k: usize) -> usize {
 mod tests {
     use super::*;
 
-    #[test]
-    fn test() {
-        assert_eq!(203, run(1, 2));
-        assert_eq!(1818, run(3, 3));
-    }
+    struct TestCase(usize, usize, usize);
 
     #[test]
-    fn test2() {
-        assert_eq!(203, run2(1, 2));
-        assert_eq!(1818, run2(3, 3));
+    fn abc203_b() {
+        let tests = [
+            TestCase(1, 2, 203),
+            TestCase(3, 3, 1818),
+        ];
+
+        for TestCase(n, k, expected) in tests {
+            assert_eq!(run(n, k), expected);
+            assert_eq!(run2(n, k), expected);
+        }
     }
 }
