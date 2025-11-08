@@ -10,7 +10,7 @@ fn f(n: f64) -> f64 {
     }
 }
 
-pub fn run(n: usize, xy: Vec<(isize, isize)>) -> f64 {
+fn run(n: usize, xy: Vec<(isize, isize)>) -> f64 {
     let mut dist_sum = 0.0;
 
     for p in (0..n).permutations(n) {
@@ -33,7 +33,7 @@ mod tests {
     struct TestCase(usize, Vec<(isize, isize)>, f64);
 
     #[test]
-    fn test() {
+    fn abc145_c() {
         let tests = [
             TestCase(3, vec![(0, 0), (1, 0), (0, 1)], 2.2761423749153966),
             TestCase(2, vec![(-879, 981), (-866, 890)], 91.92388155425118),

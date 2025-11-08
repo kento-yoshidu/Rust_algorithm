@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc145/tasks/abc145_a
 
-pub fn run(r: usize) -> usize {
+fn run(r: usize) -> usize {
     r * r
 }
 
@@ -8,9 +8,17 @@ pub fn run(r: usize) -> usize {
 mod tests {
     use super::*;
 
+    struct TestCase(usize, usize);
+
     #[test]
-    fn test() {
-        assert_eq!(4, run(2));
-        assert_eq!(10000, run(100));
+    fn abc145_a() {
+        let tests = [
+            TestCase(2, 4),
+            TestCase(100, 10000),
+        ];
+
+        for TestCase(r, expected) in tests {
+            assert_eq!(run(r), expected);
+        }
     }
 }
