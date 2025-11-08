@@ -1,10 +1,10 @@
 // https://atcoder.jp/contests/abc199/tasks/abc199_a
 
-pub fn run(a: usize, b: usize, c: usize) -> String {
+fn run(a: usize, b: usize, c: usize) -> &'static str {
     if c*c > a*a + b*b {
-        String::from("Yes")
+        "Yes"
     } else {
-        String::from("No")
+        "No"
     }
 }
 
@@ -12,10 +12,18 @@ pub fn run(a: usize, b: usize, c: usize) -> String {
 mod tests {
     use super::*;
 
+    struct TestCase(usize, usize, usize, &'static str);
+
     #[test]
-    fn test() {
-        assert_eq!(String::from("Yes"), run(2, 2, 4));
-        assert_eq!(String::from("No"), run(10, 10, 10));
-        assert_eq!(String::from("No"), run(3, 4, 5));
+    fn abc199_a() {
+        let tests = [
+            TestCase(2, 2, 4, "Yes"),
+            TestCase(10, 10, 10, "No"),
+            TestCase(3, 4, 5, "No"),
+        ];
+
+        for TestCase(a, b, c, expected) in tests {
+            assert_eq!(run(a, b, c), expected);
+        }
     }
 }
