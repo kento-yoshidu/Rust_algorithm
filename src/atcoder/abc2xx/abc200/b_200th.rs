@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc200/tasks/abc200_b
 
-pub fn run(n: usize, k: usize) -> usize {
+fn run(n: usize, k: usize) -> usize {
     let mut ans = n.to_string();
 
     for _ in 0..k {
@@ -16,7 +16,7 @@ pub fn run(n: usize, k: usize) -> usize {
     ans.parse().unwrap()
 }
 
-pub fn run2(n: usize, k: usize) -> usize {
+fn run2(n: usize, k: usize) -> usize {
     (0..k)
         .fold(n, |state, _| {
             if state % 200 == 0 {
@@ -31,17 +31,19 @@ pub fn run2(n: usize, k: usize) -> usize {
 mod tests {
     use super::*;
 
-    #[test]
-    fn test() {
-        assert_eq!(50531, run(2021, 4));
-        assert_eq!(1, run(40000, 2));
-        assert_eq!(84875488281, run(8691, 20));
-    }
+    struct TestCase(usize, usize, usize);
 
     #[test]
-    fn test2() {
-        assert_eq!(50531, run2(2021, 4));
-        assert_eq!(1, run2(40000, 2));
-        assert_eq!(84875488281, run2(8691, 20));
+    fn abc200_b() {
+        let tests = [
+            TestCase(2021, 4, 50531),
+            TestCase(40000, 2, 1),
+            TestCase(8691, 20, 84875488281),
+        ];
+
+        for TestCase(n, k, expected) in tests {
+            assert_eq!(run(n, k), expected);
+            assert_eq!(run2(n, k), expected);
+        }
     }
 }
