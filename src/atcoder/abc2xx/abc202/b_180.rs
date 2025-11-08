@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc202/tasks/abc202_b
 
-pub fn run(s: String) -> String {
+fn run(s: &str) -> String {
     s.chars()
         .rev()
         .map(|c| {
@@ -17,10 +17,18 @@ pub fn run(s: String) -> String {
 mod tests {
     use super::*;
 
+    struct TestCase(&'static str, &'static str);
+
     #[test]
-    fn test() {
-        assert_eq!(String::from("6881090"), run(String::from("0601889")));
-        assert_eq!(String::from("01698"), run(String::from("86910")));
-        assert_eq!(String::from("01010"), run(String::from("01010")));
+    fn abc202_b() {
+        let tests = [
+            TestCase("0601889", "6881090"),
+            TestCase("86910", "01698"),
+            TestCase("01010", "01010"),
+        ];
+
+        for TestCase(s, expected) in tests {
+            assert_eq!(run(s), expected);
+        }
     }
 }
