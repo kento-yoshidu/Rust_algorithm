@@ -1,10 +1,10 @@
 // https://atcoder.jp/contests/abc147/tasks/abc147_a
 
-pub fn run(a: usize, b: usize, c: usize) -> String {
+fn run(a: usize, b: usize, c: usize) -> &'static str {
     if a + b + c >= 22 {
-        String::from("bust")
+        "bust"
     } else {
-        String::from("win")
+        "win"
     }
 }
 
@@ -12,9 +12,17 @@ pub fn run(a: usize, b: usize, c: usize) -> String {
 mod tests {
     use super::*;
 
+    struct TestCase(usize, usize, usize, &'static str);
+
     #[test]
-    fn test() {
-        assert_eq!(String::from("win"), run(5, 7, 9));
-        assert_eq!(String::from("bust"), run(13, 7, 2));
+    fn abc147_a() {
+        let tests = [
+            TestCase(5, 7, 9, "win"),
+            TestCase(13, 7, 2, "bust"),
+        ];
+
+        for TestCase(a, b, c, expected) in tests {
+            assert_eq!(run(a, b, c), expected);
+        }
     }
 }
