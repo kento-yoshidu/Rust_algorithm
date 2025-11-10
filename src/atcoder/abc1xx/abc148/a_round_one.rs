@@ -21,7 +21,7 @@ mod tests {
     struct TestCase(usize, usize, usize);
 
     #[test]
-    fn test() {
+    fn abc148_a() {
         let tests = [
             TestCase(3, 1, 2),
             TestCase(2, 1, 3),
@@ -30,6 +30,8 @@ mod tests {
 
         for TestCase(a, b, expected) in tests {
             assert_eq!(run(a, b), expected);
+            assert_eq!(run2(a, b), expected);
+            assert_eq!(run3(a, b), expected);
         }
     }
 }

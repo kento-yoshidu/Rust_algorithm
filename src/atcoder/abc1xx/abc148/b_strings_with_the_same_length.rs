@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc148/tasks/abc148_b
 
-pub fn run(n: usize, s1: String, s2: String) -> String {
+fn run(n: usize, s1: &str, s2: &str) -> String {
     let mut result = String::from("");
 
     for i in 0..n {
@@ -10,7 +10,7 @@ pub fn run(n: usize, s1: String, s2: String) -> String {
     result
 }
 
-pub fn run2(_n: usize, s1: String, s2: String) -> String {
+fn run2(_n: usize, s1: &str, s2: &str) -> String {
     s1.chars()
         .zip(s2.chars())
         .map(|(c1, c2)| format!("{}{}", c1, c2))
@@ -21,17 +21,19 @@ pub fn run2(_n: usize, s1: String, s2: String) -> String {
 mod tests {
     use super::*;
 
-    #[test]
-    fn test() {
-        assert_eq!(String::from("icpc"), run(2, String::from("ip"), String::from("cc")));
-        assert_eq!(String::from("humuhumunukunuku"), run(8, String::from("hmhmnknk"), String::from("uuuuuuuu")));
-        assert_eq!(String::from("aaaaaaaaaa"), run(5, String::from("aaaaa"), String::from("aaaaa")));
-    }
+    struct TestCase(usize, &'static str, &'static str, &'static str);
 
     #[test]
-    fn test2() {
-        assert_eq!(String::from("icpc"), run2(2, String::from("ip"), String::from("cc")));
-        assert_eq!(String::from("humuhumunukunuku"), run2(8, String::from("hmhmnknk"), String::from("uuuuuuuu")));
-        assert_eq!(String::from("aaaaaaaaaa"), run2(5, String::from("aaaaa"), String::from("aaaaa")));
+    fn abc148_b() {
+        let tests = [
+            TestCase(2, "ip", "cc", "icpc"),
+            TestCase(8, "hmhmnknk", "uuuuuuuu","humuhumunukunuku"),
+            TestCase(5, "aaaaa", "aaaaa", "aaaaaaaaaa"),
+        ];
+
+        for TestCase(n, s1, s2, expected) in tests {
+            assert_eq!(run(n, s1, s2), expected);
+            assert_eq!(run2(n, s1, s2), expected);
+        }
     }
 }
