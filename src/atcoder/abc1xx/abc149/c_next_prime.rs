@@ -13,7 +13,7 @@ fn is_prime(x: usize) -> bool {
     true
 }
 
-pub fn run(x: usize) -> usize {
+fn run(x: usize) -> usize {
     for num in x.. {
         if is_prime(num) == true {
             return num;
@@ -30,7 +30,7 @@ mod tests {
     struct TestCase(usize, usize);
 
     #[test]
-    fn test() {
+    fn abc149_c() {
         let tests = [
             TestCase(36, 37),
             TestCase(30, 31),
