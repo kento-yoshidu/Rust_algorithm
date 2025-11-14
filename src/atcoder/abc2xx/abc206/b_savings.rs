@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc206/tasks/abc206_b
 
-pub fn run(num: usize) -> usize {
+fn run(num: isize) -> isize {
     let mut total = 0;
     let mut day = 0;
 
@@ -32,15 +32,18 @@ fn run2(n: isize) -> isize {
 mod tests {
     use super::*;
 
-    #[test]
-    fn test() {
-        assert_eq!(5, run(12));
-        assert_eq!(447, run(100128));
-    }
+    struct TestCase(isize, isize);
 
     #[test]
-    fn test2() {
-        assert_eq!(5, run2(12));
-        assert_eq!(447, run2(100128));
+    fn abc206_b() {
+        let tests = [
+            TestCase(12, 5),
+            TestCase(100128, 447),
+        ];
+
+        for TestCase(n, expected) in tests {
+            assert_eq!(run(n), expected);
+            assert_eq!(run2(n), expected);
+        }
     }
 }

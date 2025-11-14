@@ -1,14 +1,14 @@
 // https://atcoder.jp/contests/abc206/tasks/abc206_a
 
-pub fn run(n: f64) -> String {
+fn run(n: f64) -> &'static str {
     let price = (n * 1.08).floor() as usize;
 
     if price == 206 {
-        String::from("so-so")
+        "so-so"
     } else if price > 206 {
-        String::from(":(")
+        ":("
     } else {
-        String::from("Yay!")
+        "Yay!"
     }
 }
 
@@ -16,10 +16,18 @@ pub fn run(n: f64) -> String {
 mod tests {
     use super::*;
 
+    struct TestCase(f64, &'static str);
+
     #[test]
-    fn test() {
-        assert_eq!(String::from("Yay!"), run(180.0));
-        assert_eq!(String::from(":("), run(200.0));
-        assert_eq!(String::from("so-so"), run(191.0));
+    fn abc206_a() {
+        let tests = [
+            TestCase(180.0, "Yay!"),
+            TestCase(200.0, ":("),
+            TestCase(191.0, "so-so"),
+        ];
+
+        for TestCase(n, expected) in tests {
+            assert_eq!(run(n), expected);
+        }
     }
 }
