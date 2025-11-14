@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc150/tasks/abc150_b
 
-pub fn run(n: usize, s: String) -> usize {
+fn run(n: usize, s: &str) -> usize {
     let mut ans = 0;
 
     let vec: Vec<char> = s.chars().collect();
@@ -14,7 +14,7 @@ pub fn run(n: usize, s: String) -> usize {
     ans
 }
 
-pub fn run2(_n: usize, s: String) -> usize {
+fn run2(_n: usize, s: &str) -> usize {
     let chars: Vec<char> = s.chars().collect();
 
     chars
@@ -27,17 +27,19 @@ pub fn run2(_n: usize, s: String) -> usize {
 mod tests {
     use super::*;
 
-    #[test]
-    fn test() {
-        assert_eq!(2, run(10, String::from("ZABCDBABCQ")));
-        assert_eq!(0, run(19, String::from("THREEONEFOURONEFIVE")));
-        assert_eq!(5, run(33, String::from("ABCCABCBABCCABACBCBBABCBCBCBCABCB")));
-    }
+    struct TestCase(usize, &'static str, usize);
 
     #[test]
-    fn test2() {
-        assert_eq!(2, run2(10, String::from("ZABCDBABCQ")));
-        assert_eq!(0, run2(19, String::from("THREEONEFOURONEFIVE")));
-        assert_eq!(5, run2(33, String::from("ABCCABCBABCCABACBCBBABCBCBCBCABCB")));
+    fn abc150_b() {
+        let tests = [
+            TestCase(10, "ZABCDBABCQ", 2),
+            TestCase(19, "THREEONEFOURONEFIVE", 0),
+            TestCase(33, "ABCCABCBABCCABACBCBBABCBCBCBCABCB", 5),
+        ];
+
+        for TestCase(n, s, expected) in tests {
+            assert_eq!(run(n, s), expected);
+            assert_eq!(run2(n, s), expected);
+        }
     }
 }
