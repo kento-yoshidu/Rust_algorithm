@@ -1,14 +1,14 @@
 // https://atcoder.jp/contests/abc207/tasks/abc207_b
 
-pub fn run(a: isize, b: isize, c: isize, d: isize) -> isize {
+fn run(a: isize, b: isize, c: isize, d: isize) -> isize {
     if b >= c*d {
-        -1
+        return -1;
+    }
+
+    if a % ((b - c*d).abs()) == 0 {
+        a / ((b - c*d).abs())
     } else {
-        if a % ((b - c*d).abs()) == 0 {
-            a / ((b - c*d).abs())
-        } else {
-            a / ((b - c*d).abs()) + 1
-        }
+        a / ((b - c*d).abs()) + 1
     }
 }
 
@@ -19,7 +19,7 @@ mod tests {
     struct TestCase(isize, isize, isize, isize, isize);
 
     #[test]
-    fn test() {
+    fn abc207_b() {
         let tests = [
             TestCase(59575, 13178, 95470, 18045, 1),
             TestCase(31468, 50266, 8268, 88558, 1),
