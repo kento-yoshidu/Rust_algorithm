@@ -18,10 +18,18 @@ pub fn run(n: i32, k: i32, m: i32, vec: Vec<i32>) -> i32 {
 mod tests {
     use super::*;
 
+    struct TestCase(i32, i32, i32, Vec<i32>, i32);
+
     #[test]
-    fn test() {
-        assert_eq!(8, run(5, 10, 7, vec![8, 10, 3, 6]));
-        assert_eq!(0, run(4, 100, 60, vec![100, 100, 100]));
-        assert_eq!(-1, run(4, 100, 60, vec![0, 0, 0]));
+    fn abc151_b() {
+        let tests = [
+            TestCase(5, 10, 7, vec![8, 10, 3, 6], 8),
+            TestCase(4, 100, 60, vec![100, 100, 100], 0),
+            TestCase(4, 100, 60, vec![0, 0, 0], -1),
+        ];
+
+        for TestCase(n, k, m, v, expected) in tests {
+            assert_eq!(run(n, k, m, v), expected);
+        }
     }
 }
