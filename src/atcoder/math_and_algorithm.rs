@@ -18,3 +18,4 @@ pub mod ma022;
 pub mod ma023;
 pub mod ma024;
 pub mod ma025;
+pub mod ma026;

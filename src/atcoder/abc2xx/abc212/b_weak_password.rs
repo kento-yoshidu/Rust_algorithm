@@ -2,19 +2,19 @@
 
 use itertools::Itertools;
 
-pub fn run(x: &str) -> String {
+pub fn run(x: &str) -> &'static str {
     let vec: Vec<u32> = x.chars().map(|c| c.to_digit(10).unwrap()).collect();
 
     if vec.iter().all_equal() {
-        return String::from("Weak");
+        return "Weak";
     }
 
     if (0..3).any(|i| {
         vec[i + 1] != (vec[i] + 1) % 10
     }) {
-        String::from("Strong")
+        "Strong"
     } else {
-        String::from("Weak")
+        "Weak"
     }
 }
 
@@ -22,10 +22,18 @@ pub fn run(x: &str) -> String {
 mod tests {
     use super::*;
 
+    struct TestCase(&'static str, &'static str);
+
     #[test]
-    fn test() {
-        assert_eq!(String::from("Weak"), run("7777"));
-        assert_eq!(String::from("Strong"), run("0112"));
-        assert_eq!(String::from("Weak"), run("9012"));
+    fn abc212_b() {
+        let tests = [
+            TestCase("7777", "Weak"),
+            TestCase("0112", "Strong"),
+            TestCase("9012", "Weak"),
+        ];
+
+        for TestCase(x, expected) in tests {
+            assert_eq!(run(x), expected);
+        }
     }
 }
