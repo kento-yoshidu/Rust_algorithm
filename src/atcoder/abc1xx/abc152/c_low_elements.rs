@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc152/tasks/abc152_c
 
-pub fn run(_n: usize, p: Vec<usize>) -> usize {
+fn run(_n: usize, p: Vec<usize>) -> usize {
     let mut ans = 1;
     let mut min = p[0];
 
@@ -18,12 +18,20 @@ pub fn run(_n: usize, p: Vec<usize>) -> usize {
 mod tests {
     use super::*;
 
+    struct TestCase(usize, Vec<usize>, usize);
+
     #[test]
-    fn test() {
-        assert_eq!(3, run(5, vec![4, 2, 5, 1, 3]));
-        assert_eq!(4, run(4, vec![4, 3, 2, 1]));
-        assert_eq!(1, run(6, vec![1, 2, 3, 4, 5, 6]));
-        assert_eq!(4, run(8, vec![5, 7, 4, 2, 6, 8, 1, 3]));
-        assert_eq!(1, run(1, vec![1]));
+    fn abc152_c() {
+        let tests = [
+            TestCase(5, vec![4, 2, 5, 1, 3], 3),
+            TestCase(4, vec![4, 3, 2, 1], 4),
+            TestCase(6, vec![1, 2, 3, 4, 5, 6], 1),
+            TestCase(8, vec![5, 7, 4, 2, 6, 8, 1, 3], 4),
+            TestCase(1, vec![1], 1),
+        ];
+
+        for TestCase(n, p, expected) in tests {
+            assert_eq!(run(n, p), expected);
+        }
     }
 }

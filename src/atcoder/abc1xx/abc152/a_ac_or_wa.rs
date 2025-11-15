@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc152/tasks/abc152_a
 
-pub fn run(n: usize, m: usize) -> &'static str {
+fn run(n: usize, m: usize) -> &'static str {
     if n == m {
         "Yes"
     } else {
@@ -15,7 +15,7 @@ mod tests {
     struct TestCase(usize, usize, &'static str);
 
     #[test]
-    fn test() {
+    fn abc152_a() {
         let tests = [
             TestCase(3, 3, "Yes"),
             TestCase(3, 2, "No"),
