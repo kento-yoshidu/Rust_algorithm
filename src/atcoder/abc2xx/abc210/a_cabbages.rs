@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc210/tasks/abc210_a
 
-pub fn run(n: usize, a: usize, x: usize, y: usize) -> usize {
+fn run(n: usize, a: usize, x: usize, y: usize) -> usize {
     if n > a {
         (n-a)*y + a*x
     } else {
@@ -15,7 +15,7 @@ mod tests {
     struct TestCase(usize, usize, usize, usize, usize);
 
     #[test]
-    fn test() {
+    fn abc210_a() {
         let tests = [
             TestCase(5, 3, 20, 15, 90),
             TestCase(10, 10, 100, 1, 1000),
