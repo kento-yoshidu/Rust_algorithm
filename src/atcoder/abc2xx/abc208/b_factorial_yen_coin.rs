@@ -10,8 +10,8 @@ fn fact(num: usize) -> usize {
     result
 }
 
-pub fn run(input: usize) -> usize {
-    let mut total = input;
+fn run(n: usize) -> usize {
+    let mut total = n;
     let mut result = 0;
 
     for i in (1..=10).rev() {
@@ -28,10 +28,18 @@ pub fn run(input: usize) -> usize {
 mod tests {
     use super::*;
 
+    struct TestCase(usize, usize);
+
     #[test]
-    fn test() {
-        assert_eq!(3, run(9));
-        assert_eq!(10, run(119));
-        assert_eq!(24, run(10000000));
+    fn abc208_b() {
+        let tests = [
+            TestCase(9, 3),
+            TestCase(119, 10),
+            TestCase(10000000, 24),
+        ];
+
+        for TestCase(n, expected) in tests {
+            assert_eq!(run(n), expected);
+        }
     }
 }

@@ -1,5 +1,6 @@
 // https://atcoder.jp/contests/abc208/tasks/abc208_c
 
+
 use std::collections::HashSet;
 
 fn run(n: usize, k: usize, a: Vec<usize>) -> Vec<usize> {
@@ -29,7 +30,7 @@ mod tests {
     struct TestCase(usize, usize, Vec<usize>, Vec<usize>);
 
     #[test]
-    fn test() {
+    fn abc208_c() {
         let tests = [
             TestCase(2, 7, vec![1, 8], vec![4, 3]),
             TestCase(1, 3, vec![33], vec![3]),

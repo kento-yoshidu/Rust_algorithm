@@ -1,10 +1,10 @@
 // https://atcoder.jp/contests/abc206/tasks/abc206_a
 
-pub fn run(a: usize, b: usize) -> String {
+fn run(a: usize, b: usize) -> &'static str {
     if a * 6 >= b && a != 0 {
-        String::from("Yes")
+        "Yes"
     } else {
-        String::from("No")
+        "No"
     }
 }
 
@@ -12,10 +12,18 @@ pub fn run(a: usize, b: usize) -> String {
 mod tests {
     use super::*;
 
+    struct TestCase(usize, usize, &'static str);
+
     #[test]
-    fn test() {
-        assert_eq!(String::from("Yes"), run(2, 11));
-        assert_eq!(String::from("No"), run(2, 13));
-        assert_eq!(String::from("Yes"), run(100, 600));
+    fn abc208_a() {
+        let tests = [
+            TestCase(2, 11, "Yes"),
+            TestCase(2, 13, "No"),
+            TestCase(100, 600, "Yes"),
+        ];
+
+        for TestCase(a, b, expected) in tests {
+            assert_eq!(run(a, b), expected);
+        }
     }
 }
