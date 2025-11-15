@@ -1,9 +1,9 @@
 // https://atcoder.jp/contests/abc209/tasks/abc209_b
 
-pub fn run(_n: usize, x: usize, a: Vec<usize>) -> String {
-    let total: usize = a.iter()
+fn run(_n: usize, x: usize, a: Vec<usize>) -> &'static str {
+    let total: usize = a.into_iter()
         .enumerate()
-        .map(|(i, &num)| {
+        .map(|(i, num)| {
             if i % 2 == 0 {
                 num
             } else {
@@ -13,9 +13,9 @@ pub fn run(_n: usize, x: usize, a: Vec<usize>) -> String {
         .sum();
 
     if total <= x {
-        String::from("Yes")
+        "Yes"
     } else {
-        String::from("No")
+        "No"
     }
 }
 
@@ -23,11 +23,19 @@ pub fn run(_n: usize, x: usize, a: Vec<usize>) -> String {
 mod tests {
     use super::*;
 
+    struct TestCase(usize, usize, Vec<usize>, &'static str);
+
     #[test]
-    fn test() {
-        assert_eq!(String::from("Yes"), run(2, 3, vec![1, 3]));
-        assert_eq!(String::from("No"), run(4, 10, vec![3, 3, 4, 4]));
-        assert_eq!(String::from("Yes"), run(8, 30, vec![3, 1, 4, 1, 5, 9, 2, 6]));
-        assert_eq!(String::from("No"), run(15, 775, vec![88, 57, 44, 92, 28, 66, 60, 37, 33, 52, 38, 29, 76, 8, 75]));
+    fn abc209_b() {
+        let tests = [
+            TestCase(2, 3, vec![1, 3], "Yes"),
+            TestCase(4, 10, vec![3, 3, 4, 4], "No"),
+            TestCase(8, 30, vec![3, 1, 4, 1, 5, 9, 2, 6], "Yes"),
+            TestCase(15, 775, vec![88, 57, 44, 92, 28, 66, 60, 37, 33, 52, 38, 29, 76, 8, 75], "No"),
+        ];
+
+        for TestCase(n, x, a, expected) in tests {
+            assert_eq!(run(n, x, a), expected);
+        }
     }
 }
