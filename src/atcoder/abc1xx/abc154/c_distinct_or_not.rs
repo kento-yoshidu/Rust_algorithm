@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc154/tasks/abc154_c
 
-pub fn run(n: usize, a: Vec<usize>) -> &'static str {
+fn run(n: usize, a: Vec<usize>) -> &'static str {
     let mut vec = a.clone();
     vec.sort();
     vec.dedup();
@@ -19,7 +19,7 @@ mod tests {
     struct TestCase(usize, Vec<usize>, &'static str);
 
     #[test]
-    fn test() {
+    fn abc154_c() {
         let tests = [
             TestCase(5, vec![2, 6, 1, 4, 5], "YES"),
             TestCase(6, vec![4, 1, 3, 1, 6, 2], "NO"),

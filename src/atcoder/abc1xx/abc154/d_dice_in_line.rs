@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc154/tasks/abc154_d
 
-pub fn run(n: usize, k: usize, p: Vec<usize>) -> f64 {
+fn run(n: usize, k: usize, p: Vec<usize>) -> f64 {
     let mut sum = 0;
 
     for i in 0..k {
@@ -27,7 +27,7 @@ mod tests {
     struct TestCase(usize, usize, Vec<usize>, f64);
 
     #[test]
-    fn test() {
+    fn abc154_d() {
         let tests = [
             TestCase(5, 3, vec![1, 2, 2, 4, 5], 7.0),
             TestCase(4, 1, vec![6, 6, 6, 6], 3.5),
