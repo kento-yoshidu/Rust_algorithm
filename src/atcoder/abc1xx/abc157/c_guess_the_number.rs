@@ -1,9 +1,9 @@
 // https://atcoder.jp/contests/abc157/tasks/abc157_c
 
-pub fn run(n: usize, _m: usize, sc: Vec<(usize, usize)>) -> isize {
-    let vec: Vec<(&usize, char)> = sc.iter()
+fn run(n: usize, _m: usize, sc: Vec<(usize, usize)>) -> isize {
+    let vec: Vec<(usize, char)> = sc.into_iter()
         .map(|(l, c)| {
-            (l, char::from_digit(*c as u32, 10).unwrap())
+            (l, char::from_digit(c as u32, 10).unwrap())
         })
         .collect();
 
@@ -21,7 +21,7 @@ pub fn run(n: usize, _m: usize, sc: Vec<(usize, usize)>) -> isize {
             }) {
                 return i
             }
-        }
+    }
 
     -1
 }
@@ -30,10 +30,18 @@ pub fn run(n: usize, _m: usize, sc: Vec<(usize, usize)>) -> isize {
 mod tests {
     use super::*;
 
+    struct TestCase(usize, usize, Vec<(usize, usize)>, isize);
+
     #[test]
-    fn test() {
-        assert_eq!(702, run(3, 3, vec![(1, 7), (3, 2), (1, 7)]));
-        assert_eq!(-1, run(3, 2, vec![(2, 1), (2, 3)]));
-        assert_eq!(-1, run(3, 1, vec![(1, 0)]));
+    fn abc157_c() {
+        let tests = [
+            TestCase(3, 3, vec![(1, 7), (3, 2), (1, 7)], 702),
+            TestCase(3, 2, vec![(2, 1), (2, 3)], -1),
+            TestCase(3, 1, vec![(1, 0)], -1),
+        ];
+
+        for TestCase(n, m, sc, expected) in tests {
+            assert_eq!(run(n, m, sc), expected);
+        }
     }
 }
