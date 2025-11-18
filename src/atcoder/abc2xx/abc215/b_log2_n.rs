@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc215/tasks/abc215_b
 
-pub fn run(n: u128) -> u32 {
+fn run(n: u128) -> u32 {
     let mut ans = 1;
 
     loop {
@@ -16,11 +16,19 @@ pub fn run(n: u128) -> u32 {
 mod tests {
     use super::*;
 
+    struct TestCase(u128, u32);
+
     #[test]
-    fn test() {
-        assert_eq!(2, run(6));
-        assert_eq!(0, run(1));
-        assert_eq!(59, run(1000000000000000000));
-        assert_eq!(59, run(576460752303423488));
+    fn abc215_b() {
+        let tests = [
+            TestCase(6, 2),
+            TestCase(1, 0),
+            TestCase(1000000000000000000, 59),
+            TestCase(576460752303423488, 59),
+        ];
+
+        for TestCase(n, expected) in tests {
+            assert_eq!(run(n), expected);
+        }
     }
 }

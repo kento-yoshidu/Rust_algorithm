@@ -2,7 +2,7 @@
 
 use itertools::Itertools;
 
-pub fn run(s: &str, k: usize) -> String {
+fn run(s: &str, k: usize) -> String {
     let chars: Vec<char> = s.chars().collect();
 
     let mut vec: Vec<_> = Vec::new();
@@ -21,10 +21,18 @@ pub fn run(s: &str, k: usize) -> String {
 mod tests {
     use super::*;
 
+    struct TestCase(&'static str, usize, &'static str);
+
     #[test]
-    fn test() {
-        assert_eq!(String::from("aba"), run("aab", 2));
-        assert_eq!(String::from("baab"), run("baba", 4));
-        assert_eq!(String::from("zyxwdcba"), run("ydxwacbz", 40320));
+    fn abc215_c() {
+        let tests = [
+            TestCase("aab", 2, "aba"),
+            TestCase("baba", 4, "baab"),
+            TestCase("ydxwacbz", 40320, "zyxwdcba"),
+        ];
+
+        for TestCase(s, k, expected) in tests {
+            assert_eq!(run(s, k), expected);
+        }
     }
 }
