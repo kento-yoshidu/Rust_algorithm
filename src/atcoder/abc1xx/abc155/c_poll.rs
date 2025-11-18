@@ -2,7 +2,7 @@
 
 use std::collections::HashMap;
 
-pub fn run(_n: usize, h: Vec<&str>) -> Vec<String> {
+fn run(_n: usize, h: Vec<&str>) -> Vec<String> {
     let mut hash_map = HashMap::new();
 
     for s in h {
@@ -25,11 +25,19 @@ pub fn run(_n: usize, h: Vec<&str>) -> Vec<String> {
 mod tests {
     use super::*;
 
+    struct TestCase(usize, Vec<&'static str>, Vec<&'static str>);
+
     #[test]
-    fn test() {
-        assert_eq!(vec!["beet", "vet"], run(7, vec!["beat", "vet", "beet", "bed", "vet", "bet", "beet"]));
-        assert_eq!(vec!["buffalo"], run(8, vec!["buffalo", "buffalo", "buffalo", "buffalo", "buffalo", "buffalo", "buffalo", "buffalo"]));
-        assert_eq!(vec!["kick"], run(7, vec!["bass", "bass", "kick", "kick", "bass", "kick", "kick"]));
-        assert_eq!(vec!["kun", "nichia", "tapu", "ushi"], run(4, vec!["ushi", "tapu", "nichia", "kun"]));
+    fn abc155_c() {
+        let tests = [
+            TestCase(7, vec!["beat", "vet", "beet", "bed", "vet", "bet", "beet"], vec!["beet", "vet"]),
+            TestCase(8, vec!["buffalo", "buffalo", "buffalo", "buffalo", "buffalo", "buffalo", "buffalo", "buffalo"], vec!["buffalo"]),
+            TestCase(7, vec!["bass", "bass", "kick", "kick", "bass", "kick", "kick"], vec!["kick"]),
+            TestCase(4, vec!["ushi", "tapu", "nichia", "kun"], vec!["kun", "nichia", "tapu", "ushi"]),
+        ];
+
+        for TestCase(n, h, expected) in tests {
+            assert_eq!(run(n, h), expected);
+        }
     }
 }

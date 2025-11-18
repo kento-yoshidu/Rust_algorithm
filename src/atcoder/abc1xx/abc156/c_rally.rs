@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc156/tasks/abc156_c
 
-pub fn run(_n: isize, vec: Vec<isize>) -> usize {
+fn run(_n: usize, vec: &Vec<isize>) -> isize {
     let mut ans = 10000;
 
     for i in 0..=100 {
@@ -13,13 +13,13 @@ pub fn run(_n: isize, vec: Vec<isize>) -> usize {
         ans = ans.min(sum);
     }
 
-    ans as usize
+    ans
 }
 
-pub fn run2(_n: usize, x: Vec<isize>) -> isize {
+fn run2(_n: usize, x: &Vec<isize>) -> isize {
     (0..=100)
         .map(|i| {
-            x.iter()
+            x.into_iter()
                 .fold(0, |state, x| {
                     state + (x - i+1).pow(2)
                 })
@@ -32,15 +32,18 @@ pub fn run2(_n: usize, x: Vec<isize>) -> isize {
 mod tests {
     use super::*;
 
-    #[test]
-    fn test() {
-        assert_eq!(5, run(2, vec![1, 4]));
-        assert_eq!(2354, run(7, vec![14, 14, 2, 13, 56, 2, 37]));
-    }
+    struct TestCase(usize, Vec<isize>, isize);
 
     #[test]
-    fn test2() {
-        assert_eq!(5, run2(2, vec![1, 4]));
-        assert_eq!(2354, run2(7, vec![14, 14, 2, 13, 56, 2, 37]));
+    fn abc156_c() {
+        let tests = [
+            TestCase(2, vec![1, 4], 5),
+            TestCase(7, vec![14, 14, 2, 13, 56, 2, 37], 2354),
+        ];
+
+        for TestCase(n, x, expected) in tests {
+            assert_eq!(run(n, &x), expected);
+            assert_eq!(run2(n, &x), expected);
+        }
     }
 }
