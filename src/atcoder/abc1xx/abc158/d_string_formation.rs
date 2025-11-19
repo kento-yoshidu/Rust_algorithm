@@ -39,9 +39,9 @@ fn run(s: &str, _n: usize, query: Vec<(usize, Option<usize>, Option<char>)>) -> 
     }
 
     if flag {
-        ans.into_iter().collect::<String>()
+        ans.into_iter().collect()
     } else {
-        ans.into_iter().rev().collect::<String>()
+        ans.into_iter().rev().collect()
     }
 }
 
@@ -52,7 +52,7 @@ mod tests {
     struct TestCase(&'static str, usize, Vec<(usize, Option<usize>, Option<char>)>, &'static str);
 
     #[test]
-    fn test() {
+    fn abc158_d() {
         let tests = [
             TestCase("a", 4, vec![(2, Some(1), Some('p')), (1, None, None), (2, Some(2), Some('c')), (1, None, None)], "cpa"),
             TestCase("a", 6, vec![(2, Some(2), Some('a')), (2, Some(1), Some('b')), (1, None, None), (2, Some(2), Some('c')), (1, None, None), (1, None, None)], "aabc"),
