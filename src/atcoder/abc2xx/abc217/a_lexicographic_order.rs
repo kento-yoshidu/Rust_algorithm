@@ -1,10 +1,10 @@
 // https://atcoder.jp/contests/abc217/tasks/abc217_a
 
-pub fn run(s: String, t: String) -> String {
+fn run(s: &str, t: &str) -> &'static str {
     if s < t {
-        String::from("Yes")
+        "Yes"
     } else {
-        String::from("No")
+        "No"
     }
 }
 
@@ -12,10 +12,18 @@ pub fn run(s: String, t: String) -> String {
 mod tests {
     use super::*;
 
+    struct TestCase(&'static str, &'static str, &'static str);
+
     #[test]
-    fn test() {
-        assert_eq!(String::from("Yes"), run(String::from("abc"), String::from("atcoder")));
-        assert_eq!(String::from("No"), run(String::from("arc"), String::from("agc")));
-        assert_eq!(String::from("Yes"), run(String::from("a"), String::from("aa")));
+    fn abc217_a() {
+        let tests = [
+            TestCase("abc", "atcoder", "Yes"),
+            TestCase("arc", "agc", "No"),
+            TestCase("a", "aa", "Yes"),
+        ];
+
+        for TestCase(s, t, expected) in tests {
+            assert_eq!(run(s, t), expected);
+        }
     }
 }
