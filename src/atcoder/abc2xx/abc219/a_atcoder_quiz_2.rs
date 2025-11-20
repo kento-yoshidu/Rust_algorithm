@@ -13,11 +13,19 @@ pub fn run(x: usize) -> String {
 mod tests {
     use super::*;
 
+    struct TestCase(usize, &'static str);
+
     #[test]
-    fn test() {
-        assert_eq!(String::from("14"), run(56));
-        assert_eq!(String::from("8"), run(32));
-        assert_eq!(String::from("40"), run(0));
-        assert_eq!(String::from("expert"), run(100));
+    fn abc219_a() {
+        let tests = [
+            TestCase(56, "14"),
+            TestCase(32, "8"),
+            TestCase(0, "40"),
+            TestCase(100, "expert"),
+        ];
+
+        for TestCase(x, expected) in tests {
+            assert_eq!(run(x), expected);
+        }
     }
 }
