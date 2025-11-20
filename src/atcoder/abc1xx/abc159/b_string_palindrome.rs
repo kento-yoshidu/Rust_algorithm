@@ -1,18 +1,16 @@
 // https://atcoder.jp/contests/abc159/tasks/abc159_b
 
 fn check(s: &str) -> bool {
-	println!("{}", s);
-
 	s.chars().eq(s.chars().rev())
 }
 
-fn run(s: &str) -> String {
+fn run(s: &str) -> &'static str {
 	let n = s.len();
 
 	if check(&s) && check(&s[0..(n-1)/2]) && check(&s[((n+3)/2)-1..]) {
-		String::from("Yes")
+		"Yes"
 	} else {
-		String::from("No")
+		"No"
 	}
 }
 
@@ -20,11 +18,19 @@ fn run(s: &str) -> String {
 mod tests {
 	use super::*;
 
+	struct TestCase(&'static str, &'static str);
+
 	#[test]
-	fn test() {
-		assert_eq!(String::from("Yes"), run("akasaka"));
-		assert_eq!(String::from("No"), run("level"));
-		assert_eq!(String::from("No"), run("atcoder"));
-		assert_eq!(String::from("No"), run("igyojknviataivnkjoygizigyojknviaaaivnkjoygi"));
+	fn abc159_b() {
+		let tests = [
+			TestCase("akasaka", "Yes"),
+			TestCase("level", "No"),
+			TestCase("atcoder", "No"),
+			TestCase("igyojknviataivnkjoygizigyojknviaaaivnkjoygi", "No"),
+		];
+
+		for TestCase(s, expected) in tests {
+			assert_eq!(run(s), expected);
+		}
 	}
 }

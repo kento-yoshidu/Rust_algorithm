@@ -1,6 +1,7 @@
 pub mod no0xx;
 pub mod no5xx;
 pub mod no6xx;
+pub mod no8xx;
 pub mod no9xx;
 pub mod no14xx;
 pub mod no21xx;
