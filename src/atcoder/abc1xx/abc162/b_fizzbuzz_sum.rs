@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc162/tasks/abc162_b
 
-fn fizzbuzz(num: u64) -> bool {
+fn fizzbuzz(num: usize) -> bool {
     if !(num % 3 == 0 || num % 5 == 0) {
         return true;
     };
@@ -8,7 +8,7 @@ fn fizzbuzz(num: u64) -> bool {
     false
 }
 
-pub fn run(num: u64) -> u64 {
+fn run(num: usize) -> usize {
     let mut total = 0;
 
     for i in 1..=num {
@@ -20,7 +20,7 @@ pub fn run(num: u64) -> u64 {
     total
 }
 
-pub fn run2(num: u64) -> u64 {
+fn run2(num: usize) -> usize {
     (1..=num)
         .filter(|n| {
             !(n % 3 == 0 || n % 5 == 0)
@@ -31,15 +31,18 @@ pub fn run2(num: u64) -> u64 {
 mod tests {
     use super::*;
 
-    #[test]
-    fn test() {
-        assert_eq!(60, run(15));
-        assert_eq!(266666333332, run(1000000));
-    }
+    struct TestCase(usize, usize);
 
     #[test]
-    fn test2() {
-        assert_eq!(60, run2(15));
-        assert_eq!(266666333332, run2(1000000));
+    fn abc162_b() {
+        let tests = [
+            TestCase(15, 60),
+            TestCase(1000000, 266666333332),
+        ];
+
+        for TestCase(num, expected) in tests {
+            assert_eq!(run(num), expected);
+            assert_eq!(run2(num), expected);
+        }
     }
 }
