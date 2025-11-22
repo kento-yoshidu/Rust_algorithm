@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc225/tasks/abc225_c
 
-pub fn run(n: usize, m: usize, vec: Vec<Vec<isize>>) -> &'static str {
+fn run(n: usize, m: usize, vec: Vec<Vec<isize>>) -> &'static str {
     // 右方向に+1以上されていないか
     for v in vec.iter() {
         for i in 0..m-1 {
@@ -38,7 +38,7 @@ mod tests {
     struct TestCase(usize, usize, Vec<Vec<isize>>, &'static str);
 
     #[test]
-    fn test() {
+    fn abc225_c() {
         let tests = [
             TestCase(3, 3, vec![vec![1, 2, 3], vec![8, 9, 10], vec![15, 16, 17]], "Yes"),
             TestCase(2, 1, vec![vec![1], vec![2]], "No"),
