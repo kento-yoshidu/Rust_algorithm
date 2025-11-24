@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc167/tasks/abc167_b
 
-pub fn run(a: isize, b: isize, _c: isize, k: isize) -> isize {
+fn run(a: isize, b: isize, _c: isize, k: isize) -> isize {
     if a >= k {
         k
     } else if a + b >= k {
@@ -14,11 +14,19 @@ pub fn run(a: isize, b: isize, _c: isize, k: isize) -> isize {
 mod tests {
     use super::*;
 
+    struct TestCase(isize, isize, isize, isize, isize);
+
     #[test]
-    fn test() {
-        assert_eq!(2, run(2, 1, 1, 3));
-        assert_eq!(0, run(1 ,2 ,3 ,4));
-        assert_eq!(2000000000, run(2000000000, 0, 0, 2000000000));
-        assert_eq!(-2000000000, run(0, 0, 2000000000, 2000000000));
+    fn abc167_b() {
+        let tests = [
+            TestCase(2, 1, 1, 3, 2),
+            TestCase(1, 2, 3, 4, 0),
+            TestCase(2000000000, 0, 0, 2000000000, 2000000000),
+            TestCase(0, 0, 2000000000, 2000000000, -2000000000),
+        ];
+
+        for TestCase(a, b, c, k, expected) in tests {
+            assert_eq!(run(a, b, c, k), expected);
+        }
     }
 }

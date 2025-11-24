@@ -2,7 +2,7 @@
 
 use std::collections::HashSet;
 
-pub fn run(n: usize, _m: usize, h: Vec<usize>, ab: Vec<(usize, usize)>) -> usize {
+fn run(n: usize, _m: usize, h: Vec<usize>, ab: Vec<(usize, usize)>) -> usize {
     let mut vec = vec![HashSet::new(); n];
 
     for (a, b) in ab {
@@ -30,7 +30,7 @@ mod tests {
     struct TestCase(usize, usize, Vec<usize>, Vec<(usize, usize)>, usize);
 
     #[test]
-    fn test() {
+    fn abc166_c() {
         let tests = [
             TestCase(4, 3, vec![1, 2, 3, 4], vec![(1, 3), (2, 3), (2, 4)], 2),
             TestCase(6, 5, vec![8, 6, 9, 1, 2, 1], vec![(1, 3), (4, 2), (4, 3), (4, 6), (4, 6)], 3),
