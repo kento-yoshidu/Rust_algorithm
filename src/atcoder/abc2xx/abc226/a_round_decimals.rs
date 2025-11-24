@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc226/tasks/abc226_a
 
-pub fn run(x: f32) -> usize {
+fn run(x: f64) -> usize {
     x.round() as usize
 }
 
@@ -8,10 +8,18 @@ pub fn run(x: f32) -> usize {
 mod tests {
     use super::*;
 
+    struct TestCase(f64, usize);
+
     #[test]
-    fn test() {
-        assert_eq!(3, run(3.456));
-        assert_eq!(100, run(99.500));
-        assert_eq!(0, run(0.000));
+    fn abc226_a() {
+        let tests = [
+            TestCase(3.456, 3),
+            TestCase(99.500, 100),
+            TestCase(0.000, 0),
+        ];
+
+        for TestCase(x, expected) in tests {
+            assert_eq!(run(x), expected);
+        }
     }
 }

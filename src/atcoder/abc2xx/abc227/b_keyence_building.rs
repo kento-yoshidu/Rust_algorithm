@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc227/tasks/abc227_b
 
-pub fn run(n: usize, vec: Vec<usize>) -> usize {
+fn run(n: usize, vec: Vec<usize>) -> usize {
     let mut count = 0;
 
     for i in 0..vec.len() {
@@ -21,9 +21,17 @@ pub fn run(n: usize, vec: Vec<usize>) -> usize {
 mod tests {
     use super::*;
 
+    struct TestCase(usize, Vec<usize>, usize);
+
     #[test]
-    fn test() {
-        assert_eq!(1, run(3, vec![10, 20, 39]));
-        assert_eq!(3, run(5, vec![666, 777, 888, 777, 666]));
+    fn abc227_b() {
+        let tests = [
+            TestCase(3, vec![10, 20, 39], 1),
+            TestCase(5, vec![666, 777, 888, 777, 666], 3),
+        ];
+
+        for TestCase(n, a, expected) in tests {
+            assert_eq!(run(n, a), expected);
+        }
     }
 }

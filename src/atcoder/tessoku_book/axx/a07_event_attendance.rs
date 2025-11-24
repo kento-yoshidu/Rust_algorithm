@@ -1,20 +1,19 @@
 // https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_g
 
-fn run(d: usize, n: usize, vec: Vec<(isize, isize)>) -> Vec<isize> {
-    let mut tmp = vec![0; d];
+fn run(d: usize, _n: usize, lr: Vec<(usize, usize)>) -> Vec<isize> {
+    let mut imos = vec![0; d+1];
 
-    for i in 0..n {
-        tmp[((vec[i].0) -1) as usize] += 1;
-        tmp[((vec[i].1)) as usize] -= 1;
+    for (l, r) in lr {
+        imos[l-1] += 1;
+        imos[r] -= 1;
     }
 
     let mut ans = vec![0; d];
 
+    ans[0] = imos[0];
 
-    ans[0] = tmp[0];
-
-    for i in 1..tmp.len() {
-        ans[i] = ans[i - 1] + tmp[i];
+    for i in 1..imos.len()-1 {
+        ans[i] = ans[i - 1] + imos[i];
     }
 
     ans
@@ -24,7 +23,7 @@ fn run(d: usize, n: usize, vec: Vec<(isize, isize)>) -> Vec<isize> {
 mod tests {
     use super::*;
 
-    struct TestCase(usize, usize, Vec<(isize, isize)>, Vec<isize>);
+    struct TestCase(usize, usize, Vec<(usize, usize)>, Vec<isize>);
 
     #[test]
     fn tessoku_a07() {
@@ -33,8 +32,8 @@ mod tests {
             TestCase(8, 5, vec![(2, 3), (3, 6), (5, 7), (3, 7), (1, 5)], vec![1, 2, 4, 3, 4, 3, 2, 0]),
         ];
 
-        for TestCase(d, n, vec, expected) in tests {
-            assert_eq!(run(d, n, vec), expected);
+        for TestCase(d, n, lr, expected) in tests {
+            assert_eq!(run(d, n, lr), expected);
         }
     }
 }
