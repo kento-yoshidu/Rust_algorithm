@@ -15,4 +15,5 @@ pub mod no25xx;
 pub mod no27xx;
 pub mod no28xx;
 pub mod no29xx;
+pub mod no30xx;
 pub mod no32xx;
