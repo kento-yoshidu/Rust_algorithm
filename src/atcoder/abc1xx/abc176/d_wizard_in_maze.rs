@@ -2,7 +2,7 @@
 
 use std::collections::VecDeque;
 
-fn check(i: isize, j: isize, h: isize, w: isize) -> bool {
+fn out_of_bounds(i: isize, j: isize, h: isize, w: isize) -> bool {
     i < 0 || j < 0 || i >= h || j >= w
 }
 
@@ -17,17 +17,17 @@ fn run(h: usize, w: usize, c: (usize, usize), d: (usize, usize), s: Vec<&str>) -
     let mut queue = VecDeque::new();
     queue.push_back((c.0-1, c.1-1));
 
-    let dx = [0, 1, 0, -1];
-    let dy = [1, 0, -1, 0];
+    let di = [0, 1, 0, -1];
+    let dj = [1, 0, -1, 0];
 
     while let Some((cur_i, cur_j)) = queue.pop_front() {
         for i in 0..4 {
-            if check(cur_i as isize + dx[i], cur_j as isize + dy[i], h as isize, w as isize) {
+            if out_of_bounds(cur_i as isize + di[i], cur_j as isize + dj[i], h as isize, w as isize) {
                 continue;
             }
 
-            let next_i = (cur_i as isize + dx[i]) as usize;
-            let next_j = (cur_j as isize + dy[i]) as usize;
+            let next_i = (cur_i as isize + di[i]) as usize;
+            let next_j = (cur_j as isize + dj[i]) as usize;
 
             if vec[next_i][next_j] == '#' || dist[next_i][next_j] <= dist[cur_i][cur_j] {
                 continue;
@@ -42,7 +42,7 @@ fn run(h: usize, w: usize, c: (usize, usize), d: (usize, usize), s: Vec<&str>) -
                 let new_i = cur_i as isize + i;
                 let new_j = cur_j as isize + j;
 
-                if check(cur_i as isize + i, cur_j as isize + j, h as isize, w as isize) {
+                if out_of_bounds(cur_i as isize + i, cur_j as isize + j, h as isize, w as isize) {
                     continue;
                 }
 

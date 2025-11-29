@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc176/tasks/abc176_b
 
-pub fn run(n: &str) -> String {
+pub fn run(n: &str) -> &'static str {
     let total: usize = n.chars()
         .map(|c| {
             c as usize - 48
@@ -8,9 +8,9 @@ pub fn run(n: &str) -> String {
         .sum();
 
     if total % 9 == 0 {
-        String::from("Yes")
+        "Yes"
     } else {
-        String::from("No")
+        "No"
     }
 }
 
@@ -18,10 +18,18 @@ pub fn run(n: &str) -> String {
 mod tests {
     use super::*;
 
+    struct TestCase(&'static str, &'static str);
+
     #[test]
-    fn test() {
-        assert_eq!(String::from("Yes"), run("123456789"));
-        assert_eq!(String::from("Yes"), run("0"));
-        assert_eq!(String::from("No"), run("31415926535897932384626433832795028841971693993751058209749445923078164062862089986280"));
+    fn abc176_b() {
+        let tests = [
+            TestCase("123456789", "Yes"),
+            TestCase("0", "Yes"),
+            TestCase("31415926535897932384626433832795028841971693993751058209749445923078164062862089986280", "No"),
+        ];
+
+        for TestCase(n, expected) in tests {
+            assert_eq!(run(n), expected);
+        }
     }
 }

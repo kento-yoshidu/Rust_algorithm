@@ -1,8 +1,8 @@
 // https://atcoder.jp/contests/abc176/tasks/abc176_c
 
-pub fn run(_n: usize, a: Vec<isize>) -> isize {
-    a.iter()
-        .scan(0, |state, &num| {
+fn run(_n: usize, a: Vec<isize>) -> isize {
+    a.into_iter()
+        .scan(0, |state, num| {
             *state = num.max(*state);
             Some(*state - num)
         }).sum()
@@ -12,9 +12,17 @@ pub fn run(_n: usize, a: Vec<isize>) -> isize {
 mod tests {
     use super::*;
 
+    struct TestCase(usize, Vec<isize>, isize);
+
     #[test]
-    fn test() {
-        assert_eq!(4, run(5, vec![2, 1, 5, 4, 3]));
-        assert_eq!(0, run(0, vec![3, 3, 3, 3, 3]));
+    fn abc176_c() {
+        let tests = [
+            TestCase(5, vec![2, 1, 5, 4, 3], 4),
+            TestCase(0, vec![3, 3, 3, 3, 3], 0),
+        ];
+
+        for TestCase(n, a, expected) in tests {
+            assert_eq!(run(n, a), expected);
+        }
     }
 }
