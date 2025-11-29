@@ -2,31 +2,26 @@
 
 use std::cmp::max;
 
-pub fn run(s: &str) -> usize {
-    let chars: Vec<char> = s.chars().collect();
-
+fn run(s: &str) -> usize {
     let mut count = 0;
     let mut ans = 0;
 
-    chars.iter()
-        .for_each(|c| {
-            if *c == 'R' {
-                count += 1;
-                ans = ans.max(count);
-            } else {
-                count = 0;
-            }
-        });
+    for c in s.chars() {
+        if c == 'R' {
+            count += 1;
+            ans = ans.max(count);
+        } else {
+            count = 0;
+        }
+    }
 
     ans
 }
 
-pub fn run2(s: &str) -> usize {
-    let chars: Vec<char> = s.chars().collect();
-
-    chars.iter()
+fn run2(s: &str) -> usize {
+    s.chars()
         .fold((0, 0), |(count, ans), c| {
-            if *c == 'R' {
+            if c == 'R' {
                 (count+1, max(ans, count+1))
             } else {
                 (0, ans)
@@ -39,19 +34,20 @@ pub fn run2(s: &str) -> usize {
 mod tests {
     use super::*;
 
-    #[test]
-    fn test() {
-        assert_eq!(3, run("RRR"));
-        assert_eq!(2, run("RRS"));
-        assert_eq!(2, run("SRR"));
-        assert_eq!(0, run("SSS"));
-    }
+    struct TestCase(&'static str, usize);
 
     #[test]
-    fn test2() {
-        assert_eq!(3, run2("RRR"));
-        assert_eq!(2, run2("RRS"));
-        assert_eq!(2, run2("SRR"));
-        assert_eq!(0, run2("SSS"));
+    fn abc175_a() {
+        let tests = [
+            TestCase("RRR", 3),
+            TestCase("RRS", 2),
+            TestCase("SRR", 2),
+            TestCase("SSS", 0),
+        ];
+
+        for TestCase(s, expected) in tests {
+            assert_eq!(run(s), expected);
+            assert_eq!(run2(s), expected);
+        }
     }
 }
