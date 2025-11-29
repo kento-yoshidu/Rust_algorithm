@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc230/tasks/abc230_b
 
-pub fn run(s: &str) -> &'static str {
+fn run(s: &str) -> &'static str {
     let len = s.len();
 
     let str = "oxxoxxoxxoxx";
@@ -21,7 +21,7 @@ mod tests {
     struct TestCase(&'static str, &'static str);
 
     #[test]
-    fn test() {
+    fn abc230_b() {
         let tests = [
             TestCase("xoxxoxxo", "Yes"),
             TestCase("xxoxxoxo", "No"),

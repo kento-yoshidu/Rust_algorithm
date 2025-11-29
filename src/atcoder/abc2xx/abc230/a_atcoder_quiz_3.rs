@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc230/tasks/abc230_a
 
-pub fn run(n: usize) -> String {
+fn run(n: usize) -> String {
     if n < 42 {
         format!("AGC{:03}", n)
     } else {
@@ -12,11 +12,19 @@ pub fn run(n: usize) -> String {
 mod tests {
     use super::*;
 
+    struct TestCase(usize, &'static str);
+
     #[test]
-    fn test() {
-        assert_eq!(String::from("AGC043"), run(42));
-        assert_eq!(String::from("AGC019"), run(19));
-        assert_eq!(String::from("AGC001"), run(1));
-        assert_eq!(String::from("AGC051"), run(50));
+    fn abc230_a() {
+        let tests = [
+            TestCase(42, "AGC043"),
+            TestCase(19, "AGC019"),
+            TestCase(1, "AGC001"),
+            TestCase(50, "AGC051"),
+        ];
+
+        for TestCase(n, expected) in tests {
+            assert_eq!(run(n), expected);
+        }
     }
 }
