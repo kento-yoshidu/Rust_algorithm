@@ -1,25 +1,27 @@
 // https://atcoder.jp/contests/abc232/tasks/abc232_a
 
-pub fn run(str: &str) -> i32 {
-    let ch1 = str.chars().nth(0).unwrap();
-    let ch3 = str.chars().nth(2).unwrap();
+fn run(s: &str) -> u8 {
+    let b = s.as_bytes();
 
-    let n: i32 = ch1 as i32 - 48;
-    let m: i32 = ch3 as i32 - 48;
-
-    n * m
+    (b[0] - b'0') * (b[2] - b'0')
 }
 
 #[cfg(test)]
 mod tests {
     use super::*;
 
+    struct TestCase(&'static str, u8);
+
     #[test]
-    fn test() {
-        assert_eq!(21, run("3x7"));
-        assert_eq!(81, run("9x9"));
-        assert_eq!(1, run("1x1"));
+    fn abc232_a() {
+        let tests = [
+            TestCase("3x7", 21),
+            TestCase("9x9", 81),
+            TestCase("1x1", 1),
+        ];
+
+        for TestCase(s, expected) in tests {
+            assert_eq!(run(s), expected);
+        }
     }
 }
-
-// https://stackoverflow.com/questions/43983414/how-to-convert-a-rust-char-to-an-integer-so-that-1-becomes-1

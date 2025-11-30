@@ -5,16 +5,16 @@ fn next_char(c: char, n: u8) -> char {
     val as char
 }
 
-fn run(s: &str, t: &str) -> String {
+fn run(s: &str, t: &str) -> &'static str {
     if (0..26)
         .any(|i| {
             let str: String = s.chars().map(|c| next_char(c, i)).collect();
 
             str == t
         }) {
-            String::from("Yes")
+            "Yes"
         } else {
-            String::from("No")
+            "No"
         }
 }
 
@@ -22,11 +22,19 @@ fn run(s: &str, t: &str) -> String {
 mod tests {
     use super::*;
 
+    struct TestCase(&'static str, &'static str, &'static str);
+
     #[test]
-    fn test() {
-        assert_eq!(String::from("Yes"), run("abc", "ijk"));
-        assert_eq!(String::from("Yes"), run("z", "a"));
-        assert_eq!(String::from("No"), run("ppq", "qqp"));
-        assert_eq!(String::from("Yes"), run("atcoder", "atcoder"));
+    fn abc232_b() {
+        let tests = [
+            TestCase("abc", "ijk", "Yes"),
+            TestCase("z", "a", "Yes"),
+            TestCase("ppq", "qqp", "No"),
+            TestCase("atcoder", "atcoder", "Yes"),
+        ];
+
+        for TestCase(s, t, expected) in tests {
+            assert_eq!(run(s, t), expected);
+        }
     }
 }
