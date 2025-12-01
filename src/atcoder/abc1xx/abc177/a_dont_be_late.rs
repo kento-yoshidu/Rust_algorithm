@@ -1,10 +1,10 @@
 // https://atcoder.jp/contests/abc177/tasks/abc177_a
 
-pub fn run(d: usize, t: usize, s: usize) -> String {
+fn run(d: usize, t: usize, s: usize) -> &'static str {
     if d <= s * t {
-        String::from("Yes")
+        "Yes"
     } else {
-        String::from("No")
+        "No"
     }
 }
 
@@ -12,10 +12,18 @@ pub fn run(d: usize, t: usize, s: usize) -> String {
 mod tests {
     use super::*;
 
+    struct TestCase(usize, usize, usize, &'static str);
+
     #[test]
-    fn test() {
-        assert_eq!(String::from("Yes"), run(1000, 15, 80));
-        assert_eq!(String::from("Yes"), run(2000, 20, 100));
-        assert_eq!(String::from("No"), run(10000, 1, 1));
+    fn abc177_a() {
+        let tests = [
+            TestCase(1000, 15, 80, "Yes"),
+            TestCase(2000, 20, 100, "Yes"),
+            TestCase(10000, 1, 1, "No"),
+        ];
+
+        for TestCase(d, t, s, expected) in tests {
+            assert_eq!(run(d, t, s), expected);
+        }
     }
 }

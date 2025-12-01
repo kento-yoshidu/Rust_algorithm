@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc177/tasks/abc177_b
 
-pub fn run(s: String, t: String) -> usize {
+fn run(s: &str, t: &str) -> usize {
     let mut ans = std::usize::MAX;
 
     let ss: Vec<char> = s.chars().collect();
@@ -21,7 +21,7 @@ pub fn run(s: String, t: String) -> usize {
     ans
 }
 
-pub fn run2(s: &str, t: &str) -> usize {
+fn run2(s: &str, t: &str) -> usize {
     let s_vec: Vec<char> = s.chars().collect();
     let t_vec: Vec<char> = t.chars().collect();
 
@@ -29,7 +29,7 @@ pub fn run2(s: &str, t: &str) -> usize {
 
     s_vec.windows(t_len)
         .map(|a| {
-            a.iter().zip(t_vec.iter())
+            a.into_iter().zip(t_vec.iter())
                 .filter(|t| {
                     t.0 != t.1
                 })
@@ -43,15 +43,18 @@ pub fn run2(s: &str, t: &str) -> usize {
 mod tests {
     use super::*;
 
-    #[test]
-    fn test() {
-        assert_eq!(1, run(String::from("cabacc"), String::from("abc")));
-        assert_eq!(6, run(String::from("codeforces"), String::from("atcoder")));
-    }
+    struct TestCase(&'static str, &'static str, usize);
 
     #[test]
-    fn test2() {
-        assert_eq!(1, run2("cabacc", "abc"));
-        assert_eq!(6, run2("codeforces", "atcoder"));
+    fn abc177_b() {
+        let tests = [
+            TestCase("cabacc", "abc", 1),
+            TestCase("codeforces", "atcoder", 6),
+        ];
+
+        for TestCase(s, t, expected) in tests {
+            assert_eq!(run(s, t), expected);
+            assert_eq!(run2(s, t), expected);
+        }
     }
 }
