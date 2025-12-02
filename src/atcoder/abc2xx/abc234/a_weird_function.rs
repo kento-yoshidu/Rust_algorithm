@@ -4,7 +4,7 @@ fn f(x: usize) -> usize {
     x * x + 2 * x + 3
 }
 
-pub fn run(t: usize) -> usize {
+fn run(t: usize) -> usize {
     f(f(f(t) + t) + f(f(t)))
 }
 
@@ -12,10 +12,18 @@ pub fn run(t: usize) -> usize {
 mod tests {
     use super::*;
 
+    struct TestCase(usize, usize);
+
     #[test]
-    fn test() {
-        assert_eq!(1371, run(0));
-        assert_eq!(722502, run(3));
-        assert_eq!(1111355571, run(10));
+    fn abc234_a() {
+        let tests = [
+            TestCase(0, 1371),
+            TestCase(3, 722502),
+            TestCase(10, 1111355571),
+        ];
+
+        for TestCase(t, expected) in tests {
+            assert_eq!(run(t), expected);
+        }
     }
 }

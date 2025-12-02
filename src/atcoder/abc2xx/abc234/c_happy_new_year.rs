@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc234/tasks/abc234_c
 
-pub fn run(k: usize) -> String {
+fn run(k: usize) -> String {
     let s = format!("{:b}", k);
 
     s.chars()
@@ -18,10 +18,18 @@ pub fn run(k: usize) -> String {
 mod tests {
     use super::*;
 
+    struct TestCase(usize, &'static str);
+
     #[test]
-    fn test() {
-        assert_eq!(String::from("22"), run(3));
-        assert_eq!(String::from("2022"), run(11));
-        assert_eq!(String::from("220022020000202020002022022000002020002222002200002022002200"), run(923423423420220108));
+    fn abc234_c() {
+        let tests = [
+            TestCase(3, "22"),
+            TestCase(11, "2022"),
+            TestCase(923423423420220108, "220022020000202020002022022000002020002222002200002022002200"),
+        ];
+
+        for TestCase(k, expected) in tests {
+            assert_eq!(run(k), expected);
+        }
     }
 }
