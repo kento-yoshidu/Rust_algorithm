@@ -1,9 +1,9 @@
 // https://atcoder.jp/contests/abc179/tasks/abc179_a
 
-pub fn run(s: String) -> String {
-    match s.chars().last() {
-        Some('s') => s + "es",
-        _ => s + "s"
+fn run(s: &str) -> String {
+    match s.chars().last().unwrap() {
+        's' => format!("{}{}", s, "es"),
+        _ => format!("{}{}", s, "s"),
     }
 }
 
@@ -11,10 +11,18 @@ pub fn run(s: String) -> String {
 mod tests {
     use super::*;
 
+    struct TestCase(&'static str, &'static str);
+
     #[test]
-    fn test() {
-        assert_eq!(String::from("apples"), run(String::from("apple")));
-        assert_eq!(String::from("buses"), run(String::from("bus")));
-        assert_eq!(String::from("boxs"), run(String::from("box")));
+    fn abc179_a() {
+        let tests = [
+            TestCase("apple", "apples"),
+            TestCase("bus", "buses"),
+            TestCase("box", "boxs"),
+        ];
+
+        for TestCase(s, expected) in tests {
+            assert_eq!(run(s), expected);
+        }
     }
 }

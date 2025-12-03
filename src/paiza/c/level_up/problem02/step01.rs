@@ -13,7 +13,7 @@ mod tests {
     struct TestCase(usize, Vec<usize>, Vec<usize>);
 
     #[test]
-    fn paiza_c_level_up_02_step02() {
+    fn paiza_c_level_up_02_step01() {
         let tests = [
             TestCase(2, vec![10, 100], vec![2, 3]),
             TestCase(3, vec![1234, 0, 99], vec![4, 1, 2]),

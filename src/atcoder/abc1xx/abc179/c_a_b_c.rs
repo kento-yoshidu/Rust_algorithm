@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc179/tasks/abc179_c
 
-pub fn run(n: usize) -> usize {
+fn run(n: usize) -> usize {
     let mut ans = 0;
 
     for a in 1..n {
@@ -26,10 +26,18 @@ pub fn run(n: usize) -> usize {
 mod tests {
     use super::*;
 
+    struct TestCase(usize, usize);
+
     #[test]
-    fn test() {
-        assert_eq!(3, run(3));
-        assert_eq!(473, run(100));
-        assert_eq!(13969985, run(1000000));
+    fn abc179_c() {
+        let tests = [
+            TestCase(3, 3),
+            TestCase(100, 473),
+            TestCase(1000000, 13969985),
+        ];
+
+        for TestCase(n, expected) in tests {
+            assert_eq!(run(n), expected);
+        }
     }
 }
