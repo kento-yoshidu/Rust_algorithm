@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc182/tasks/abc182_d
 
-pub fn run(n: usize, a: Vec<isize>) -> isize {
+fn run(n: usize, a: Vec<isize>) -> isize {
     // aの累積和
     let mut s = Vec::new();
 
@@ -43,10 +43,18 @@ pub fn run(n: usize, a: Vec<isize>) -> isize {
 mod tests {
     use super::*;
 
+    struct TestCase(usize, Vec<isize>, isize);
+
     #[test]
-    fn test() {
-        assert_eq!(5, run(3, vec![2, -1, -2]));
-        assert_eq!(2, run(5, vec![-2, 1, 3, -1, -1]));
-        assert_eq!(0, run(5, vec![-1000, -1000, -1000, -1000, -1000]));
+    fn abc182_d() {
+        let tests = [
+            TestCase(3, vec![2, -1, -2], 5),
+            TestCase(5, vec![-2, 1, 3, -1, -1], 2),
+            TestCase(5, vec![-1000, -1000, -1000, -1000, -1000], 0),
+        ];
+
+        for TestCase(n, a, expected) in tests {
+            assert_eq!(run(n, a), expected);
+        }
     }
 }
