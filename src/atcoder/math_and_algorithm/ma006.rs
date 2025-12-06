@@ -1,7 +1,7 @@
-// https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_a
+// https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_f
 
 fn run(n: usize) -> usize {
-    n + 5
+    2 * n + 3
 }
 
 #[cfg(test)]
@@ -11,11 +11,10 @@ mod tests {
     struct TestCase(usize, usize);
 
     #[test]
-    fn test() {
+    fn ma006() {
         let tests = [
-            TestCase(2, 7),
-            TestCase(4, 9),
-            TestCase(8, 13),
+            TestCase(100, 203),
+            TestCase(27, 57),
         ];
 
         for TestCase(n, expected) in tests {
