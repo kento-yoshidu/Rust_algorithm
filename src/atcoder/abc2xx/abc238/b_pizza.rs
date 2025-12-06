@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc238/tasks/abc238_b
 
-pub fn run(_n: usize, a: Vec<isize>) -> isize {
+fn run(_n: usize, a: Vec<isize>) -> isize {
     let mut vec = vec![0];
 
     let mut current = 0;
@@ -29,7 +29,7 @@ mod tests {
     struct TestCase(usize,  Vec<isize>, isize);
 
     #[test]
-    fn test() {
+    fn abc238_b() {
         let tests = [
             TestCase(4, vec![90, 180, 45, 195], 120),
             TestCase(1, vec![1], 359),

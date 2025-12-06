@@ -1,10 +1,10 @@
 // https://atcoder.jp/contests/abc238/tasks/abc238_a
 
-pub fn run(n: usize) -> String {
+fn run(n: usize) -> &'static str {
     if 2 <= n && n <= 4 {
-        String::from("No")
+        "No"
     } else {
-        String::from("Yes")
+        "Yes"
     }
 }
 
@@ -12,11 +12,18 @@ pub fn run(n: usize) -> String {
 mod tests {
     use super::*;
 
+    struct TestCase(usize, &'static str);
+
     #[test]
     fn test() {
-        assert_eq!(String::from("Yes"), run(5));
-        assert_eq!(String::from("No"), run(2));
-        assert_eq!(String::from("Yes"), run(623947744));
+        let tests = [
+            TestCase(5, "Yes"),
+            TestCase(2, "No"),
+            TestCase(623947744, "Yes"),
+        ];
+
+        for TestCase(n, expected) in tests {
+            assert_eq!(run(n), expected);
+        }
     }
 }
-
