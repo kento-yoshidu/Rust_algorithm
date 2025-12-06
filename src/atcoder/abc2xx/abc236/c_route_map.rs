@@ -1,13 +1,13 @@
 // https://atcoder.jp/contests/abc236/tasks/abc236_c
 
-pub fn run(_n: usize, _m: usize, s: Vec<&str>, t: Vec<&str>) -> Vec<String> {
-    s.iter()
+fn run(_n: usize, _m: usize, s: Vec<&str>, t: Vec<&str>) -> Vec<&'static str> {
+    s.into_iter()
         .scan(0, |i, station| {
-            if station == &t[*i] {
+            if station == t[*i] {
                 *i += 1;
-                Some(String::from("Yes"))
+                Some("Yes")
             } else {
-                Some(String::from("No"))
+                Some("No")
             }
         })
         .collect()
@@ -17,9 +17,17 @@ pub fn run(_n: usize, _m: usize, s: Vec<&str>, t: Vec<&str>) -> Vec<String> {
 mod tests {
     use super::*;
 
+    struct TestCase(usize, usize, Vec<&'static str>, Vec<&'static str>, Vec<&'static str>);
+
     #[test]
-    fn test() {
-        assert_eq!(vec![String::from("Yes"), String::from("No"), String::from("Yes"), String::from("No"), String::from("Yes")], run(5, 3, vec!["tokyo", "kanda", "akiba", "okachi", "ueno"], vec!["tokyo", "akiba", "ueno"]));
-        assert_eq!(vec![String::from("Yes"), String::from("Yes"), String::from("Yes"), String::from("Yes"), String::from("Yes"), String::from("Yes"), String::from("Yes")], run(7, 7, vec!["a", "t", "c", "o", "d", "e", "r"], vec!["a", "t", "c", "o", "d", "e", "r"]));
+    fn abc236_c() {
+        let tests = [
+            TestCase(5, 3, vec!["tokyo", "kanda", "akiba", "okachi", "ueno"], vec!["tokyo", "akiba", "ueno"], vec!["Yes", "No", "Yes", "No", "Yes"]),
+            TestCase(7, 7, vec!["a", "t", "c", "o", "d", "e", "r"], vec!["a", "t", "c", "o", "d", "e", "r"], vec!["Yes", "Yes", "Yes", "Yes", "Yes", "Yes", "Yes"]),
+        ];
+
+        for TestCase(n, m, s, t, expected) in tests {
+            assert_eq!(run(n, m, s, t), expected);
+        }
     }
 }
