@@ -1,10 +1,10 @@
-// https://atcoder.jp/contests/abc179/tasks/abc179_a
+// https://atcoder.jp/contests/abc181/tasks/abc181_a
 
-pub fn run(n: i32) -> String {
+fn run(n: usize) -> &'static str {
     if n % 2 == 0 {
-        String::from("White")
+        "White"
     } else {
-        String::from("Black")
+        "Black"
     }
 }
 
@@ -12,9 +12,17 @@ pub fn run(n: i32) -> String {
 mod tests {
     use super::*;
 
+    struct TestCase(usize, &'static str);
+
     #[test]
-    fn test() {
-        assert_eq!(String::from("White"), run(2));
-        assert_eq!(String::from("Black"), run(5));
+    fn abc181_a() {
+        let tests = [
+            TestCase(2, "White"),
+            TestCase(5, "Black"),
+        ];
+
+        for TestCase(n, expected) in tests {
+            assert_eq!(run(n), expected);
+        }
     }
 }
