@@ -4,7 +4,7 @@ fn check(s: String) -> bool {
     s.chars().eq(s.chars().rev())
 }
 
-pub fn run(s: String) -> &'static str {
+fn run(s: &str) -> &'static str {
     // 先頭、末尾から連続して何文字aが続くかをカウント
     let mut head = 0;
     let mut tail = 0;
@@ -41,7 +41,7 @@ pub fn run(s: String) -> &'static str {
     vec.drain(0..head);
     vec.drain((vec.len()-tail)..vec.len());
 
-    let str: String = vec.iter().collect();
+    let str: String = vec.into_iter().collect();
 
     if check(str) {
         "Yes"
@@ -54,14 +54,22 @@ pub fn run(s: String) -> &'static str {
 mod tests {
     use super::*;
 
+    struct TestCase(&'static str, &'static str);
+
     #[test]
-    fn test() {
-        assert_eq!(String::from("Yes"), run(String::from("kasaka")));
-        assert_eq!(String::from("No"), run(String::from("atcoder")));
-        assert_eq!(String::from("Yes"), run(String::from("php")));
-        assert_eq!(String::from("Yes"), run(String::from("aaaaaaaa")));
-        assert_eq!(String::from("Yes"), run(String::from("aaabaaa")));
-        assert_eq!(String::from("No"), run(String::from("aaaabaaa")));
-        assert_eq!(String::from("Yes"), run(String::from("aaabaaaa")));
+    fn abc237_c() {
+        let tests = [
+            TestCase("kasaka", "Yes"),
+            TestCase("atcoder", "No"),
+            TestCase("php", "Yes"),
+            TestCase("aaaaaaaa", "Yes"),
+            TestCase("aaabaaa", "Yes"),
+            TestCase("aaaabaaa", "No"),
+            TestCase("aaabaaaa", "Yes"),
+        ];
+
+        for TestCase(s, expected) in tests {
+            assert_eq!(run(s), expected);
+        }
     }
 }
