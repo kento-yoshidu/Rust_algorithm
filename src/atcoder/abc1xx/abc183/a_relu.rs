@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc183/tasks/abc183_a
 
-pub fn run(x: i8) -> i8 {
+fn run(x: isize) -> isize {
     if x < 0 {
         0
     } else {
@@ -12,10 +12,18 @@ pub fn run(x: i8) -> i8 {
 mod tests {
     use super::*;
 
+    struct TestCase(isize, isize);
+
     #[test]
-    fn test() {
-        assert_eq!(1, run(1));
-        assert_eq!(0, run(0));
-        assert_eq!(0, run(-1));
+    fn abc183_a() {
+        let tests = [
+            TestCase(1, 1),
+            TestCase(0, 0),
+            TestCase(-1, 0),
+        ];
+
+        for TestCase(x, expected) in tests {
+            assert_eq!(run(x), expected);
+        }
     }
 }
