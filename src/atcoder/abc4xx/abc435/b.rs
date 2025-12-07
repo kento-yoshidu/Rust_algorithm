@@ -1,11 +1,17 @@
 // https://atcoder.jp/contests/abc435/tasks/abc435_b
 
 fn run(n: usize, a: Vec<usize>) -> usize {
+    let mut cum_sum = vec![0; n+1];
+
+    for i in 0..n {
+        cum_sum[i+1] = cum_sum[i] + a[i];
+    }
+
     let mut ans = 0;
 
     for i in 0..n {
         'outer: for j in i+1..n {
-            let sum: usize = a[i..=j].iter().sum();
+            let sum = cum_sum[j+1] - cum_sum[i];
 
             for k in i..=j {
                 if sum % a[k] == 0 {
