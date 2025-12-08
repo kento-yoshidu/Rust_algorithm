@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc184/tasks/abc184_a
 
-pub fn run(a: i32, b: i32, c: i32, d: i32) -> i32 {
+fn run(a: isize, b: isize, c: isize, d: isize) -> isize {
     a * d - b * c
 }
 
@@ -8,10 +8,18 @@ pub fn run(a: i32, b: i32, c: i32, d: i32) -> i32 {
 mod tests {
     use super::*;
 
+    struct TestCase(isize, isize, isize, isize, isize);
+
     #[test]
-    fn test() {
-        assert_eq!(-2, run(1, 2, 3, 4));
-        assert_eq!(1, run(0, -1, 1, 0));
-        assert_eq!(0, run(100, 100, 100, 100));
+    fn abc184_a() {
+        let tests = [
+            TestCase(1, 2, 3, 4, -2),
+            TestCase(0, -1, 1, 0, 1),
+            TestCase(100, 100, 100, 100, 0),
+        ];
+
+        for TestCase(a, b, c, d, expected) in tests {
+            assert_eq!(run(a, b, c, d), expected);
+        }
     }
 }
