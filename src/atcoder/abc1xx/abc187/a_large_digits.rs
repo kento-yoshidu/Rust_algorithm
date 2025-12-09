@@ -3,7 +3,6 @@
 use std::cmp::max;
 
 fn run(a: usize, b: usize) -> usize {
-    // 百の位、十の位、一の位
     let total_a = (a / 100) + (a % 100 / 10) + (a % 10);
     let total_b = (b / 100) + (b % 100 / 10) + (b % 10);
 
@@ -31,7 +30,7 @@ mod tests {
     struct TestCase(usize, usize, usize);
 
     #[test]
-    fn test() {
+    fn abc187_a() {
         let tests = [
             TestCase(123, 234 , 9),
             TestCase(593, 953, 17),

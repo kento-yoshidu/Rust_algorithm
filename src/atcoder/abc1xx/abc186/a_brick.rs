@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc186/tasks/abc186_a
 
-pub fn run(n: usize, w: usize) -> usize {
+fn run(n: usize, w: usize) -> usize {
     n  / w
 }
 
@@ -11,7 +11,7 @@ mod tests {
     struct TestCase(usize, usize, usize);
 
     #[test]
-    fn test() {
+    fn abc186_a() {
         let tests = [
             TestCase(10, 3, 3),
             TestCase(1000, 1, 1000),
