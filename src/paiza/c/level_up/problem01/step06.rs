@@ -1,4 +1,4 @@
-// https://paiza.jp/works/mondai/c_rank_level_up_problems/c_rank_std_in_out_step5
+// https://paiza.jp/works/mondai/c_rank_level_up_problems/c_rank_std_in_out_step6
 
 fn run<'a>(_n: usize, a: &'a Vec<usize>) -> &'a Vec<usize> {
     a

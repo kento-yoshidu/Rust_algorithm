@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc189/tasks/abc189_a
 
-pub fn run(s: &str) -> &'static str {
+fn run(s: &str) -> &'static str {
     let mut c = s.chars();
 
     let l = c.next().unwrap();
@@ -14,7 +14,7 @@ pub fn run(s: &str) -> &'static str {
     }
 }
 
-pub fn run2(s: &str) -> &'static str {
+fn run2(s: &str) -> &'static str {
     let mut chars: Vec<char> = s.chars().collect();
 
     chars.dedup();
@@ -33,7 +33,7 @@ mod tests {
     struct TestCase(&'static str, &'static str);
 
     #[test]
-    fn test() {
+    fn abc189_a() {
         let tests = [
             TestCase("SSS", "Won"),
             TestCase("WVW", "Lost"),
