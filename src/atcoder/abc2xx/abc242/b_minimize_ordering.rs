@@ -1,20 +1,26 @@
 // https://atcoder.jp/contests/abc242/tasks/abc242_b
 
-pub fn run(s: &str) -> String {
-    let mut chars: Vec<char> = s.chars().collect();
+use itertools::Itertools;
 
-    chars.sort();
-
-    chars.iter().collect()
+fn run(s: &str) -> String {
+    s.chars().sorted().collect()
 }
 
 #[cfg(test)]
 mod tests {
     use super::*;
 
+    struct TestCase(&'static str, &'static str);
+
     #[test]
-    fn test() {
-        assert_eq!(String::from("aab"), run("aba"));
-        assert_eq!(String::from("zzzz"), run("zzzz"));
+    fn abc242_b() {
+        let tests = [
+            TestCase("aba", "aab"),
+            TestCase("zzzz", "zzzz"),
+        ];
+
+        for TestCase(s, expected) in tests {
+            assert_eq!(run(s), expected);
+        }
     }
 }

@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc242/tasks/abc242_a
 
-pub fn run(a: usize, b: usize, c: usize, x: usize) -> f64 {
+fn run(a: usize, b: usize, c: usize, x: usize) -> f64 {
     if x <= a {
         return 1.0
     }
@@ -16,11 +16,19 @@ pub fn run(a: usize, b: usize, c: usize, x: usize) -> f64 {
 mod tests {
     use super::*;
 
+    struct TestCase(usize, usize, usize, usize, f64);
+
     #[test]
-    fn test() {
-        assert_eq!(0.0425531914893617, run(30, 500, 20, 103));
-        assert_eq!(1.0, run(50, 500, 100, 1));
-        assert_eq!(0.0, run(1, 2, 1, 1000));
+    fn abc242_a() {
+        let tests = [
+            TestCase(30, 500, 20, 103, 0.0425531914893617),
+            TestCase(50, 500, 100, 1, 1.0),
+            TestCase(1, 2, 1, 1000, 0.0),
+        ];
+
+        for TestCase(a, b, c, x, expected) in tests {
+            assert_eq!(run(a, b, c, x), expected);
+        }
     }
 }
 
