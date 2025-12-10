@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc190/tasks/abc190_a
 
-pub fn run(a: usize, b: usize, c: usize) -> &'static str {
+fn run(a: usize, b: usize, c: usize) -> &'static str {
     if c == 0 {
         if a > b {
             "Takahashi"
@@ -23,7 +23,7 @@ mod tests {
     struct TestCase(usize, usize, usize, &'static str);
 
     #[test]
-    fn test() {
+    fn abc190_a() {
         let tests = [
             TestCase(2, 1, 0, "Takahashi"),
             TestCase(2, 2, 0, "Aoki"),
