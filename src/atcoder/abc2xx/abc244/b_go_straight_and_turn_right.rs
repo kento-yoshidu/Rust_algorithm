@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc244/tasks/abc244_b
 
-pub fn run(_n: usize, t: &str) -> (isize, isize) {
+fn run(_n: usize, t: &str) -> (isize, isize) {
     t.chars()
         // 最初はx軸のplusの方向を向いていて、原点(0, 0)にいる
         .fold(("xp", (0, 0)), |(dir, state), c| {
@@ -33,9 +33,17 @@ pub fn run(_n: usize, t: &str) -> (isize, isize) {
 mod tests {
     use super::*;
 
+    struct TestCase(usize, &'static str, (isize, isize));
+
     #[test]
-    fn test() {
-        assert_eq!((2, -1), run(4, "SSRS"));
-        assert_eq!((0, 1), run(20, "SRSRSSRSSSRSRRRRRSRR"));
+    fn abc244_b() {
+        let tests = [
+            TestCase(4, "SSRS", (2, -1)),
+            TestCase(20, "SRSRSSRSSSRSRRRRRSRR",(0, 1)),
+        ];
+
+        for TestCase(n, t, expected) in tests {
+            assert_eq!(run(n, t), expected);
+        }
     }
 }
