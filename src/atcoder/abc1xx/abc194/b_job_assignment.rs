@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc194/tasks/abc194_b
 
-pub fn run(n: usize, a: Vec<(usize, usize)>) -> usize {
+fn run(n: usize, a: Vec<(usize, usize)>) -> usize {
     let mut ans = std::usize::MAX;
 
     for i in 0..n {
@@ -20,9 +20,17 @@ pub fn run(n: usize, a: Vec<(usize, usize)>) -> usize {
 mod tests {
     use super::*;
 
+    struct TestCase(usize, Vec<(usize, usize)>, usize);
+
     #[test]
     fn test() {
-        assert_eq!(5, run(3, vec![(8, 5), (4, 4), (7, 9)]));
-        assert_eq!(5, run(3, vec![(11, 7), (3, 2), (6, 7)]));
+        let tests = [
+            TestCase(3, vec![(8, 5), (4, 4), (7, 9)], 5),
+            TestCase(3, vec![(11, 7), (3, 2), (6, 7)], 5),
+        ];
+
+        for TestCase(n, a, expected) in tests {
+            assert_eq!(run(n, a), expected);
+        }
     }
 }

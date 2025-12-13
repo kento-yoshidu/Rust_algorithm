@@ -2,7 +2,7 @@
 
 use std::collections::HashMap;
 
-pub fn run(_n: usize, a: Vec<isize>) -> isize {
+fn run(_n: usize, a: Vec<isize>) -> isize {
     let mut hash_map = HashMap::new();
 
     for i in a {
@@ -29,7 +29,7 @@ mod tests {
     struct TestCase(usize, Vec<isize>, isize);
 
     #[test]
-    fn test() {
+    fn abc194_c() {
         let tests = [
             TestCase(3, vec![2, 8, 4], 56),
             TestCase(5, vec![-5, 8, 9, -4, -3], 950),
