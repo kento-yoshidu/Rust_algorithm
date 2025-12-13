@@ -1,10 +1,10 @@
 // https://atcoder.jp/contests/abc195/tasks/abc195_a
 
-pub fn run(m: usize, h: usize) -> String {
+fn run(m: usize, h: usize) -> &'static str {
     if h % m == 0 {
-        String::from("Yes")
+        "Yes"
     } else {
-        String::from("No")
+        "No"
     }
 }
 
@@ -12,9 +12,17 @@ pub fn run(m: usize, h: usize) -> String {
 mod tests {
     use super::*;
 
+    struct TestCase(usize, usize, &'static str);
+
     #[test]
     fn test() {
-        assert_eq!(String::from("Yes"), run(10, 120));
-        assert_eq!(String::from("No"), run(10, 125));
+        let tests = [
+            TestCase(10, 120, "Yes"),
+            TestCase(10, 125, "No"),
+        ];
+
+        for TestCase(m, h, expected) in tests {
+            assert_eq!(run(m, h), expected);
+        }
     }
 }
