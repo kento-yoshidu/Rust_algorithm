@@ -4,9 +4,9 @@ fn check(s: &str) -> bool {
 	s.chars().eq(s.chars().rev())
 }
 
-fn run(n: usize) -> String {
+fn run(n: usize) -> &'static str {
 	if n == 0 {
-		return String::from("Yes")
+		return "Yes";
 	}
 
 	let mut num = n;
@@ -18,9 +18,9 @@ fn run(n: usize) -> String {
 	}
 
 	if check(&num.to_string()) {
-		String::from("Yes")
+		"Yes"
 	} else {
-		String::from("No")
+		"No"
 	}
 }
 
@@ -28,11 +28,19 @@ fn run(n: usize) -> String {
 mod tests {
 	use super::*;
 
+	struct TestCase(usize, &'static str);
+
 	#[test]
-	fn test() {
-		assert_eq!(String::from("Yes"), run(1210));
-		assert_eq!(String::from("Yes"), run(12100000000));
-		assert_eq!(String::from("Yes"), run(777));
-		assert_eq!(String::from("No"), run(123456789));
+	fn abc198_b() {
+		let tests = [
+			TestCase(1210, "Yes"),
+			TestCase(12100000000, "Yes"),
+			TestCase(777, "Yes"),
+			TestCase(123456789, "No"),
+		];
+
+		for TestCase(n, expected) in tests {
+			assert_eq!(run(n), expected);
+		}
 	}
 }

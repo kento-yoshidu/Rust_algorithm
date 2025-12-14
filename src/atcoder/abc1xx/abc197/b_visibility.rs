@@ -1,7 +1,10 @@
 // https://atcoder.jp/contests/abc197/tasks/abc197_b
 // Refactoring 何か間違ってる気がする
 
-pub fn run(h: usize, w: usize, mut y: usize, mut x: usize, vec: Vec<&str>) -> i32 {
+fn run(h: usize, w: usize, y: usize, x: usize, vec: Vec<&str>) -> isize {
+    let mut y = y;
+    let mut x = x;
+
     let mut ans = 1;
 
     let map = vec
@@ -69,10 +72,18 @@ pub fn run(h: usize, w: usize, mut y: usize, mut x: usize, vec: Vec<&str>) -> i3
 mod tests {
     use super::*;
 
+    struct TestCase(usize, usize, usize, usize, Vec<&'static str>, isize);
+
     #[test]
-    fn test() {
-        assert_eq!(4, run(4, 4, 2, 2, vec!["##..", "...#", "#.#.",".#.#"]));
-        assert_eq!(4, run(3, 5, 1, 4, vec!["#....", "#####", "....#"]));
-        assert_eq!(3, run(5, 5, 4, 2, vec![".#..#", "#.###", "##...", "#..#.", "#.###"]));
+    fn abc197_b() {
+        let tests = [
+            TestCase(4, 4, 2, 2, vec!["##..", "...#", "#.#.",".#.#"], 4),
+            TestCase(3, 5, 1, 4, vec!["#....", "#####", "....#"], 4),
+            TestCase(5, 5, 4, 2, vec![".#..#", "#.###", "##...", "#..#.", "#.###"], 3),
+        ];
+
+        for TestCase(h, w, y, x, vec, expected) in tests {
+            assert_eq!(run(h, w, y, x, vec), expected);
+        }
     }
 }
