@@ -8,7 +8,7 @@ fn calc(n: usize, s: String) -> String {
     }
 }
 
-pub fn run(n: usize) -> String {
+fn run(n: usize) -> String {
     calc(n, String::new())
 }
 
@@ -19,7 +19,7 @@ mod tests {
     struct TestCase(usize, String);
 
     #[test]
-    fn test() {
+    fn abc247_c() {
         let tests = [
             TestCase(2, "1 2 1".to_string()),
             TestCase(1, "1".to_string()),

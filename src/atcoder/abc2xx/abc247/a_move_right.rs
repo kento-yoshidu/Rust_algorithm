@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc247/tasks/abc247_a
 
-pub fn run(s: &str) -> String {
+fn run(s: &str) -> String {
     format!("0{}", &s[0..3])
 }
 
@@ -8,11 +8,18 @@ pub fn run(s: &str) -> String {
 mod tests {
     use super::*;
 
+    struct TestCase(&'static str, &'static str);
+
     #[test]
-    fn test() {
-        assert_eq!(String::from("0101"), run("1011"));
-        assert_eq!(String::from("0000"), run("0000"));
-        assert_eq!(String::from("0111"), run("1111"));
+    fn abc247_a() {
+        let tests = [
+            TestCase("1011", "0101"),
+            TestCase("0000", "0000"),
+            TestCase("1111", "0111"),
+        ];
+
+        for TestCase(s, expected) in tests {
+            assert_eq!(run(s), expected);
+        }
     }
 }
-
