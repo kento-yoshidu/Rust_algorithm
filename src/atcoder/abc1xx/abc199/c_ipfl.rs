@@ -49,7 +49,7 @@ mod tests {
     struct TestCase(usize, &'static str, usize, Vec<(usize, usize, usize)>, &'static str);
 
     #[test]
-    fn test() {
+    fn abc199_c() {
         let tests = [
             TestCase(2, "FLIP", 2, vec![(2, 0, 0), (1, 1, 4)], "LPFI"),
             TestCase(2, "FLIP", 6, vec![(1, 1, 3), (2, 0, 0), (1, 1, 2), (1, 2, 3), (2, 0, 0), (1, 1, 4)], "ILPF"),
