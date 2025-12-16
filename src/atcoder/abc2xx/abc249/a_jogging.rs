@@ -2,22 +2,22 @@
 
 use core::cmp::min;
 
-pub fn calc(run: usize, speed: usize, rest: usize, x: usize) -> usize {
+fn calc(run: usize, speed: usize, rest: usize, x: usize) -> usize {
     let q = x / (run + rest);
 
     run * speed * q + min(run, x - (run + rest) * q) * speed
 }
 
-pub fn run(a: usize, b: usize, c: usize, d: usize, e: usize, f: usize, x: usize) -> String {
+fn run(a: usize, b: usize, c: usize, d: usize, e: usize, f: usize, x: usize) -> &'static str {
     let takahashi = calc(a, b, c, x);
     let aoki = calc(d, e, f, x);
 
     if takahashi > aoki {
-        String::from("Takahashi")
+        "Takahashi"
     } else if aoki > takahashi {
-        String::from("Aoki")
+        "Aoki"
     } else {
-        String::from("Draw")
+        "Draw"
     }
 }
 
@@ -25,10 +25,18 @@ pub fn run(a: usize, b: usize, c: usize, d: usize, e: usize, f: usize, x: usize)
 mod tests {
     use super::*;
 
+    struct TestCase(usize, usize, usize, usize, usize, usize, usize, &'static str);
+
     #[test]
-    fn test() {
-        assert_eq!(String::from("Takahashi"), run(4, 3, 3, 6, 2, 5, 10));
-        assert_eq!(String::from("Aoki"), run(3, 1, 4, 1, 5, 9, 2));
-        assert_eq!(String::from("Draw"), run(1, 1, 1, 1, 1, 1, 1));
+    fn abc249_a() {
+        let tests = [
+            TestCase(4, 3, 3, 6, 2, 5, 10, "Takahashi"),
+            TestCase(3, 1, 4, 1, 5, 9, 2, "Aoki"),
+            TestCase(1, 1, 1, 1, 1, 1, 1, "Draw"),
+        ];
+
+        for TestCase(a, b, c, d, e, f, x, excpected) in tests {
+            assert_eq!(run(a, b, c, d, e, f, x), excpected);
+        }
     }
 }

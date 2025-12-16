@@ -2,7 +2,7 @@
 
 use itertools::Itertools;
 
-pub fn run(s: &str) -> &'static str {
+fn run(s: &str) -> &'static str {
     if !s.chars().all_unique() {
         return "No"
     }
@@ -26,11 +26,19 @@ pub fn run(s: &str) -> &'static str {
 mod tests {
     use super::*;
 
+    struct TestCase(&'static str, &'static str);
+
     #[test]
-    fn test() {
-        assert_eq!("Yes", run("Aa"));
-        assert_eq!("Yes", run("AtCoder"));
-        assert_eq!("No", run("atcoder"));
-        assert_eq!("No", run("Perfect"));
+    fn abc249_b() {
+        let tests = [
+            TestCase("Aa", "Yes"),
+            TestCase("AtCoder", "Yes"),
+            TestCase("atcoder", "No"),
+            TestCase("Perfect", "No"),
+        ];
+
+        for TestCase(s, expected) in tests {
+            assert_eq!(run(s), expected);
+        }
     }
 }
