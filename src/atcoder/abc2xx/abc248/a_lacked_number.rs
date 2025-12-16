@@ -2,14 +2,11 @@
 
 fn run(str: &str) -> usize {
     let chars: Vec<char> = str.chars().collect();
-
-    for i in 0..=9 {
-        if !chars.contains(&((i as u8 + b'0') as char)) {
-            return i as usize
-        }
-    }
-
-    unreachable!()
+    (0..=9)
+        .find(|i| {
+            !chars.contains(&((*i as u8 + b'0') as char))
+        })
+        .unwrap()
 }
 
 #[cfg(test)]
@@ -19,7 +16,7 @@ mod tests {
     struct TestCase(&'static str, usize);
 
     #[test]
-    fn test() {
+    fn abc248_a() {
         let tests = [
             TestCase("012456789", 3),
             TestCase("123456789", 0),
