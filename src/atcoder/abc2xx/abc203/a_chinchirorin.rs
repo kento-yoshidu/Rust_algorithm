@@ -18,10 +18,18 @@ fn run(a: usize, b: usize, c: usize) -> usize {
 mod tests {
     use super::*;
 
+    struct TestCase(usize, usize, usize, usize);
+
     #[test]
-    fn test() {
-        assert_eq!(5, run(2, 5, 2));
-        assert_eq!(0, run(4, 5 ,6));
-        assert_eq!(1, run(1, 1, 1));
+    fn abc203_a() {
+        let tests = [
+            TestCase(2, 5, 2, 5),
+            TestCase(4, 5, 6, 0),
+            TestCase(1, 1, 1, 1),
+        ];
+
+        for TestCase(a, b, c, expected) in tests {
+            assert_eq!(run(a, b, c), expected);
+        }
     }
 }

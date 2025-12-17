@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc203/tasks/abc203_c
 
-pub fn run(n: usize, k: usize, ab: Vec<(usize, usize)>) -> usize {
+fn run(n: usize, k: usize, ab: Vec<(usize, usize)>) -> usize {
     let mut vec = ab.clone();
 
     vec.sort_by(|a, b| a.0.cmp(&b.0));
@@ -25,7 +25,7 @@ mod tests {
     struct TestCase(usize, usize, Vec<(usize, usize)>, usize);
 
     #[test]
-    fn test() {
+    fn abc203_c() {
         let tests = [
             TestCase(2, 3, vec![(2, 1), (5, 10)], 4),
             TestCase(5, 1000000000, vec![(1, 1000000000), (2, 1000000000), (3, 1000000000), (4, 1000000000), (5, 1000000000)], 6000000000),
