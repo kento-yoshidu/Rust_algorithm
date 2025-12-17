@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc250/tasks/abc250_a
 
-pub fn run(h: usize, w: usize, r: usize, c: usize) -> usize {
+fn run(h: usize, w: usize, r: usize, c: usize) -> usize {
     let mut ans = 0;
 
     if h != 1 {
@@ -24,12 +24,19 @@ pub fn run(h: usize, w: usize, r: usize, c: usize) -> usize {
 mod tests {
     use super::*;
 
+    struct TestCase(usize, usize, usize, usize, usize);
+
     #[test]
-    fn test() {
-        assert_eq!(4, run(3, 4, 2, 2));
-        assert_eq!(3, run(3, 4, 1, 3));
-        assert_eq!(2, run(3, 4, 3, 4));
-        assert_eq!(0, run(1, 1, 1, 1));
+    fn abc250_a() {
+        let tests = [
+            TestCase(3, 4, 2, 2, 4),
+            TestCase(3, 4, 1, 3, 3),
+            TestCase(3, 4, 3, 4, 2),
+            TestCase(1, 1, 1, 1, 0),
+        ];
+
+        for TestCase(h, w, r, c, expected) in tests {
+            assert_eq!(run(h, w, r, c), expected);
+        }
     }
 }
-

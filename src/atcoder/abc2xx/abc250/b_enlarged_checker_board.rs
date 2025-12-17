@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc250/tasks/abc250_b
 
-pub fn run(n: usize, a: usize, b: usize) -> Vec<String> {
+fn run(n: usize, a: usize, b: usize) -> Vec<String> {
     let mut ans = vec![vec!['-'; n*b]; n*a];
 
     for i in 0..n * a {
@@ -15,7 +15,7 @@ pub fn run(n: usize, a: usize, b: usize) -> Vec<String> {
         }
     }
 
-    ans.iter()
+    ans.into_iter()
         .map(|a| {
             a.iter().collect::<String>()
         })
@@ -29,7 +29,7 @@ mod tests {
     struct TestCase(usize, usize, usize, Vec<&'static str>);
 
     #[test]
-    fn test() {
+    fn abc250_b() {
         let tests = [
             TestCase(4, 3, 2, vec![ "..##..##",
                                     "..##..##",
