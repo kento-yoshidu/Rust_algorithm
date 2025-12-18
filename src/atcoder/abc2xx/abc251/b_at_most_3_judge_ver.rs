@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc251/tasks/abc251_b
 
-pub fn run(n: usize, w: usize, a: Vec<usize>) -> usize {
+fn run(n: usize, w: usize, a: &Vec<usize>) -> usize {
     let mut ans = vec![false; w];
 
     for i in 0..n {
@@ -28,12 +28,12 @@ pub fn run(n: usize, w: usize, a: Vec<usize>) -> usize {
         }
     }
 
-    ans.iter()
-        .filter(|e| **e == true)
+    ans.into_iter()
+        .filter(|e| *e == true)
         .count()
 }
 
-pub fn run2(_n: usize, w: usize, a: Vec<usize>) -> usize {
+fn run2(_n: usize, w: usize, a: &Vec<usize>) -> usize {
     use itertools::Itertools;
 
     let mut ans = vec![false; w];
@@ -50,8 +50,8 @@ pub fn run2(_n: usize, w: usize, a: Vec<usize>) -> usize {
             });
     }
 
-    ans.iter()
-        .filter(|e| **e == true)
+    ans.into_iter()
+        .filter(|e| *e == true)
         .count()
 }
 
@@ -59,19 +59,20 @@ pub fn run2(_n: usize, w: usize, a: Vec<usize>) -> usize {
 mod tests {
     use super::*;
 
-    #[test]
-    fn test() {
-        assert_eq!(3, run(2, 10, vec![1, 3]));
-        assert_eq!(0, run(2, 1, vec![2, 3]));
-        assert_eq!(3, run(4, 12, vec![3, 3, 3, 3]));
-        assert_eq!(48, run(7, 251, vec![202, 20, 5, 1, 4, 2, 100]));
-    }
+    struct TestCase(usize, usize, Vec<usize>, usize);
 
     #[test]
-    fn test2() {
-        assert_eq!(3, run2(2, 10, vec![1, 3]));
-        assert_eq!(0, run2(2, 1, vec![2, 3]));
-        assert_eq!(3, run2(4, 12, vec![3, 3, 3, 3]));
-        assert_eq!(48, run2(7, 251, vec![202, 20, 5, 1, 4, 2, 100]));
+    fn abc251_b() {
+        let tests = [
+            TestCase(2, 10, vec![1, 3], 3),
+            TestCase(2, 1, vec![2, 3], 0),
+            TestCase(4, 12, vec![3, 3, 3, 3], 3),
+            TestCase(7, 251, vec![202, 20, 5, 1, 4, 2, 100], 48),
+        ];
+
+        for TestCase(n, w, a, expected) in tests {
+            assert_eq!(run(n, w, &a), expected);
+            assert_eq!(run2(n, w, &a), expected);
+        }
     }
 }
