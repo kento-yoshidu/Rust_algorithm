@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc205/tasks/abc205_c
 
-pub fn run(a: i32, b: i32, c: i32) -> char {
+fn run(a: isize, b: isize, c: isize) -> char {
     if c % 2 == 0 {
         if a.abs() == b.abs() {
             '='
@@ -24,11 +24,19 @@ pub fn run(a: i32, b: i32, c: i32) -> char {
 mod tests {
     use super::*;
 
+    struct TestCase(isize, isize, isize, char);
+
     #[test]
-    fn test() {
-        assert_eq!('>', run(3, 2, 4));
-        assert_eq!('=', run(-7, 7, 2));
-        assert_eq!('<', run(-8, 3, 3));
-        assert_eq!('<', run(796382932, -905246003, 182548924));
+    fn abc205_c() {
+        let tests = [
+            TestCase(3, 2, 4, '>'),
+            TestCase(-7, 7, 2, '='),
+            TestCase(-8, 3, 3, '<'),
+            TestCase(796382932, -905246003, 182548924, '<'),
+        ];
+
+        for TestCase(a, b, c, expected) in tests {
+            assert_eq!(run(a, b, c), expected);
+        }
     }
 }
