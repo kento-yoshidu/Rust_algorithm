@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc254/tasks/abc254_a
 
-pub fn run(a: usize, b: usize, c: usize) -> &'static str {
+fn run(a: usize, b: usize, c: usize) -> &'static str {
     if a <= b && b <= c || a >= b && b >= c {
         "Yes"
     } else {
@@ -15,7 +15,7 @@ mod tests {
     struct TestCase(usize, usize, usize, &'static str);
 
     #[test]
-    fn test() {
+    fn abc253_a() {
         let tests = [
             TestCase(5, 3, 2, "Yes"),
             TestCase(2, 5, 3, "No"),
