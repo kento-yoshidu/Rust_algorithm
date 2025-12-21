@@ -1,35 +1,34 @@
 //https://atcoder.jp/contests/abc211/tasks/abc211_b
 
-pub fn run(vec: Vec<&str>) -> String {
+use itertools::Itertools;
+
+fn run(a: &Vec<&str>) -> &'static str {
     use std::collections::HashSet;
 
-    let set: HashSet<&&str> = vec.iter().collect();
+    let set: HashSet<&&str> = a.iter().collect();
 
     if set.len() == 4 {
-        String::from("Yes")
+        "Yes"
     } else {
-        String::from("No")
+        "No"
     }
 }
 
-pub fn run2(vec: &mut Vec<&str>) -> String {
-    vec.sort();
-    vec.dedup();
+fn run2(a: &Vec<&str>) -> &'static str {
+    let a: Vec<&str> = a.iter().cloned().sorted().dedup().collect();
 
-    if vec.len() == 4 {
-        String::from("Yes")
+    if a.len() == 4 {
+        "Yes"
     } else {
-        String::from("No")
+        "No"
     }
 }
 
-pub fn run3(a: Vec<&str>) -> String {
-    use itertools::Itertools;
-
-    if a.iter().all_unique() {
-        String::from("Yes")
+fn run3(a: &Vec<&str>) -> &'static str {
+    if a.into_iter().all_unique() {
+        "Yes"
     } else {
-        String::from("No")
+        "No"
     }
 }
 
@@ -37,21 +36,19 @@ pub fn run3(a: Vec<&str>) -> String {
 mod tests {
     use super::*;
 
-    #[test]
-    fn test() {
-        assert_eq!(String::from("Yes"), run(vec!["3B", "HR", "2B", "H"]));
-        assert_eq!(String::from("No"), run(vec!["2B", "3B", "HR", "3B"]));
-    }
+    struct TestCase(Vec<&'static str>, &'static str);
 
     #[test]
-    fn test2() {
-        assert_eq!(String::from("Yes"), run2(&mut vec!["3B", "HR", "2B", "H"]));
-        assert_eq!(String::from("No"), run2(&mut vec!["2B", "3B", "HR", "3B"]));
-    }
+    fn abc211_b() {
+        let tests = [
+            TestCase(vec!["3B", "HR", "2B", "H"], "Yes"),
+            TestCase(vec!["2B", "3B", "HR", "3B"], "No"),
+        ];
 
-    #[test]
-    fn test3() {
-        assert_eq!(String::from("Yes"), run3(vec!["3B", "HR", "2B", "H"]));
-        assert_eq!(String::from("No"), run3(vec!["2B", "3B", "HR", "3B"]));
+        for TestCase(a, expected) in tests {
+            assert_eq!(run(&a), expected);
+            assert_eq!(run2(&a), expected);
+            assert_eq!(run3(&a), expected);
+        }
     }
 }

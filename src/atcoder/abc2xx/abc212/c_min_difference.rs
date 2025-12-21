@@ -1,13 +1,11 @@
 // https://atcoder.jp/contests/abc212/tasks/abc212_c
 
 use std::cmp::min;
+use itertools::Itertools;
 
 fn run(n: usize, m: usize, a: Vec<isize>, b: Vec<isize>) -> isize {
-    let mut vec_a = a.clone();
-    let mut vec_b = b.clone();
-
-    vec_a.sort();
-    vec_b.sort();
+    let a: Vec<isize> = a.into_iter().sorted().collect();
+    let b: Vec<isize> = b.into_iter().sorted().collect();
 
     let mut ans = std::isize::MAX;
 
@@ -19,9 +17,9 @@ fn run(n: usize, m: usize, a: Vec<isize>, b: Vec<isize>) -> isize {
             break;
         }
 
-        ans = min(ans, (vec_a[x] - vec_b[y]).abs());
+        ans = min(ans, (a[x] - b[y]).abs());
 
-        if vec_a[x] > vec_b[y] {
+        if a[x] > b[y] {
             y += 1;
         } else {
             x += 1;
@@ -38,7 +36,7 @@ mod tests {
     struct TestCase(usize, usize, Vec<isize>, Vec<isize>, isize);
 
     #[test]
-    fn test() {
+    fn abc212_c() {
         let tests = [
             TestCase(2, 2, vec![1, 6], vec![4, 9], 2),
             TestCase(1, 1, vec![10], vec![10], 0),
