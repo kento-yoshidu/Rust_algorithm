@@ -1,10 +1,10 @@
-// https://atcoder.jp/contests/abc206/tasks/abc206_a
+// https://yukicoder.me/problems/no/2736
 
 fn run(a: usize, b: usize) -> &'static str {
-    if a * 6 >= b && a != 0 {
-        "Yes"
-    } else {
+    if a*2 < b || b*2 < a {
         "No"
+    } else {
+        "Yes"
     }
 }
 
@@ -15,11 +15,11 @@ mod tests {
     struct TestCase(usize, usize, &'static str);
 
     #[test]
-    fn abc208_a() {
+    fn yuki_2736() {
         let tests = [
-            TestCase(2, 11, "Yes"),
-            TestCase(2, 13, "No"),
-            TestCase(100, 600, "Yes"),
+            TestCase(6, 6, "Yes"),
+            TestCase(4, 9, "No"),
+            TestCase(500, 250, "Yes"),
         ];
 
         for TestCase(a, b, expected) in tests {

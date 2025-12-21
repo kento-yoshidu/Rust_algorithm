@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc210/tasks/abc210_b
 
-pub fn run(_n: usize, s: &str) -> String {
+fn run(_n: usize, s: &str) -> &'static str {
     s.chars()
         .enumerate()
         .find(|(_, c)| {
@@ -8,9 +8,9 @@ pub fn run(_n: usize, s: &str) -> String {
         })
         .map(|(i, _)| {
             if i % 2 == 0 {
-                String::from("Takahashi")
+                "Takahashi"
             } else {
-                String::from("Aoki")
+                "Aoki"
             }
         })
         .unwrap()
@@ -20,9 +20,17 @@ pub fn run(_n: usize, s: &str) -> String {
 mod tests {
     use super::*;
 
+    struct TestCase(usize, &'static str, &'static str);
+
     #[test]
-    fn test() {
-        assert_eq!(String::from("Takahashi"), run(5, "00101"));
-        assert_eq!(String::from("Aoki"), run(3, "010"));
+    fn abc210_b() {
+        let tests = [
+            TestCase(5, "00101", "Takahashi"),
+            TestCase(3, "010","Aoki"),
+        ];
+
+        for TestCase(n, s, expected) in tests {
+            assert_eq!(run(n, s), expected);
+        }
     }
 }
