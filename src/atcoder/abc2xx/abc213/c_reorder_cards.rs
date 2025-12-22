@@ -1,21 +1,17 @@
 // https://atcoder.jp/contests/abc213/tasks/abc213_c
 
-pub fn run(_h: usize, _w: usize, _n: usize, ab: Vec<(usize, usize)>) -> Vec<(usize, usize)> {
+use itertools::Itertools;
+
+fn run(_h: usize, _w: usize, _n: usize, ab: Vec<(usize, usize)>) -> Vec<(usize, usize)> {
     let (a, b): (Vec<usize>, Vec<usize>) = ab.iter().cloned().unzip();
 
-    let mut vec_a: Vec<usize> = a.into_iter().collect();
-    let mut vec_b: Vec<usize> = b.into_iter().collect();
+    let a: Vec<usize> = a.into_iter().sorted().dedup().collect();
+    let b: Vec<usize> = b.into_iter().sorted().dedup().collect();
 
-    vec_a.sort();
-    vec_b.sort();
-
-    vec_a.dedup();
-    vec_b.dedup();
-
-    ab.iter()
-        .map(|(a, b)| {
-            let x = vec_a.binary_search(&a).unwrap() + 1;
-            let y = vec_b.binary_search(&b).unwrap() + 1;
+    ab.into_iter()
+        .map(|(aa, bb)| {
+            let x = a.binary_search(&aa).unwrap() + 1;
+            let y = b.binary_search(&bb).unwrap() + 1;
 
             (x, y)
         })
@@ -29,7 +25,7 @@ mod tests {
     struct TestCase(usize, usize, usize, Vec<(usize, usize)>, Vec<(usize, usize)>);
 
     #[test]
-    fn test() {
+    fn abc213_c() {
         let tests = [
             TestCase(4, 5, 2, vec![(3, 2), (2, 5)], vec![(2, 1), (1, 2)]),
             TestCase(562681294, 868338948, 1, vec![(367409829, 829122210)], vec![(1, 1)]),
