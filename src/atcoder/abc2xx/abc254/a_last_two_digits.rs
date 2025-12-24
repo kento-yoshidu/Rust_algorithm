@@ -11,7 +11,7 @@ mod tests {
     struct TestCaes(usize, &'static str);
 
     #[test]
-    fn test() {
+    fn abc254_a() {
         let tests = [
             TestCaes(254, "54"),
             TestCaes(101, "01"),
