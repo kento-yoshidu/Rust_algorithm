@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc214/tasks/abc214_b
 
-pub fn run(s: usize, t: usize) -> usize{
+fn run(s: usize, t: usize) -> usize{
     let mut count = 0;
 
     for a in 0..=s {
@@ -27,12 +27,20 @@ pub fn run(s: usize, t: usize) -> usize{
 mod tests {
     use super::*;
 
+    struct TestCase(usize, usize, usize);
+
     #[test]
     fn test() {
-        assert_eq!(1, run(0, 0));
-        assert_eq!(4, run(1, 0));
-        assert_eq!(10, run(2, 5));
-        assert_eq!(213, run(10, 10));
-        assert_eq!(2471, run(30, 100));
+        let tests = [
+            TestCase(0, 0, 1),
+            TestCase(1, 0, 4),
+            TestCase(2, 5, 10),
+            TestCase(10, 10, 213),
+            TestCase(30, 100, 2471),
+        ];
+
+        for TestCase(s, t, expected) in tests {
+            assert_eq!(run(s, t), expected);
+        }
     }
 }

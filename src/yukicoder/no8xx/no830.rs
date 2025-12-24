@@ -1,13 +1,7 @@
-// https://atcoder.jp/contests/abc214/tasks/abc214_a
+// https://yukicoder.me/problems/no/830
 
 fn run(n: usize) -> usize {
-    if n >= 212 {
-        8
-    } else if n >= 126 {
-        6
-    } else {
-        4
-    }
+    n * 10
 }
 
 #[cfg(test)]
@@ -17,11 +11,9 @@ mod tests {
     struct TestCase(usize, usize);
 
     #[test]
-    fn abc214_a() {
+    fn yuki_830() {
         let tests = [
-            TestCase(214, 8),
-            TestCase(126, 6),
-            TestCase(1, 4),
+            TestCase(9, 90),
         ];
 
         for TestCase(n, expected) in tests {
