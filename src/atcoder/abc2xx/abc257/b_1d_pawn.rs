@@ -1,8 +1,8 @@
 
 // https://atcoder.jp/contests/abc257/tasks/abc257_b
 
-pub fn run(n: usize, _k: usize, _q: usize, a: Vec<usize>, l: Vec<usize>) -> Vec<usize> {
-    l.iter()
+fn run(n: usize, _k: usize, _q: usize, a: Vec<usize>, l: Vec<usize>) -> Vec<usize> {
+    l.into_iter()
         .fold(a.clone(), |mut state, num| {
             if state.contains(&(state[num-1] + 1)) {
                 state
