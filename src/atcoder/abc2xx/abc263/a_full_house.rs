@@ -3,15 +3,15 @@
 use std::collections::{HashMap, HashSet};
 use itertools::Itertools;
 
-fn run(a: usize, b: usize, c: usize, d: usize, e: usize) -> String {
+fn run(a: usize, b: usize, c: usize, d: usize, e: usize) -> &'static str {
     let vec = vec![a, b, c, d, e];
     let map = vec.iter().counts();
     let set: HashSet<usize> = map.into_values().collect();
 
     if set == HashSet::from([3, 2]) {
-        String::from("Yes")
+        "Yes"
     } else {
-        String::from("No")
+        "No"
     }
 }
 

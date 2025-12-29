@@ -1,6 +1,6 @@
 // https://yukicoder.me/problems/no/2862
 
-fn run(n: usize, s: &str) -> &'static str {
+fn run(_n: usize, s: &str) -> &'static str {
     if s.contains("404") {
         "Found"
     } else {
