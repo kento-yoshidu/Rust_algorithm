@@ -3,7 +3,7 @@
 use std::collections::HashMap;
 use itertools::Itertools;
 
-pub fn run(s: &str) -> String {
+fn run(s: &str) -> String {
     let mut map: HashMap<char, usize> = HashMap::new();
 
     for c in s.chars() {
@@ -45,7 +45,7 @@ mod tests {
     struct TestCase(&'static str, &'static str);
 
     #[test]
-    fn test() {
+    fn abc260_a() {
         let tests = [
             TestCase("pop", "o"),
             TestCase("abc", "a"),
