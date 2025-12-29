@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc437/tasks/abc437_b
 
-fn run(h: usize, w: usize, n: usize, a: Vec<Vec<usize>>, b: Vec<usize>) -> usize {
+fn run(_h: usize, _w: usize, _n: usize, a: Vec<Vec<usize>>, b: Vec<usize>) -> usize {
     let mut ans = 0;
 
     for v in a {

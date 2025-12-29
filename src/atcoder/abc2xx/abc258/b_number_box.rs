@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc258/tasks/abc258_b
 
-pub fn run(n: usize, a: Vec<&str>) -> usize {
+fn run(n: usize, a: Vec<&str>) -> usize {
     let dx = vec![0, 1, 1, 1, 0, -1, -1, -1];
     let dy = vec![-1, -1, 0, 1, 1, 1, 0, -1];
 
@@ -38,7 +38,7 @@ mod tests {
     struct TestCase(usize, Vec<&'static str>, usize);
 
     #[test]
-    fn test() {
+    fn abc258_b() {
         let tests = [
             TestCase(4, vec!["1161", "1119", "7111", "1811"], 9786),
             TestCase(10, vec![ "1111111111", "1111111111", "1111111111", "1111111111", "1111111111", "1111111111", "1111111111", "1111111111", "1111111111", "1111111111"], 1111111111),
