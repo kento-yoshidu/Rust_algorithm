@@ -1,8 +1,8 @@
 // https://atcoder.jp/contests/abc221/tasks/abc221_b
 
-pub fn run(s: &str, t: &str) -> String {
+fn run(s: &str, t: &str) -> &'static str {
     if s == t {
-        return String::from("Yes");
+        return "Yes";
     }
 
     for i in 0..t.len()-1 {
@@ -11,16 +11,16 @@ pub fn run(s: &str, t: &str) -> String {
         chars.swap(i, i+1);
 
         if s.chars().collect::<Vec<char>>() == chars {
-            return String::from("Yes");
+            return "Yes";
         }
     }
 
-    String::from("No")
+    "No"
 }
 
-pub fn run2(s: &str, t: &str) -> String {
+fn run2(s: &str, t: &str) -> &'static str {
     if s == t {
-        return String::from("Yes");
+        return "Yes";
     }
 
     if (0..t.len()-1)
@@ -31,9 +31,9 @@ pub fn run2(s: &str, t: &str) -> String {
 
             s.chars().collect::<Vec<char>>() == chars
         }) {
-            String::from("Yes")
+            "Yes"
         } else {
-            String::from("No")
+            "No"
         }
 }
 
@@ -41,17 +41,19 @@ pub fn run2(s: &str, t: &str) -> String {
 mod tests {
     use super::*;
 
-    #[test]
-    fn test() {
-        assert_eq!(String::from("Yes"), run("abc", "acb"));
-        assert_eq!(String::from("No"), run("aabb", "bbaa"));
-        assert_eq!(String::from("Yes"), run("abcde", "abcde"));
-    }
+    struct TestCase(&'static str, &'static str, &'static str);
 
     #[test]
-    fn test2() {
-        assert_eq!(String::from("Yes"), run2("abc", "acb"));
-        assert_eq!(String::from("No"), run2("aabb", "bbaa"));
-        assert_eq!(String::from("Yes"), run2("abcde", "abcde"));
+    fn abc221_b() {
+        let tests = [
+            TestCase("abc", "acb", "Yes"),
+            TestCase("aabb", "bbaa", "No"),
+            TestCase("abcde", "abcde", "Yes"),
+        ];
+
+        for TestCase(s, t, expected) in tests {
+            assert_eq!(run(s, t), expected);
+            assert_eq!(run2(s, t), expected);
+        }
     }
 }

@@ -2,7 +2,7 @@
 
 use itertools::Itertools;
 
-pub fn run(n: usize) -> usize {
+fn run(n: usize) -> usize {
     let str = n.to_string();
 
     let mut ans = 0;
@@ -38,7 +38,7 @@ mod tests {
     struct TestCase(usize, usize);
 
     #[test]
-    fn test() {
+    fn abc221_c() {
         let tests = [
             TestCase(123, 63),
             TestCase(1010, 100),
