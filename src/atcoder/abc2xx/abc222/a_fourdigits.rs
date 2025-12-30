@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc222/tasks/abc222_a
 
-pub fn run(n: usize) -> String {
+fn run(n: usize) -> String {
     format!("{:04}", n)
 }
 
@@ -8,10 +8,18 @@ pub fn run(n: usize) -> String {
 mod tests {
     use super::*;
 
+    struct TestCase(usize, &'static str);
+
     #[test]
-    fn test() {
-        assert_eq!(String::from("0321"), run(321));
-        assert_eq!(String::from("7777"), run(7777));
-        assert_eq!(String::from("0001"), run(1));
+    fn abc222_a() {
+        let tests = [
+            TestCase(321, "0321"),
+            TestCase(7777, "7777"),
+            TestCase(1, "0001"),
+        ];
+
+        for TestCase(n, expected) in tests {
+            assert_eq!(run(n), expected);
+        }
     }
 }

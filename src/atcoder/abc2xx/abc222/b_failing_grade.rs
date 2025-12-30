@@ -1,8 +1,8 @@
 // https://atcoder.jp/contests/abc320/tasks/abc320_a
 
-pub fn run(_n: usize, p: usize, a: Vec<usize>) -> usize {
-    a.iter()
-        .filter(|num| **num < p )
+fn run(_n: usize, p: usize, a: Vec<usize>) -> usize {
+    a.into_iter()
+        .filter(|num| *num < p )
         .count()
 }
 
@@ -10,10 +10,18 @@ pub fn run(_n: usize, p: usize, a: Vec<usize>) -> usize {
 mod tests {
     use super::*;
 
+    struct TestCase(usize, usize, Vec<usize>, usize);
+
     #[test]
-    fn test() {
-        assert_eq!(2, run(4, 50, vec![80, 60, 40, 0]));
-        assert_eq!(3, run(3, 90, vec![89, 89, 89]));
-        assert_eq!(1, run(2, 22, vec![6, 37]));
+    fn abc222_b() {
+        let tests = [
+            TestCase(4, 50, vec![80, 60, 40, 0], 2),
+            TestCase(3, 90, vec![89, 89, 89], 3),
+            TestCase(2, 22, vec![6, 37], 1),
+        ];
+
+        for TestCase(n, p, a, expected) in tests {
+            assert_eq!(run(n, p, a), expected);
+        }
     }
 }
