@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc262/tasks/abc262_c
 
-pub fn run(n: usize, a: Vec<usize>) -> usize {
+fn run(n: usize, a: Vec<usize>) -> usize {
     let same = a.iter()
         .enumerate()
         .filter(|(i, n)| {
@@ -26,7 +26,7 @@ mod tests {
     struct TestCase(usize, Vec<usize>, usize);
 
     #[test]
-    fn test() {
+    fn abc262_c() {
         let tests = [
             TestCase(4, vec![1, 3, 2, 4], 2),
             TestCase(10, vec![5, 8, 2, 2, 1, 6, 7, 2, 9, 10], 8),
