@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc223/tasks/abc223_b
 
-pub fn run(s: &str) -> (String, String) {
+fn run(s: &str) -> (String, String) {
     let mut ans = Vec::new();
 
     for i in 0..s.len() {
@@ -16,10 +16,18 @@ pub fn run(s: &str) -> (String, String) {
 mod tests {
     use super::*;
 
+    struct TestCase(&'static str, (String, String));
+
     #[test]
-    fn test() {
-        assert_eq!((String::from("aaab"), String::from("baaa")), run("aaba"));
-        assert_eq!((String::from("z"), String::from("z")), run("z"));
-        assert_eq!((String::from("aabracadabr"), String::from("racadabraab")), run("abracadabra"));
+    fn abc223_b() {
+        let tests = [
+            TestCase("aaba", ("aaab".to_string(), "baaa".to_string())),
+            TestCase("z", ("z".to_string(), "z".to_string())),
+            TestCase("abracadabra", ("aabracadabr".to_string(), "racadabraab".to_string())),
+        ];
+
+        for TestCase(s, expected) in tests {
+            assert_eq!(run(s), expected);
+        }
     }
 }
