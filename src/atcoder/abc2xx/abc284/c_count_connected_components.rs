@@ -27,7 +27,7 @@ fn run(n: usize, _m: usize, v: Option<Vec<(usize, usize)>>) -> usize {
     let mut ans = 0;
 
     for i in 1..=n {
-        if visited[i] == true {
+        if visited[i] {
             continue;
         }
 
@@ -46,7 +46,7 @@ mod tests {
     struct TestCase(usize, usize, Option<Vec<(usize, usize)>>, usize);
 
     #[test]
-    fn test() {
+    fn abc284_c() {
         let tests = [
             TestCase(5, 3, Some(vec![(1, 2), (1, 3), (4, 5)]), 2),
             TestCase(5, 0, None, 5),

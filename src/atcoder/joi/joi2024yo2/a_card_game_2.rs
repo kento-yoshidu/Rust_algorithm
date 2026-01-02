@@ -8,7 +8,7 @@ fn run(_n: usize, a: Vec<usize>) -> &'static str {
     }
 
     for i in 0..200_000-6 {
-        if vec[i] == true && vec[i+3] == true && vec[i+6] == true {
+        if vec[i] && vec[i+3] && vec[i+6] {
             return "Yes";
         }
     }
@@ -23,7 +23,7 @@ mod tests {
     struct TestCase(usize, Vec<usize>, &'static str);
 
     #[test]
-    fn test() {
+    fn joi2024yo2() {
         let tests = [
             TestCase(3, vec![2, 5, 8], "Yes"),
             TestCase(4, vec![1, 4, 6, 4], "No"),

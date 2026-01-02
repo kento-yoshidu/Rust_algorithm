@@ -13,7 +13,7 @@ fn run(n: usize, _m: usize, uv: Vec<(usize, usize)>) -> usize {
     for a in 0..n {
         for b in a+1..n {
             for c in b+1..n {
-                if connect[a][b] == true && connect[b][c] == true && connect[c][a] == true {
+                if connect[a][b] && connect[b][c] && connect[c][a] {
                     ans += 1;
                 }
             }

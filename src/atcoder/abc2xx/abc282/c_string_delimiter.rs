@@ -13,7 +13,7 @@ pub fn run(_n: usize, s: &str) -> String {
         }
 
         if c == ',' {
-            if flag == true {
+            if flag {
                 ans.push('.');
             } else {
                 ans.push(',');
@@ -33,7 +33,7 @@ mod tests {
     struct TestCase(usize, &'static str, &'static str);
 
     #[test]
-    fn test() {
+    fn abc282_c() {
         let tests = [
             TestCase(8, "\"a,b\"c,d", "\"a,b\"c.d"),
             TestCase(5, ",,,,,", "....."),

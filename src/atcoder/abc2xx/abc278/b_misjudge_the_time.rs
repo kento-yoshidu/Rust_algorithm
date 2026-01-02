@@ -13,12 +13,12 @@ fn check(h: usize, m: usize) -> bool {
     }
 }
 
-pub fn run(h: usize, m: usize) -> (usize, usize) {
+fn run(h: usize, m: usize) -> (usize, usize) {
     let mut i = h;
     let mut j = m;
 
     loop {
-        if check(i, j) == true {
+        if check(i, j) {
             return (i, j);
         }
 
@@ -42,7 +42,7 @@ mod tests {
     struct TestCase(usize, usize, (usize, usize));
 
     #[test]
-    fn test() {
+    fn abc278_b() {
         let tests= [
             TestCase(5, 23, (5, 23)),
             TestCase(19, 57, (20, 0)),

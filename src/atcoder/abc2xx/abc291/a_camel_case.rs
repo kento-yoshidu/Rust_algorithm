@@ -2,7 +2,7 @@
 
 fn run(s: &str) -> usize {
     for (i, c) in s.chars().enumerate() {
-        if c.is_uppercase() == true {
+        if c.is_uppercase() {
             return i+1;
         }
     }
@@ -23,7 +23,7 @@ mod tests {
     struct TestCase(&'static str, usize);
 
     #[test]
-    fn test() {
+    fn abc291_a() {
         let tests = [
             TestCase("aBc", 2),
             TestCase("xxxxxxXxxx", 7),

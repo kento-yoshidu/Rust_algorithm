@@ -29,7 +29,7 @@ fn run(n: usize, w: usize, a: &Vec<usize>) -> usize {
     }
 
     ans.into_iter()
-        .filter(|e| *e == true)
+        .filter(|e| *e)
         .count()
 }
 
@@ -51,7 +51,7 @@ fn run2(_n: usize, w: usize, a: &Vec<usize>) -> usize {
     }
 
     ans.into_iter()
-        .filter(|e| *e == true)
+        .filter(|e| *e)
         .count()
 }
 

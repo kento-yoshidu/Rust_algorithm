@@ -1,18 +1,18 @@
 // https://atcoder.jp/contests/abc313/tasks/abc313_b
 
-fn run(n: usize, _m: usize, vec: Vec<(usize, usize)>) -> i32 {
+fn run(n: usize, _m: usize, a: Vec<(usize, usize)>) -> isize {
     let mut arr = vec![true; n];
 
-    for v in vec.iter() {
+    for v in a {
         arr[(v.1)-1] = false
     }
 
     if (arr.iter().filter(|num| {
-        **num == true
+        **num
     }).count()) > 1 {
-        return -1
+        -1
     } else {
-        arr.iter().position(|num| *num == true).unwrap() as i32 + 1
+        arr.iter().position(|num| *num).unwrap() as isize + 1
     }
 }
 
@@ -20,10 +20,18 @@ fn run(n: usize, _m: usize, vec: Vec<(usize, usize)>) -> i32 {
 mod tests {
     use super::*;
 
+    struct TestCase(usize, usize, Vec<(usize, usize)>, isize);
+
     #[test]
-    fn test() {
-        assert_eq!(1, run(3, 2, vec![(1, 2), (2, 3)]));
-        assert_eq!(-1, run(3, 2, vec![(1, 3), (2, 3)]));
-        assert_eq!(-1, run(6, 6, vec![(1, 6), (6, 5), (6, 2), (2, 3), (4, 3), (4, 2)]));
+    fn abc313_b() {
+        let tests = [
+            TestCase(3, 2, vec![(1, 2), (2, 3)], 1),
+            TestCase(3, 2, vec![(1, 3), (2, 3)], -1),
+            TestCase(6, 6, vec![(1, 6), (6, 5), (6, 2), (2, 3), (4, 3), (4, 2)], -1),
+        ];
+
+        for TestCase(n, m, a, expected) in tests {
+            assert_eq!(run(n, m, a), expected);
+        }
     }
 }

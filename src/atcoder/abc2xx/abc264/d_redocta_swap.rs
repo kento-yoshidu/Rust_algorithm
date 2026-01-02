@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc264/tasks/abc264_d
 
-pub fn run(s: &str) -> usize {
+fn run(s: &str) -> usize {
     let mut ans = 0;
 
     let mut vec: Vec<usize> = s.chars()
@@ -29,7 +29,7 @@ pub fn run(s: &str) -> usize {
             }
         }
 
-        if flag == true {
+        if flag {
             return ans;
         }
     }
@@ -44,7 +44,7 @@ mod tests {
     struct TestCase(&'static str, usize);
 
     #[test]
-    fn test() {
+    fn abc264_d() {
         let tests = [
             TestCase("catredo", 8),
             TestCase("atcoder", 0),

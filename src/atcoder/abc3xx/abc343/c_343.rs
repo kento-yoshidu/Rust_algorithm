@@ -4,7 +4,7 @@ fn check(n: &str) -> bool {
     n.chars().eq(n.chars().rev())
 }
 
-pub fn run(n: usize) -> usize {
+fn run(n: usize) -> usize {
     let mut ans = 1;
 
     for i in 1..=n {
@@ -12,7 +12,7 @@ pub fn run(n: usize) -> usize {
             break;
         }
 
-        if check(&(i*i*i).to_string()) == true {
+        if check(&(i*i*i).to_string()) {
             ans = ans.max(i*i*i);
         }
     }
@@ -27,7 +27,7 @@ mod tests {
     struct Testase(usize, usize);
 
     #[test]
-    fn test() {
+    fn abc343_c() {
         let tests = [
             Testase(345, 343),
             Testase(6, 1),

@@ -1,7 +1,6 @@
 // https://atcoder.jp/contests/abc307/tasks/abc307_b
 
 use core::str::Chars;
-
 use itertools::Itertools;
 
 // 回文になっているか
@@ -18,30 +17,30 @@ fn check(mut iter: Chars) -> bool {
     }
 }
 
-fn check2(s: String) -> bool {
-    s.chars().eq(s.chars().rev())
-}
-
-fn run(n: usize, s: Vec<&str>) -> String {
+fn run(n: usize, s: &Vec<&str>) -> &'static str {
     for i in 0..n {
         for j in i+1..n {
-            if check(format!("{}{}", s[i], s[j]).chars()) == true {
-                return String::from("Yes")
+            if check(format!("{}{}", s[i], s[j]).chars()) {
+                return "Yes";
             }
         }
     }
 
-    String::from("No")
+    "No"
 }
 
-pub fn run2(_n: usize, s: Vec<&str>) -> String {
-    if s.iter()
+fn check2(s: String) -> bool {
+    s.chars().eq(s.chars().rev())
+}
+
+fn run2(_n: usize, s: &Vec<&str>) -> &'static str {
+    if s.into_iter()
         .permutations(2)
         .any(|v| check2(format!("{}{}", v[0], v[1])))
     {
-        String::from("Yes")
+        "Yes"
     } else {
-        String::from("No")
+        "No"
     }
 }
 
@@ -49,17 +48,19 @@ pub fn run2(_n: usize, s: Vec<&str>) -> String {
 mod tests {
     use super::*;
 
-    #[test]
-    fn test() {
-        assert_eq!(String::from("Yes"), run(5, vec!["ab", "ccef", "da", "a", "fe"]));
-        assert_eq!(String::from("No"), run(3, vec!["a", "b", "aba"]));
-        assert_eq!(String::from("Yes"), run(2, vec!["aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"]));
-    }
+    struct TestCase(usize, Vec<&'static str>, &'static str);
 
     #[test]
-    fn test2() {
-        assert_eq!(String::from("Yes"), run2(5, vec!["ab", "ccef", "da", "a", "fe"]));
-        assert_eq!(String::from("No"), run2(3, vec!["a", "b", "aba"]));
-        assert_eq!(String::from("Yes"), run2(2, vec!["aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"]));
+    fn abc307_b() {
+        let tests = [
+            TestCase(5, vec!["ab", "ccef", "da", "a", "fe"], "Yes"),
+            TestCase(3, vec!["a", "b", "aba"], "No"),
+            TestCase(2, vec!["aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"], "Yes"),
+        ];
+
+        for TestCase(n, s, expected) in tests {
+            assert_eq!(run(n, &s), expected);
+            assert_eq!(run2(n, &s), expected);
+        }
     }
 }
