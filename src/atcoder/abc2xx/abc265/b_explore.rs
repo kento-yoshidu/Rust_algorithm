@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc265/tasks/abc265_b
 
-pub fn run(n: usize, _m: usize, t: usize, a: Vec<usize>, xy: Vec<(usize, usize)>) -> &'static str {
+fn run(n: usize, _m: usize, t: usize, a: Vec<usize>, xy: Vec<(usize, usize)>) -> &'static str {
     let mut life_up = vec![0; n];
 
     for (x, y) in xy {
@@ -9,10 +9,10 @@ pub fn run(n: usize, _m: usize, t: usize, a: Vec<usize>, xy: Vec<(usize, usize)>
 
     let mut time = t;
 
-    for (i, num) in a.iter().enumerate() {
+    for (i, num) in a.into_iter().enumerate() {
         time += life_up[i];
 
-        if time <= *num {
+        if time <= num {
             return "No";
         } else {
             time -= num;
@@ -29,7 +29,7 @@ mod tests {
     struct TestCase(usize, usize, usize, Vec<usize>, Vec<(usize, usize)>, &'static str);
 
     #[test]
-    fn test() {
+    fn abc265_b() {
         let tests = [
             TestCase(4, 1, 10, vec![5, 7, 5], vec![(2, 10)], "Yes"),
             TestCase(4, 1, 10, vec![10, 7, 5], vec![(2, 10)], "No"),
