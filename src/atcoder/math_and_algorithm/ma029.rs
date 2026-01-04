@@ -23,6 +23,7 @@ mod tests {
     fn ma029() {
         let tests = [
             TestCase(4, 5),
+            TestCase(45, 1836311903),
         ];
 
         for TestCase(n, expected) in tests {

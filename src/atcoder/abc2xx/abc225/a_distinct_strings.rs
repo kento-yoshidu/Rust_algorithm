@@ -1,8 +1,8 @@
-// https://atcoder.jp/contests/abc255/tasks/abc255_a
+// https://atcoder.jp/contests/abc225/tasks/abc225_a
 
 use itertools::Itertools;
 
-pub fn run(s: String) -> usize {
+fn run(s: &str) -> usize {
     s.chars().permutations(3).unique().count()
 }
 
@@ -10,10 +10,18 @@ pub fn run(s: String) -> usize {
 mod tests {
     use super::*;
 
+    struct TestCase(&'static str, usize);
+
     #[test]
-    fn test() {
-        assert_eq!(3, run(String::from("aba")));
-        assert_eq!(1, run(String::from("ccc")));
-        assert_eq!(6, run(String::from("xyz")));
+    fn abc225_a() {
+        let tests = [
+            TestCase("aba", 3),
+            TestCase("ccc", 1),
+            TestCase("xyz", 6),
+        ];
+
+        for TestCase(s, expected) in tests {
+            assert_eq!(run(s), expected);
+        }
     }
 }
