@@ -7,6 +7,7 @@ pub mod no6xx;
 pub mod no7xx;
 pub mod no8xx;
 pub mod no9xx;
+pub mod no10xx;
 pub mod no12xx;
 pub mod no14xx;
 pub mod no16xx;
