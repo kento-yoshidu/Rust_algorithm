@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc267/tasks/abc267_b
 
-pub fn run(s: &str) -> &'static str {
+fn run(s: &str) -> &'static str {
     let s: Vec<char> = s.chars().collect();
 
     if s[0] == '1' {
