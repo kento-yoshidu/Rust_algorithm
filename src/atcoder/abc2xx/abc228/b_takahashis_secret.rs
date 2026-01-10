@@ -9,7 +9,7 @@ fn check(a: &Vec<usize>, mut vec: Vec<bool>, count: usize, current: usize) -> us
     }
 }
 
-pub fn run(n: usize, x: usize, a: Vec<usize>) -> usize {
+fn run(n: usize, x: usize, a: Vec<usize>) -> usize {
     let vec = vec![false; n];
 
     check(&a, vec, 0, x)
@@ -19,9 +19,17 @@ pub fn run(n: usize, x: usize, a: Vec<usize>) -> usize {
 mod tests {
     use super::*;
 
+    struct TestCase(usize, usize, Vec<usize>, usize);
+
     #[test]
-    fn test() {
-        assert_eq!(3, run(4, 2, vec![3, 1, 1, 2]));
-        assert_eq!(7, run(20, 12, vec![7, 11, 10, 1, 7, 20, 14, 2, 17, 3, 2, 5, 19, 20, 8, 14, 18, 2, 10, 10]));
+    fn abc228_b() {
+        let tests = [
+            TestCase(4, 2, vec![3, 1, 1, 2], 3),
+            TestCase(20, 12, vec![7, 11, 10, 1, 7, 20, 14, 2, 17, 3, 2, 5, 19, 20, 8, 14, 18, 2, 10, 10], 7),
+        ];
+
+        for TestCase(n, x, a, expected) in tests {
+            assert_eq!(run(n, x, a), expected);
+        }
     }
 }

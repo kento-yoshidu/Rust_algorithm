@@ -10,11 +10,11 @@ fn calc(a: usize, b: usize) -> bool {
     }
 }
 
-pub fn run(a: usize, b: usize) -> String {
+fn run(a: usize, b: usize) -> &'static str {
     if calc(a, b) == true {
-        String::from("Easy")
+        "Easy"
     } else {
-        String::from("Hard")
+        "Hard"
     }
 }
 
@@ -22,9 +22,17 @@ pub fn run(a: usize, b: usize) -> String {
 mod tests {
     use super::*;
 
+    struct TestCase(usize, usize, &'static str);
+
     #[test]
-    fn test() {
-        assert_eq!(String::from("Hard"), run(229, 390));
-        assert_eq!(String::from("Easy"), run(123456789, 9876543210));
+    fn abc229_b() {
+        let tests = [
+            TestCase(229, 390, "Hard"),
+            TestCase(123456789, 9876543210, "Easy"),
+        ];
+
+        for TestCase(a, b, expected) in tests {
+            assert_eq!(run(a, b), expected);
+        }
     }
 }
