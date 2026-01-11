@@ -8,10 +8,10 @@ fn run(n: usize, s: &str) -> String {
 
     let s: Vec<(usize, char)> = s.chars().enumerate().collect();
 
-    for (i, c) in s.iter().rev() {
-        match *c {
-            'L' => dequeue.push_back(*i),
-            'R' => dequeue.push_front(*i),
+    for (i, c) in s.into_iter().rev() {
+        match c {
+            'L' => dequeue.push_back(i),
+            'R' => dequeue.push_front(i),
             _ => unreachable!(),
         }
     }
