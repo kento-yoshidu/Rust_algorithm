@@ -2,28 +2,35 @@
 
 use std::collections::HashMap;
 
-pub fn run(_n: usize, s: Vec<&str>) -> String {
+fn run<'a>(_n: usize, s: Vec<&'a str>) -> &'a str {
     let mut map = HashMap::new();
 
     for name in s {
-        let count = map.entry(name).or_insert(0);
-        *count += 1;
+        *map.entry(name).or_insert(0) += 1;
     }
 
-    map.iter()
-        .max_by(|a, b| a.1.cmp(b.1))
+    map.into_iter()
+        .max_by_key(|(_, v)| *v)
         .unwrap()
-        .0.to_string()
+        .0
 }
 
 #[cfg(test)]
 mod tests {
     use super::*;
 
+    struct TestCase(usize, Vec<&'static str>, &'static str);
+
     #[test]
-    fn test() {
-        assert_eq!(String::from("takahashi"), run(5, vec!["snuke", "snuke", "takahashi", "takahashi", "takahashi"]));
-        assert_eq!(String::from("takahashi"), run(5, vec!["takahashi", "takahashi", "aoki", "takahashi", "snuke"]));
-        assert_eq!(String::from("a"), run(1, vec!["a"]));
+    fn abc231_b() {
+        let tests = [
+            TestCase(5, vec!["snuke", "snuke", "takahashi", "takahashi", "takahashi"], "takahashi"),
+            TestCase(5, vec!["takahashi", "takahashi", "aoki", "takahashi", "snuke"], "takahashi"),
+            TestCase(1, vec!["a"], "a"),
+        ];
+
+        for TestCase(n, s, expected) in tests {
+            assert_eq!(run(n, s), expected);
+        }
     }
 }
