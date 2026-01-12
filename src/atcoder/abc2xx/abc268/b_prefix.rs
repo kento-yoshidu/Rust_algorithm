@@ -1,8 +1,8 @@
 // https://atcoder.jp/contests/abc268/tasks/abc268_b
 
-pub fn run(s: &str, t: &str) -> String {
+fn run(s: &str, t: &str) -> &'static str {
     if s.len() > t.len() {
-        return String::from("No");
+        return "No";
     }
 
     if s.chars()
@@ -10,9 +10,9 @@ pub fn run(s: &str, t: &str) -> String {
         .all(|(l, r)| {
             l == r
         }) {
-            String::from("Yes")
+            "Yes"
         } else {
-            String::from("No")
+            "No"
         }
 }
 
@@ -20,11 +20,19 @@ pub fn run(s: &str, t: &str) -> String {
 mod tests {
     use super::*;
 
+    struct TestCase(&'static str, &'static str, &'static str);
+
     #[test]
-    fn test() {
-        assert_eq!(String::from("Yes"), run("atco", "atcoder"));
-        assert_eq!(String::from("No"), run("code", "atcoder"));
-        assert_eq!(String::from("Yes"), run("abc", "abc"));
-        assert_eq!(String::from("No"), run("aaaa", "aa"));
+    fn abc268_b() {
+        let tests = [
+            TestCase("atco", "atcoder", "Yes"),
+            TestCase("code", "atcoder", "No"),
+            TestCase("abc", "abc", "Yes"),
+            TestCase("aaaa", "aa", "No"),
+        ];
+
+        for TestCase(s, t, expected) in tests {
+            assert_eq!(run(s, t), expected);
+        }
     }
 }
