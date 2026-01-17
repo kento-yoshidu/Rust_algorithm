@@ -2,7 +2,7 @@
 
 use std::cmp::max;
 
-pub fn run(h: usize, w: usize, c: Vec<&str>) -> i32 {
+fn run(h: usize, w: usize, c: Vec<&str>) -> isize {
     let vec: Vec<Vec<char>> = c.iter().map(|str| str.chars().collect()).collect();
 
     let mut dp = vec![vec![-1; w]; h];
@@ -39,10 +39,10 @@ pub fn run(h: usize, w: usize, c: Vec<&str>) -> i32 {
 mod tests {
     use super::*;
 
-    struct TestCase(usize, usize, Vec<&'static str>, i32);
+    struct TestCase(usize, usize, Vec<&'static str>, isize);
 
     #[test]
-    fn test() {
+    fn abc232_d() {
         let tests = [
             TestCase(3, 4, vec![".#..", "..#.", "..##"], 4),
             TestCase(5, 5, vec![".....", ".....", ".....", ".....", "....."], 9),
