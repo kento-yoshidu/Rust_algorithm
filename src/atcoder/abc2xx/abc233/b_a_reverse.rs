@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc233/tasks/abc233_b
 
-pub fn run(l: usize, r: usize, s: &str) -> String {
+fn run(l: usize, r: usize, s: &str) -> String {
     let mut chars: Vec<char> = s.chars().collect();
 
     chars[l-1..=r-1].reverse();
@@ -12,10 +12,18 @@ pub fn run(l: usize, r: usize, s: &str) -> String {
 mod tests {
     use super::*;
 
+    struct TestCase(usize, usize, &'static str, &'static str);
+
     #[test]
-    fn test() {
-        assert_eq!(String::from("abgfedch"), run(3, 7, "abcdefgh"));
-        assert_eq!(String::from("reviver"), run(1, 7, "reviver"));
-        assert_eq!(String::from("meramtsirhcyrs"), run(4, 13, "merrychristmas"));
+    fn abc233_b() {
+        let tests = [
+            TestCase(3, 7, "abcdefgh", "abgfedch"),
+            TestCase(1, 7, "reviver", "reviver"),
+            TestCase(4, 13, "merrychristmas", "meramtsirhcyrs"),
+        ];
+
+        for TestCase(l, r, s, expected) in tests {
+            assert_eq!(run(l, r, s), expected);
+        }
     }
 }

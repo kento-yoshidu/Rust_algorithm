@@ -1,8 +1,8 @@
 // https://atcoder.jp/contests/abc233/tasks/abc233_a
 
-pub fn run(x: usize, y: usize) -> usize {
+fn run(x: usize, y: usize) -> usize {
     if y < x {
-        return 0
+        return 0;
     }
 
     ((y - x) as f64 / 10.0).ceil() as usize
@@ -12,10 +12,18 @@ pub fn run(x: usize, y: usize) -> usize {
 mod tests {
     use super::*;
 
+    struct TestCase(usize, usize, usize);
+
     #[test]
-    fn test() {
-        assert_eq!(2, run(80, 94));
-        assert_eq!(0, run(1000, 63));
-        assert_eq!(48, run(270, 750));
+    fn abc233_a() {
+        let tests = [
+            TestCase(80, 94, 2),
+            TestCase(1000, 63, 0),
+            TestCase(270, 750, 48),
+        ];
+
+        for TestCase(x, y, expected) in tests {
+            assert_eq!(run(x, y), expected);
+        }
     }
 }
