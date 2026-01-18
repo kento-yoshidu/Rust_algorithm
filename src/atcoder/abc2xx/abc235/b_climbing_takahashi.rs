@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc235/tasks/abc235_b
 
-pub fn run(n: usize, h: Vec<usize>) -> usize {
+fn run(n: usize, h: &Vec<usize>) -> usize {
     let mut ans = h[0];
 
     for i in 1..n {
@@ -14,7 +14,7 @@ pub fn run(n: usize, h: Vec<usize>) -> usize {
     h[n-1]
 }
 
-pub fn run2(n: usize, h: Vec<usize>) -> usize {
+fn run2(n: usize, h: &Vec<usize>) -> usize {
     h.windows(2)
         .find(|a| {
             a[0] >= a[1]
@@ -23,7 +23,7 @@ pub fn run2(n: usize, h: Vec<usize>) -> usize {
         .unwrap_or(h[n-1])
 }
 
-fn calc(i: usize, vec: Vec<usize>) -> usize {
+fn calc(i: usize, vec: &Vec<usize>) -> usize {
     if  i == vec.len()-1 || vec[i] >= vec[i+1] {
         vec[i]
     } else {
@@ -31,7 +31,7 @@ fn calc(i: usize, vec: Vec<usize>) -> usize {
     }
 }
 
-pub fn run3(_n: usize, h: Vec<usize>) -> usize {
+fn run3(_n: usize, h: &Vec<usize>) -> usize {
     calc(0, h)
 }
 
@@ -39,23 +39,20 @@ pub fn run3(_n: usize, h: Vec<usize>) -> usize {
 mod tests {
     use super::*;
 
-    #[test]
-    fn test() {
-        assert_eq!(10, run(5, vec![1, 5, 10, 4, 2]));
-        assert_eq!(100000, run(3, vec![100, 1000, 100000]));
-        assert_eq!(1828, run(4, vec![27, 1828, 1828, 9242]));
-    }
+    struct TestCase(usize, Vec<usize>, usize);
 
     #[test]
-    fn test2() {
-        assert_eq!(10, run2(5, vec![1, 5, 10, 4, 2]));
-        assert_eq!(100000, run2(3, vec![100, 1000, 100000]));
-        assert_eq!(1828, run2(4, vec![27, 1828, 1828, 9242]));
-    }
-    #[test]
-    fn test3() {
-        assert_eq!(10, run3(5, vec![1, 5, 10, 4, 2]));
-        assert_eq!(100000, run3(3, vec![100, 1000, 100000]));
-        assert_eq!(1828, run3(4, vec![27, 1828, 1828, 9242]));
+    fn abc235_b() {
+        let tests = [
+            TestCase(5, vec![1, 5, 10, 4, 2], 10),
+            TestCase(3, vec![100, 1000, 100000], 100000),
+            TestCase(4, vec![27, 1828, 1828, 9242], 1828),
+        ];
+
+        for TestCase(i, h, expected) in tests {
+            assert_eq!(run(i, &h), expected);
+            assert_eq!(run2(i, &h), expected);
+            assert_eq!(run3(i, &h), expected);
+        }
     }
 }
