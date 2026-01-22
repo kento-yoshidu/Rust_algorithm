@@ -1,15 +1,16 @@
 // https://atcoder.jp/contests/abc272/tasks/abc272_c
 
-pub fn run(_n: usize, a: Vec<isize>) -> isize {
-    let (mut even, mut odd): (Vec<isize>, Vec<isize>) = a.iter().partition(|num| {
-        *num % 2 == 0
-    });
+use itertools::Itertools;
 
-    even.sort();
-    even.reverse();
+fn run(_n: usize, a: Vec<isize>) -> isize {
+    let (even, odd): (Vec<isize>, Vec<isize>) =
+        a.into_iter()
+            .partition(|num| {
+                *num % 2 == 0
+            });
 
-    odd.sort();
-    odd.reverse();
+    let even: Vec<isize> = even.into_iter().sorted().rev().collect();
+    let odd: Vec<isize> = odd.into_iter().sorted().rev().collect();
 
     let mut ans = -1;
 
@@ -28,9 +29,17 @@ pub fn run(_n: usize, a: Vec<isize>) -> isize {
 mod tests {
     use super::*;
 
+    struct TestCase(usize, Vec<isize>, isize);
+
     #[test]
-    fn test() {
-        assert_eq!(6, run(3, vec![2, 3, 4]));
-        assert_eq!(-1, run(2, vec![1, 0]));
+    fn abc272_c() {
+        let tests = [
+            TestCase(3, vec![2, 3, 4], 6),
+            TestCase(2, vec![1, 0], -1),
+        ];
+
+        for TestCase(n, a, expected) in tests {
+            assert_eq!(run(n, a), expected);
+        }
     }
 }
