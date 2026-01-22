@@ -1,10 +1,10 @@
 // https://atcoder.jp/contests/abc237/tasks/abc237_a
 
-pub fn run(n: isize) -> String {
+fn run(n: isize) -> &'static str {
     if -2_isize.pow(31) <= n && n < 2_isize.pow(31) {
-        String::from("Yes")
+        "Yes"
     } else {
-        String::from("No")
+        "No"
     }
 }
 
@@ -12,10 +12,18 @@ pub fn run(n: isize) -> String {
 mod tests {
     use super::*;
 
+    struct TestCase(isize, &'static str);
+
     #[test]
-    fn test() {
-        assert_eq!(String::from("Yes"), run(5));
-        assert_eq!(String::from("No"), run(-9876543210));
-        assert_eq!(String::from("No"), run(483597848400000));
+    fn abc237_a() {
+        let tests = [
+            TestCase(5, "Yes"),
+            TestCase(-9876543210, "No"),
+            TestCase(483597848400000, "No"),
+        ];
+
+        for TestCase(n, expected) in tests {
+            assert_eq!(run(n), expected);
+        }
     }
 }
