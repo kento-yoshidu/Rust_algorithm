@@ -17,8 +17,6 @@ fn run(_q: usize, a: Vec<usize>) -> Vec<&'static str> {
 
 #[cfg(test)]
 mod tests {
-    use std::hint::assert_unchecked;
-
     use super::*;
 
     struct TestCase(usize, Vec<usize>, Vec<&'static str>);
