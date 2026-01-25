@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc239/tasks/abc239_b
 
-pub fn run(x: isize) -> isize {
+fn run(x: isize) -> isize {
     if x > 0 {
         x / 10
     } else {
@@ -16,12 +16,20 @@ pub fn run(x: isize) -> isize {
 mod tests {
     use super::*;
 
+    struct TestCase(isize, isize);
+
     #[test]
-    fn test() {
-        assert_eq!(4, run(47));
-        assert_eq!(-3, run(-24));
-        assert_eq!(5, run(50));
-        assert_eq!(-3, run(-30));
-        assert_eq!(98765432198765432, run(987654321987654321));
+    fn abc239_b() {
+        let tests = [
+            TestCase(47, 4),
+            TestCase(-24, -3),
+            TestCase(50, 5),
+            TestCase(-30, -3),
+            TestCase(987654321987654321, 98765432198765432),
+        ];
+
+        for TestCase(x, expected) in tests {
+            assert_eq!(run(x), expected);
+        }
     }
 }
