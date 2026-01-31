@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc243/tasks/abc243_a
 
-pub fn run(v: usize, a: usize, b: usize, c: usize) -> char {
+fn run(v: usize, a: usize, b: usize, c: usize) -> char {
     let rest = v % (a + b + c);
 
     if rest < a {
@@ -19,7 +19,7 @@ mod tests {
     struct TestCase(usize, usize, usize, usize, char);
 
     #[test]
-    fn test() {
+    fn abc243_a() {
         let tests = [
             TestCase(25, 10, 11, 12, 'T'),
             TestCase(30, 10, 10, 10, 'F'),
