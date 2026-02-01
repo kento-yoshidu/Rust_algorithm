@@ -1,10 +1,10 @@
 // https://atcoder.jp/contests/abc245/tasks/abc245_a
 
-pub fn run(a: usize, b: usize, c: usize, d: usize) -> String {
+fn run(a: usize, b: usize, c: usize, d: usize) -> &'static str {
     if a*60 + b <= c*60 + d {
-        String::from("Takahashi")
+        "Takahashi"
     } else {
-        String::from("Aoki")
+        "Aoki"
     }
 }
 
@@ -12,11 +12,18 @@ pub fn run(a: usize, b: usize, c: usize, d: usize) -> String {
 mod tests {
     use super::*;
 
+    struct TestCase(usize, usize, usize, usize, &'static str);
+
     #[test]
-    fn test() {
-        assert_eq!(String::from("Aoki"), run(7, 0, 6, 30));
-        assert_eq!(String::from("Takahashi"), run(7, 30, 7, 30));
-        assert_eq!(String::from("Takahashi"), run(0, 0, 23, 59));
+    fn abc245_a() {
+        let tests = [
+            TestCase(7, 0, 6, 30, "Aoki"),
+            TestCase(7, 30, 7, 30, "Takahashi"),
+            TestCase(0, 0, 23, 59, "Takahashi"),
+        ];
+
+        for TestCase(a, b, c, d, expected) in tests {
+            assert_eq!(run(a, b, c, d), expected);
+        }
     }
 }
-

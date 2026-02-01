@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc245/tasks/abc245_c
 
-pub fn run(n: usize, k: isize, a: Vec<isize>, b: Vec<isize>) -> &'static str {
+fn run(n: usize, k: isize, a: Vec<isize>, b: Vec<isize>) -> &'static str {
     let mut dp_a = vec![false; n];
     let mut dp_b = vec![false; n];
 
@@ -32,7 +32,7 @@ mod tests {
     struct TestCase(usize, isize, Vec<isize>, Vec<isize>, &'static str);
 
     #[test]
-    fn test() {
+    fn abc245_c() {
         let tests = [
             TestCase(5, 4, vec![9, 8, 3, 7, 2], vec![1, 6, 2, 9, 5], "Yes"),
             TestCase(3, 2, vec![1, 3, 100, 101, 102], vec![1, 3, 100, 101, 102], "No"),
