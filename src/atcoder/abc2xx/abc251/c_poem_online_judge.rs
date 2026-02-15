@@ -31,7 +31,7 @@ mod tests {
     struct TestCase(usize, Vec<(&'static str, usize)>, usize);
 
     #[test]
-    fn test() {
+    fn abc251_c() {
         let tests = [
             TestCase(3, vec![("aaa", 10), ("bbb", 20), ("aaa", 30)], 2),
         ];
