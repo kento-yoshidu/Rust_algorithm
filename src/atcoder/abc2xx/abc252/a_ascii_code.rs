@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc252/tasks/abc252_a
 
-pub fn run(n: u8) -> char {
+fn run(n: u8) -> char {
     n as char
 }
 
@@ -8,9 +8,17 @@ pub fn run(n: u8) -> char {
 mod tests {
     use super::*;
 
+    struct TestCase(u8, char);
+
     #[test]
-    fn test() {
-        assert_eq!('a', run(97));
-        assert_eq!('z', run(122));
+    fn abc252_a() {
+        let tests = [
+            TestCase(97, 'a'),
+            TestCase(122, 'z'),
+        ];
+
+        for TestCase(n, expected) in tests {
+            assert_eq!(run(n), expected);
+        }
     }
 }

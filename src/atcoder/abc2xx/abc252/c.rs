@@ -19,7 +19,7 @@ fn run(n: usize, s: Vec<&str>) -> usize {
         }
     }
 
-    time.iter()
+    time.into_iter()
         .filter(|v| !v.is_empty())
         .map(|v| *v.iter().max().unwrap())
         .min()
