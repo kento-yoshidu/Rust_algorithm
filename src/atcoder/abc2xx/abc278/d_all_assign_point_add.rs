@@ -13,7 +13,7 @@ fn run(n: usize, a: Vec<usize>, _q: usize, q_vec: Vec<(usize, Option<usize>, Opt
 
     let mut ans: Vec<usize> = Vec::new();
 
-    for (a, b, c) in q_vec.iter() {
+    for (a, b, c) in q_vec.into_iter() {
         match a {
             1 => {
                 base = b.unwrap();
@@ -43,7 +43,7 @@ mod tests {
     struct TestCase(usize, Vec<usize>, usize, Vec<(usize, Option<usize>, Option<usize>)>, Vec<usize>);
 
     #[test]
-    fn test() {
+    fn abc278_d() {
         let tests = [
             TestCase(5, vec![3, 1, 4, 1, 5], 6, vec![(3, Some(2), None), (2, Some(3), Some(4)), (3, Some(3), None), (1, Some(1), None), (2, Some(3), Some(4)), (3, Some(3), None)], vec![1, 8, 5]),
             TestCase(1, vec![1000000000], 8, vec![(2, Some(1),Some(1000000000)), (2, Some(1), Some(1000000000)), (2, Some(1), Some(1000000000)), (2, Some(1), Some(1000000000)), (2, Some(1), Some(1000000000)), (2, Some(1), Some(1000000000)), (2, Some(1), Some(1000000000)), (3, Some(1), None)], vec![8000000000]),
