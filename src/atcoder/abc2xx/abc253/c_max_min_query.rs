@@ -3,7 +3,7 @@
 use std::collections::BTreeMap;
 use std::cmp::min;
 
-pub fn run(_q: usize, query: Vec<(usize, Option<usize>, Option<usize>)>) -> Vec<usize> {
+fn run(_q: usize, query: Vec<(usize, Option<usize>, Option<usize>)>) -> Vec<usize> {
     let mut bt = BTreeMap::new();
 
     let mut ans = Vec::new();
@@ -40,7 +40,7 @@ mod tests {
     struct TestCase(usize, Vec<(usize, Option<usize>, Option<usize>)>, Vec<usize>);
 
     #[test]
-    fn test() {
+    fn abc253_c() {
         let tests = [
             TestCase(8, vec![(1, Some(3), None), (1, Some(2), None), (3, None, None), (1, Some(2), None), (1, Some(7), None), (3, None, None), (2, Some(2), Some(3)), (3, None, None)], vec![1, 5, 4]),
             TestCase(4, vec![(1, Some(10000), None), (1, Some(1000), None), (2, Some(100), Some(3)), (1, Some(10), None)], vec![]),
