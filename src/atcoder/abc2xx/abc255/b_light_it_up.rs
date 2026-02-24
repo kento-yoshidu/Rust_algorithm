@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc255/tasks/abc255_b
 
-pub fn run(_n: usize, _k: usize, a: Vec<usize>, xy: Vec<(isize, isize)>) -> f64 {
+fn run(_n: usize, _k: usize, a: Vec<usize>, xy: Vec<(isize, isize)>) -> f64 {
     let mut ans = 0;
 
     for (x, y) in xy.iter() {
@@ -23,7 +23,7 @@ mod tests {
     struct TestCase(usize, usize, Vec<usize>, Vec<(isize, isize)>, f64);
 
     #[test]
-    fn test() {
+    fn abc255_b() {
         let tests = [
             TestCase(4, 2, vec![2, 3], vec![(0, 0), (0, 1), (1, 2), (2, 0)], 2.23606797749979),
             TestCase(2, 1, vec![2], vec![(-100000, -100000), (100000, 100000)], 282842.71247461904),
