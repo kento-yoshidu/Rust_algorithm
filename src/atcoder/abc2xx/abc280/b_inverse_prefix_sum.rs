@@ -1,27 +1,25 @@
 // https://atcoder.jp/contests/abc280/tasks/abc280_b
 
-pub fn run(_n: isize, vec: Vec<isize>) -> Vec<isize> {
-    let mut total = vec![vec[0]];
+pub fn run(n: usize, s: &Vec<isize>) -> Vec<isize> {
+    let mut total = vec![s[0]];
 
-    for i in 0..vec.len()-1 {
-        total.push(vec[i+1] - vec[i]);
+    for i in 0..n-1 {
+        total.push(s[i+1] - s[i]);
     }
 
     total
 }
 
-// 累積和で
-fn run2(n: Vec<i32>) -> Vec<i32> {
-    let mut ans = Vec::<i32>::new();
+fn run2(_n: usize, s: &Vec<isize>) -> Vec<isize> {
+    let mut ans = Vec::<isize>::new();
 
-    // Refactoring
-    for (_i, num) in n.iter().enumerate() {
+    for (_i, num) in s.into_iter().enumerate() {
         if ans.len() == 0 {
             ans.push(*num);
             continue;
         }
 
-        let total: i32 = ans.iter().sum();
+        let total: isize = ans.iter().sum();
 
         ans.push(num - total);
     }
@@ -29,11 +27,10 @@ fn run2(n: Vec<i32>) -> Vec<i32> {
     ans
 }
 
-// windowsで
-fn run3(_n: usize, vec: Vec<i32>) -> Vec<i32> {
-    let mut ans = vec![vec[0]];
+fn run3(_n: usize, s: &Vec<isize>) -> Vec<isize> {
+    let mut ans = vec![s[0]];
 
-    for v in vec.windows(2) {
+    for v in s.windows(2) {
         ans.push(v[1] - v[0]);
     }
 
@@ -44,21 +41,19 @@ fn run3(_n: usize, vec: Vec<i32>) -> Vec<i32> {
 mod tests {
     use super::*;
 
-    #[test]
-    fn test() {
-        assert_eq!(vec![3, 1, 4], run(3, vec![3, 4, 8]));
-        assert_eq!(vec![314159265, 44820058, 487285015, -1174214626, 747667227, -1357227521, 1035005041, 133287181, 397839259, -1491424381], run(10, vec![314159265, 358979323, 846264338, -327950288, 419716939, -937510582, 97494459, 230781640, 628620899, -862803482]));
-    }
+    struct TestCase(usize, Vec<isize>, Vec<isize>);
 
     #[test]
-    fn test2() {
-        assert_eq!(vec![3, 1, 4], run2(vec![3, 4, 8]));
-        assert_eq!(vec![314159265, 44820058, 487285015, -1174214626, 747667227, -1357227521, 1035005041, 133287181, 397839259, -1491424381], run2(vec![314159265, 358979323, 846264338, -327950288, 419716939, -937510582, 97494459, 230781640, 628620899, -862803482]))
-    }
+    fn abc280_b() {
+        let tests = [
+            TestCase(3, vec![3, 4, 8], vec![3, 1, 4]),
+            TestCase(10, vec![314159265, 358979323, 846264338, -327950288, 419716939, -937510582, 97494459, 230781640, 628620899, -862803482], vec![314159265, 44820058, 487285015, -1174214626, 747667227, -1357227521, 1035005041, 133287181, 397839259, -1491424381]),
+        ];
 
-    #[test]
-    fn test3() {
-        assert_eq!(vec![3, 1, 4], run3(3, vec![3, 4, 8]));
-        assert_eq!(vec![314159265, 44820058, 487285015, -1174214626, 747667227, -1357227521, 1035005041, 133287181, 397839259, -1491424381], run3(10, vec![314159265, 358979323, 846264338, -327950288, 419716939, -937510582, 97494459, 230781640, 628620899, -862803482]))
+        for TestCase(n, s, expected) in tests {
+            assert_eq!(run(n, &s), expected);
+            assert_eq!(run2(n, &s), expected);
+            assert_eq!(run3(n, &s), expected);
+        }
     }
 }
