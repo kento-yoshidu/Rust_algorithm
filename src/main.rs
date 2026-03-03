@@ -9,6 +9,4 @@ mod paiza;
 mod yukicoder;
 
 fn main() {
-    // println!("{:?}", atcoder::abc4xx::abc436::b::run(3));
-    // println!("{:?}", atcoder::abc4xx::abc436::b::run(5));
 }
