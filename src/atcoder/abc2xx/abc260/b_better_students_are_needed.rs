@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc260/tasks/abc260_b
 
-pub fn run(_n: usize, x: usize, y: usize, z: usize, a: Vec<usize>, b: Vec<usize>) -> Vec<usize> {
+fn run(_n: usize, x: usize, y: usize, z: usize, a: Vec<usize>, b: Vec<usize>) -> Vec<usize> {
     let mut vec: Vec<(usize, usize, usize)> = a.iter()
         .zip(b.iter())
         .enumerate()
@@ -20,10 +20,6 @@ pub fn run(_n: usize, x: usize, y: usize, z: usize, a: Vec<usize>, b: Vec<usize>
         .collect()
 }
 
-fn main() {
-    println!("{:?}", run(15, 4, 3, 2, vec![30, 65, 20, 95, 100, 45, 70, 85, 20, 35, 95, 50, 40, 15, 85], vec![0, 25, 45, 35, 65, 70, 80, 90, 40, 55, 20, 20, 45, 75, 100]));
-}
-
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -31,7 +27,7 @@ mod tests {
     struct TestCase(usize, usize, usize, usize, Vec<usize>, Vec<usize>, Vec<usize>);
 
     #[test]
-    fn test() {
+    fn abc260_b() {
         let tests = [
             TestCase(6, 1, 0, 2, vec![80, 60, 80, 60, 70, 70], vec![40, 20, 50, 90, 90, 80], vec![1, 4, 5]),
             TestCase(5, 2, 1, 2, vec![0, 100, 0, 100, 0], vec![0, 0, 100, 100, 0], vec![1, 2, 3, 4, 5]),
