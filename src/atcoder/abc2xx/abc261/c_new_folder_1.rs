@@ -2,7 +2,7 @@
 
 use std::collections::HashMap;
 
-pub fn run(_n: usize, s: Vec<&str>) -> Vec<String> {
+fn run(_n: usize, s: Vec<&str>) -> Vec<String> {
     let mut hash_map = HashMap::new();
 
     let mut ans = Vec::new();
@@ -31,7 +31,7 @@ mod tests {
     struct TestCase(usize, Vec<&'static str>, Vec<&'static str>);
 
     #[test]
-    fn test() {
+    fn abc261_c() {
         let tests = [
             TestCase(5, vec!["newfile", "newfile", "newfolder", "newfile", "newfolder"], vec!["newfile", "newfile(1)", "newfolder", "newfile(2)", "newfolder(1)"]),
             TestCase(11, vec!["a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a"], vec!["a", "a(1)", "a(2)", "a(3)", "a(4)", "a(5)", "a(6)", "a(7)", "a(8)", "a(9)", "a(10)"]),

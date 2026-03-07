@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc261/tasks/abc261_b
 
-pub fn run(n: usize, a: Vec<&str>) -> String {
+fn run(n: usize, a: Vec<&str>) -> &'static str {
     let vec: Vec<Vec<char>> = a.iter().map(|a| a.chars().collect()).collect();
 
     for i in 0..n {
@@ -8,25 +8,33 @@ pub fn run(n: usize, a: Vec<&str>) -> String {
             if i == j { continue };
 
             if vec[i][j] == 'W' && vec[j][i] != 'L' {
-                return String::from("incorrect");
+                return "incorrect";
             } else if vec[i][j] == 'L' && vec[j][i] != 'W' {
-                return  String::from("incorrect");
+                return  "incorrect"
             } else if vec[i][j] == 'D' && vec[j][i] != 'D' {
-                return String::from("incorrect");
+                return "incorrect"
             }
         }
     }
 
-    String::from("correct")
+    "correct"
 }
 
 #[cfg(test)]
 mod tests {
     use super::*;
 
+    struct TestCase(usize, Vec<&'static str>, &'static str);
+
     #[test]
-    fn test() {
-        assert_eq!(String::from("incorrect"), run(4, vec!["-WWW", "L-DD", "LD-W", "LDW-"]));
-        assert_eq!(String::from("correct"), run(2, vec!["-D", "D-"]));
+    fn abc261_b() {
+        let tests = [
+            TestCase(4, vec!["-WWW", "L-DD", "LD-W", "LDW-"], "incorrect"),
+            TestCase(2, vec!["-D", "D-"], "correct"),
+        ];
+
+        for TestCase(n, a, expected) in tests {
+            assert_eq!(run(n, a), expected);
+        }
     }
 }

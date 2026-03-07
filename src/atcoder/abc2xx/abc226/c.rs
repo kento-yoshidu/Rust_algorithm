@@ -1,8 +1,6 @@
 // https://atcoder.jp/contests/abc226/tasks/abc226_c
 
-use std::collections::{HashMap, VecDeque};
-
-pub fn run(n: usize, tka: Vec<(usize, usize, Option<Vec<usize>>)>) {
+pub fn run(_n: usize, _tka: Vec<(usize, usize, Option<Vec<usize>>)>) {
     // let mut graph = vec![Vec::new(); n+1];
     // let mut indegree = vec![0; n+1];
     // let mut t = vec![0; n+1];
