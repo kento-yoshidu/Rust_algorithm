@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc262/tasks/abc262_b
 
-pub fn run(n: usize, _m: usize, uv: Vec<(usize, usize)>) -> usize {
+fn run(n: usize, _m: usize, uv: Vec<(usize, usize)>) -> usize {
     let mut connect = vec![vec![false; n]; n];
 
     for (i, v) in uv.iter() {
@@ -27,10 +27,18 @@ pub fn run(n: usize, _m: usize, uv: Vec<(usize, usize)>) -> usize {
 mod tests {
     use super::*;
 
+    struct TestCase(usize, usize, Vec<(usize, usize)>, usize);
+
     #[test]
-    fn test() {
-        assert_eq!(2, run(5, 6, vec![(1, 5), (4, 5), (2, 3), (1, 4), (3, 5), (2, 5)]));
-        assert_eq!(0, run(3, 1, vec![(1, 2)]));
-        assert_eq!(4, run(7, 10, vec![(1, 7), (5, 7), (2, 5), (3, 6), (4, 7), (1, 5), (2, 4), (1, 3), (1, 6), (2, 7)]));
+    fn abc262_b() {
+        let tests = [
+            TestCase(5, 6, vec![(1, 5), (4, 5), (2, 3), (1, 4), (3, 5), (2, 5)], 2),
+            TestCase(3, 1, vec![(1, 2)], 0),
+            TestCase(7, 10, vec![(1, 7), (5, 7), (2, 5), (3, 6), (4, 7), (1, 5), (2, 4), (1, 3), (1, 6), (2, 7)], 4),
+        ];
+
+        for TestCase(n, m, uv, expected) in tests {
+            assert_eq!(run(n, m, uv), expected);
+        }
     }
 }

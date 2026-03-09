@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc262/tasks/abc262_a
 
-pub fn run(y: usize) -> usize {
+fn run(y: usize) -> usize {
     (y..)
         .find(|y| y % 4 == 2)
         .unwrap()
@@ -10,10 +10,18 @@ pub fn run(y: usize) -> usize {
 mod tests {
     use super::*;
 
+    struct TestCase(usize, usize);
+
     #[test]
-    fn test() {
-        assert_eq!(2022, run(2022));
-        assert_eq!(2026, run(2023));
-        assert_eq!(3002, run(3000));
+    fn abc262_a() {
+        let tests = [
+            TestCase(2022, 2022),
+            TestCase(2023, 2026),
+            TestCase(3000, 3002),
+        ];
+
+        for TestCase(y, expected) in tests {
+            assert_eq!(run(y), expected);
+        }
     }
 }
