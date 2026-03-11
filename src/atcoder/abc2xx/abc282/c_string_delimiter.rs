@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc282/tasks/abc282_c
 
-pub fn run(_n: usize, s: &str) -> String {
+fn run(_n: usize, s: &str) -> String {
     let mut ans = String::new();
 
     let mut flag = true;
