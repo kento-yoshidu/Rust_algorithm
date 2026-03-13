@@ -8,7 +8,7 @@ fn run(n: usize, s: &str, _q: usize, tab: Vec<(usize, usize, usize)>) -> String 
     for (t, a, b) in tab.into_iter() {
         match t {
             1 => {
-                if flag == true {
+                if flag {
                     let l = if a <= n {
                         n + a
                     } else {

@@ -15,7 +15,7 @@ fn is_prime(x: usize) -> bool {
 
 fn run(x: usize) -> usize {
     for num in x.. {
-        if is_prime(num) == true {
+        if is_prime(num) {
             return num;
         }
     }

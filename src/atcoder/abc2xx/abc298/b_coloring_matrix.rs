@@ -12,7 +12,7 @@ fn rotate(n: usize, a: Vec<Vec<char>>) -> Vec<Vec<char>> {
     result
 }
 
-pub fn run(n: usize, a: Vec<Vec<char>>, b: Vec<Vec<char>>) -> &'static str {
+fn run(n: usize, a: Vec<Vec<char>>, b: Vec<Vec<char>>) -> &'static str {
     let mut tmp = a.clone();
 
     for _ in 0..n {
@@ -26,7 +26,7 @@ pub fn run(n: usize, a: Vec<Vec<char>>, b: Vec<Vec<char>>) -> &'static str {
             }
         }
 
-        if flag == true {
+        if flag {
             return "Yes"
         }
 
@@ -43,7 +43,7 @@ mod tests {
     struct TestCase(usize, Vec<Vec<char>>, Vec<Vec<char>>, &'static str);
 
     #[test]
-    fn test() {
+    fn abc298_b() {
         let tests = [
             TestCase(3, vec![vec!['0', '1', '1'], vec!['1', '0', '0'], vec!['0', '1', '0']], vec![vec!['1', '1', '0'], vec!['0', '0', '1'], vec!['1', '1', '1']], "Yes"),
             TestCase(2, vec![vec!['0', '0'], vec!['0', '0']], vec![vec!['1', '1'], vec!['1', '1']], "Yes"),

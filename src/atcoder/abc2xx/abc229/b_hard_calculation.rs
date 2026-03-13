@@ -11,7 +11,7 @@ fn calc(a: usize, b: usize) -> bool {
 }
 
 fn run(a: usize, b: usize) -> &'static str {
-    if calc(a, b) == true {
+    if calc(a, b) {
         "Easy"
     } else {
         "Hard"

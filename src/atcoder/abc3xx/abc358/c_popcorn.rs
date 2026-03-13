@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc358/tasks/abc358_c
 
-pub fn run(n: usize, m: usize, s: Vec<&str>) -> usize {
+fn run(n: usize, m: usize, s: Vec<&str>) -> usize {
     let mut ans = n;
 
     for bit in 0..1 << n {
@@ -19,7 +19,7 @@ pub fn run(n: usize, m: usize, s: Vec<&str>) -> usize {
             }
         }
 
-        if flag.into_iter().all(|f| f == true) {
+        if flag.into_iter().all(|f| f) {
             ans = ans.min(count);
         }
     }
@@ -34,7 +34,7 @@ mod tests {
     struct TestCase(usize, usize, Vec<&'static str>, usize);
 
     #[test]
-    fn test() {
+    fn abc358_c() {
         let tests = [
             TestCase(3, 5, vec!["oooxx", "xooox", "xxooo"], 2),
             TestCase(3, 2, vec!["oo", "ox", "xo"], 1),

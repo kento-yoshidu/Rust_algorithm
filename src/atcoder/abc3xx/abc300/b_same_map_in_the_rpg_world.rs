@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc300/tasks/abc300_b
 
-pub fn run(h: usize, w: usize, a: Vec<&str>, b: Vec<&str>) -> &'static str {
+fn run(h: usize, w: usize, a: Vec<&str>, b: Vec<&str>) -> &'static str {
     let vec_a: Vec<Vec<char>> = a.iter().map(|str| str.chars().collect()).collect();
     let vec_b: Vec<Vec<char>> = b.iter().map(|str| str.chars().collect()).collect();
 
@@ -17,7 +17,7 @@ pub fn run(h: usize, w: usize, a: Vec<&str>, b: Vec<&str>) -> &'static str {
 
             }
 
-            if flag == true {
+            if flag {
                 return "Yes"
             }
         }
@@ -33,7 +33,7 @@ mod tests {
     struct TestCase(usize, usize, Vec<&'static str>, Vec<&'static str>, &'static str);
 
     #[test]
-    fn test() {
+    fn abc300_b() {
         let tests = [
             TestCase(4, 3, vec!["..#", "...", ".#.", "..."], vec!["#..", "...", ".#.", "..."], "Yes"),
             TestCase(3, 2, vec!["##", "##", "#."], vec!["..", "#.", "#."], "No"),

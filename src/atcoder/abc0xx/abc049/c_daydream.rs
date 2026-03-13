@@ -20,7 +20,7 @@ fn run(s: &str) -> &'static str {
                 dp[i+str.len()] = true;
             }
 
-            if dp[s.len()] == true {
+            if dp[s.len()] {
                 return "YES"
             }
         }

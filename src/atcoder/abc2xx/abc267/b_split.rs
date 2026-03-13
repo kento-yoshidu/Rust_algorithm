@@ -52,7 +52,7 @@ pub fn run(s: &str) -> &'static str {
         for j in i+2..7 {
             if vec[i] == false && vec[j] == false {
                 for k in i+1..j {
-                    if vec[k] == true {
+                    if vec[k] {
                         return "Yes";
                     }
                 }
@@ -70,7 +70,7 @@ mod tests {
     struct TestCase(&'static str, &'static str);
 
     #[test]
-    fn test() {
+    fn abc267_b() {
         let tests = [
             TestCase("0101110101", "Yes"),
             TestCase("0100101001", "Yes"),

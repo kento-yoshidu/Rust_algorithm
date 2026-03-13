@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc049/tasks/arc065_a
 
-pub fn run(s: &str) -> &'static str {
+fn run(s: &str) -> &'static str {
     let strings = ["dream", "dreamer", "erase", "eraser"];
 
     let mut dp = vec![false; s.len()+1];
@@ -20,7 +20,7 @@ pub fn run(s: &str) -> &'static str {
                 dp[i+str.len()] = true;
             }
 
-            if dp[s.len()] == true {
+            if dp[s.len()] {
                 return "YES"
             }
         }
@@ -36,7 +36,7 @@ mod tests {
     struct TestCase(&'static str, &'static str);
 
     #[test]
-    fn test() {
+    fn arc065_c() {
         let tests = [
             TestCase("erasedream", "YES"),
             TestCase("dreameraser", "YES"),

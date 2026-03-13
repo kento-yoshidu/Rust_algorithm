@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc264/tasks/abc264_a
 
-pub fn run(l: usize, r: usize) -> String {
+fn run(l: usize, r: usize) -> String {
     "atcoder"[l-1..=r-1].to_string()
 }
 
@@ -8,10 +8,18 @@ pub fn run(l: usize, r: usize) -> String {
 mod tests {
     use super::*;
 
+    struct TestCase(usize, usize, &'static str);
+
     #[test]
-    fn test() {
-        assert_eq!(String::from("code"), run(3, 6));
-        assert_eq!(String::from("o"), run(4, 4));
-        assert_eq!(String::from("atcoder"), run(1, 7));
+    fn abc264_a() {
+        let tests = [
+            TestCase(3, 6, "code"),
+            TestCase(4, 4, "o"),
+            TestCase(1, 7, "atcoder"),
+        ];
+
+        for TestCase(l, r, expected) in tests {
+            assert_eq!(run(l, r), expected);
+        }
     }
 }

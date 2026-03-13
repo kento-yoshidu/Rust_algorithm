@@ -23,7 +23,7 @@ fn run(n: usize, _m: usize, ps: Option<Vec<(usize, &str)>>) -> (usize, usize) {
         }
     }
 
-    let a = ac.into_iter().filter(|b| *b == true).count();
+    let a = ac.into_iter().filter(|b| *b).count();
     let w: usize = wa.into_iter().sum();
 
     (a, w)

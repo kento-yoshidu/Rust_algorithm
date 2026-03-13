@@ -1,7 +1,7 @@
 // https://atcoder.jp/contests/abc228/tasks/abc228_b
 
 fn check(a: &Vec<usize>, mut vec: Vec<bool>, count: usize, current: usize) -> usize {
-    if vec[current-1] == true {
+    if vec[current-1] {
         count
     } else {
         vec[current-1] = true;

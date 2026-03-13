@@ -12,7 +12,7 @@ fn check(a: &Vec<usize>, x: usize, m: usize) -> bool {
     total <= m
 }
 
-pub fn run(_n: usize, m: usize, a: Vec<usize>) -> String {
+fn run(_n: usize, m: usize, a: Vec<usize>) -> String {
     let sum: usize = a.iter().sum();
 
     if sum <= m {
@@ -25,7 +25,7 @@ pub fn run(_n: usize, m: usize, a: Vec<usize>) -> String {
     while l+1 < r {
         let tmp = (l+r)/2;
 
-        if check(&a, tmp, m) == true {
+        if check(&a, tmp, m) {
             l = tmp;
         } else {
             r = tmp;
@@ -42,7 +42,7 @@ mod tests {
     struct TestCase(usize, usize, Vec<usize>, &'static str);
 
     #[test]
-    fn test() {
+    fn abc365_c() {
         let tests = [
             TestCase(4, 8, vec![1, 3, 2, 4], "2"),
             TestCase(3, 20, vec![5, 3, 2], "infinite"),

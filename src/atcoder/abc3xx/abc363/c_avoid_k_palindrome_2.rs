@@ -22,7 +22,7 @@ fn run(n: usize, k: usize, s: &str) -> usize {
         // k文字の部分文字列生成
         for arr in str.windows(k) {
             // 部分文字列に一つでも回文があったら次の文字に進む
-            if check(arr) == true {
+            if check(arr) {
                 continue 'outer;
             }
         }
@@ -40,7 +40,7 @@ mod tests {
     struct TestCase(usize, usize, &'static str, usize);
 
     #[test]
-    fn test() {
+    fn abc363_c() {
         let tests = [
             TestCase(3, 2, "aab", 1),
             TestCase(5, 3, "zzyyx", 16),

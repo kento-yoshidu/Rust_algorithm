@@ -22,7 +22,7 @@ fn run(n: usize, _m: usize, ab: Vec<(usize, usize)>) -> Vec<usize> {
         let next = hash_map.get(&cur).unwrap();
 
         for new_i in next.iter() {
-            if graph[*new_i] == true {
+            if graph[*new_i] {
                 continue;
             }
 

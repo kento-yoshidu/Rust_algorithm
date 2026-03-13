@@ -20,7 +20,7 @@ fn run(n: usize) -> usize {
     let mut ans = 0;
 
     for i in (1..=n).step_by(2) {
-        if check(i) == true {
+        if check(i) {
             ans += 1;
         }
     }

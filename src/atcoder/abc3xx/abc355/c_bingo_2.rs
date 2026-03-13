@@ -18,20 +18,20 @@ pub fn run(n: usize, _t: usize, a: Vec<usize>) -> isize {
 
         // 行チェック
         if vec[row].iter().all(|b| {
-            *b == true
+            *b
         }) {
             return (i+1) as isize;
         }
 
         if (0..n).all(|j| {
-            vec[j][col] == true
+            vec[j][col]
         }) {
             return (i+1) as isize;
         }
 
         // to右下
         if (0..n).all(|j| {
-            vec[j][j] == true
+            vec[j][j]
         }) {
             return (i+1) as isize;
         }
@@ -39,7 +39,7 @@ pub fn run(n: usize, _t: usize, a: Vec<usize>) -> isize {
         // to左下
         if (0..n).rev().all(|j| {
             let k = n - 1 - j;
-            vec[j][k] == true
+            vec[j][k]
         }) {
             return (i+1) as isize;
         }
@@ -55,7 +55,7 @@ mod tests {
     struct TestCase(usize, usize, Vec<usize>, isize);
 
     #[test]
-    fn test() {
+    fn abc355_c() {
         let tests = [
             TestCase(3, 5, vec![5, 1, 8, 9, 7], 4),
             TestCase(3, 5, vec![4, 2, 9, 7, 5], -1),

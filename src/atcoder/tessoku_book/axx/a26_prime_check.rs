@@ -26,7 +26,7 @@ fn run2(_q: usize, x: &Vec<usize>) -> Vec<&'static str> {
     sieve[0] = true;
 
     for i in 2..=sq {
-        if sieve[i-1] == true {
+        if sieve[i-1] {
             continue;
         }
 

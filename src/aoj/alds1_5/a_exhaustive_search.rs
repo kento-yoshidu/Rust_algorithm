@@ -1,5 +1,5 @@
 #[allow(dead_code)]
-pub fn run(a: Vec<i32>, b: Vec<i32>) -> Vec<&'static str> {
+fn run(a: Vec<i32>, b: Vec<i32>) -> Vec<&'static str> {
     let mut ans: Vec<&str> = Vec::new();
 
     for num in b.iter() {
@@ -20,7 +20,7 @@ pub fn run(a: Vec<i32>, b: Vec<i32>) -> Vec<&'static str> {
             }
         }
 
-        if flag == true {
+        if flag {
             ans.push("yes")
         } else {
             ans.push("no")

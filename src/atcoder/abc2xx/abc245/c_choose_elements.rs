@@ -8,11 +8,11 @@ fn run(n: usize, k: isize, a: Vec<isize>, b: Vec<isize>) -> &'static str {
     dp_b[0] = true;
 
     for i in 0..n-1 {
-        if dp_a[i] == true {
+        if dp_a[i] {
             dp_a[i+1] |= (a[i] - a[i+1]).abs() <= k;
             dp_b[i+1] |= (a[i] - b[i+1]).abs() <= k;
         }
-        if dp_b[i] == true {
+        if dp_b[i] {
             dp_a[i+1] |= (b[i] - a[i+1]).abs() <= k;
             dp_b[i+1] |= (b[i] - b[i+1]).abs() <= k;
         }

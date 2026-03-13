@@ -8,7 +8,7 @@ fn run(a: usize, b: usize, c: usize, d: usize) -> &'static str {
     eratosthenes[1] = false;
 
     for i in 2..=200.sqrt() {
-        if eratosthenes[i] == true {
+        if eratosthenes[i] {
             for j in (i*i..=200).step_by(i) {
                 eratosthenes[j] = false;
             }
@@ -19,7 +19,7 @@ fn run(a: usize, b: usize, c: usize, d: usize) -> &'static str {
         let mut flag = true;
 
         for j in c..=d {
-            if eratosthenes[i+j] == true {
+            if eratosthenes[i+j] {
                 flag = false;
             }
         }

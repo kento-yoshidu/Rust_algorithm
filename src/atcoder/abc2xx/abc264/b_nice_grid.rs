@@ -2,13 +2,13 @@
 
 use std::cmp::max;
 
-pub fn run(r: i32, c: i32) -> String {
+fn run(r: isize, c: isize) -> &'static str {
     let dis = max((r-8).abs(), (c-8).abs());
 
     if dis % 2 == 0 {
-        String::from("white")
+        "white"
     } else {
-        String::from("black")
+        "black"
     }
 }
 
@@ -16,9 +16,17 @@ pub fn run(r: i32, c: i32) -> String {
 mod tests {
     use super::*;
 
+    struct TestCase(isize, isize, &'static str);
+
     #[test]
-    fn test() {
-        assert_eq!(String::from("black"), run(3, 5));
-        assert_eq!(String::from("white"), run(4, 5));
+    fn abc264_b() {
+        let tests = [
+            TestCase(3, 5, "black"),
+            TestCase(4, 5, "white"),
+        ];
+
+        for TestCase(r, c, expected) in tests {
+            assert_eq!(run(r, c), expected);
+        }
     }
 }
