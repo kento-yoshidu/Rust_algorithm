@@ -1,5 +1,6 @@
-#[allow(dead_code)]
-pub fn run(h: usize, w: usize, n: Vec<&str>) -> String {
+// https://atcoder.jp/contests/abc265/tasks/abc265_c
+
+fn run(h: usize, w: usize, n: Vec<&str>) -> String {
     // 現在の座標
     let mut x = 0;
     let mut y = 0;
@@ -53,18 +54,18 @@ pub fn run(h: usize, w: usize, n: Vec<&str>) -> String {
 mod tests {
     use super::*;
 
+    struct TestCase(usize, usize, Vec<&'static str>, &'static str);
+
     #[test]
-    fn test() {
-        assert_eq!(String::from("1 3"), run(2, 3, vec!["RDU", "LRU"]));
-        assert_eq!(String::from("-1"), run(2, 3, vec!["RRD", "ULL"]));
-        assert_eq!(String::from("9 5"), run(9, 44, vec!["RRDDDDRRRDDDRRRRRRDDDRDDDDRDDRDDDDDDRRDRRRRR",
-                                        "RRRDLRDRDLLLLRDRRLLLDDRDLLLRDDDLLLDRRLLLLLDD",
-                                        "DRDLRLDRDLRDRLDRLRDDLDDLRDRLDRLDDRLRRLRRRDRR",
-                                        "DDLRRDLDDLDDRLDDLDRDDRDDDDRLRRLRDDRRRLDRDRDD",
-                                        "RDLRRDLRDLLLLRRDLRDRRDRRRDLRDDLLLLDDDLLLLRDR",
-                                        "RDLLLLLRDLRDRLDDLDDRDRRDRLDRRRLDDDLDDDRDDLDR",
-                                        "RDLRRDLDDLRDRLRDLDDDLDDRLDRDRDLDRDLDDLRRDLRR",
-                                        "RDLDRRLDRLLLLDRDRLLLRDDLLLLLRDRLLLRRRRLLLDDR",
-                                        "RRRRDRDDRRRDDRDDDRRRDRDRDRDRRRRRRDDDRDDDDRRR"]));
+    fn abc265_c() {
+        let tests = [
+            TestCase(2, 3, vec!["RDU", "LRU"], "1 3"),
+            TestCase(2, 3, vec!["RRD", "ULL"], "-1"),
+            TestCase(9, 44, vec!["RRDDDDRRRDDDRRRRRRDDDRDDDDRDDRDDDDDDRRDRRRRR","RRRDLRDRDLLLLRDRRLLLDDRDLLLRDDDLLLDRRLLLLLDD", "DRDLRLDRDLRDRLDRLRDDLDDLRDRLDRLDDRLRRLRRRDRR", "DDLRRDLDDLDDRLDDLDRDDRDDDDRLRRLRDDRRRLDRDRDD", "RDLRRDLRDLLLLRRDLRDRRDRRRDLRDDLLLLDDDLLLLRDR", "RDLLLLLRDLRDRLDDLDDRDRRDRLDRRRLDDDLDDDRDDLDR", "RDLRRDLDDLRDRLRDLDDDLDDRLDRDRDLDRDLDDLRRDLRR", "RDLDRRLDRLLLLDRDRLLLRDDLLLLLRDRLLLRRRRLLLDDR", "RRRRDRDDRRRDDRDDDRRRDRDRDRDRRRRRRDDDRDDDDRRR"], "9 5"),
+        ];
+
+        for TestCase(h, w, n, expected) in tests {
+            assert_eq!(run(h, w, n), expected);
+        }
     }
 }
