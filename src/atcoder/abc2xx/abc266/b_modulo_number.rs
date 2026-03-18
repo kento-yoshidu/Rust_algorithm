@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc266/tasks/abc266_b
 
-pub fn run(n: isize) -> isize {
+fn run(n: isize) -> isize {
     let ans = n % 998244353;
 
     if ans < 0 {
@@ -14,10 +14,18 @@ pub fn run(n: isize) -> isize {
 mod tests {
     use super::*;
 
+    struct TestCase(isize, isize);
+
     #[test]
-    fn test() {
-        assert_eq!(1, run(998244354));
-        assert_eq!(998244349, run(-9982443534));
-        assert_eq!(0, run(-366387905869936605));
+    fn abc266_b() {
+        let tests = [
+            TestCase(998244354, 1),
+            TestCase(-9982443534, 998244349),
+            TestCase(-366387905869936605, 0),
+        ];
+
+        for TestCase(n, expected) in tests {
+            assert_eq!(run(n), expected);
+        }
     }
 }

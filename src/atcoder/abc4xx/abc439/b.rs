@@ -10,11 +10,9 @@ fn rec(n: u32, set: &mut HashSet<u32>) -> &'static str {
     } else {
         set.insert(n);
 
-        let str = n.to_string();
-        let i: u32 = str.chars()
+        let i: u32 = n.to_string().chars()
             .map(|c| {
-                let i = c.to_digit(10).unwrap();
-                i * i
+                c.to_digit(10).unwrap().pow(2)
             })
             .sum();
 
