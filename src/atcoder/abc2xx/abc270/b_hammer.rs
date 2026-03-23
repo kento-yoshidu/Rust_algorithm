@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc270/tasks/abc270_b
 
-pub fn run(x: isize, y: isize, z: isize) -> isize {
+fn run(x: isize, y: isize, z: isize) -> isize {
     let mut goal = x;
     let mut wall = y;
     let mut hammer = z;
@@ -27,7 +27,7 @@ mod tests {
     struct TestCase(isize, isize, isize, isize);
 
     #[test]
-    fn test() {
+    fn abc270_b() {
         let tests = [
             TestCase(10, -10, 1, 10),
             TestCase(20, 10, -10, 40),

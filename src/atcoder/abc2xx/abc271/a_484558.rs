@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc272/tasks/abc272_a
 
-pub fn run(n: usize) -> String {
+fn run(n: usize) -> String {
     format!("{:0>2X}", n)
 }
 
@@ -8,11 +8,19 @@ pub fn run(n: usize) -> String {
 mod tests {
     use super::*;
 
+    struct TestCase(usize, &'static str);
+
     #[test]
-    fn test() {
-        assert_eq!(String::from("63"), run(99));
-        assert_eq!(String::from("0C"), run(12));
-        assert_eq!(String::from("00"), run(0));
-        assert_eq!(String::from("FF"), run(255));
+    fn abc271_a() {
+        let tests = [
+            TestCase(99, "63"),
+            TestCase(12, "0C"),
+            TestCase(0, "00"),
+            TestCase(255, "FF"),
+        ];
+
+        for TestCase(n, expected) in tests {
+            assert_eq!(run(n), expected);
+        }
     }
 }
