@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc284/tasks/abc284_a
 
-pub fn run(_n: usize, s: Vec<&str>) -> Vec<&str> {
+fn run(_n: usize, s: Vec<&str>) -> Vec<&str> {
     s.into_iter().rev().collect()
 }
 
@@ -8,9 +8,17 @@ pub fn run(_n: usize, s: Vec<&str>) -> Vec<&str> {
 mod tests {
     use super::*;
 
+    struct TestCase(usize, Vec<&'static str>, Vec<&'static str>);
+
     #[test]
-    fn test() {
-        assert_eq!(vec!["Snuke", "Aoki", "Takahashi"], run(3, vec!["Takahashi", "Aoki", "Snuke"]));
-        assert_eq!(vec!["Happy", "New", "Year", "2023"], run(4, vec!["2023", "Year", "New", "Happy"]));
+    fn abc284_a() {
+        let tests = [
+            TestCase(3, vec!["Takahashi", "Aoki", "Snuke"], vec!["Snuke", "Aoki", "Takahashi"]),
+            TestCase(4, vec!["2023", "Year", "New", "Happy"], vec!["Happy", "New", "Year", "2023"]),
+        ];
+
+        for TestCase(n, s, expected) in tests {
+            assert_eq!(run(n, s), expected);
+        }
     }
 }
