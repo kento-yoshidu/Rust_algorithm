@@ -2,7 +2,7 @@
 
 use itertools::Itertools;
 
-pub fn run(n: usize, _m: usize, k: Vec<Vec<usize>>) -> &'static str {
+fn run(n: usize, _m: usize, k: Vec<Vec<usize>>) -> &'static str {
     let mut vec = vec![vec![false; n]; n];
 
     for v in k {
@@ -11,9 +11,9 @@ pub fn run(n: usize, _m: usize, k: Vec<Vec<usize>>) -> &'static str {
         }
     }
 
-    if vec.iter()
+    if vec.into_iter()
         .all(|v| {
-            v.iter().filter(|b| **b == false).count() < 2
+            v.into_iter().filter(|b| *b == false).count() < 2
         }) {
             "Yes"
         } else {
@@ -28,7 +28,7 @@ mod tests {
     struct TestCase(usize, usize, Vec<Vec<usize>>, &'static str);
 
     #[test]
-    fn test() {
+    fn abc272_b() {
         let tests = [
             TestCase(3, 3, vec![vec![2, 1, 2], vec![2, 2, 3], vec![2, 1, 3]], "Yes"),
             TestCase(4, 2, vec![vec![3, 1, 2, 4], vec![3, 2, 3, 4]], "No"),

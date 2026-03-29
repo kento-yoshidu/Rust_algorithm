@@ -8,7 +8,7 @@ fn calc(n: usize, k: u32) -> usize {
     }
 }
 
-pub fn run(x: usize, k: u32) -> usize {
+fn run(x: usize, k: u32) -> usize {
     (1..=k)
         .fold(x, |state, k| {
             calc(state, k)
@@ -19,11 +19,19 @@ pub fn run(x: usize, k: u32) -> usize {
 mod tests {
     use super::*;
 
+    struct TestCase(usize, u32, usize);
+
     #[test]
-    fn test() {
-        assert_eq!(2100, run(2048, 2));
-        assert_eq!(0, run(1, 15));
-        assert_eq!(1000, run(999, 3));
-        assert_eq!(314000000000000, run(314159265358979, 12));
+    fn abc273_b() {
+        let tests = [
+            TestCase(2048, 2, 2100),
+            TestCase(1, 15, 0),
+            TestCase(999, 3, 1000),
+            TestCase(314159265358979, 12, 314000000000000),
+        ];
+
+        for TestCase(n, k, expected) in tests {
+            assert_eq!(run(n, k), expected);
+        }
     }
 }
