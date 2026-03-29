@@ -1,10 +1,9 @@
-#[allow(unused)]
+#[derive(Debug)]
 pub struct UnionFind {
     parent: Vec<usize>,
     size: Vec<usize>,
 }
 
-#[allow(unused)]
 impl UnionFind {
     pub fn new(n: usize) -> Self {
         Self {

@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc286/tasks/abc286_b
 
-pub fn run(n: usize, s: &str) -> String {
+fn run(n: usize, s: &str) -> String {
     let mut ans = Vec::new();
     let chars: Vec<char> = s.chars().collect();
 
@@ -16,15 +16,15 @@ pub fn run(n: usize, s: &str) -> String {
         }
     }
 
-    ans.iter().collect()
+    ans.into_iter().collect()
 }
 
-pub fn run2(_n: usize, s: &str) -> String {
+fn run2(_n: usize, s: &str) -> String {
     let chars: Vec<char> = s.chars().collect();
 
-    chars.iter()
+    chars.into_iter()
         .fold(Vec::new(), |mut stack, c| {
-            stack.push(*c);
+            stack.push(c);
 
             if stack.len() >= 2 && stack[stack.len()-2..] == ['n', 'a'] {
                 stack.truncate(stack.len()-2);
@@ -41,17 +41,19 @@ pub fn run2(_n: usize, s: &str) -> String {
 mod tests {
     use super::*;
 
-    #[test]
-    fn test() {
-        assert_eq!(String::from("nyaan"), run(4, "naan"));
-        assert_eq!(String::from("near"), run(4, "near"));
-        assert_eq!(String::from("nyationyal"), run(8, "national"));
-    }
+    struct TestCase(usize, &'static str, &'static str);
 
     #[test]
-    fn test2() {
-        assert_eq!(String::from("nyaan"), run2(4, "naan"));
-        assert_eq!(String::from("near"), run2(4, "near"));
-        assert_eq!(String::from("nyationyal"), run2(8, "national"));
+    fn abc286_b() {
+        let tests = [
+            TestCase(4, "naan", "nyaan"),
+            TestCase(4, "near", "near"),
+            TestCase(8, "national", "nyationyal"),
+        ];
+
+        for TestCase(n, s, expected) in tests {
+            assert_eq!(run(n, s), expected);
+            assert_eq!(run2(n, s), expected);
+        }
     }
 }
