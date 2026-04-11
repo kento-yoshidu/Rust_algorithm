@@ -67,7 +67,7 @@ mod tests {
     struct TestCase(usize, Vec<&'static str>, &'static str);
 
     #[test]
-    fn test() {
+    fn abc287_a() {
         let tests = [
             TestCase(7, vec!["For", "Against", "For"], "Yes"),
             TestCase(5, vec!["Against", "Against", "For", "Against", "For"], "No"),
