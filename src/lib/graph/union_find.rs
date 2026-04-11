@@ -1,3 +1,5 @@
+use std::collections::HashSet;
+
 #[derive(Debug)]
 pub struct UnionFind {
     parent: Vec<usize>,
@@ -48,6 +50,13 @@ impl UnionFind {
         let root = self.find(x);
 
         self.size[root]
+    }
+
+    pub fn count_roots(&mut self, n: usize) -> usize {
+        (1..=n)
+            .map(|i| self.find(i))
+            .collect::<HashSet<_>>()
+            .len()
     }
 }
 
