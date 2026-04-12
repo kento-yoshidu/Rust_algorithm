@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc289/tasks/abc289_b
 
-pub fn run(n: usize, m: usize, a: Vec<usize>) -> Vec<usize> {
+fn run(n: usize, m: usize, a: Vec<usize>) -> Vec<usize> {
     if m == 0 {
         return (1..=n).collect();
     }
@@ -29,10 +29,18 @@ pub fn run(n: usize, m: usize, a: Vec<usize>) -> Vec<usize> {
 mod tests {
     use super::*;
 
+    struct TestCase(usize, usize, Vec<usize>, Vec<usize>);
+
     #[test]
-    fn test() {
-        assert_eq!(vec![2, 1, 5, 4, 3], run(5, 3, vec![1, 3, 4]));
-        assert_eq!(vec![1, 2, 3, 4, 5], run(5, 0, vec![]));
-        assert_eq!(vec![4, 3, 2, 1, 5, 6, 10, 9, 8, 7], run(10, 6, vec![1, 2, 3, 7, 8, 9]));
+    fn abc289_b() {
+        let tests = [
+            TestCase(5, 3, vec![1, 3, 4], vec![2, 1, 5, 4, 3]),
+            TestCase(5, 0, vec![], vec![1, 2, 3, 4, 5]),
+            TestCase(10, 6, vec![1, 2, 3, 7, 8, 9], vec![4, 3, 2, 1, 5, 6, 10, 9, 8, 7]),
+        ];
+
+        for TestCase(n, m, a, expected) in tests {
+            assert_eq!(run(n, m, a), expected);
+        }
     }
 }

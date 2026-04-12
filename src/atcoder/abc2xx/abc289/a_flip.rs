@@ -1,13 +1,15 @@
 // https://atcoder.jp/contests/abc289/tasks/abc289_a
 
-pub fn run(s: &str) -> String {
-    s.chars().map(|c| {
-        if c == '0' {
-            '1'
-        } else {
-            '0'
-        }
-    }).collect()
+fn run(s: &str) -> String {
+    s.chars()
+        .map(|c| {
+            if c == '0' {
+                '1'
+            } else {
+                '0'
+            }
+        })
+        .collect()
 }
 
 fn run2(s: &str) -> String {
@@ -23,7 +25,7 @@ mod tests {
     struct TestCase(&'static str, &'static str);
 
     #[test]
-    fn test() {
+    fn abc289_a() {
         let tests = [
             TestCase("01", "10"),
             TestCase("1011", "0100"),
