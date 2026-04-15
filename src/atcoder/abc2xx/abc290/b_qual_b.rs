@@ -30,5 +30,9 @@ mod tests {
             TestCase(10, 2, "oxxoxooxox", "oxxoxxxxxx"),
             TestCase(10, 4, "oxxoxooxox", "oxxoxooxxx"),
         ];
+
+        for TestCase(n, k, s, expected) in tests {
+            assert_eq!(run(n, k, s), expected);
+        }
     }
 }
