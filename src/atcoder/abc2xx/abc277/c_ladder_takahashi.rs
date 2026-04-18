@@ -17,7 +17,7 @@ fn dfs(current: usize, seen: &mut HashSet<usize>, graph: &HashMap<usize, Vec<usi
     ans
 }
 
-pub fn run(_n: usize, ab: Vec<(usize, usize)>) -> usize {
+fn run(_n: usize, ab: Vec<(usize, usize)>) -> usize {
     let mut hash_map: HashMap<usize, Vec<usize>> = HashMap::new();
 
     for &(a, b) in ab.iter() {
@@ -39,7 +39,7 @@ mod tests {
     struct TestCase(usize, Vec<(usize, usize)>, usize);
 
     #[test]
-    fn test() {
+    fn abc277_c() {
         let tests = [
             TestCase(4, vec![(1, 4), (4, 3), (4, 10), (8, 3), (1, 2)], 10),
             TestCase(6, vec![(1, 3), (1, 5), (1, 12), (3, 5), (3, 12), (5, 12)], 12),

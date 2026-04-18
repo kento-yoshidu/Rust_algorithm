@@ -32,7 +32,7 @@ mod tests {
     struct TestCase(&'static str, usize);
 
     #[test]
-    fn test() {
+    fn abc279_a() {
         let tests = [
             TestCase("vvwvw", 7),
             TestCase("v", 1),
@@ -48,6 +48,7 @@ mod tests {
 
         for TestCase(s, expected) in tests {
             assert_eq!(run(s), expected);
+            assert_eq!(run2(s), expected);
         }
     }
 }
