@@ -23,7 +23,7 @@ fn run2(s: &str) -> String {
         str[i+1] = tmp;
     }
 
-    str.iter().collect()
+    str.into_iter().collect()
 }
 
 fn run3(s: &str) -> String {
@@ -44,7 +44,7 @@ mod tests {
     struct TestCase(&'static str, &'static str);
 
     #[test]
-    fn test() {
+    fn abc293_a() {
         let tests = [
             TestCase("abcdef", "badcfe"),
             TestCase("aaaa", "aaaa"),

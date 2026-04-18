@@ -19,7 +19,7 @@ fn run(n: usize, _q: usize, e: Vec<(usize, usize)>) -> Vec<&'static str> {
                     None
                 },
                 3 => {
-                    if state[t1 - 1].1 >= 2 {
+                    if state[t2 - 1].1 >= 2 {
                         Some("Yes")
                     } else {
                         Some("No")
