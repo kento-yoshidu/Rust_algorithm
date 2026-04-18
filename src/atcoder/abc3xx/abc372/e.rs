@@ -3,7 +3,7 @@
 use std::collections::BTreeSet;
 use library::lib::graph::union_find::UnionFind;
 
-pub fn run(n: usize, _q: usize, qux: Vec<(usize, usize, usize)>) -> Vec<isize> {
+fn run(n: usize, _q: usize, qux: Vec<(usize, usize, usize)>) -> Vec<isize> {
     let mut ans = Vec::new();
 
     let mut sets = vec![BTreeSet::new(); n+1];
