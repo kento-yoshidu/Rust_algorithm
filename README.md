@@ -102,7 +102,6 @@ fn main() {
 ### Union Find
 
 - [ABC049 D - 連結](https://atcoder.jp/contests/abc049/tasks/arc065_b)
-- [ABC372 E - K-th Largest Connected Components](https://atcoder.jp/contests/abc372/tasks/abc372_e)
 - [ABC270 F - Transportation](https://atcoder.jp/contests/abc270/tasks/abc270_f)
 - [ABC352 E - Clique Connect](https://atcoder.jp/contests/abc352/tasks/abc352_e)
 
