@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc280/tasks/abc280_a
 
-pub fn run(str: &str) -> i32 {
+fn run(str: &str) -> usize {
     let mut count = 0;
 
     for c in str.chars() {
@@ -12,7 +12,7 @@ pub fn run(str: &str) -> i32 {
     count
 }
 
-pub fn run2(str: &str) -> usize {
+fn run2(str: &str) -> usize {
     str.chars().filter(|c| {
         *c == '#'
     }).count()
@@ -22,39 +22,19 @@ pub fn run2(str: &str) -> usize {
 mod tests {
     use super::*;
 
-    #[test]
-    fn test() {
-        let str = "#....
-                        .....
-                        .##..";
-
-        let str2 = "#.#.#
-                        ....#
-                        ..##.
-                        ####.
-                        ..#..
-                        #####";
-
-        assert_eq!(3, run(str));
-        assert_eq!(0, run(".........."));
-        assert_eq!(16, run(str2));
-    }
+    struct TestCase(&'static str, usize);
 
     #[test]
-    fn test2() {
-        let str = "#....
-                        .....
-                        .##..";
+    fn abc280_a() {
+        let tests = [
+            TestCase("#..........##..", 3),
+            TestCase("..........", 0),
+            TestCase("#.#.#....#..##.####...#..#####", 16),
+        ];
 
-        let str2 = "#.#.#
-                        ....#
-                        ..##.
-                        ####.
-                        ..#..
-                        #####";
-
-        assert_eq!(3, run2(str));
-        assert_eq!(0, run2(".........."));
-        assert_eq!(16, run2(str2));
+        for TestCase(s, expected) in tests {
+            assert_eq!(run(s), expected);
+            assert_eq!(run2(s), expected);
+        }
     }
 }

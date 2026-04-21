@@ -13,10 +13,18 @@ fn run(s: &str, t: &str) -> usize {
 mod tests {
     use super::*;
 
+    struct TestCase(&'static str, &'static str, usize);
+
     #[test]
-    fn test() {
-        assert_eq!(5, run("atcoder", "atcorder"));
-        assert_eq!(5, run("million", "milllion"));
-        assert_eq!(3, run("vvwvw", "vvvwvw"));
+    fn abc280_c() {
+        let tests = [
+            TestCase("atcoder", "atcorder", 5),
+            TestCase("million", "milllion", 5),
+            TestCase("vvwvw", "vvvwvw", 3),
+        ];
+
+        for TestCase(s, t, expected) in tests {
+            assert_eq!(run(s, t), expected);
+        }
     }
 }
