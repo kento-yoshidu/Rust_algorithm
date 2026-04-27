@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc295/tasks/abc295_b
 
-pub fn run(r: usize, c: usize, b: Vec<&str>) -> Vec<Vec<char>> {
+fn run(r: usize, c: usize, b: Vec<&str>) -> Vec<Vec<char>> {
     let mut board: Vec<Vec<char>> = b.iter().map(|s| s.chars().collect()).collect();
 
     for i in 0..r {
@@ -33,7 +33,7 @@ mod tests {
     struct TestCase(usize, usize, Vec<&'static str>, Vec<Vec<char>>);
 
     #[test]
-    fn test() {
+    fn abc295_b() {
         let tests = [
             TestCase(4, 4, vec![".1.#", "###.", ".#2.", "#.##"], vec![vec!['.', '.', '.', '#'], vec!['#', '.', '.', '.'], vec!['.', '.', '.', '.'], vec!['#', '.', '.', '.']]),
             TestCase(2, 5, vec!["..#.#", "###.#"], vec![vec!['.', '.', '#', '.', '#'], vec!['#', '#', '#', '.', '#']]),

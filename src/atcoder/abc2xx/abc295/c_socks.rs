@@ -9,7 +9,7 @@ fn run(_n: usize, a: Vec<usize>) -> usize {
         *hash_map.entry(i).or_insert(0) += 1;
     }
 
-    hash_map.iter()
+    hash_map.into_iter()
         .map(|(_, v)| v / 2)
         .sum()
 }
@@ -19,7 +19,7 @@ mod tests {
     use super::*;
 
     #[test]
-    fn test() {
+    fn abc295_c() {
         struct TestCase(usize, Vec<usize>, usize);
 
         let tests = [
