@@ -23,7 +23,7 @@ mod tests {
     struct TestCase(i32, Vec<i32>, i32);
 
     #[test]
-    fn test() {
+    fn abc040_c() {
         let tests = [
             TestCase(4, vec![100, 150, 130, 120], 40),
             TestCase(4, vec![100, 125, 80, 110], 40),

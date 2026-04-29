@@ -1,8 +1,8 @@
 // https://atcoder.jp/contests/abc296/tasks/abc296_a
 
-pub fn run(n: usize, str: &str) -> &str {
+fn run(n: usize, s: &str) -> &'static str {
     for i in 0..n - 1 {
-        if str.chars().nth(i).unwrap() == str.chars().nth(i + 1).unwrap() {
+        if s.chars().nth(i).unwrap() == s.chars().nth(i + 1).unwrap() {
             return "No";
         }
     }
@@ -10,15 +10,15 @@ pub fn run(n: usize, str: &str) -> &str {
     "Yes"
 }
 
-pub fn run2(_n: usize, str: &str) -> String {
-    if str.chars()
+fn run2(_n: usize, s: &str) -> &'static str {
+    if s.chars()
         .collect::<Vec<char>>()
         .windows(2)
         .all(|v| { v[0] != v[1] }
     ) {
-        String::from("Yes")
+        "Yes"
     } else {
-        String::from("No")
+        "No"
     }
 }
 
@@ -26,17 +26,19 @@ pub fn run2(_n: usize, str: &str) -> String {
 mod tests {
     use super::*;
 
-    #[test]
-    fn test() {
-        assert_eq!("Yes", run(6, "MFMFMF"));
-        assert_eq!("No", run(9, "FMFMMFMFM"));
-        assert_eq!("Yes", run(1, "F"));
-    }
+    struct TestCase(usize, &'static str, &'static str);
 
     #[test]
-    fn test2() {
-        assert_eq!("Yes", run2(6, "MFMFMF"));
-        assert_eq!("No", run2(9, "FMFMMFMFM"));
-        assert_eq!("Yes", run2(1, "F"));
+    fn abc296_a() {
+        let tests = [
+            TestCase(6, "MFMFMF", "Yes"),
+            TestCase(9, "FMFMMFMFM", "No"),
+            TestCase(1, "F", "Yes"),
+        ];
+
+        for TestCase(n, s, expected) in tests {
+            assert_eq!(run(n, s), expected);
+            assert_eq!(run2(n, s), expected);
+        }
     }
 }
