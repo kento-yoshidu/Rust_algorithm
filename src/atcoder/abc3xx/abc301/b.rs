@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc301/tasks/abc301_b
 
-pub fn run(n: usize, a: Vec<isize>) -> Vec<isize> {
+fn run(n: usize, a: Vec<isize>) -> Vec<isize> {
     let mut ans = Vec::new();
 
     for i in 0..n-1 {
@@ -25,8 +25,9 @@ mod tests {
     use super::*;
 
     struct TestCase(usize, Vec<isize>, Vec<isize>);
+
     #[test]
-    fn test() {
+    fn abc301_b() {
         let tests = [
             TestCase(4, vec![2, 5, 1, 2], vec![2, 3, 4, 5, 4, 3, 2, 1, 2]),
             TestCase(6, vec![3, 4, 5, 6, 5, 4], vec![3, 4, 5, 6, 5, 4]),

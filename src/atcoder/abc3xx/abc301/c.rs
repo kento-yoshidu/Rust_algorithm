@@ -2,7 +2,7 @@
 
 use itertools::Itertools;
 
-pub fn run(s: &str, t: &str) -> &'static str {
+fn run(s: &str, t: &str) -> &'static str {
     let s: Vec<char> = s.chars().sorted().collect();
     let t: Vec<char> = t.chars().sorted().collect();
 

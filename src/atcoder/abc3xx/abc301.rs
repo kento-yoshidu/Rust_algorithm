@@ -1,3 +1,3 @@
-pub mod a_overall_winner;
-pub mod b_fill_the_gaps;
+pub mod a;
+pub mod b;
 pub mod c;
