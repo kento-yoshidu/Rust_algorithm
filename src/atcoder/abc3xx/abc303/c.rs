@@ -2,7 +2,7 @@
 
 use std::collections::HashSet;
 
-pub fn run(_n: usize, _m: usize, h: isize, k: isize, s: &str, xy: Vec<(isize, isize)>) -> &'static str {
+fn run(_n: usize, _m: usize, h: isize, k: isize, s: &str, xy: Vec<(isize, isize)>) -> &'static str {
     let mut hp = h;
 
     let mut vec = HashSet::new();
@@ -41,9 +41,17 @@ pub fn run(_n: usize, _m: usize, h: isize, k: isize, s: &str, xy: Vec<(isize, is
 mod tests {
     use super::*;
 
+    struct TestCase(usize, usize, isize, isize, &'static str, Vec<(isize, isize)>, &'static str);
+
     #[test]
-    fn test() {
-        assert_eq!("Yes", run(4, 2, 3, 1, "RUDL", vec![(-1, -1), (1, 0)]));
-        assert_eq!("No", run(5, 2, 1, 5, "LDRLD", vec![(0, 0), (-1, -1)]));
+    fn abc303_c() {
+        let tests = [
+            TestCase(4, 2, 3, 1, "RUDL", vec![(-1, -1), (1, 0)], "Yes"),
+            TestCase(5, 2, 1, 5, "LDRLD", vec![(0, 0), (-1, -1)], "No"),
+        ];
+
+        for TestCase(n, m, h,k,  s, xy, expected) in tests {
+            assert_eq!(run(n, m, h, k, s, xy), expected);
+        }
     }
 }
