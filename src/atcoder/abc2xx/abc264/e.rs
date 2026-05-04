@@ -1,7 +1,5 @@
 // https://atcoder.jp/contests/abc264/tasks/abc264_e
 
-use std::collections::HashSet;
-
 #[derive(Debug)]
 pub struct UnionFind {
     parent: Vec<usize>,
