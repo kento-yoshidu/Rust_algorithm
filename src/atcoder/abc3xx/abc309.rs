@@ -1,2 +1,2 @@
-pub mod a_nine;
-pub mod b_rotate;
+pub mod a;
+pub mod b;
