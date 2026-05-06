@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc285/tasks/abc285_c
 
-pub fn run(s: &str) -> usize {
+fn run(s: &str) -> usize {
     s.chars()
         .rev()
         .enumerate()
@@ -13,10 +13,18 @@ pub fn run(s: &str) -> usize {
 mod tests {
     use super::*;
 
+    struct TestCase(&'static str, usize);
+
     #[test]
-    fn test() {
-        assert_eq!(28, run("AB"));
-        assert_eq!(3, run("C"));
-        assert_eq!(10000000000000000, run("BRUTMHYHIIZP"));
+    fn abc285_c() {
+        let tests = [
+            TestCase("AB", 28),
+            TestCase("C", 3),
+            TestCase("BRUTMHYHIIZP", 10000000000000000),
+        ];
+
+        for TestCase(s, expected) in tests {
+            assert_eq!(run(s), expected);
+        }
     }
 }
