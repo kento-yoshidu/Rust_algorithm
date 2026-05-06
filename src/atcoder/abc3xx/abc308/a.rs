@@ -1,5 +1,4 @@
 // https://atcoder.jp/contests/abc308/tasks/abc308_a
-// https://atcoder.jp/contests/abc308/submissions/43327179
 
 fn run(s: &Vec<usize>) -> &'static str {
     for i in s.iter() {

@@ -1,2 +1,2 @@
-pub mod a_weekly_records;
-pub mod b_racecar;
+pub mod a;
+pub mod b;
