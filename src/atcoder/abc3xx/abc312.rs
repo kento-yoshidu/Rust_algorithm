@@ -1,2 +1,2 @@
-pub mod a_chord;
-pub mod b_election;
+pub mod a;
+pub mod b;
