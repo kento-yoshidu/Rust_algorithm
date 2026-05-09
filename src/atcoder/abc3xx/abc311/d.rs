@@ -2,7 +2,7 @@
 
 use std::collections::VecDeque;
 
-pub fn run(n: usize, m: usize, s: Vec<&str>) -> usize {
+fn run(n: usize, m: usize, s: Vec<&str>) -> usize {
     let vec: Vec<Vec<char>> = s.into_iter().map(|str| str.chars().collect()).collect();
 
     let mut temp = 0;

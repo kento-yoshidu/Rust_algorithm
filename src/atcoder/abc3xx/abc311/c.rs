@@ -27,7 +27,7 @@ fn cycle(mut v: usize, hash_map: &HashMap<usize, usize>) -> Vec<usize> {
 fn run(_n: usize, a: Vec<usize>) -> (usize, Vec<usize>) {
     let mut hash_map = HashMap::new();
 
-    for (i, &x) in a.iter().enumerate() {
+    for (i, x) in a.into_iter().enumerate() {
         hash_map.insert(i + 1, x);
     }
 
@@ -43,7 +43,7 @@ mod tests {
     struct TestCase(usize, Vec<usize>, (usize, Vec<usize>));
 
     #[test]
-    fn test() {
+    fn abc311_c() {
         let tests = [
             TestCase(7, vec![6, 7, 2, 1, 3, 4, 5], (3, vec![6, 4, 1])),
             TestCase(8, vec![3, 7, 4, 7, 3, 3, 8, 2], (3, vec![2, 7, 8])),
