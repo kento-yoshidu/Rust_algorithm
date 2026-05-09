@@ -1,4 +1,6 @@
 #![allow(dead_code)]
+
+use library::lib::graph::segment_tree::SegTree;
 // mod aoj;
 mod atcoder;
 // mod paiza;
