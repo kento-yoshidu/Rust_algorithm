@@ -20,7 +20,7 @@ mod tests {
     struct TestCase(usize, Vec<usize>, Vec<usize>, usize);
 
     #[test]
-    fn test() {
+    fn tessoku_a16() {
         let tests = [
             TestCase(5, vec![2, 4, 1, 3], vec![5, 3, 7], 8),
             TestCase(10, vec![1, 19, 75, 37, 17, 16, 33, 18, 22], vec![41, 28, 89, 74, 98, 43, 42, 31], 157),
