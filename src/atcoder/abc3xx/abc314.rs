@@ -1,3 +1,3 @@
-pub mod a_3_14;
-pub mod b_roulette;
+pub mod a;
+pub mod b;
 pub mod c;
