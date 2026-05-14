@@ -1,6 +1,5 @@
 // https://atcoder.jp/contests/arc032/tasks/arc032_2
 
-use std::collections::HashSet;
 use library::lib::graph::union_find::UnionFind;
 
 fn run(n: usize, _m: usize, ab: Vec<(usize, usize)>) -> usize {
@@ -10,10 +9,7 @@ fn run(n: usize, _m: usize, ab: Vec<(usize, usize)>) -> usize {
         uf.unite(a, b);
     }
 
-    (1..=n)
-        .map(|i| uf.find(i))
-        .collect::<HashSet<usize>>()
-        .len() - 1
+    uf.count_roots(n) - 1
 }
 
 #[cfg(test)]

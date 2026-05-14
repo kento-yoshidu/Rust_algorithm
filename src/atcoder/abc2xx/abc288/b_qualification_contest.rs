@@ -14,10 +14,18 @@ fn run<'a>(_n: usize, k: usize, s: Vec<&'a str>) -> Vec<&'a str> {
 mod tests {
     use super::*;
 
+    struct TestCase(usize, usize, Vec<&'static str>, Vec<&'static str>);
+
     #[test]
-    fn test() {
-        assert_eq!(vec!["aaaaa", "abc", "xyz"], run(5, 3, vec!["abc", "aaaaa", "xyz", "a", "def"]));
-        assert_eq!(vec!["rbg", "z", "zyx", "zzz"], run(4, 4, vec!["z", "zyx", "zzz", "rbg"]));
-        assert_eq!(vec!["abc"], run(3, 1, vec!["abc", "arc", "agc"]));
+    fn abc288_b() {
+        let tests = [
+            TestCase(5, 3, vec!["abc", "aaaaa", "xyz", "a", "def"], vec!["aaaaa", "abc", "xyz"]),
+            TestCase(4, 4, vec!["z", "zyx", "zzz", "rbg"], vec!["rbg", "z", "zyx", "zzz"]),
+            TestCase(3, 1, vec!["abc", "arc", "agc"], vec!["abc"]),
+        ];
+
+        for TestCase(n, k, s, expected) in tests {
+            assert_eq!(run(n, k, s), expected);
+        }
     }
 }
