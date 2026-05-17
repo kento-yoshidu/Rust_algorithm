@@ -12,5 +12,5 @@ mod atcoder;
 
 fn main() {
     // println!("{}", atcoder::abc0xx::abc026::c::run(5, vec![1, 1, 1, 1]));
-    println!("{}", atcoder::abc0xx::abc026::c::run(7, vec![1, 1, 2, 2, 3, 3]));
+    // println!("{}", atcoder::abc0xx::abc026::c::run(7, vec![1, 1, 2, 2, 3, 3]));
 }
