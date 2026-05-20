@@ -1,6 +1,6 @@
 // https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ITP1_1_D
 
-pub fn run(t: i32) -> String {
+fn run(t: usize) -> String {
     let mut time = t;
 
     let h = time / (60*60);
@@ -18,8 +18,16 @@ pub fn run(t: i32) -> String {
 mod tests {
     use super::*;
 
+    struct TestCase(usize, &'static str);
+
     #[test]
-    fn test() {
-        assert_eq!(String::from("13:2:59"), run(46979));
+    fn itp1_1_d() {
+        let tests = [
+            TestCase(46979, "13:2:59"),
+        ];
+
+        for TestCase(t, expected) in tests {
+            assert_eq!(run(t), expected);
+        }
     }
 }

@@ -1,6 +1,6 @@
 #![allow(dead_code)]
 
-// mod aoj;
+mod aoj;
 mod atcoder;
 // mod paiza;
 // mod dp;
