@@ -21,10 +21,14 @@ fn run(_n: usize, k: usize, s: &str) -> String {
 mod tests {
     use super::*;
 
+    struct TestCase(usize, usize, &'static str, &'static str);
+
     #[test]
-    fn test() {
-        assert_eq!(String::from("oxxoxoxxxx"), run(10, 3, "oxxoxooxox"));
-        assert_eq!(String::from("oxxoxxxxxx"), run(10, 2, "oxxoxooxox"));
-        assert_eq!(String::from("oxxoxooxxx"), run(10, 4, "oxxoxooxox"));
+    fn abc290_b() {
+        let tests = [
+            TestCase(10, 3, "oxxoxooxox", "oxxoxoxxxx"),
+            TestCase(10, 2, "oxxoxooxox", "oxxoxxxxxx"),
+            TestCase(10, 4, "oxxoxooxox", "oxxoxooxxx"),
+        ];
     }
 }

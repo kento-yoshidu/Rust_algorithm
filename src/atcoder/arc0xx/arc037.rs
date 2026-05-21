@@ -1,1 +1,2 @@
-pub mod a_all_a;
+pub mod a;
+pub mod b;
