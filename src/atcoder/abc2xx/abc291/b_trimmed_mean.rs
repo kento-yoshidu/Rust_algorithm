@@ -17,9 +17,17 @@ fn run(n: usize, x: Vec<usize>) -> f64 {
 mod tests {
     use super::*;
 
+    struct TestCase(usize, Vec<usize>, f64);
+
     #[test]
     fn abc291_b() {
-        assert_eq!(33.333333333333336, run(1, vec![10, 100, 20, 50, 30]));
-        assert_eq!(5.5, run(2, vec![3, 3, 3, 4, 5, 6, 7, 8, 99, 100]));
+        let tests = [
+            TestCase(1, vec![10, 100, 20, 50, 30], 33.333333333333336),
+            TestCase(2, vec![3, 3, 3, 4, 5, 6, 7, 8, 99, 100], 5.5),
+        ];
+
+        for TestCase(n, x, expected) in tests {
+            assert_eq!(run(n, x), expected);
+        }
     }
 }
