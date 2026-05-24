@@ -11,8 +11,6 @@ fn run(h: usize, w: usize, c: Vec<&str>) -> usize {
         dp[0][0] = 1;
     }
 
-    let mut ans = 0;
-
     for i in 0..h {
         for j in 0..w {
             if c[i][j] == '#' {
@@ -26,8 +24,6 @@ fn run(h: usize, w: usize, c: Vec<&str>) -> usize {
             if j > 0 && dp[i][j-1] > 0 {
                 dp[i][j] = max(dp[i][j], dp[i][j-1] + 1);
             }
-
-            ans = ans.max(dp[i][j]);
         }
     }
 
