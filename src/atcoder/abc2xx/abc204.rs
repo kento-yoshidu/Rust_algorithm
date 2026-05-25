@@ -1,3 +1,4 @@
-pub mod a_rock_paper_scissors;
-pub mod b_nuts;
+pub mod a;
+pub mod b;
 pub mod c;
+pub mod d;
