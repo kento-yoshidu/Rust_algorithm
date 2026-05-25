@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc292/tasks/abc292_a
 
-pub fn run(s: String) -> String {
+fn run<'a>(s: &'a str) -> String {
     s.to_uppercase()
 }
 
@@ -8,10 +8,18 @@ pub fn run(s: String) -> String {
 mod tests {
     use super::*;
 
+    struct TestCase(&'static str, &'static str);
+
     #[test]
-    fn test() {
-        assert_eq!(String::from("ABC"), run(String::from("abc")));
-        assert_eq!(String::from("A"), run(String::from("a")));
-        assert_eq!(String::from("ABCDEFGHJIKLNMOQPRSTVUWXYZ"), run(String::from("abcdefghjiklnmoqprstvuwxyz")));
+    fn abc292_a() {
+        let tests = [
+            TestCase("abc", "ABC"),
+            TestCase("a", "A"),
+            TestCase("abcdefghjiklnmoqprstvuwxyz", "ABCDEFGHJIKLNMOQPRSTVUWXYZ"),
+        ];
+
+        for TestCase(s, expected) in tests {
+            assert_eq!(run(s), expected);
+        }
     }
 }
