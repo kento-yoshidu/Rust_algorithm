@@ -8,7 +8,7 @@ fn run(n: usize, k: usize, r: Vec<usize>) -> f64 {
     let mut score = 0.0;
 
     // 昇順の配列の後ろからk個を足す
-    for i in vec.iter().skip(n-k) {
+    for i in vec.into_iter().skip(n-k) {
         score = (score + i) / 2.0;
     }
 
@@ -22,7 +22,7 @@ mod tests {
     struct TestCase(usize, usize, Vec<usize>, f64);
 
     #[test]
-    fn test() {
+    fn abc003_c() {
         let tests = [
             TestCase(2, 2, vec![1000, 1500], 1000.0),
             TestCase(2, 1, vec![1000, 1500], 750.0),
