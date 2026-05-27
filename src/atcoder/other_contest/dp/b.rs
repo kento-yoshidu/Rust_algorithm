@@ -22,7 +22,7 @@ mod tests {
     struct TestCase(usize, usize, Vec<usize>, usize);
 
     #[test]
-    fn dp_b() {
+    fn edpc_b() {
         let tests = [
             TestCase(5, 3, vec![10, 30, 40, 50, 20], 30),
             TestCase(3, 1, vec![10, 20, 10], 20),
