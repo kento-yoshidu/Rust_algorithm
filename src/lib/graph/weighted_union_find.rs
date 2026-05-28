@@ -3,7 +3,7 @@ pub struct WeightedUnionFind {
     parent: Vec<usize>,
     size: Vec<usize>,
     // 親との差分
-    diff_weight: Vec<i64>,
+    diff_weight: Vec<isize>,
 }
 
 impl WeightedUnionFind {
@@ -31,18 +31,18 @@ impl WeightedUnionFind {
     }
 
     // xのrootからの重み
-    pub fn weight(&mut self, x: usize) -> i64 {
+    pub fn weight(&mut self, x: usize) -> isize {
         self.find(x);
         self.diff_weight[x]
     }
 
     // weight[y] - weight[x]
-    pub fn diff(&mut self, x: usize, y: usize) -> i64 {
+    pub fn diff(&mut self, x: usize, y: usize) -> isize {
         self.weight(y) - self.weight(x)
     }
 
     // 「yはxよりwだけ重い」を追加
-    pub fn unite(&mut self, x: usize, y: usize, w: i64) -> bool {
+    pub fn unite(&mut self, x: usize, y: usize, w: isize) -> bool {
         let mut w = w + self.weight(x) - self.weight(y);
 
         let mut x = self.find(x);
@@ -68,7 +68,7 @@ impl WeightedUnionFind {
         self.find(x) == self.find(y)
     }
 
-    pub fn is_valid(&mut self, x: usize, y: usize, w: i64) -> bool {
+    pub fn is_valid(&mut self, x: usize, y: usize, w: isize) -> bool {
         if self.same(x, y) {
             self.diff(x, y) == w
         } else {
