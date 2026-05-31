@@ -27,7 +27,7 @@ mod tests {
     struct TestCase(usize, usize, Option<Vec<(usize, usize, isize)>>, &'static str);
 
     #[test]
-    fn abc087_d() {
+    fn arc090_d() {
         let tests = [
             TestCase(3, 3, Some(vec![(1, 2, 1), (2, 3, 1), (1, 3, 2)]), "Yes"),
             TestCase(3, 3, Some(vec![(1, 2, 1), (2, 3, 1), (1, 3, 5)]), "No"),
@@ -41,3 +41,4 @@ mod tests {
         }
     }
 }
+
