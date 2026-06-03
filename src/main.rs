@@ -2,6 +2,7 @@
 
 mod aoj;
 mod atcoder;
+mod cses;
 // mod paiza;
 // mod dp;
 // mod basic;
@@ -11,6 +12,4 @@ mod atcoder;
 // mod other;
 
 fn main() {
-    println!("{}", atcoder::other_contest::tdpc::a::run(3, vec![2, 3, 5]));
-    println!("{}", atcoder::other_contest::tdpc::a::run(10, vec![1, 1, 1, 1, 1, 1, 1, 1, 1, 1]));
 }
