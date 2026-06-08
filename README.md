@@ -104,6 +104,9 @@ fn main() {
 - [ABC049 D - 連結](https://atcoder.jp/contests/abc049/tasks/arc065_b)
 - [ABC270 F - Transportation](https://atcoder.jp/contests/abc270/tasks/abc270_f)
 - [ABC352 E - Clique Connect](https://atcoder.jp/contests/abc352/tasks/abc352_e)
+
+### 重み付きUF
+
 - [ABC280 F - Pay or Receive](https://atcoder.jp/contests/abc280/tasks/abc280_f)
 
 ```rust
