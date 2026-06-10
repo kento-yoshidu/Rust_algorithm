@@ -1,4 +1,4 @@
-pub mod a_three_threes;
-pub mod b_pentagon;
-pub mod c_repunit_trio;
+pub mod a;
+pub mod b;
+pub mod c;
 pub mod d;
