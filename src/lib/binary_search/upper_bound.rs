@@ -14,7 +14,7 @@ pub fn upper_bound<T: Ord>(vec: &[T], value: T) -> usize {
 
 // upper_boundの拡張
 // n以下の最大の数を返す
-fn max_under_n<T: Ord>(vec: &[T], value: T) -> Option<usize> {
+pub fn max_under_n<T: Ord>(vec: &[T], value: T) -> Option<usize> {
     vec.binary_search_by(|x| {
         if *x <= value {
             Ordering::Less

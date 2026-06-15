@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc294/tasks/abc294_e
 
-pub fn run(_l: usize, n1: usize, n2: usize, vl1: Vec<(usize, usize)>, vl2: Vec<(usize, usize)>) -> usize {
+fn run(_l: usize, n1: usize, n2: usize, vl1: Vec<(usize, usize)>, vl2: Vec<(usize, usize)>) -> usize {
     let mut ans = 0;
 
     let mut c1_index = 0;
@@ -61,7 +61,7 @@ mod tests {
     struct TestCase(usize, usize, usize, Vec<(usize, usize)>, Vec<(usize, usize)>, usize);
 
     #[test]
-    fn test() {
+    fn abc294_e() {
         let tests = [
             TestCase(8, 4, 3, vec![(1, 2), (3, 2), (2, 3), (3, 1)], vec![(1, 4), (2, 1), (3, 3)], 4),
             TestCase(10000000000, 1, 1, vec![(1, 10000000000)], vec![(1, 10000000000)], 10000000000),
