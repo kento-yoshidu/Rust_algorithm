@@ -2,7 +2,7 @@
 
 use std::collections::VecDeque;
 
-pub fn run(n: usize, _q: usize, vec: Vec<(&str, &str)>) -> Vec<(isize, isize)> {
+fn run(n: usize, _q: usize, query: Vec<(&str, &str)>) -> Vec<(isize, isize)> {
     let mut pos = VecDeque::new();
     let mut ans = Vec::new();
 
@@ -10,7 +10,7 @@ pub fn run(n: usize, _q: usize, vec: Vec<(&str, &str)>) -> Vec<(isize, isize)> {
         pos.push_back((i as isize, 0));
     }
 
-    for (t0, t1) in vec {
+    for (t0, t1) in query {
         match t0 {
             "1" => {
                 let mut p = pos[0];
@@ -51,8 +51,16 @@ pub fn run(n: usize, _q: usize, vec: Vec<(&str, &str)>) -> Vec<(isize, isize)> {
 mod tests {
     use super::*;
 
+    struct TestCase(usize, usize, Vec<(&'static str, &'static str)>, Vec<(isize, isize)>);
+
     #[test]
-    fn test() {
-        assert_eq!(vec![(3, 0), (2, 0), (1, 1), (1, 0), (1, 0)], run(5, 9, vec![("2", "3"), ("1", "U"), ("2", "3"), ("1", "R"), ("1", "D"), ("2", "3"), ("1", "L"), ("2", "1"), ("2", "5")]));
+    fn abc335_c() {
+        let tests = [
+            TestCase(5, 9, vec![("2", "3"), ("1", "U"), ("2", "3"), ("1", "R"), ("1", "D"), ("2", "3"), ("1", "L"), ("2", "1"), ("2", "5")], vec![(3, 0), (2, 0), (1, 1), (1, 0), (1, 0)]),
+        ];
+
+        for TestCase(n, q, vec, expected) in tests {
+            assert_eq!(run(n, q, vec), expected);
+        }
     }
 }
