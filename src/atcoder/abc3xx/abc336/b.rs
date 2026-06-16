@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc336/tasks/abc336_b
 
-pub fn run(n: usize) -> usize {
+fn run(n: usize) -> usize {
     let s = format!("{:b}", n);
 
     let mut ans = 0;
@@ -26,7 +26,7 @@ fn calc(mut vec: Vec<char>, count: usize) -> usize {
     }
 }
 
-pub fn run2(n: usize) -> usize {
+fn run2(n: usize) -> usize {
     let s = format!("{:b}", n);
     let vec: Vec<char> = s.chars().rev().collect();
 
@@ -40,7 +40,7 @@ mod tests {
     struct TestCase(usize, usize);
 
     #[test]
-    fn test() {
+    fn abc336_b() {
         let tests = [
             TestCase(2024, 3),
             TestCase(18, 1),
