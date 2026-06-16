@@ -22,7 +22,7 @@ mod tests {
     struct TestCase(usize, isize, Vec<isize>, &'static str);
 
     #[test]
-    fn test() {
+    fn abc296_c() {
         let tests = [
             TestCase(6, 5, vec![3, 1, 4, 1, 5, 9], "Yes"),
             TestCase(6, -4, vec![-2, -7, -1, -8, -2, -8], "No"),
