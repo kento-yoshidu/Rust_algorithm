@@ -1,11 +1,11 @@
 // https://atcoder.jp/contests/abc338/tasks/abc338_a
 
-pub fn run(s: &str) -> &'static str {
+fn run(s: &str) -> &'static str {
     if s.len() == 1 {
         if s.chars().nth(0).unwrap().is_uppercase() {
-            return "Yes"
+            return "Yes";
         } else {
-            return "No"
+            return "No";
         }
     }
 
@@ -16,6 +16,22 @@ pub fn run(s: &str) -> &'static str {
     }
 }
 
+fn run2(s: &str) -> &'static str {
+    if s.chars()
+        .enumerate()
+        .all(|(i, c)| {
+            if i == 0 {
+                c.is_uppercase()
+            } else {
+                c.is_lowercase()
+            }
+        }) {
+            "Yes"
+        } else {
+            "No"
+        }
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -23,7 +39,7 @@ mod tests {
     struct TestCase(&'static str, &'static str);
 
     #[test]
-    fn test() {
+    fn abc338_a() {
         let tests = [
             TestCase("Capitalized", "Yes"),
             TestCase("AtCoder", "No"),
@@ -34,6 +50,7 @@ mod tests {
 
         for TestCase(s, expected) in tests {
             assert_eq!(run(s), expected);
+            assert_eq!(run2(s), expected);
         }
     }
 }
