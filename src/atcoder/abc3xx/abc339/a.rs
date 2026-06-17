@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc339/tasks/abc339_a
 
-pub fn run<'a>(s: &'a str) -> &'a str {
+fn run<'a>(s: &'a str) -> &'a str {
     &s.split(".").last().unwrap()
 }
 
@@ -11,7 +11,7 @@ mod tests {
     struct TestCase(&'static str, &'static str);
 
     #[test]
-    fn test() {
+    fn abc339_a() {
         let tests = [
             TestCase("atcoder.jp", "jp"),
             TestCase("translate.google.com", "com"),
