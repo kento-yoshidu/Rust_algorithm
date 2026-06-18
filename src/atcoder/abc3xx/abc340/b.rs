@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc340/tasks/abc340_b
 
-pub fn run(_q: usize, query: Vec<(usize, usize)>) -> Vec<usize> {
+fn run(_q: usize, query: Vec<(usize, usize)>) -> Vec<usize> {
     let mut vec = Vec::new();
     let mut ans = Vec::new();
 
@@ -22,7 +22,7 @@ mod tests {
     struct TestCase(usize, Vec<(usize, usize)>, Vec<usize>);
 
     #[test]
-    fn test() {
+    fn abc340_b() {
         let tests = [
             TestCase(5, vec![(1, 20), (1, 30), (2, 1), (1, 40), (2, 3)], vec![30, 20]),
         ];
