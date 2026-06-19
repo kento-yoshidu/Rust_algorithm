@@ -2,7 +2,7 @@
 
 use itertools::Itertools;
 
-pub fn run(n: usize, k: usize, a: Vec<usize>) -> &'static str {
+fn run(n: usize, k: usize, a: Vec<usize>) -> &'static str {
     let (l, r) = a.split_at(n/2);
 
     let mut p: Vec<usize> = Vec::new();
@@ -42,7 +42,7 @@ mod tests {
     struct TestCase(usize, usize, Vec<usize>, &'static str);
 
     #[test]
-    fn test() {
+    fn tessoku_b14() {
         let tests = [
             TestCase(6, 30, vec![5, 1, 18, 7, 2, 9], "Yes"),
             TestCase(1, 648, vec![648], "Yes"),
