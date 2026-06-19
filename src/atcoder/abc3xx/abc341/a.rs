@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc341/tasks/abc341_a
 
-pub fn run(n: usize) -> String {
+fn run(n: usize) -> String {
     format!("{}1", "10".repeat(n))
 }
 
@@ -11,7 +11,7 @@ mod tests {
     struct TestCase(usize, &'static str);
 
     #[test]
-    fn test() {
+    fn abc341_a() {
         let tests = [
             TestCase(4, "101010101"),
             TestCase(1, "101"),
