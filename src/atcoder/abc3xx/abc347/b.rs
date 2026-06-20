@@ -2,7 +2,7 @@
 
 use std::collections::HashSet;
 
-pub fn run(s: &str) -> usize {
+fn run(s: &str) -> usize {
     let mut hash_set = HashSet::new();
 
     for i in 0..s.len() {
@@ -21,7 +21,7 @@ mod tests {
     struct TestCase(&'static str, usize);
 
     #[test]
-    fn test() {
+    fn abc347_b() {
         let tests = [
             TestCase("yay", 5),
             TestCase("aababc", 17),
