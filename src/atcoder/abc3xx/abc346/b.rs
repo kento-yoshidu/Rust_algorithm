@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc346/tasks/abc346_b
 
-pub fn run(w: usize, b: usize) -> &'static str {
+fn run(w: usize, b: usize) -> &'static str {
     let str = "wbwbwwbwbwbw".repeat(w+b);
     let vec: Vec<char> = str.chars().collect();
 
@@ -23,7 +23,7 @@ mod tests {
     struct TestCase(usize, usize, &'static str);
 
     #[test]
-    fn test() {
+    fn abc346_b() {
         let tests = [
             TestCase(3, 2, "Yes"),
             TestCase(3, 0, "No"),

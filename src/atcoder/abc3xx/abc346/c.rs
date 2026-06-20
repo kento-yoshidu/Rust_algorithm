@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc346/tasks/abc346_c
 
-pub fn run(_n: usize, k: usize, a: Vec<usize>) -> usize {
+fn run(_n: usize, k: usize, a: Vec<usize>) -> usize {
     let mut total = k * (k + 1) / 2;
 
     let mut vec = a.clone();
@@ -25,7 +25,7 @@ mod tests {
     struct TestCase(usize, usize, Vec<usize>, usize);
 
     #[test]
-    fn test() {
+    fn abc346_c() {
         let tests = [
             TestCase(4, 5, vec![1, 6, 3, 1], 11),
             TestCase(1, 3, vec![346], 6),
