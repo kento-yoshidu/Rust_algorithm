@@ -1,6 +1,6 @@
 // https://onlinejudge.u-aizu.ac.jp/courses/lesson/2/ITP1/5/ITP1_5_C
 
-pub fn run(hw: Vec<(usize, usize)>) -> Vec<Vec<String>> {
+fn run(hw: Vec<(usize, usize)>) -> Vec<Vec<String>> {
     let mut ans = Vec::new();
 
     for (h, w) in hw {
