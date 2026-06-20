@@ -1,3 +1,4 @@
-pub mod a_atcoder_substr;
-pub mod b_nice_grid;
-pub mod d_redocta_swap;
+pub mod a;
+pub mod b;
+pub mod d;
+pub mod e;
