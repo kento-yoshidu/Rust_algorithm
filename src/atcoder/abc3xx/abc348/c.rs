@@ -3,7 +3,7 @@
 use std::cmp::min;
 use std::collections::HashMap;
 
-pub fn run(_n: usize, ac: Vec<(usize, usize)>) -> usize {
+fn run(_n: usize, ac: Vec<(usize, usize)>) -> usize {
     let mut hash_map = HashMap::new();
 
     for (a, c) in ac.iter() {
@@ -23,7 +23,7 @@ mod tests {
     struct TestCase(usize, Vec<(usize, usize)>, usize);
 
     #[test]
-    fn test() {
+    fn abc348_c() {
         let tests = [
             TestCase(4, vec![(100, 1), (20, 5), (30, 5), (40, 1)], 40),
             TestCase(10, vec![(68, 3), (17, 2), (99, 2), (92, 4), (82, 4), (10, 3), (100, 2), (78, 1), (3, 1), (35, 4)], 35),

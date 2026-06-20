@@ -1,3 +1,3 @@
-pub mod a_penalty_kick;
-pub mod b_farthest_point;
-pub mod c_colorful_beans;
+pub mod a;
+pub mod b;
+pub mod c;
