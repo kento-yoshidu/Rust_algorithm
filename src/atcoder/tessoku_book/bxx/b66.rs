@@ -2,7 +2,7 @@
 
 use library::lib::graph::union_find::UnionFind;
 
-pub fn run(n: usize, m: usize, ab: Vec<(usize, usize)>, q: usize, query: Vec<(usize, usize, Option<usize>)>) -> Vec<&'static str> {
+fn run(n: usize, m: usize, ab: Vec<(usize, usize)>, _q: usize, query: Vec<(usize, usize, Option<usize>)>) -> Vec<&'static str> {
     let mut removed = vec![false; m + 1];
 
     for (q, x, _) in query.iter() {

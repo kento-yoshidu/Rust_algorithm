@@ -1,8 +1,7 @@
 // https://atcoder.jp/contests/abc300/tasks/abc300_a
 
-fn run(_n: usize, a: usize, b: usize, vec: Vec<usize>) -> usize {
-    vec
-        .into_iter()
+fn run(_n: usize, a: usize, b: usize, c: Vec<usize>) -> usize {
+    c.into_iter()
         .position(|x| x == a+b)
         .unwrap() + 1
 }
@@ -14,7 +13,7 @@ mod tests {
     struct TestCase(usize, usize, usize, Vec<usize>, usize);
 
     #[test]
-    fn test() {
+    fn abc300_a() {
         let tests = [
             TestCase(3, 125, 175, vec![200, 300, 400], 2),
             TestCase(1, 1, 1, vec![2], 1),
