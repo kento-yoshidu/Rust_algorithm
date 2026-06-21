@@ -2,7 +2,7 @@
 
 use std::collections::HashMap;
 
-pub fn run(s: &str) -> &'static str {
+fn run(s: &str) -> &'static str {
     let chars: Vec<char> = s.chars().collect();
     let mut hash_map = HashMap::new();
 
@@ -33,7 +33,7 @@ mod tests {
     struct TestCase(&'static str, &'static str);
 
     #[test]
-    fn test() {
+    fn abc349_b() {
         let tests = [
             TestCase("commencement", "Yes"),
             TestCase("banana", "No"),
