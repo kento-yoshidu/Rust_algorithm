@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc351/tasks/abc351_b
 
-pub fn run(_n: usize, a: Vec<&str>, b: Vec<&str>) -> (usize, usize) {
+fn run(_n: usize, a: Vec<&str>, b: Vec<&str>) -> (usize, usize) {
     let a_vec: Vec<Vec<char>> = a.iter().map(|str| str.chars().collect()).collect();
     let b_vec: Vec<Vec<char>> = b.iter().map(|str| str.chars().collect()).collect();
 
@@ -22,7 +22,7 @@ mod tests {
     struct TestCase(usize, Vec<&'static str>, Vec<&'static str>, (usize, usize));
 
     #[test]
-    fn test() {
+    fn abc351_b() {
         let tests = [
             TestCase(3, vec!["abc", "def", "ghi"], vec!["abc", "bef", "ghi"], (2, 1)),
             TestCase(1, vec!["f"], vec!["q"], (1, 1)),
