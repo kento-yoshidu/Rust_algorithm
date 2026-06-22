@@ -21,3 +21,4 @@ pub mod itp1_5_d;
 pub mod itp1_6_a;
 pub mod itp1_6_b;
 pub mod itp1_6_c;
+pub mod itp1_6_d;

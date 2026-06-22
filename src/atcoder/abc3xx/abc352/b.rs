@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc349/tasks/abc352_b
 
-pub fn run(s: &str, t: &str) -> Vec<usize> {
+fn run(s: &str, t: &str) -> Vec<usize> {
     let mut ans = Vec::new();
 
     // chars().nth()は低速
@@ -25,7 +25,7 @@ mod tests {
     struct TestCase(&'static str, &'static str, Vec<usize>);
 
     #[test]
-    fn test() {
+    fn abc352_b() {
         let tests = [
             TestCase("abc", "axbxyc", vec![1, 3, 6]),
             TestCase("aaaa", "bbbbaaaa", vec![5, 6, 7, 8]),

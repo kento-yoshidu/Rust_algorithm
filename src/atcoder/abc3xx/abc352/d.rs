@@ -2,7 +2,7 @@
 
 use std::collections::BTreeSet;
 
-pub fn run(n: usize, k: usize, p: Vec<usize>) -> usize {
+fn run(n: usize, k: usize, p: Vec<usize>) -> usize {
     let mut vec = vec![0; n];
 
     for (i, num) in p.iter().enumerate() {
@@ -37,7 +37,7 @@ mod tests {
     struct TestCase(usize, usize, Vec<usize>, usize);
 
     #[test]
-    fn test() {
+    fn abc352_d() {
         let tests = [
             TestCase(4, 2, vec![2, 3, 1, 4], 1),
             TestCase(4, 1, vec![2, 3, 1, 4], 0),
