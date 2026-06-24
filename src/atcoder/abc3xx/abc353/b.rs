@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc353/tasks/abc353_b
 
-pub fn run(_n: usize, k: usize, a: Vec<usize>) -> usize {
+fn run(_n: usize, k: usize, a: Vec<usize>) -> usize {
     let mut ans = 0;
 
     let mut cnt = 0;
@@ -31,7 +31,7 @@ mod tests {
     struct TestCase(usize, usize, Vec<usize>, usize);
 
     #[test]
-    fn test() {
+    fn abc353_b() {
         let tests = [
             TestCase(7, 6, vec![2, 5, 1, 4, 1, 2, 3], 4),
             TestCase(7, 10, vec![1, 10, 1, 10, 1, 10, 1], 7),

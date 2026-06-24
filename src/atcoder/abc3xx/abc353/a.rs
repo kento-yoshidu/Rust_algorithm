@@ -17,7 +17,7 @@ mod tests {
     struct TestCase(usize, Vec<isize>, isize);
 
     #[test]
-    fn test() {
+    fn abc353_a() {
         let tests = [
             TestCase(4, vec![3, 2 ,5 ,2], 3),
             TestCase(3, vec![4, 3, 2], -1),
