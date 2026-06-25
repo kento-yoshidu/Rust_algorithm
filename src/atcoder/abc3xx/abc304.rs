@@ -1,3 +1,3 @@
-pub mod a_first_player;
-pub mod b_subscribers;
+pub mod a;
+pub mod b;
 pub mod e;

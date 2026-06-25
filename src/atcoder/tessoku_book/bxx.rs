@@ -13,3 +13,4 @@ pub mod b36_switching_lights;
 pub mod b51_bracket;
 pub mod b61_influencer;
 pub mod b66;
+pub mod b67;
