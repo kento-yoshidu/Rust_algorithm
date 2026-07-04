@@ -16,7 +16,7 @@ fn run(d: usize, x: isize, a: Vec<isize>, _q: usize, st: Vec<(usize, usize)>) ->
             } else if acc[s-1] < acc[t-1] {
                 t.to_string()
             } else {
-                "SAME".to_string()
+                "Same".to_string()
             }
         })
         .collect()
