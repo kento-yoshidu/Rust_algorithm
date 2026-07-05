@@ -1,7 +1,10 @@
 {
   "permissions": {
     "allow": [
-      "Bash(cargo test *)"
+      "Bash(cargo test *)",
+      "Bash(cargo build *)",
+      "WebFetch(domain:atcoder.jp)",
+      "Bash(cargo run *)"
     ]
   }
 }
