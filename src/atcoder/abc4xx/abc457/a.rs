@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc457/tasks/abc457_a
 
-fn run(n: usize, a: Vec<usize>, x: usize) -> usize {
+fn run(_n: usize, a: Vec<usize>, x: usize) -> usize {
     a[x-1]
 }
 
