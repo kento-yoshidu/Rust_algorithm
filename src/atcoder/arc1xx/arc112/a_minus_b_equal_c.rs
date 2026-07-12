@@ -4,7 +4,7 @@ fn calc(a: usize, b: usize) -> usize {
     (a + b) * (b - a + 1) / 2
 }
 
-pub fn run(_t: usize, lr: Vec<(usize, usize)>) -> Vec<usize> {
+fn run(_t: usize, lr: Vec<(usize, usize)>) -> Vec<usize> {
     let mut ans = Vec::new();
 
     for (l, r) in lr.into_iter() {

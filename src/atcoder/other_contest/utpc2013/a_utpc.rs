@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/utpc2013/tasks/utpc2013_01
 
-pub fn run(s: &str) -> &'static str {
+fn run(s: &str) -> &'static str {
     let mut vec = Vec::new();
 
     for c in s.chars() {

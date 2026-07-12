@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/hhkb2020/tasks/hhkb2020_a
 
-pub fn run(s: char, t: char) -> String {
+fn run(s: char, t: char) -> String {
     if s == 'Y' {
         t.to_uppercase().to_string()
     } else {

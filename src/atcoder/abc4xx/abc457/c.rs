@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc457/tasks/abc457_c
 
-pub fn run(_n: usize, k: usize, la: Vec<(usize, Vec<usize>)>, c: Vec<usize>) -> usize {
+fn run(_n: usize, k: usize, la: Vec<(usize, Vec<usize>)>, c: Vec<usize>) -> usize {
     let mut sum = 0;
 
     for (i, r) in c.into_iter().enumerate() {
