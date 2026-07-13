@@ -7,7 +7,7 @@ pub mod b07_convenience_store_2;
 pub mod b11_binary_search_2;
 pub mod b12_equation;
 pub mod b14;
-pub mod b16_flog_1;
+pub mod b16;
 // pub mod b17_flog_1_with_restoration;
 pub mod b36_switching_lights;
 pub mod b51_bracket;
