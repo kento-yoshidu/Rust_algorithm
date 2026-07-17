@@ -1,20 +1,14 @@
 # Rust_algorithm
 
-## AtCoder Template
-
-## 改善が必要
-
-- ABC001 D - 感雨時刻の整理
-
-## memo
-
-[Why chars().nth(index).unwrap() is so slow?](https://www.reddit.com/r/rust/comments/tbsffu/why_charsnthindexunwrap_is_so_slow/?rdt=43355)
-
-## Not AC
+## Todo
 
 ### BFS
 
 - [ABC226 C - Martial artist](https://atcoder.jp/contests/abc226/tasks/abc226_c)
+
+### DP
+
+- [ABC291 D - Flip Cards](https://atcoder.jp/contests/abc291/tasks/abc291_d)
 
 ### ナップサック
 
@@ -43,6 +37,10 @@
 ### 重み付きUF
 
 - [ABC280 F - Pay or Receive](https://atcoder.jp/contests/abc280/tasks/abc280_f)
+
+## 改善が必要
+
+- ABC001 D - 感雨時刻の整理
 
 ### 見直し
 
