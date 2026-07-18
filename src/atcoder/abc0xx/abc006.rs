@@ -1,2 +1,2 @@
-pub mod a_fizzbuzz;
-pub mod b_tribonacci_sequence;
+pub mod a;
+pub mod b;
