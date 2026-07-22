@@ -4,7 +4,8 @@
       "Bash(cargo test *)",
       "Bash(cargo build *)",
       "WebFetch(domain:atcoder.jp)",
-      "Bash(cargo run *)"
+      "Bash(cargo run *)",
+      "WebFetch(domain:onlinejudge.u-aizu.ac.jp)"
     ]
   }
 }

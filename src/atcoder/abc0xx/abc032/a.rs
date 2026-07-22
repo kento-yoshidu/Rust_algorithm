@@ -1,9 +1,11 @@
 // https://atcoder.jp/contests/abc032/tasks/abc032_a
 
-pub fn run(a: usize, b: usize, n: usize) -> usize {
-    (n..).find(|i| {
-        *i % a == 0 && *i % b == 0
-    }).unwrap()
+fn run(a: usize, b: usize, n: usize) -> usize {
+    (n..)
+        .find(|i| {
+            *i % a == 0 && *i % b == 0
+        })
+        .unwrap()
 }
 
 #[cfg(test)]
@@ -13,7 +15,7 @@ mod tests {
     struct TestCase(usize, usize, usize, usize);
 
     #[test]
-    fn test() {
+    fn abc032_a() {
         let tests = [
             TestCase(2, 3, 8, 12),
             TestCase(2, 2, 2, 2),
