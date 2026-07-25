@@ -8,9 +8,7 @@ fn run(_n: usize, l: usize, w: usize, d: Vec<usize>) -> usize {
 
 #[cfg(test)]
 mod tests {
-    use std::assert_eq;
-
-use super::*;
+    use super::*;
 
     struct TestCase(usize, usize, usize, Vec<usize>, usize);
 

@@ -1,12 +1,12 @@
 // https://atcoder.jp/contests/abc010/tasks/abc010_3
 
-pub fn run(txa: isize, tya: isize, txb: isize, tyb: isize, t: usize, v: usize, _n: usize, xy: Vec<(isize, isize)>) -> &'static str {
+fn run(txa: isize, tya: isize, txb: isize, tyb: isize, t: usize, v: usize, _n: usize, xy: Vec<(isize, isize)>) -> &'static str {
     for (x, y) in xy {
         let a = (((x - txa).pow(2) + (y - tya).pow(2)) as f64).sqrt();
         let b = (((x - txb).pow(2) + (y - tyb).pow(2)) as f64).sqrt();
 
         if a + b <= (t * v) as f64 {
-            return "YES"
+            return "YES";
         }
     }
 
@@ -20,7 +20,7 @@ mod tests {
     struct TestCase(isize, isize, isize, isize, usize, usize, usize, Vec<(isize, isize)>, &'static str);
 
     #[test]
-    fn test() {
+    fn abc010_c() {
         let tests = [
             TestCase(1, 1, 8, 2, 2, 4, 1, vec![(4, 5)], "NO"),
             TestCase(1, 1, 8, 2, 2, 6, 1, vec![(4, 5)], "YES"),
@@ -31,6 +31,5 @@ mod tests {
         for TestCase(txa, tya, txb, tyb, t, v, n, xy, expected) in tests {
             assert_eq!(expected, run(txa, tya, txb, tyb, t, v, n, xy));
         }
-
     }
 }
