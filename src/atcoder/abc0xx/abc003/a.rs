@@ -11,9 +11,11 @@ fn run(n: usize) -> usize {
 }
 
 fn run2(n: usize) -> usize {
-    (1..=n).map(|num| {
-        num * 10000
-    }).sum::<usize>() / n
+    (1..=n)
+        .map(|num| {
+            num * 10000
+        })
+        .sum::<usize>() / n
 }
 
 #[cfg(test)]
@@ -23,7 +25,7 @@ mod tests {
     struct TestCase(usize, usize);
 
     #[test]
-    fn test() {
+    fn abc003_a() {
         let tests = [
             TestCase(6, 35000),
             TestCase(91, 460000),
