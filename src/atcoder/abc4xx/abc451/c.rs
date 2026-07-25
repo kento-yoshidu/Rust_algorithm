@@ -3,7 +3,7 @@
 use std::cmp::Reverse;
 use std::collections::BinaryHeap;
 
-fn run(q: usize, query: Vec<(usize, usize)>) -> Vec<usize> {
+fn run(_q: usize, query: Vec<(usize, usize)>) -> Vec<usize> {
     let mut queue = BinaryHeap::new();
 
     query.into_iter()
