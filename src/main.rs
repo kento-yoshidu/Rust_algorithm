@@ -2,6 +2,7 @@
 
 mod aoj;
 mod atcoder;
+mod cses;
 // mod paiza;
 // mod dp;
 // mod basic;

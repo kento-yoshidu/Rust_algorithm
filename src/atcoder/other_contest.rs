@@ -49,6 +49,7 @@ pub mod panasonic2020;
 pub mod past202206;
 pub mod soundhound2018_summer_qual;
 pub mod sumitrust2019;
+pub mod tdpc;
 pub mod tenka1_2012_qual_b;
 pub mod tenka1_2012_quala;
 pub mod tenka1_2013_quala;
