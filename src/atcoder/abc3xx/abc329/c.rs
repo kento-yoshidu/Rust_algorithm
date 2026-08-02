@@ -2,7 +2,7 @@
 
 use std::collections::HashMap;
 
-pub fn run(n: usize, s: &str) -> usize {
+fn run(n: usize, s: &str) -> usize {
     let chars: Vec<char> = s.chars().collect();
 
     let mut hashmap = HashMap::new();
@@ -31,10 +31,18 @@ pub fn run(n: usize, s: &str) -> usize {
 mod tests {
     use super::*;
 
+    struct TestCase(usize, &'static str, usize);
+
     #[test]
-    fn test() {
-        assert_eq!(4, run(6, "aaabaa"));
-        assert_eq!(1, run(1, "x"));
-        assert_eq!(8, run(12, "ssskkyskkkky"));
+    fn abc329_c() {
+        let tests = [
+            TestCase(6, "aaabaa", 4),
+            TestCase(1, "x", 1),
+            TestCase(12, "ssskkyskkkky", 8),
+        ];
+
+        for TestCase(n, s, expected) in tests {
+            assert_eq!(run(n, s), expected);
+        }
     }
 }
