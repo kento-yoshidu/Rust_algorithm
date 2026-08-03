@@ -2,7 +2,7 @@
 
 use itertools::iproduct;
 
-pub fn run(n: usize, s: usize, m: usize, l: usize) -> usize {
+fn run(n: usize, s: usize, m: usize, l: usize) -> usize {
     let mut ans = std::usize::MAX;
 
     for i in 0..=100 {
@@ -26,7 +26,7 @@ pub fn run(n: usize, s: usize, m: usize, l: usize) -> usize {
     ans
 }
 
-pub fn run2(n: usize, s: usize, m: usize, l: usize) -> usize {
+fn run2(n: usize, s: usize, m: usize, l: usize) -> usize {
     let mut ans = std::usize::MAX;
 
     for (i, j, k) in iproduct!(0..=100, 0..=100, 0..=100) {
@@ -42,17 +42,19 @@ pub fn run2(n: usize, s: usize, m: usize, l: usize) -> usize {
 mod tests {
     use super::*;
 
-    #[test]
-    fn test() {
-        assert_eq!(300, run(16, 120,  150, 200));
-        assert_eq!(10, run(10, 100, 50, 10));
-        assert_eq!(10000, run(99, 600, 800, 1200));
-    }
+    struct TestCase(usize, usize, usize, usize, usize);
 
     #[test]
-    fn test2() {
-        assert_eq!(300, run2(16, 120,  150, 200));
-        assert_eq!(10, run2(10, 100, 50, 10));
-        assert_eq!(10000, run2(99, 600, 800, 1200));
+    fn abc331_b() {
+        let tests = [
+            TestCase(16, 120,  150, 200, 300),
+            TestCase(10, 100, 50, 10, 10),
+            TestCase(99, 600, 800, 1200, 10000),
+        ];
+
+        for TestCase(n, s, m, l, expected) in tests {
+            assert_eq!(run(n, s, m, l), expected);
+            assert_eq!(run2(n, s, m, l), expected);
+        }
     }
 }
