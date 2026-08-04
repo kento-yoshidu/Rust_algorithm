@@ -7,7 +7,7 @@ fn run(s: &str, _n: usize, l: Vec<(usize, usize)>) -> String {
         chars[l-1..=r-1].reverse();
     }
 
-    chars.iter().collect()
+    chars.into_iter().collect()
 }
 
 #[cfg(test)]
@@ -17,7 +17,7 @@ mod tests {
     struct TestCase(&'static str, usize, Vec<(usize, usize)>, &'static str);
 
     #[test]
-    fn test() {
+    fn abc018_b() {
         let tests = [
             TestCase("abcdef", 2, vec![(3, 5), (1, 4)], "debacf"),
             TestCase("redcoat", 3, vec![(1, 7), (1, 2), (3, 4)], "atcoder"),
