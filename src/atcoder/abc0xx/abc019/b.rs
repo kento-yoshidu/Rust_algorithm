@@ -21,7 +21,7 @@ fn run_length(s: Vec<char>) -> Vec<(char, usize)> {
 fn run(s: &str) -> String {
     let rle = run_length(s.chars().collect());
 
-    rle.iter()
+    rle.into_iter()
         .map(|(c, i)| {
             format!("{}{}", c, i)
         })
@@ -35,7 +35,7 @@ mod tests {
     struct TestCase(&'static str, &'static str);
 
     #[test]
-    fn test() {
+    fn abc019_b() {
         let tests = [
             TestCase("aabbbaad", "a2b3a2d1"),
             TestCase("aabbbbbbbbbbbbxyza", "a2b12x1y1z1a1"),
