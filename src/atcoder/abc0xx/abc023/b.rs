@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc023/tasks/abc023_b
 
-pub fn run(n: usize, s: String) -> isize {
+fn run(n: usize, s: &str) -> isize {
     let n = n / 2;
 
     let mut str = String::from("b");
@@ -10,7 +10,7 @@ pub fn run(n: usize, s: String) -> isize {
             0 => str = format!("b{}b", str),
             1 => str = format!("a{}c", str),
             2 => str = format!("c{}a", str),
-            _ => println!("{}", s),
+            _ => unreachable!(),
         }
     }
 
@@ -25,16 +25,16 @@ pub fn run(n: usize, s: String) -> isize {
 mod tests {
     use super::*;
 
-    struct TestCase(usize, String, isize);
+    struct TestCase(usize, &'static str, isize);
 
     #[test]
     fn test() {
         let tests = [
-            TestCase(3, String::from("abc"), 1),
-            TestCase(6, String::from("abcabc"), -1),
-            TestCase(7, String::from("atcoder"), -1),
-            TestCase(19, String::from("bcabcabcabcabcabcab"), 9),
-            TestCase(1, String::from("b"), 0),
+            TestCase(3, "abc", 1),
+            TestCase(6, "abcabc", -1),
+            TestCase(7, "atcoder", -1),
+            TestCase(19, "bcabcabcabcabcabcab", 9),
+            TestCase(1, "b", 0),
         ];
 
         for TestCase(n, s, expected) in tests {
