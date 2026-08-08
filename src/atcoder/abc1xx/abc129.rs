@@ -1,2 +1,3 @@
-pub mod a_airplane;
-pub mod b_balance;
+pub mod a;
+pub mod b;
+pub mod c;
