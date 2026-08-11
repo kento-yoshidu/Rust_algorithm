@@ -3,7 +3,7 @@
 
 use itertools::Itertools;
 
-pub fn run(n: usize) -> usize {
+fn run(n: usize) -> usize {
     let vec: Vec<usize> =
         (1..=12)
             .map(|i| {
@@ -11,7 +11,7 @@ pub fn run(n: usize) -> usize {
             })
             .collect();
 
-    vec.iter()
+    vec.into_iter()
         .combinations_with_replacement(3)
         .map(|arr| arr.into_iter().sum::<usize>())
         .sorted()
@@ -23,10 +23,18 @@ pub fn run(n: usize) -> usize {
 mod tests {
     use super::*;
 
+    struct TestCase(usize, usize);
+
     #[test]
-    fn test() {
-        assert_eq!(113, run(5));
-        assert_eq!(2333, run(19));
-        assert_eq!(112222222233, run(333));
+    fn abc333_c() {
+        let tests = [
+            TestCase(5, 113),
+            TestCase(19, 2333),
+            TestCase(333, 112222222233),
+        ];
+
+        for TestCase(n, expected) in tests {
+            assert_eq!(run(n), expected);
+        }
     }
 }
