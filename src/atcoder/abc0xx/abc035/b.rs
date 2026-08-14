@@ -52,5 +52,3 @@ mod tests {
         }
     }
 }
-
-// https://kenkoro.hatenablog.com/entry/2019/04/15/070655
