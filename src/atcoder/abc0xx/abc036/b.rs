@@ -3,7 +3,7 @@
 fn run(n: usize, s: Vec<&str>) -> Vec<String> {
     let mut ans = vec![vec![' '; n]; n];
 
-    s.iter()
+    s.into_iter()
         .enumerate()
         .for_each(|(i, str)| {
             str.chars()
@@ -13,9 +13,9 @@ fn run(n: usize, s: Vec<&str>) -> Vec<String> {
             })
         });
 
-    ans.iter()
+    ans.into_iter()
         .map(|chars| {
-            chars.iter()
+            chars.into_iter()
                 .collect()
         })
         .collect()
@@ -28,7 +28,7 @@ mod tests {
     struct TestCase(usize, Vec<&'static str>, Vec<&'static str>);
 
     #[test]
-    fn test() {
+    fn abc036_b() {
         let tests = [
             TestCase(4, vec!["ooxx", "xoox", "xxxx", "xxxx"], vec!["xxxo", "xxoo", "xxox", "xxxx"]),
         ];
