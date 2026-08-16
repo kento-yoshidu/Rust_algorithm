@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc335/tasks/abc335_d
 
-pub fn run(n: isize) -> Vec<Vec<String>> {
+fn run(n: isize) -> Vec<Vec<String>> {
     let mut ans = vec![vec!["0".to_string(); n as usize]; n as usize];
 
     let mut pos: (isize, isize) = (0, 0);
@@ -31,8 +31,16 @@ pub fn run(n: isize) -> Vec<Vec<String>> {
 mod tests {
     use super::*;
 
+    struct TestCase(isize, Vec<Vec<&'static str>>);
+
     #[test]
-    fn test() {
-        assert_eq!(vec![vec!["1", "2", "3", "4", "5"], vec!["16", "17", "18", "19", "6"], vec!["15", "24", "T", "20", "7"], vec!["14", "23", "22", "21", "8"], vec!["13", "12", "11", "10", "9"]], run(5));
+    fn abc335_d() {
+        let tests = [
+            TestCase(5, vec![vec!["1", "2", "3", "4", "5"], vec!["16", "17", "18", "19", "6"], vec!["15", "24", "T", "20", "7"], vec!["14", "23", "22", "21", "8"], vec!["13", "12", "11", "10", "9"]]),
+        ];
+
+        for TestCase(n, expected) in tests {
+            assert_eq!(run(n), expected);
+        }
     }
 }

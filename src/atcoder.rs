@@ -7,6 +7,7 @@ pub mod agc0xx;
 pub mod arc0xx;
 pub mod arc1xx;
 pub mod atc;
+pub mod awc00xx;
 // pub mod educational_dp;
 pub mod joi;
 pub mod math_and_algorithm;
