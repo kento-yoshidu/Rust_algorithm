@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc336/tasks/abc336_a
 
-pub fn run(n: usize) -> String {
+fn run(n: usize) -> String {
     format!("L{}ng", "o".repeat(n))
 }
 
@@ -11,7 +11,7 @@ mod tests {
     struct TestCase(usize, &'static str);
 
     #[test]
-    fn test() {
+    fn abc336_a() {
         let tests = [
             TestCase(3, "Looong"),
             TestCase(1, "Long"),

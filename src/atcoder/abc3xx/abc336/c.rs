@@ -9,7 +9,7 @@ fn calc(num: usize, mut result: Vec<usize>) -> Vec<usize> {
     }
 }
 
-pub fn run(n: usize) -> usize {
+fn run(n: usize) -> usize {
     let mut vec = calc(n-1, Vec::new());
 
     vec.reverse();
@@ -27,7 +27,7 @@ mod tests {
     struct TestCase(usize, usize);
 
     #[test]
-    fn test() {
+    fn abc336_c() {
         let tests = [
             TestCase(8, 24),
             TestCase(133, 2024),
