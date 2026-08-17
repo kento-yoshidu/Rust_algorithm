@@ -1,1 +1,1 @@
-pub mod a_scoreboard;
+pub mod a;

@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc337/tasks/abc337_a
 
-pub fn run(_n: usize, xy: Vec<(usize, usize)>) -> &'static str {
+fn run(_n: usize, xy: Vec<(usize, usize)>) -> &'static str {
     let mut t = 0;
     let mut a = 0;
 
@@ -18,7 +18,7 @@ pub fn run(_n: usize, xy: Vec<(usize, usize)>) -> &'static str {
     }
 }
 
-pub fn run2(_n: usize, xy: Vec<(usize, usize)>) -> &'static str {
+fn run2(_n: usize, xy: Vec<(usize, usize)>) -> &'static str {
     let (t, a) = xy.iter()
         .fold((0, 0), |state, (x, y)| {
             (state.0+x, state.1+y)
@@ -40,7 +40,7 @@ mod tests {
     struct TestCase(usize, Vec<(usize, usize)>, &'static str);
 
     #[test]
-    fn test() {
+    fn abc337_a() {
         let tests = [
             TestCase(4, vec![(10, 2), (10, 1), (10, 2), (3, 2)], "Takahashi"),
             TestCase(6, vec![(5, 4), (4, 5), (2, 4), (1, 6), (7, 1), (3, 2)], "Draw"),
