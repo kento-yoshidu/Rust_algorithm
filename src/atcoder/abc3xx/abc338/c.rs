@@ -2,7 +2,7 @@
 
 use std::cmp::{min, max};
 
-pub fn run(n: usize, q: Vec<usize>, a: Vec<usize>, b: Vec<usize>) -> usize {
+fn run(n: usize, q: Vec<usize>, a: Vec<usize>, b: Vec<usize>) -> usize {
     let mut a_max = std::usize::MAX;
 
     for i in 0..n {
@@ -38,7 +38,7 @@ mod tests {
     struct TestCase(usize, Vec<usize>, Vec<usize>, Vec<usize>, usize);
 
     #[test]
-    fn test() {
+    fn abc338_c() {
         let tests = [
             TestCase(2, vec![800, 300], vec![100, 100], vec![200, 10], 5),
             TestCase(2, vec![800, 300], vec![100, 0], vec![0, 10], 38),

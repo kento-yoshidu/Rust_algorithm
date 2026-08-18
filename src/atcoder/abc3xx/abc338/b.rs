@@ -1,10 +1,9 @@
 // https://atcoder.jp/contests/abc338/tasks/abc338_b
 
 use std::collections::HashMap;
-
 use itertools::Itertools;
 
-pub fn run(s: &str) -> char {
+fn run(s: &str) -> char {
     let mut hash_map = HashMap::new();
 
     for c in s.chars() {
@@ -28,7 +27,7 @@ mod tests {
     struct TestCase(&'static str, char);
 
     #[test]
-    fn test() {
+    fn abc338_b() {
         let tests = [
             TestCase("frequency", 'e'),
             TestCase("atcoder", 'a'),
