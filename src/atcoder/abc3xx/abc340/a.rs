@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc340/tasks/abc340_a
 
-pub fn run(a: usize, b: usize, d: usize) -> Vec<usize> {
+fn run(a: usize, b: usize, d: usize) -> Vec<usize> {
     (a..=b)
         .step_by(d)
         .collect()
@@ -13,7 +13,7 @@ mod tests {
     struct TestCase(usize, usize, usize, Vec<usize>);
 
     #[test]
-    fn test() {
+    fn abc340_a() {
         let tests = [
             TestCase(3, 9, 2, vec![3, 5, 7, 9]),
             TestCase(10, 10, 1, vec![10]),
