@@ -2,7 +2,7 @@
 
 use std::collections::HashSet;
 
-pub fn run(_h: usize, _w: usize, _n: usize, t: &str, s: Vec<&str>) -> usize {
+fn run(_h: usize, _w: usize, _n: usize, t: &str, s: Vec<&str>) -> usize {
     let hash_set: Vec<Vec<char>> = s.iter().map(|str| str.chars().collect()).collect();
 
     let mut ans = HashSet::new();
@@ -44,7 +44,7 @@ mod tests {
     struct TestCase(usize, usize, usize, &'static str, Vec<&'static str>, usize);
 
     #[test]
-    fn test() {
+    fn abc341_c() {
         let tests = [
             TestCase(6, 7, 5, "LULDR", vec!["#######", "#...#.#", "##...##", "#.#...#", "#...#.#", "#######"], 2),
             TestCase(13, 16, 9, "ULURDLURD", vec![ "################", "##..##.#..####.#", "###.#..#.....#.#", "#..##..#####.###", "#...#..#......##", "###.##.#..#....#", "##.#####....##.#", "###.###.#.#.#..#", "######.....##..#", "#...#.#.######.#", "##..###..#..#.##", "#...#.#.#...#..#", "################"], 6),
