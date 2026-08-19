@@ -1,2 +1,2 @@
-pub mod a_hotel;
-pub mod b_beautiful_strings;
+pub mod a;
+pub mod b;
