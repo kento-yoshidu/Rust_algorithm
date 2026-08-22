@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc342/tasks/abc342_c
 
-pub fn run(_n: usize, s: &str, _q: usize, cd: Vec<(char, char)>) -> String {
+fn run(_n: usize, s: &str, _q: usize, cd: Vec<(char, char)>) -> String {
     let mut chars: Vec<char> = s.chars().collect();
 
     let mut alphas: Vec<char> = ('a'..='z').collect();
@@ -17,7 +17,7 @@ pub fn run(_n: usize, s: &str, _q: usize, cd: Vec<(char, char)>) -> String {
         chars[i] = alphas[chars[i] as usize - 'a' as usize];
     }
 
-    chars.iter().collect()
+    chars.into_iter().collect()
 }
 
 #[cfg(test)]
@@ -27,7 +27,7 @@ mod tests {
     struct TestCase(usize, &'static str, usize, Vec<(char, char)>, &'static str);
 
     #[test]
-    fn test() {
+    fn abc342_c() {
         let tests = [
             TestCase(7, "atcoder", 4, vec![('r', 'a'), ('t', 'e'), ('d', 'v'), ('a', 'r')], "recover"),
             TestCase(3, "abc", 4, vec![('a', 'a'), ('s', 'k'), ('n', 'n'), ('z', 'b')], "abc"),

@@ -1,7 +1,7 @@
 // https://atcoder.jp/contests/abc343/tasks/abc343_b
 
 fn run(_n: usize, a: Vec<Vec<usize>>) -> Vec<Vec<usize>> {
-    a.iter()
+    a.into_iter()
         .map(|v| {
             v.iter()
                 .enumerate()
@@ -23,7 +23,7 @@ mod tests {
     struct TestCase(usize, Vec<Vec<usize>>, Vec<Vec<usize>>);
 
     #[test]
-    fn test() {
+    fn abc343_b() {
         let tests = [
             TestCase(4, vec![vec![0, 1, 1, 0], vec![1, 0, 0, 1], vec![1, 0, 0, 0], vec![0, 1, 0, 0]], vec![vec![2, 3], vec![1, 4], vec![1], vec![2]]),
             TestCase(2, vec![vec![0, 0], vec![0, 0]], vec![vec![], vec![]]),

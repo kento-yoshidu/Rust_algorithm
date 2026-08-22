@@ -2,7 +2,7 @@
 
 use std::collections::HashMap;
 
-pub fn run(n: usize, _t: usize, ab: Vec<(usize, usize)>) -> Vec<usize> {
+fn run(n: usize, _t: usize, ab: Vec<(usize, usize)>) -> Vec<usize> {
     let mut cur = vec![0; n];
     let mut hs: HashMap<usize, usize> = HashMap::new();
 
@@ -38,7 +38,7 @@ mod tests {
     struct TestCase(usize, usize, Vec<(usize, usize)>, Vec<usize>);
 
     #[test]
-    fn test() {
+    fn abc343_d() {
         let tests = [
             TestCase(3, 4, vec![(1, 10), (3, 20), (2, 10), (2, 10)], vec![2, 3, 2, 2]),
             TestCase(1, 3, vec![(1, 3), (1, 4), (1, 3)], vec![1, 1, 1]),
