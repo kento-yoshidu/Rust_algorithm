@@ -2,7 +2,7 @@
 
 use std::collections::HashSet;
 
-pub fn run(
+fn run(
     _n: usize,
     a: Vec<usize>,
     _m: usize,
@@ -22,9 +22,9 @@ pub fn run(
         }
     }
 
-    x.iter()
+    x.into_iter()
         .map(|num| {
-            if hs.contains(num) {
+            if hs.contains(&num) {
                 "Yes"
             } else {
                 "No"
@@ -40,7 +40,7 @@ mod tests {
     struct TestCase(usize, Vec<usize>, usize, Vec<usize>, usize, Vec<usize>, usize, Vec<usize>, Vec<&'static str>);
 
     #[test]
-    fn test() {
+    fn abc344_c() {
         let tests = [
             TestCase(3, vec![1, 2, 3], 2, vec![2, 4], 6, vec![1, 2, 4, 8, 16, 32], 4, vec![1, 5, 10, 50], vec!["No", "Yes", "Yes", "No"]),
         ];

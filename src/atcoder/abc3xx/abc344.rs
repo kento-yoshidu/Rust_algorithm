@@ -1,3 +1,3 @@
-pub mod a_spoiler;
-pub mod b_delimiter;
-pub mod c_;
+pub mod a;
+pub mod b;
+pub mod c;
