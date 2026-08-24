@@ -70,3 +70,4 @@ pub mod abc468;
 pub mod abc469;
 pub mod abc470;
 pub mod abc471;
+pub mod abc472;
