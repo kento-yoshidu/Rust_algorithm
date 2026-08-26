@@ -1,2 +1,2 @@
-pub mod a_divisible;
-pub mod b_substring;
+pub mod a;
+pub mod b;
