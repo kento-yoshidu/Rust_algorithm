@@ -6,16 +6,16 @@ fn run(k: usize, s: usize) -> usize {
     for x in 0..=k {
         for y in 0..=k {
             if x + y > s {
-                break
+                break;
             }
 
             if x + y == s {
                 ans += 1;
-                break
+                break;
             }
 
             if (s - x - y) <= k {
-                ans += 1
+                ans += 1;
             }
         }
     }
@@ -30,7 +30,7 @@ mod tests {
     struct TestCase(usize, usize, usize);
 
     #[test]
-    fn test() {
+    fn abc051_b() {
         let tests = [
             TestCase(2, 2, 6),
             TestCase(5, 15, 1),
