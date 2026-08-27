@@ -1,3 +1,3 @@
-pub mod a_one_card_poker;
-pub mod b_template_matching;
+pub mod a;
+pub mod b;
 pub mod c;
