@@ -1,7 +1,10 @@
-// https://atcoder.jp/contests/abc055/tasks/abc055_b
+// https://atcoder.jp/contests/abc055/tasks/abc055_a
 
 fn run(n: usize) -> usize {
-    (1..=n).fold(1, |state, i| { state * i % 1000000007 })
+    let pay = n * 800;
+    let back = (n / 15) * 200;
+
+    pay - back
 }
 
 #[cfg(test)]
@@ -11,11 +14,10 @@ mod tests {
     struct TestCase(usize, usize);
 
     #[test]
-    fn test() {
+    fn abc055_a() {
         let tests = [
-            TestCase(3, 6),
-            TestCase(10, 3628800),
-            TestCase(100000, 457992974),
+            TestCase(20, 15800),
+            TestCase(60, 47200),
         ];
 
         for TestCase(n, expected) in tests {
