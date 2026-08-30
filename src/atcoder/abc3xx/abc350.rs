@@ -1,3 +1,3 @@
-pub mod a_past_abcs;
-pub mod b_dentist_aoki;
-pub mod c_sort;
+pub mod a;
+pub mod b;
+pub mod c;
