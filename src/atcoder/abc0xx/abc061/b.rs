@@ -14,7 +14,7 @@ fn run(_n: usize, _m: usize, a: &Vec<(usize, usize)>) -> Vec<usize> {
 
     vec.sort_by(|a, b| (a.0).cmp(b.0));
 
-    vec.iter()
+    vec.into_iter()
         .map(|t| *t.1)
         .collect()
 }
@@ -37,7 +37,7 @@ mod tests {
     struct TestCase(usize, usize, Vec<(usize, usize)>, Vec<usize>);
 
     #[test]
-    fn test() {
+    fn abc061_b() {
         let tests = [
             TestCase(2, 2, vec![(1, 2)], vec![1, 1]),
             TestCase(4, 3, vec![(1, 2), (2, 3), (1, 4)], vec![2, 2, 1, 1]),
