@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc351/tasks/abc351_c
 
-pub fn run(_n: usize, a: Vec<usize>) -> usize {
+fn run(_n: usize, a: Vec<usize>) -> usize {
     a.into_iter()
         .fold(Vec::new(), |mut stack, num| {
             stack.push(num);
@@ -29,7 +29,7 @@ mod tests {
     struct TestCase(usize, Vec<usize>, usize);
 
     #[test]
-    fn test() {
+    fn abc351_c() {
         let tests = [
             TestCase(7 , vec![2, 1, 1, 3, 5, 3, 3], 3),
             TestCase(5, vec![0, 0, 0, 1, 2], 4),
