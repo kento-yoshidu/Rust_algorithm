@@ -1,5 +1,7 @@
 // https://atcoder.jp/contests/abc064/tasks/abc064_c
 
+use std::cmo::{min, max};
+
 fn run(n: usize, a: Vec<usize>) -> (usize, usize) {
     let mut vec = vec![0; 8];
     let mut over = 0;
@@ -26,7 +28,7 @@ fn run(n: usize, a: Vec<usize>) -> (usize, usize) {
     if over == 0 {
         (count, count)
     } else {
-        (std::cmp::max(count, 1), count + std::cmp::min(n-count, over))
+        (max(count, 1), count + min(n-count, over))
     }
 }
 
@@ -37,7 +39,7 @@ mod tests {
     struct TestCase(usize, Vec<usize>, (usize, usize));
 
     #[test]
-    fn test() {
+    fn abc064_c() {
         let tests = [
             TestCase(4, vec![2100, 2500, 2700, 2700], (2, 2)),
             TestCase(5, vec![1100, 1900, 2800, 3200, 3200], (3, 5)),
