@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc349/tasks/abc352_b
 
-pub fn run(_n: usize, ab: Vec<(usize, usize)>) -> usize {
+fn run(_n: usize, ab: Vec<(usize, usize)>) -> usize {
     let pos = ab.iter()
         .enumerate()
         .map(|(i, (a, b))| (i, b - a))
@@ -22,7 +22,7 @@ mod tests {
     struct TestCase(usize, Vec<(usize, usize)>, usize);
 
     #[test]
-    fn test() {
+    fn abc352_c() {
         let tests = [
             TestCase(3, vec![(4, 10), (5, 8), (2, 9)], 18),
             TestCase(5, vec![(1, 1), (1, 1), (1, 1), (1, 1), (1, 1)], 5),
