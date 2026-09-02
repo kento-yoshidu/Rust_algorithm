@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/awc0045/tasks/awc0045_a
 
-fn run(n: usize, tp: Vec<(&str, usize)>) -> usize {
+fn run(_n: usize, tp: Vec<(&str, usize)>) -> usize {
     tp.into_iter()
         .map(|(t, p)| {
             match t {

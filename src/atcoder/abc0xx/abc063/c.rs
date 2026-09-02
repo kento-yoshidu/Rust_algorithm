@@ -3,13 +3,13 @@
 fn run(_n: usize, s: Vec<usize>) -> usize {
     if s.iter()
         .all(|num| num % 10 == 0) {
-            return 0
+            return 0;
         }
 
     let sum = s.iter().sum();
 
     if sum % 10 != 0 {
-        return sum
+        return sum;
     }
 
     let mut vec = s.clone();
@@ -17,11 +17,11 @@ fn run(_n: usize, s: Vec<usize>) -> usize {
 
     for i in vec {
         if (sum - i) % 10 != 0 {
-            return sum - i
+            return sum - i;
         }
     }
 
-    unreachable!();
+    unreachable!()
 }
 
 #[cfg(test)]
@@ -31,7 +31,7 @@ mod tests {
     struct TestCase(usize, Vec<usize>, usize);
 
     #[test]
-    fn test() {
+    fn abc063_c() {
         let tests = [
             TestCase(3, vec![5, 10, 15], 25),
             TestCase(3, vec![10, 10, 15], 35),
