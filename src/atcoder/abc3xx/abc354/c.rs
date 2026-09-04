@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc354/tasks/abc354_c
 
-pub fn run(_n: usize, ac: Vec<(usize, usize)>) -> (usize, Vec<usize>) {
+fn run(_n: usize, ac: Vec<(usize, usize)>) -> (usize, Vec<usize>) {
     let mut ans = Vec::new();
 
     let mut vec: Vec<(usize, (usize, usize))> = ac.into_iter()
@@ -30,7 +30,7 @@ mod tests {
     struct TestCase(usize, Vec<(usize, usize)>, (usize, Vec<usize>));
 
     #[test]
-    fn test() {
+    fn abc354_c() {
         let tests = [
             TestCase(3, vec![(2, 4), (1, 1), (3, 2)], (2, vec![2, 3])),
             TestCase(5, vec![(1, 1), (10, 2), (100, 3), (1000, 4), (10000, 5)], (5, vec![1, 2, 3, 4, 5])),

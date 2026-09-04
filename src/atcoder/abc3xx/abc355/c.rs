@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc355/tasks/abc355_c
 
-pub fn run(n: usize, _t: usize, a: Vec<usize>) -> isize {
+fn run(n: usize, _t: usize, a: Vec<usize>) -> isize {
     let mut vec = vec![vec![false; n]; n];
 
     for (i, num) in a.into_iter().enumerate() {

@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc355/tasks/abc355_a
 
-pub fn run(a: isize, b: isize) -> isize {
+fn run(a: isize, b: isize) -> isize {
     if a == b {
         -1
     } else {
@@ -15,7 +15,7 @@ mod tests {
     struct TestCase(isize, isize, isize);
 
     #[test]
-    fn test() {
+    fn abc355_a() {
         let tests = [
             TestCase(1, 2, 3),
             TestCase(1, 1, -1),
