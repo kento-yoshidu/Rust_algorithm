@@ -1,4 +1,4 @@
-// https://onlinejudge.u-aizu.ac.jp/courses/lesson/2/ITP1/7/ITP1_7_B
+// https://onlinejudge.u-aizu.ac.jp/courses/lesson/2/ITP1/7/ITP1_7_C
 
 fn run(r: usize, c: usize, a: Vec<Vec<usize>>) -> Vec<Vec<usize>> {
     let mut ans = Vec::new();
