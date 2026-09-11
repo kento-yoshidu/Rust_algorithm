@@ -10,7 +10,6 @@ fn run(x: usize, y: usize, l: usize, r: usize, a: usize, b: usize) -> usize {
             }
         })
         .sum()
-
 }
 
 #[cfg(test)]

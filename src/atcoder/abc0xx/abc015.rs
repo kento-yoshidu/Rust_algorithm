@@ -1,3 +1,3 @@
-pub mod a_training;
-pub mod b_totalling;
-pub mod c_search_bug;
+pub mod a;
+pub mod b;
+pub mod c;
