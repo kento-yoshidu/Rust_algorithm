@@ -1,1 +1,1 @@
-pub mod c_minimization;
+pub mod c;
