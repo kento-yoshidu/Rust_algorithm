@@ -5,7 +5,7 @@ use itertools::Itertools;
 fn run<'a>(_n: usize, s: Vec<&'a str>) -> &'a str {
     let hashmap = s.into_iter().counts();
 
-    hashmap.iter()
+    hashmap.into_iter()
         .max_by(|a, b| a.1.cmp(&b.1))
         .unwrap()
         .0
