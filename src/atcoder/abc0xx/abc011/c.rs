@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc011/tasks/abc011_3
 
-pub fn run(n: isize, ng: [isize; 3]) -> &'static str {
+fn run(n: isize, ng: [isize; 3]) -> &'static str {
     if ng.contains(&n) {
         return "NO";
     }
@@ -32,7 +32,7 @@ mod tests {
     struct TestCase(isize, [isize; 3], &'static str);
 
     #[test]
-    fn test() {
+    fn abc011_c() {
         let tests = [
             TestCase(2, [1, 7, 15], "YES"),
             TestCase(5, [1, 4, 2], "YES"),
