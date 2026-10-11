@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc014/tasks/abc014_2
 
-pub fn run(_n: usize, x: usize, a: &Vec<usize>) -> usize {
+fn run(_n: usize, x: usize, a: &Vec<usize>) -> usize {
     if x == 0 {
         return 0;
     }
@@ -12,17 +12,17 @@ pub fn run(_n: usize, x: usize, a: &Vec<usize>) -> usize {
     loop {
         if num == 1 {
             b.push(1);
-            break
+            break;
         }
 
         b.push(num%2);
         num /= 2;
     }
 
-    b.iter()
+    b.into_iter()
         .enumerate()
         .map(|(i, b)| {
-            if *b == 1 {
+            if b == 1 {
                 a[i]
             } else {
                 0
@@ -48,7 +48,7 @@ mod tests {
     struct TestCase(usize, usize, Vec<usize>, usize);
 
     #[test]
-    fn test() {
+    fn abc014_b() {
         let tests = [
             TestCase(4, 5, vec![1, 10, 100, 1000], 101),
             TestCase(20, 1048575, vec![1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20], 210),
