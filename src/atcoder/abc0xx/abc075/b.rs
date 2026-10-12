@@ -45,7 +45,7 @@ mod tests {
     struct TestCase(isize, isize, Vec<&'static str>, Vec<Vec<char>>);
 
     #[test]
-    fn test() {
+    fn abc075_b() {
         let tests = [
             TestCase(3, 5, vec![".....", ".#.#.", "....."], vec![vec!['1', '1', '2', '1', '1'], vec!['1', '#', '2', '#', '1'], vec!['1', '1', '2', '1', '1']]),
             TestCase(3, 5, vec!["#####", "#####", "#####"], vec![vec!['#', '#', '#', '#', '#'], vec!['#', '#', '#', '#', '#'], vec!['#', '#', '#', '#', '#']]),

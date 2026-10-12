@@ -21,9 +21,9 @@ fn run(s: &str) -> &'static str {
         .any(|t| {
             (t[0] == 'c' && t[1] != 'h') || (t[0] != 'c' && t[1] == 'h')
         }) {
-            return "NO";
+            "NO"
         } else {
-            return "YES";
+            "YES"
         }
 }
 
@@ -33,7 +33,7 @@ mod tests {
     struct TestCase(&'static str, &'static str);
 
     #[test]
-    fn test() {
+    fn abc017_b() {
         let tests = [
             TestCase("chokuou", "YES"),
             TestCase("kuccho", "NO"),
