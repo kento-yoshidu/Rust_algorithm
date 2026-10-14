@@ -69,6 +69,7 @@ fn run(h: usize, w: usize, t: usize, s: Vec<&str>) -> usize {
 
     while low <= high {
         let mid = (low + high) / 2;
+
         if bfs(h, w, t, s.clone(), mid) {
             ans = mid;
             low = mid + 1;
