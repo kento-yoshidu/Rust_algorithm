@@ -11,7 +11,7 @@ mod tests {
     struct TestCase(f64, f64, f64);
 
     #[test]
-    fn test() {
+    fn abc028_d() {
         let tests = [
             TestCase(3.0, 2.0, 0.48148148148148145),
             TestCase(3.0, 1.0, 0.25925925925925924),
