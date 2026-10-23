@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc030/tasks/abc030_b
 
-pub fn run(n: usize, m: usize) -> f64 {
+fn run(n: usize, m: usize) -> f64 {
     let minute = m as f64 * 6.0;
     let hour = (n % 12) as f64 * 30.0 + minute / 12.0;
 
@@ -20,7 +20,7 @@ mod tests {
     struct Testcase(usize, usize, f64);
 
     #[test]
-    fn test() {
+    fn abc030_b() {
         let tests = [
             Testcase(15, 0, 90.0),
             Testcase(3, 17, 3.5),

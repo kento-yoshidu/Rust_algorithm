@@ -2,7 +2,7 @@
 
 use std::cmp::Ordering::*;
 
-pub fn run(a: f64, b: f64, c: f64, d: f64) -> &'static str {
+fn run(a: f64, b: f64, c: f64, d: f64) -> &'static str {
     match (b / a).partial_cmp(&(d / c)) {
         Some(Greater) => "TAKAHASHI",
         Some(Less) => "AOKI",
@@ -18,7 +18,7 @@ mod tests {
     struct TestCase(f64, f64, f64, f64, &'static str);
 
     #[test]
-    fn test() {
+    fn abc030_a() {
         let tests = [
             TestCase(5.0, 2.0, 6.0, 3.0, "AOKI"),
             TestCase(100.0, 80.0, 100.0, 73.0, "TAKAHASHI"),
