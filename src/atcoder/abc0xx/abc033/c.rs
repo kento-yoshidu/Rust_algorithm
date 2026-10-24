@@ -1,9 +1,9 @@
 // https://atcoder.jp/contests/abc033/tasks/abc033_c
 
-pub fn run(s: &str) -> usize {
+fn run(s: &str) -> usize {
     let vec: Vec<&str> = s.split('+').collect();
 
-    vec.iter()
+    vec.into_iter()
         .filter(|str| {
             !str.contains('0')
         })
@@ -17,7 +17,7 @@ mod tests {
     struct TestCase(&'static str, usize);
 
     #[test]
-    fn test() {
+    fn abc033_c() {
         let tests = [
             TestCase("0+0+2*0", 0),
             TestCase("3*1+1*2", 2),
@@ -25,7 +25,7 @@ mod tests {
         ];
 
         for TestCase(s, expected) in tests {
-            assert_eq!(expected, run(s));
+            assert_eq!(run(s), expected);
         }
     }
 }
