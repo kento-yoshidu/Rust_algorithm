@@ -1,2 +1,2 @@
-pub mod a_test;
-pub mod b_pair;
+pub mod a;
+pub mod b;
