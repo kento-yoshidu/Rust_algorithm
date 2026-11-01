@@ -23,7 +23,7 @@ mod tests {
         let tests = [
             TestCase(3, 1, vec![(1, 2, 1)], 2),
             TestCase(6, 5, vec![(1, 2, 1), (2, 3, 2), (1, 3, 3), (4, 5, 4), (5, 6, 5)], 2),
-            TestCase(100000, 1, vec![(1, 100000, 100)], 999999),
+            TestCase(100000, 1, vec![(1, 100000, 100)], 99999),
         ];
 
         for TestCase(n, m, xyz, expected) in tests {
