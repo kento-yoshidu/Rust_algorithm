@@ -1,3 +1,3 @@
-pub mod a_trapezoid;
-pub mod b_card_game_easy;
-pub mod c_many_formulas;
+pub mod a;
+pub mod b;
+pub mod c;
