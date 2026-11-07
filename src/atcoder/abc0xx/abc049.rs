@@ -1,3 +1,3 @@
-pub mod a_iai;
-pub mod b_thin;
-pub mod c_daydream;
+pub mod a;
+pub mod b;
+pub mod c;
