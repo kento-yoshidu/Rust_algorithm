@@ -26,10 +26,8 @@ fn run(n: usize) -> usize {
         }
 
         if n % i == 0 {
-            // nの約数はiとj
             let j = n / i;
 
-            // 約数の内、大きい方の桁数を求め、最も小さいものが答え
             ans = ans.min(calc(j.max(i)));
         }
     }
@@ -44,7 +42,7 @@ mod tests {
     struct TestCase(usize, usize);
 
     #[test]
-    fn test() {
+    fn abc057_c() {
         let tests = [
             TestCase(10000, 3),
             TestCase(1000003, 7),
