@@ -35,6 +35,7 @@ pub mod awc0034;
 pub mod awc0035;
 pub mod awc0036;
 pub mod awc0037;
+pub mod awc0038;
 pub mod awc0075;
 pub mod awc0086;
 pub mod awc0089;
