@@ -1,3 +1,3 @@
-pub mod a_restricted;
-pub mod b_varied;
-pub mod c_bugged;
+pub mod a;
+pub mod b;
+pub mod c;
