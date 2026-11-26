@@ -28,7 +28,7 @@ mod tests {
     struct TestCase(usize, Vec<usize>, VecDeque<usize>);
 
     #[test]
-    fn test() {
+    fn abc066_c() {
         let tests = [
             TestCase(4, vec![1, 2, 3, 4], VecDeque::from([4, 2, 1, 3])),
             TestCase(3, vec![1, 2, 3], VecDeque::from([3, 1, 2])),
