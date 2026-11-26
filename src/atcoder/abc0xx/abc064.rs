@@ -1,4 +1,4 @@
-pub mod a_rgb_cards;
-pub mod b_traveling_atcodeer_problem;
-pub mod c_colorful_leaderboard;
-pub mod d_insertion;
+pub mod a;
+pub mod b;
+pub mod c;
+pub mod d;

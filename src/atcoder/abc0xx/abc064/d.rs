@@ -58,7 +58,7 @@ mod tests {
     struct TestCase(usize, &'static str, &'static str);
 
     #[test]
-    fn test() {
+    fn abc064_d() {
         let tests = [
             TestCase(3, "())", "(())"),
             TestCase(6, ")))()))", "(((()))())"),
